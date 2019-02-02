@@ -433,7 +433,7 @@ GameObject:
   - component: {fileID: 994476937}
   m_Layer: 0
   m_Name: PositionTester2
-  m_TagString: Untagged
+  m_TagString: Movable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -450,7 +450,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   x: 9
+  x2: 0
   y: 9
+  y2: 0
   grid: {fileID: 14835834}
 --- !u!23 &994476933
 MeshRenderer:
@@ -497,8 +499,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1.1765094, z: 1}
+  m_Center: {x: 0, y: -0.08825413, z: 0}
 --- !u!33 &994476935
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -513,8 +515,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 994476931}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.3581553, y: 5.2955666, z: 16.327942}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalPosition: {x: -1.3581553, y: 10, z: 16.327942}
+  m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -532,7 +534,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 36
   m_CollisionDetection: 0
 --- !u!1 &1168186616
 GameObject:
@@ -710,7 +712,7 @@ GameObject:
   - component: {fileID: 1325341913}
   m_Layer: 0
   m_Name: PositionTester
-  m_TagString: Untagged
+  m_TagString: Movable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -727,7 +729,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   x: 0
+  x2: 0
   y: 0
+  y2: 0
   grid: {fileID: 14835834}
 --- !u!23 &1325341909
 MeshRenderer:
@@ -774,8 +778,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1.1765094, z: 1}
+  m_Center: {x: 0, y: -0.08825413, z: 0}
 --- !u!33 &1325341911
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -790,8 +794,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1325341907}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.3581553, y: 5.2955666, z: 16.327942}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalPosition: {x: 6.8, y: 10, z: 16.327942}
+  m_LocalScale: {x: 7, y: 7, z: 7}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -809,7 +813,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 36
   m_CollisionDetection: 0
 --- !u!1 &1912591174
 GameObject:

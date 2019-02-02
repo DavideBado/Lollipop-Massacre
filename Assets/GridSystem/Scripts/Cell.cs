@@ -7,7 +7,7 @@ using UnityEngine;
 namespace GridSystem {
 
     public class Cell {
-        public bool Lock;
+       
         internal int x;
         internal int y;
         internal Vector3 worldPosition;
