@@ -62,7 +62,7 @@ public class PositionTester1 : MonoBehaviour {
         GameObject[] allMovableThings = GameObject.FindGameObjectsWithTag("Movable");
         foreach (GameObject current in allMovableThings)
         {
-            if (current.transform.position == grid.GetWorldPosition(x, y))
+            if (current.transform.position == (grid.GetWorldPosition(x, y) + new Vector3(0, 4)))
                 return false;
         }
         return true;
