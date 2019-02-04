@@ -228,8 +228,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 98.2, y: -101.41}
-  m_SizeDelta: {x: 160, y: 76.22}
+  m_AnchoredPosition: {x: 189.38, y: -198.36}
+  m_SizeDelta: {x: 342.36, y: 200.04}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &231701922
 MonoBehaviour:
@@ -252,10 +252,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 30
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 0
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -263,7 +263,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: WASD muove P1 (verde) - Frecce P2 (Bianco)
+  m_Text: 'WASD Verde
+
+    Frecce Bianco
+
+    Esc chiude il test'
 --- !u!222 &231701923
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -847,8 +851,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 98.2, y: -45}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 149.73, y: -59.13}
+  m_SizeDelta: {x: 263.06, y: 58.26}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1912591176
 MonoBehaviour:
@@ -871,7 +875,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 20
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0

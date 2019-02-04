@@ -4,4 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/GridSystem/Scenes/TestGrid.unity
+    guid: f59a40b127e18c34d984aa6f1d8abc60
+  m_configObjects: {}

@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UomoDeiTurni : MonoBehaviour {
+public class GameManager : MonoBehaviour {
     public Text Timertext;
     GameObject P1, P2;
-    float Timer = 5f, Timer2;
-    bool Turno = true;
+    float Timer, Timer2;
+    public float TimeMax = 3f;
+    bool Round = true;
     PositionTester p1Turn;
     PositionTester1 p2Turn;
     // Use this for initialization
     void Start () {
-        P1 = GameObject.Find("PositionTester");
+        P1 = GameObject.Find("PositionTester"); // Load the player
         P2 = GameObject.Find("PositionTester2");
         p1Turn = P1.GetComponent<PositionTester>();
         p2Turn = P2.GetComponent<PositionTester1>();
@@ -21,29 +22,35 @@ public class UomoDeiTurni : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        Tempo();
+        if(Input.GetKeyDown(KeyCode.Escape)) // Close the game, only in the build version
+        {
+            Application.Quit();
+        }
+
+        TimeForThePlayer();
         Timertext.text = "Tempo:" + Timer2.ToString();
-		if(Turno == true)
+
+        if (Round == true)
         {
             p1Turn.CheckInput();            
-        } else if(Turno == false)
+        } else if(Round == false)
         {
             p2Turn.CheckInput();
         }
 	}
 
-    void Tempo()
+    void TimeForThePlayer() // This check the time && switch the rounds
     {
         Timer2 = Mathf.Round(Timer);
         Timer -= Time.deltaTime;
-        if(Timer <= 0 && Turno == true)
+        if(Timer <= 0 && Round == true)
         {
-            Turno = false;
-            Timer = 5f;
-        } else if (Timer <= 0 && Turno == false)
+            Round = false;
+            Timer = TimeMax;
+        } else if (Timer <= 0 && Round == false)
         {
-            Turno = true;
-            Timer = 5f;
+            Round = true;
+            Timer = TimeMax;
         }
     }
 }
