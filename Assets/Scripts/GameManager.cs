@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
-    public Text Timertext;
+    public Text Timertext, ActionsMaxText, ActionsText, TimeMaxText;
     //GameObject P1, P2;
     float Timer, Timer2;
     public float TimeMax = 3f;
@@ -28,6 +28,9 @@ public class GameManager : MonoBehaviour {
 
         TimeForThePlayer();
         Timertext.text = "Tempo:" + Timer2.ToString(); // Visualizza il tempo
+        ActionsMaxText.text = "Azioni max:" + MaxAct.ToString(); // Visualizza azioni massime
+        ActionsText.text = "Azioni:" + Actions.ToString(); // Visualizza azioni disponibili
+        TimeMaxText.text = "Tempo massimo:" + TimeMax.ToString(); // Visualizza il tempo massimo
     }
 
     void TimeForThePlayer() // This check the time && switch the rounds
