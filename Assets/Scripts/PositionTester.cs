@@ -4,7 +4,7 @@ using UnityEngine;
 using GridSystem;
 
 public class PositionTester : MonoBehaviour {
-
+    bool _Round;
     public int x, x2;
     public int y, y2;   
     public BaseGrid grid;
@@ -15,7 +15,7 @@ public class PositionTester : MonoBehaviour {
     }
     // Update is called once per frame
     void Update () {
-        //CheckInput();
+        _Round = GameObject.Find("GameManager").GetComponent<GameManager>().Round;
         if (grid) // Check if we have a grid
         {
             if (checkIfPosEmpty()) // Now if the cell is free
@@ -23,6 +23,7 @@ public class PositionTester : MonoBehaviour {
                 transform.position = grid.GetWorldPosition(x, y) + new Vector3(0, 4);
                 x2 = x;
                 y2 = y;
+                GameObject.Find("GameManager").GetComponent<GameManager>().LessAct();
             }
             else
             {// Load the old values of x && y
@@ -32,29 +33,27 @@ public class PositionTester : MonoBehaviour {
         }
 
     }
-    public void CheckInput()
+    public void Up() // Listen to the call and move
     {
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            if (y < 9)
-                y++;
-        }
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            if (x > 0)
-                x--;
-        }
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            if (y > 0)
-                y--;
-        }
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            if (x < 9)
-                x++;
-        }
+        if (y < 9 && _Round == true)
+            y++;
     }
+    public void Left()
+    {
+        if (x > 0 && _Round == true)
+            x--;
+    }
+    public void Down()
+    {
+        if (y > 0 && _Round == true)
+            y--;
+    }
+    public void Right()
+    {
+        if (x < 9 && _Round == true)
+            x++;
+    }
+    
     public bool checkIfPosEmpty()  // This check if the cell is free
     {
         GameObject[] allMovableThings = GameObject.FindGameObjectsWithTag("Movable");
@@ -65,4 +64,5 @@ public class PositionTester : MonoBehaviour {
         }
         return true;
     }
+   
 }

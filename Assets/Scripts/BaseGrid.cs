@@ -30,7 +30,7 @@ namespace GridSystem {
                         transform.position.z + (y * configData.CellDim)
                         ));
                     Cells.Add(cellToAdd);
-                    Instantiate(CellPrefab, cellToAdd.worldPosition, Quaternion.identity);
+                   GameObject _Cell = Instantiate(CellPrefab, cellToAdd.worldPosition, Quaternion.identity);                   
                 }
             }
         }
