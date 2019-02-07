@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Movable
   - Cell
+  - BasicAttack
   layers:
   - Default
   - TransparentFX

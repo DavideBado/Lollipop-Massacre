@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour {
             Timer = TimeMax;
             Actions = MaxAct;
         }
-    }
+    } 
 
     public void LessAct()
     {
