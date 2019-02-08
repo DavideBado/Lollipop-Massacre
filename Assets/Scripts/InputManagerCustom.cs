@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class InputManagerCustom : MonoBehaviour {
 
+    
     public KeyCode Up, Down, Left, Right, BasicAttack;    
 	
 	// Update is called once per frame
@@ -16,7 +17,7 @@ public class InputManagerCustom : MonoBehaviour {
         if(Input.GetKeyDown(Up))
         {
             SendMessage("Up");
-        }
+        } 
         if (Input.GetKeyDown(Down))
         {
             SendMessage("Down");
@@ -32,6 +33,9 @@ public class InputManagerCustom : MonoBehaviour {
         if(Input.GetKeyDown(BasicAttack))
         {
             SendMessage("BasicAttack");
-        }
+        } 
+        
     }
+
+    
 }
