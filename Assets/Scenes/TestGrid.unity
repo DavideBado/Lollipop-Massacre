@@ -192,7 +192,7 @@ MonoBehaviour:
   TimeMaxText: {fileID: 438348333}
   TimeMax: 3
   Round: 1
-  MaxAct: 5
+  MaxAct: 100
   Actions: 0
 --- !u!4 &187678422
 Transform:
@@ -755,9 +755,9 @@ GameObject:
   - component: {fileID: 994476934}
   - component: {fileID: 994476933}
   - component: {fileID: 994476939}
-  - component: {fileID: 994476932}
   - component: {fileID: 994476937}
   - component: {fileID: 994476938}
+  - component: {fileID: 994476932}
   m_Layer: 0
   m_Name: P2
   m_TagString: Movable
@@ -783,6 +783,8 @@ MonoBehaviour:
   y2: 0
   grid: {fileID: 14835834}
   Lifetext: {fileID: 780025996}
+  playerID: 2
+  InputManager: {fileID: 994476938}
 --- !u!23 &994476933
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -889,6 +891,7 @@ MonoBehaviour:
   Left: 276
   Right: 275
   BasicAttack: 323
+  ManagerPlayerID: 0
 --- !u!114 &994476939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -901,7 +904,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 552aaae03a90def42bf4491959c43a40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Life: 0
+  Life: 3
 --- !u!1 &1110736163
 GameObject:
   m_ObjectHideFlags: 0
@@ -1247,8 +1250,8 @@ GameObject:
   - component: {fileID: 1325341910}
   - component: {fileID: 1325341909}
   - component: {fileID: 1325341915}
-  - component: {fileID: 1325341908}
   - component: {fileID: 1325341913}
+  - component: {fileID: 1325341908}
   - component: {fileID: 1325341914}
   m_Layer: 0
   m_Name: P1
@@ -1266,7 +1269,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1325341907}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d527724eea463144990eefe0e2d3e005, type: 3}
+  m_Script: {fileID: 11500000, guid: 9dbbb1b2d9f88bf4a875ffb659b60472, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   x: 0
@@ -1275,6 +1278,8 @@ MonoBehaviour:
   y2: 0
   grid: {fileID: 14835834}
   Lifetext: {fileID: 1110736165}
+  InputManager: {fileID: 1325341914}
+  PlayerID: 1
 --- !u!23 &1325341909
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1381,6 +1386,7 @@ MonoBehaviour:
   Left: 97
   Right: 100
   BasicAttack: 32
+  ManagerPlayerID: 0
 --- !u!114 &1325341915
 MonoBehaviour:
   m_ObjectHideFlags: 0

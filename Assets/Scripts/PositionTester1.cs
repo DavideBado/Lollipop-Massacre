@@ -11,13 +11,17 @@ public class PositionTester1 : MonoBehaviour {
     public BaseGrid grid;
     int MaxAct;
     Collider BasicAtt;
-    public Text Lifetext;    
+    public Text Lifetext;
+    public int playerID = 2;
+    public InputManagerCustom InputManager = new InputManagerCustom();
 
     private void Start()
+     
     { // x2 && y2 Start = null, the next code lines change x2 && y2 != null
         x2 = x;
         y2 = y;
         BasicAtt = transform.GetChild(0).GetComponent<Collider>();
+        InputManager.ManagerPlayerID = playerID;
     }
     // Update is called once per frame
     void Update () {
