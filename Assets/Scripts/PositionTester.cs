@@ -5,7 +5,7 @@ using GridSystem;
 using UnityEngine.UI;
 
 public class PositionTester : MonoBehaviour {
-    bool _Round;
+    bool _Round, OnTheRoad = false;
     public int x, x2;
     public int y, y2;  
     public BaseGrid grid;
@@ -21,11 +21,12 @@ public class PositionTester : MonoBehaviour {
         y2 = y;
         BasicAtt = transform.GetChild(0).GetComponent<Collider>();
         InputManager.ManagerPlayerID = PlayerID;
+        transform.position = grid.GetWorldPosition(x, y) + new Vector3(0, 4);
     }
     // Update is called once per frame
     void Update () {
 
-        Lifetext.text = "P2 Life:" + GetComponent<LifeManager>().Life.ToString(); // Life on screen
+        Lifetext.text = "P1 Life:" + GetComponent<LifeManager>().Life.ToString(); // Life on screen
 
         if (_Round == false)
         {
@@ -39,10 +40,15 @@ public class PositionTester : MonoBehaviour {
             if (checkIfPosEmpty()) // Now if the cell is free
             { // Move the player && save x && y
                 BasicAtt.enabled = false;
-                transform.position = grid.GetWorldPosition(x, y) + new Vector3(0, 4);
-                x2 = x;
-                y2 = y;
-                GameObject.Find("GameManager").GetComponent<GameManager>().LessAct(); //Sottrai un azione
+                transform.position = Vector3.MoveTowards(transform.position, grid.GetWorldPosition(x, y) + new Vector3(0, 4),
+                 GameObject.Find("GameManager").GetComponent<GameManager>().Speed * Time.deltaTime);
+
+                if (transform.position == grid.GetWorldPosition(x, y) + new Vector3(0, 4))
+                {
+                    x2 = x;
+                    y2 = y;
+                    OnTheRoad = false;
+                }
             }
             else // Load the old values of x && y
             {
@@ -54,27 +60,42 @@ public class PositionTester : MonoBehaviour {
 	}
     public void Up() //Trasforma la chiamata del manager in una richiesta di movimento
     {
-        if (y < 9 && _Round == true)
+        if (OnTheRoad == false && _Round == true)
+        {
             y++;
+            OnTheRoad = true;
+        }
     }
     public void Left()
     {
-        if (x > 0 && _Round == true)
+        if (OnTheRoad == false && _Round == true)
+        {
             x--;
+            OnTheRoad = true;
+        }
     }
     public void Down()
     {
-        if (y > 0 && _Round == true)
+        if (OnTheRoad == false && _Round == true)
+        {
             y--;
+            OnTheRoad = true;
+        }
     }
     public void Right()
     {
-        if (x < 9 && _Round == true)
+        if (OnTheRoad == false && _Round == true)
+        {
             x++;
+            OnTheRoad = true;
+        }
     }
     public void BasicAttack()
-    {
-        BasicAtt.enabled = true;
+    { if (GameObject.Find("GameManager").GetComponent<GameManager>().CanAttack == true && _Round == true)
+        {
+            BasicAtt.enabled = true;
+            GameObject.Find("GameManager").GetComponent<GameManager>().CanAttack = false;
+        }
     }
 
     public bool checkIfPosEmpty() // This check if the cell is free

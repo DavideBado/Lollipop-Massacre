@@ -48,7 +48,7 @@ public class InputManagerCustom : MonoBehaviour {
         }
         
     
-        if (Input.GetButtonDown("AttaccoBase"))
+        if (Input.GetKeyDown(BasicAttack))
         {
             SendMessage("BasicAttack");
         } 
