@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LifeManager : MonoBehaviour
 {
+    public bool OnShield = false;
     public int Life;
     // Start is called before the first frame update
     void Start()

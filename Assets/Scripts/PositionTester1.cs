@@ -5,7 +5,8 @@ using GridSystem;
 using UnityEngine.UI;
 
 public class PositionTester1 : MonoBehaviour {
-    bool _Round, OnTheRoad = false;
+   
+    public bool _Round, OnTheRoad = false;
     public int x, x2;
     public int y, y2;  
     public BaseGrid grid;
@@ -38,9 +39,11 @@ public class PositionTester1 : MonoBehaviour {
        
         if (grid) // Check if we have a grid
         {
+            Rotation();
             if (checkIfPosEmpty()) // Now if the cell is free
             { // Move the player && save x && y
                 BasicAtt.enabled = false;
+                
                 transform.position = Vector3.MoveTowards(transform.position, grid.GetWorldPosition(x, y) + new Vector3(0, 4),
                GameObject.Find("GameManager").GetComponent<GameManager>().Speed * Time.deltaTime);
                 if (transform.position == grid.GetWorldPosition(x, y) + new Vector3(0, 4))
@@ -60,7 +63,7 @@ public class PositionTester1 : MonoBehaviour {
     }
     public void Up() //Trasforma la chiamata del manager in una richiesta di movimento
     {
-        if (OnTheRoad == false && _Round == false)
+        if ( y < 9 && OnTheRoad == false && _Round == false)
         {
             y++;
             OnTheRoad = true;
@@ -68,7 +71,7 @@ public class PositionTester1 : MonoBehaviour {
     }
     public void Left()
     {
-        if (OnTheRoad == false && _Round == false)
+        if (x > 0 && OnTheRoad == false && _Round == false)
         {
             x--;
             OnTheRoad = true;
@@ -76,7 +79,7 @@ public class PositionTester1 : MonoBehaviour {
     }
     public void Down()
     {
-        if (OnTheRoad == false && _Round == false)
+        if (y > 0 && OnTheRoad == false && _Round == false)
         {
             y--;
             OnTheRoad = true;
@@ -84,7 +87,7 @@ public class PositionTester1 : MonoBehaviour {
     }
     public void Right()
     {
-        if (OnTheRoad == false && _Round == false)
+        if (x < 9 && OnTheRoad == false && _Round == false)
         {
             x++;
             OnTheRoad = true;
@@ -109,5 +112,17 @@ public class PositionTester1 : MonoBehaviour {
         }
         return true;
     }
-   
+
+    void Rotation()
+    {
+
+        Vector3 lookAt = grid.GetWorldPosition(x, y);
+
+        float AngleRad = Mathf.Atan2(lookAt.y - this.transform.position.y, lookAt.x - this.transform.position.x);
+
+        float AngleDeg = (180 / Mathf.PI) * AngleRad;
+
+        transform.rotation = Quaternion.Euler(0, AngleDeg, 0);
+    }
+
 }

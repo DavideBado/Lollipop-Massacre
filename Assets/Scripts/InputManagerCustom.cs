@@ -5,7 +5,7 @@ using UnityEngine;
 public class InputManagerCustom : MonoBehaviour {
 
     
-    public KeyCode Up, Down, Left, Right, BasicAttack;
+    public KeyCode Up, Down, Left, Right, BasicAttack, Attack2;
     private bool isAxisInUse = false;
     public int ManagerPlayerID;
     
@@ -52,6 +52,11 @@ public class InputManagerCustom : MonoBehaviour {
         {
             SendMessage("BasicAttack");
         } 
+
+        if(Input.GetKeyDown(Attack2))
+        {
+            SendMessage("Attack2");
+        }
         
 
        

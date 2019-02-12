@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour {
     float Timer, Timer2, TimerSafe = 0.2f;
     public float TimeMax = 3f, Speed = 25f;
     public bool Round = true, CanAttack = true;
+    public int RoundCount = 0;
  
 
     // Use this for initialization
@@ -46,6 +47,7 @@ public class GameManager : MonoBehaviour {
                 Timer = TimeMax; //Reset time
                 TimerSafe = 0.2f;
                 CanAttack = true;
+                RoundCount++;
             }
         }
         else if (Timer <= 0 && Round == false)
