@@ -467,6 +467,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: P1
       objectReference: {fileID: 0}
+    - target: {fileID: 4114346956989665635, guid: a8c0f63a24133224cb9e382a7b2279d1,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 4114346956989665640, guid: a8c0f63a24133224cb9e382a7b2279d1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -532,6 +537,12 @@ PrefabInstance:
       propertyPath: Lifetext
       value: 
       objectReference: {fileID: 1110736165}
+    - target: {fileID: 4114346956989665636, guid: a8c0f63a24133224cb9e382a7b2279d1,
+        type: 3}
+      propertyPath: configGrid
+      value: 
+      objectReference: {fileID: 11400000, guid: 9799dc68ff9c0b444bddfd474a9239a9,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8c0f63a24133224cb9e382a7b2279d1, type: 3}
 --- !u!1001 &4471618172505569321
@@ -615,6 +626,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: P2
       objectReference: {fileID: 0}
+    - target: {fileID: 6872588833091197580, guid: def42def7a1b4404dbf7cdc298162e43,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 6872588833091197575, guid: def42def7a1b4404dbf7cdc298162e43,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -680,6 +696,12 @@ PrefabInstance:
       propertyPath: Lifetext
       value: 
       objectReference: {fileID: 780025996}
+    - target: {fileID: 6872588833091197579, guid: def42def7a1b4404dbf7cdc298162e43,
+        type: 3}
+      propertyPath: configGrid
+      value: 
+      objectReference: {fileID: 11400000, guid: 9799dc68ff9c0b444bddfd474a9239a9,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: def42def7a1b4404dbf7cdc298162e43, type: 3}
 --- !u!1001 &8363656158409211202

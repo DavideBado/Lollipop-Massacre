@@ -6,7 +6,7 @@ public class Attack1 : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Movable")
+        if(other.tag == "Player")
         {if(other.GetComponent<LifeManager>().OnShield == false)
             other.GetComponent<LifeManager>().Life--;
             this.GetComponent<Collider>().enabled = false;

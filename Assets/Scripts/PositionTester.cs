@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using System.Linq;
 
 public class PositionTester : MonoBehaviour {
-   
+    Cell cell;
     public bool _Round, OnTheRoad = false;
     public int x, x2;
     public int y, y2;  
@@ -37,20 +37,20 @@ public class PositionTester : MonoBehaviour {
         if (_Round == false)
         {
             BasicAtt.enabled = false;
-        }      
-       
+        }
+
         if (grid) // Check if we have a grid
         {
-            Rotation();
-            if (checkIfPosEmpty()) // Now if the cell is free
+            cell = grid.GetCell(x, y);
+            if (cell.Free == true) // Now if the cell is free
             { // Move the player && save x && y
                 BasicAtt.enabled = false;
-               
-                transform.position = Vector3.MoveTowards(transform.position, grid.GetWorldPosition(x, y) + new Vector3(0, 4),
-                 GameObject.Find("GameManager").GetComponent<GameManager>().Speed * Time.deltaTime);
 
-                if (transform.position == grid.GetWorldPosition(x, y) + new Vector3(0, 4))
+                transform.position = Vector3.MoveTowards(transform.position, grid.GetWorldPosition(x, y),
+                GameObject.Find("GameManager").GetComponent<GameManager>().Speed * Time.deltaTime);
+                if (transform.position == grid.GetWorldPosition(x, y))
                 {
+
                     x2 = x;
                     y2 = y;
                     OnTheRoad = false;
@@ -62,8 +62,8 @@ public class PositionTester : MonoBehaviour {
                 y = y2;
             }
         }
-        
-	}
+    }
+
     public void Up() //Trasforma la chiamata del manager in una richiesta di movimento
     {
         if (y < (configGrid.DimY -1) && OnTheRoad == false && _Round == true)
@@ -104,36 +104,41 @@ public class PositionTester : MonoBehaviour {
         }
     }
 
-    public bool checkIfPosEmpty() // This check if the cell is free
-    {
-        GameObject[] allMovableThings = GameObject.FindGameObjectsWithTag("Movable");
-        GameObject[] walls = GameObject.FindGameObjectsWithTag("Wall");
+    //public bool checkIfPosEmpty() // This check if the cell is free
+    //{
+    //    GameObject[] allMovableThings = GameObject.FindGameObjectsWithTag("Player");
+       
 
+    //    foreach (GameObject current in allMovableThings)
+    //    {
+    //        if (current.transform.position == (grid.GetWorldPosition(x, y) + new Vector3(0, 4)))
+    //            return false;
+    //        else return true;
+    //    }
+    //    return true;
+    //}
+    //public bool checkIfPosEmptyWall()
+    //{
+    //    GameObject[] walls = GameObject.FindGameObjectsWithTag("Wall");
 
-        foreach (GameObject current in allMovableThings)
-        {
-            if (current.transform.position == (grid.GetWorldPosition(x, y) + new Vector3(0, 4)))
-                return false;
-        }
-        
+    //    foreach (GameObject current in walls)
+    //    {
+    //        if (current.transform.position == (grid.GetWorldPosition(x, y) + new Vector3(0, 5)))
+    //            return false;
+    //        else return true;
+    //    }
+    //    return true;
+    //}
+    //void Rotation()
+    //{
 
-        foreach (GameObject current in walls)
-        {
-            if (current.transform.position == (grid.GetWorldPosition(x, y)))
-                return false;
-        }
-        return true;
-    }
-    void Rotation()
-    {
+    //    Vector3 lookAt = grid.GetWorldPosition(x, y);
 
-        Vector3 lookAt = grid.GetWorldPosition(x, y);
+    //    float AngleRad = Mathf.Atan2(lookAt.y - this.transform.position.y, lookAt.x - this.transform.position.x);
 
-        float AngleRad = Mathf.Atan2(lookAt.y - this.transform.position.y, lookAt.x - this.transform.position.x);
+    //    float AngleDeg = (180 / Mathf.PI) * AngleRad;
 
-        float AngleDeg = (180 / Mathf.PI) * AngleRad;
-
-        transform.rotation = Quaternion.Euler(0, AngleDeg, 0);
-    }
+    //    transform.rotation = Quaternion.Euler(0, AngleDeg, 0);
+    //}
 
 }

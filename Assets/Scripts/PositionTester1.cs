@@ -5,7 +5,7 @@ using GridSystem;
 using UnityEngine.UI;
 
 public class PositionTester1 : MonoBehaviour {
-   
+    Cell cell;
     public bool _Round, OnTheRoad = false;
     public int x, x2;
     public int y, y2;  
@@ -21,7 +21,7 @@ public class PositionTester1 : MonoBehaviour {
     private void Start()
      
     { // x2 && y2 Start = null, the next code lines change x2 && y2 != null
-        
+        cell = grid.GetCell(x, y);
         x2 = x;
         y2 = y;
         BasicAtt = transform.GetChild(0).GetComponent<Collider>();
@@ -43,15 +43,17 @@ public class PositionTester1 : MonoBehaviour {
        
         if (grid) // Check if we have a grid
         {
-            Rotation();
-            if (checkIfPosEmpty()) // Now if the cell is free
+            cell = grid.GetCell(x, y);
+            if (cell.Free == true) // Now if the cell is free
             { // Move the player && save x && y
                 BasicAtt.enabled = false;
                 
-                transform.position = Vector3.MoveTowards(transform.position, grid.GetWorldPosition(x, y) + new Vector3(0, 4),
+                Debug.Log("Player Cell X:" + cell.x + "Player Cell Y:" + cell.y + "Player Cell Free:" + cell.Free);
+                transform.position = Vector3.MoveTowards(transform.position, grid.GetWorldPosition(x, y),
                GameObject.Find("GameManager").GetComponent<GameManager>().Speed * Time.deltaTime);
-                if (transform.position == grid.GetWorldPosition(x, y) + new Vector3(0, 4))
+                if (transform.position == grid.GetWorldPosition(x, y))
                 {
+                   
                     x2 = x;
                     y2 = y;
                     OnTheRoad = false;
@@ -106,27 +108,28 @@ public class PositionTester1 : MonoBehaviour {
         }
     }
 
-    public bool checkIfPosEmpty() // This check if the cell is free
-    {
-        GameObject[] allMovableThings = GameObject.FindGameObjectsWithTag("Movable");
-        foreach (GameObject current in allMovableThings)
-        {
-            if (current.transform.position == (grid.GetWorldPosition(x, y) + new Vector3(0, 4)))
-                return false;
-        }
-        return true;
-    }
+    //public bool checkIfPosEmpty() // This check if the cell is free
+    //{
+    //    GameObject[] allMovableThings = GameObject.FindGameObjectsWithTag("Player");
+    //    foreach (GameObject current in allMovableThings)
+    //    {
+    //        if (current.transform.position == (grid.GetWorldPosition(x, y) + new Vector3(0, 4)))
+    //            return false;
+    //        else return true;
+    //    }
+    //    return true;
+    //}
 
-    void Rotation()
-    {
+    //void Rotation()
+    //{
 
-        Vector3 lookAt = grid.GetWorldPosition(x, y);
+    //    Vector3 lookAt = grid.GetWorldPosition(x, y);
 
-        float AngleRad = Mathf.Atan2(lookAt.y - this.transform.position.y, lookAt.x - this.transform.position.x);
+    //    float AngleRad = Mathf.Atan2(lookAt.y - this.transform.position.y, lookAt.x - this.transform.position.x);
 
-        float AngleDeg = (180 / Mathf.PI) * AngleRad;
+    //    float AngleDeg = (180 / Mathf.PI) * AngleRad;
 
-        transform.rotation = Quaternion.Euler(0, AngleDeg, 0);
-    }
+    //    transform.rotation = Quaternion.Euler(0, AngleDeg, 0);
+    //}
 
 }
