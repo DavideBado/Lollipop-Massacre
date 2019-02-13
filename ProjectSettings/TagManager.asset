@@ -7,6 +7,7 @@ TagManager:
   - Movable
   - Cell
   - BasicAttack
+  - Wall
   layers:
   - Default
   - TransparentFX

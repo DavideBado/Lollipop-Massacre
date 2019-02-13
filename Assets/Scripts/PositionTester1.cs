@@ -15,15 +15,19 @@ public class PositionTester1 : MonoBehaviour {
     public Text Lifetext;
     public int playerID = 2;
     public InputManagerCustom InputManager = new InputManagerCustom();
+    public GridConfigData configGrid;
+    public GameObject respawn;
 
     private void Start()
      
     { // x2 && y2 Start = null, the next code lines change x2 && y2 != null
+        
         x2 = x;
         y2 = y;
         BasicAtt = transform.GetChild(0).GetComponent<Collider>();
         InputManager.ManagerPlayerID = playerID;
-        transform.position = grid.GetWorldPosition(x, y) + new Vector3(0, 4);
+        //transform.position = grid.GetWorldPosition(x, y) + new Vector3(0, 4);
+        transform.position = respawn.transform.position;
     }
     // Update is called once per frame
     void Update () {
@@ -63,7 +67,7 @@ public class PositionTester1 : MonoBehaviour {
     }
     public void Up() //Trasforma la chiamata del manager in una richiesta di movimento
     {
-        if ( y < 9 && OnTheRoad == false && _Round == false)
+        if ( y < (configGrid.DimY - 1) && OnTheRoad == false && _Round == false)
         {
             y++;
             OnTheRoad = true;
@@ -87,7 +91,7 @@ public class PositionTester1 : MonoBehaviour {
     }
     public void Right()
     {
-        if (x < 9 && OnTheRoad == false && _Round == false)
+        if (x < (configGrid.DimX - 1) && OnTheRoad == false && _Round == false)
         {
             x++;
             OnTheRoad = true;

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using GridSystem;
 using UnityEngine.UI;
+using System.Linq;
 
 public class PositionTester : MonoBehaviour {
    
@@ -15,6 +16,9 @@ public class PositionTester : MonoBehaviour {
     public Text Lifetext;
     public InputManagerCustom InputManager = new InputManagerCustom();
     public int PlayerID = 1;
+    public GridConfigData configGrid;
+    public GameObject respawn;
+    
 
     private void Start()
     { // x2 && y2 Start = null, the next code lines change x2 && y2 != null
@@ -22,7 +26,8 @@ public class PositionTester : MonoBehaviour {
         y2 = y;
         BasicAtt = transform.GetChild(0).GetComponent<Collider>();
         InputManager.ManagerPlayerID = PlayerID;
-        transform.position = grid.GetWorldPosition(x, y) + new Vector3(0, 4);
+        //transform.position = grid.GetWorldPosition(x, y) + new Vector3(0, 4);
+        transform.position = respawn.transform.position;
     }
     // Update is called once per frame
     void Update () {
@@ -61,7 +66,7 @@ public class PositionTester : MonoBehaviour {
 	}
     public void Up() //Trasforma la chiamata del manager in una richiesta di movimento
     {
-        if (y < 9 && OnTheRoad == false && _Round == true)
+        if (y < (configGrid.DimY -1) && OnTheRoad == false && _Round == true)
         {
             y++;
             OnTheRoad = true;
@@ -85,7 +90,7 @@ public class PositionTester : MonoBehaviour {
     }
     public void Right()
     {
-        if (x < 9 && OnTheRoad == false && _Round == true)
+        if (x < (configGrid.DimX - 1) && OnTheRoad == false && _Round == true)
         {
             x++;
             OnTheRoad = true;
@@ -102,9 +107,19 @@ public class PositionTester : MonoBehaviour {
     public bool checkIfPosEmpty() // This check if the cell is free
     {
         GameObject[] allMovableThings = GameObject.FindGameObjectsWithTag("Movable");
+        GameObject[] walls = GameObject.FindGameObjectsWithTag("Wall");
+
+
         foreach (GameObject current in allMovableThings)
         {
             if (current.transform.position == (grid.GetWorldPosition(x, y) + new Vector3(0, 4)))
+                return false;
+        }
+        
+
+        foreach (GameObject current in walls)
+        {
+            if (current.transform.position == (grid.GetWorldPosition(x, y)))
                 return false;
         }
         return true;

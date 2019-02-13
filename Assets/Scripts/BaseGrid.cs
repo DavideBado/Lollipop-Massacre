@@ -15,6 +15,7 @@ namespace GridSystem {
 
         void Start() {
             CreateGrid(configData);
+
         }
 
         #region API
@@ -41,6 +42,8 @@ namespace GridSystem {
                     return cell.worldPosition;
                 }
             }
+
+
 
             return Vector3.zero;
         }
