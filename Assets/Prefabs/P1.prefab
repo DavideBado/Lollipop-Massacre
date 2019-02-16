@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 4114346956989665639}
   - component: {fileID: 4114346956989665638}
   - component: {fileID: 4114346956989665637}
+  - component: {fileID: 8419230192622104801}
   - component: {fileID: 4114346956989665643}
+  - component: {fileID: 6150663039642530448}
   - component: {fileID: 4114346956989665641}
-  - component: {fileID: 4114346956989665636}
   - component: {fileID: 4114346956989665642}
   m_Layer: 0
   m_Name: P1
@@ -96,6 +97,26 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &8419230192622104801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4114346956989665635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba6292a7d5bfc944096249082df5273a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  x: 0
+  x2: 0
+  y: 0
+  y2: 0
+  grid: {fileID: 0}
+  BasicAtt: {fileID: 0}
+  Lifetext: {fileID: 0}
+  respawn: {fileID: 0}
 --- !u!114 &4114346956989665643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,23 +131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnShield: 0
   Life: 0
---- !u!54 &4114346956989665641
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4114346956989665635}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 36
-  m_CollisionDetection: 0
---- !u!114 &4114346956989665636
+--- !u!114 &6150663039642530448
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -146,8 +151,26 @@ MonoBehaviour:
   y2: 0
   grid: {fileID: 0}
   Lifetext: {fileID: 0}
-  InputManager: {fileID: 4114346956989665642}
+  InputManager: {fileID: 0}
   PlayerID: 1
+  configGrid: {fileID: 0}
+  respawn: {fileID: 0}
+--- !u!54 &4114346956989665641
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4114346956989665635}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 36
+  m_CollisionDetection: 0
 --- !u!114 &4114346956989665642
 MonoBehaviour:
   m_ObjectHideFlags: 0

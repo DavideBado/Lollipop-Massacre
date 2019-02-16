@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 6872588833091197576}
   - component: {fileID: 6872588833091197577}
   - component: {fileID: 6872588833091197578}
+  - component: {fileID: 3520070379880494900}
   - component: {fileID: 6872588833091197572}
   - component: {fileID: 6872588833091197574}
   - component: {fileID: 6872588833091197573}
-  - component: {fileID: 6872588833091197579}
   m_Layer: 0
   m_Name: P2
   m_TagString: Movable
@@ -96,6 +96,26 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &3520070379880494900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6872588833091197580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6078ae09244aaa54ebee79fe4e441e7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  x: 0
+  x2: 0
+  y: 0
+  y2: 0
+  grid: {fileID: 0}
+  BasicAtt: {fileID: 0}
+  Lifetext: {fileID: 0}
+  respawn: {fileID: 0}
 --- !u!114 &6872588833091197572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,28 +165,6 @@ MonoBehaviour:
   BasicAttack: 323
   Attack2: 0
   ManagerPlayerID: 0
---- !u!114 &6872588833091197579
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6872588833091197580}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 071709e263934994e89c6f14225ea003, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _Round: 0
-  OnTheRoad: 0
-  x: 9
-  x2: 0
-  y: 9
-  y2: 0
-  grid: {fileID: 0}
-  Lifetext: {fileID: 0}
-  playerID: 2
-  InputManager: {fileID: 6872588833091197573}
 --- !u!1 &6872588833920836497
 GameObject:
   m_ObjectHideFlags: 0

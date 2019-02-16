@@ -39,26 +39,26 @@ public class GameManager : MonoBehaviour {
         {
             TimerSafe -= Time.deltaTime;
         }
-        if (Timer <= 0 && Round == true)
+        if (Timer <= 0 /*&& Round == true*/)
         {
             if (TimerSafe <= 0)
             {
-                Round = false; // Change player
+                Round = !Round; // Change player
                 Timer = TimeMax; //Reset time
                 TimerSafe = 0.2f;
                 CanAttack = true;
                 RoundCount++;
             }
         }
-        else if (Timer <= 0 && Round == false)
-        {
-            if (TimerSafe <= 0)
-            {
-                Round = true;
-                Timer = TimeMax;
-                TimerSafe = 0.2f;
-                CanAttack = true;
-            }
-        }
+        //else if (Timer <= 0 && Round == false)
+        //{
+        //    if (TimerSafe <= 0)
+        //    {
+        //        Round = true;
+        //        Timer = TimeMax;
+        //        TimerSafe = 0.2f;
+        //        CanAttack = true;
+        //    }
+        //}
     } 
 }

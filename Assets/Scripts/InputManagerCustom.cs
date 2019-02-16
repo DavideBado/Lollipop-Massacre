@@ -16,8 +16,8 @@ public class InputManagerCustom : MonoBehaviour {
     void Update () {
 
 
-        Debug.Log("GP_VerticalArrow" + ManagerPlayerID.ToString());
-        GpInputCall();
+
+        //GpInputCall();
         InputCall(); // Questo non era strettamente necessario, ma metti che si voglia aggiungere altra roba in questo manager rende più ordinato
 	}
 
@@ -48,7 +48,7 @@ public class InputManagerCustom : MonoBehaviour {
         }
         
     
-        if (Input.GetKeyDown(BasicAttack))
+        if (Input.GetKey(BasicAttack))
         {
             SendMessage("BasicAttack");
         } 

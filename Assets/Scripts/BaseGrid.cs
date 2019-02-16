@@ -69,8 +69,7 @@ namespace GridSystem {
             GameObject[] WallList = GameObject.FindGameObjectsWithTag("Wall");
 
            
-            Debug.Log("Players" + PlayerList.Length);
-            Debug.Log("Wall" + WallList.Length);
+           
            
             foreach (Cell cell in Cells)
             {
