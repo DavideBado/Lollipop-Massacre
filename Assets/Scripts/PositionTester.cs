@@ -15,36 +15,76 @@ public class PositionTester : MonoBehaviour {
     public GridConfigData configGrid;
 
     private void Start()
-    {// x2 && y2 Start = null, the next code lines change x2 && y2 != null
-        x2 = x;
-        y2 = y;
-        //BasicAtt = transform.GetChild(0).GetComponent<Collider>();
-        transform.position = respawn.transform.position;
+    {
+        InStart();
     }
     // Update is called once per frame
     void Update()
     {
+        InUpdate();
+    }
+
+    void InStart()
+    {       
+        Spawn(); // Posiziona il giocatore
+        FirstSaveXY(); // Salvo le coordinate della mia posizione
+    }
+
+    void InUpdate()
+    {
+        RoundCheck(); // Controlla i round
+        TextUpdate(); // Aggiorna i testi a schermo
+        Sicura(); // Sicura contro attacchi scorretti
+        Movement(); // Muove il giocatore
+    }
+
+    #region Start
+    void FirstSaveXY()
+    {
+        // x2 && y2 Start = null, the next code lines change x2 && y2 != null
+        x2 = x;
+        y2 = y;
+    }
+
+    void Spawn()
+    {
+        transform.position = respawn.transform.position; // Posiziona il giocatore nella posizione di partenza
+    }
+    #endregion
+
+    #region Update
+    void RoundCheck()
+    {
         _Round = GameObject.Find("GameManager").GetComponent<GameManager>().Round;
+    }
+
+    void TextUpdate()
+    {
         Lifetext.text = "P1 Life:" + GetComponent<LifeManager>().Life.ToString(); // Life on screen
 
-        if (_Round == false)
+    }
+
+    void Sicura()
+    {
+        if (_Round == false) // Se non è il tuo turno
         {
-
-            BasicAtt.enabled = false;
+            BasicAtt.enabled = false; // Metti via le armi
         }
-
+    }
+    void Movement() // Muove il giocatore
+    {
         if (grid) // Check if we have a grid
         {
-          
+
             if (checkIfPosEmpty()) // Now if the cell is free
             { // Move the player && save x && y
-                BasicAtt.enabled = false;
-
+                BasicAtt.enabled = false; // Assicurati di avere le armi nel fodero
+                 // Spostati verso la casella selezionata alla velocità di Speed unità al secondo
                 transform.position = Vector3.MoveTowards(transform.position, grid.GetWorldPosition(x, y),
                 GameObject.Find("GameManager").GetComponent<GameManager>().Speed * Time.deltaTime);
-                if (transform.position == grid.GetWorldPosition(x, y))
+                if (transform.position == grid.GetWorldPosition(x, y)) // Se hai raggiunto la tua destinazione
                 {
-
+                    // Salva le coordinate della posizione attuale
                     x2 = x;
                     y2 = y;
                     OnTheRoad = false;
@@ -57,7 +97,9 @@ public class PositionTester : MonoBehaviour {
             }
         }
     }
+    #endregion
 
+    #region Input // Reagiscono alle chiamate del inputmanager
     public void Up() //Trasforma la chiamata del manager in una richiesta di movimento
     {
         if (y < (configGrid.DimY - 1) && OnTheRoad == false && _Round == true)
@@ -93,22 +135,23 @@ public class PositionTester : MonoBehaviour {
 
     public void BasicAttack()
     {
-        if (_Round == true)
+        if (_Round == true) // Se è il mio turno
         {
-            BasicAtt.enabled = true;
+            BasicAtt.enabled = true; // Attiva il collider di attacco
         }
         else BasicAtt.enabled = false;
     }
+    #endregion
 
-        public bool checkIfPosEmpty()  // This check if the cell is free
+    public bool checkIfPosEmpty()  // This check if the cell is free
     {
-        GameObject[] allMovableThings = GameObject.FindGameObjectsWithTag("Player");
+        GameObject[] allMovableThings = GameObject.FindGameObjectsWithTag("Player"); // Trova tutti i player
         foreach (GameObject current in allMovableThings)
         {
-            if (current.transform.position == (grid.GetWorldPosition(x, y) + new Vector3(0, 4)))
-                return false;
+            if (current.transform.position == (grid.GetWorldPosition(x, y) + new Vector3(0, 4))) // Se uno di essi si trova nella casella selezionata
+                return false; // Non posso andarci
         }
-        return true;
+        return true; // Se nessuno la occupa invece posso andarci
     }
-   
+
 }

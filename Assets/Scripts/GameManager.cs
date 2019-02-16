@@ -9,24 +9,31 @@ public class GameManager : MonoBehaviour {
     public float TimeMax = 3f, Speed = 25f;
     public bool Round = true, CanAttack = true;
     public int RoundCount = 0;
- 
-
-    // Use this for initialization
-    void Start() {
-
-        
-    }
 
     // Update is called once per frame
     void Update()
     {
-     
+        InUpdate();
+    }
+    void InUpdate()
+    {
+        TimeForThePlayer(); // Controlla il tempo e gestisce i round
+        TextUpdate(); // Aggiorna i testi a schermo
+        QuitNow(); // Chuide il gioco
+    }
+
+    #region UPDATE
+
+    void QuitNow()
+    {
         if (Input.GetKeyDown(KeyCode.Escape))// Close the game, only in the build version
         {
             Application.Quit();
         }
+    }
 
-        TimeForThePlayer();
+    void TextUpdate()
+    {
         Timertext.text = "Tempo:" + Timer2.ToString(); // Visualizza il tempo        
         TimeMaxText.text = "Tempo massimo:" + TimeMax.ToString(); // Visualizza il tempo massimo
     }
@@ -35,30 +42,24 @@ public class GameManager : MonoBehaviour {
     {
         Timer2 = Mathf.Round(Timer);
         Timer -= Time.deltaTime;
-        if(Timer <= 0)
+        if(Timer <= 0) // Se è finito il round
         {
-            TimerSafe -= Time.deltaTime;
+            TimerSafe -= Time.deltaTime; // Attiva il tempo supplementare
         }
-        if (Timer <= 0 /*&& Round == true*/)
+        if (Timer <= 0) // Se il timer raggiunge lo 0
         {
-            if (TimerSafe <= 0)
+            if (TimerSafe <= 0) // E anche il tempo supplementare è finito
             {
                 Round = !Round; // Change player
-                Timer = TimeMax; //Reset time
-                TimerSafe = 0.2f;
-                CanAttack = true;
-                RoundCount++;
+                Timer = TimeMax; //Imposta nuovamente il timer
+                TimerSafe = 0.2f; //Imposta nuovamente il tempo supplementare
+                CanAttack = true;// Il giocatore può attaccare
+                if (Round == true)// Se è nuovamente il turno del primo giocatore
+                {
+                    RoundCount++; // Aggiorna il contatore dei round
+                }
             }
-        }
-        //else if (Timer <= 0 && Round == false)
-        //{
-        //    if (TimerSafe <= 0)
-        //    {
-        //        Round = true;
-        //        Timer = TimeMax;
-        //        TimerSafe = 0.2f;
-        //        CanAttack = true;
-        //    }
-        //}
-    } 
+        }    
+    }
+    #endregion
 }

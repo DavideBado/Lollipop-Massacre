@@ -9,19 +9,13 @@ public class InputManagerCustom : MonoBehaviour {
     private bool isAxisInUse = false;
     public int ManagerPlayerID;
     
-
-
-    
     // Update is called once per frame
     void Update () {
-
-
-
-        //GpInputCall();
-        InputCall(); // Questo non era strettamente necessario, ma metti che si voglia aggiungere altra roba in questo manager rende più ordinato
+        //GpInputCall(); // Input per joystick, momentaneamente offline
+        InputCall(); 
 	}
 
-
+    #region KeyboardInput
     void InputCall() // This inputcheck can be used in a menu orndocazzovuoi
     { 
         if(Input.GetKeyDown(Up))
@@ -57,11 +51,10 @@ public class InputManagerCustom : MonoBehaviour {
         {
             SendMessage("Attack2");
         }
-        
-
-       
     }
+    #endregion
 
+    #region JoystickInput
     void GpInputCall()
     {
         if (!isAxisInUse)
@@ -93,5 +86,6 @@ public class InputManagerCustom : MonoBehaviour {
             isAxisInUse = false;
         }
     }
+    #endregion
 
 }
