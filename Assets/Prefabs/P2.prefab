@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 6872588833091197572}
   - component: {fileID: 6872588833091197574}
   - component: {fileID: 6872588833091197573}
+  - component: {fileID: 3703439531580826963}
   m_Layer: 0
   m_Name: P2
   m_TagString: Movable
@@ -113,9 +114,10 @@ MonoBehaviour:
   y: 0
   y2: 0
   grid: {fileID: 0}
-  BasicAtt: {fileID: 0}
+  ColliderBasicAtt: {fileID: 0}
   Lifetext: {fileID: 0}
   respawn: {fileID: 0}
+  configGrid: {fileID: 0}
 --- !u!114 &6872588833091197572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,6 +167,18 @@ MonoBehaviour:
   BasicAttack: 323
   Attack2: 0
   ManagerPlayerID: 0
+--- !u!114 &3703439531580826963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6872588833091197580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5746cf1716c8f841be66393a40050bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6872588833920836497
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,3 +236,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70f08b58a9297c54f8f32468cb96d5f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Manager: {fileID: 0}

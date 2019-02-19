@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using GridSystem;
 using UnityEngine.UI;
+using System.Linq;
 
 public class PositionTester : MonoBehaviour {
     bool _Round, OnTheRoad = false;
@@ -13,6 +14,8 @@ public class PositionTester : MonoBehaviour {
     public Text Lifetext;
     public GameObject respawn;
     public GridConfigData configGrid;
+    List<Player> Players = new List<Player>();
+    List<Wall> Walls = new List<Wall>();
 
     private void Start()
     {
@@ -94,6 +97,7 @@ public class PositionTester : MonoBehaviour {
             {
                 x = x2;
                 y = y2;
+                OnTheRoad = false;
             }
         }
     }
@@ -143,15 +147,33 @@ public class PositionTester : MonoBehaviour {
     }
     #endregion
 
-    public bool checkIfPosEmpty()  // This check if the cell is free
+    public bool checkIfPosEmpty() // This check if the cell is free
     {
-        GameObject[] allMovableThings = GameObject.FindGameObjectsWithTag("Player"); // Trova tutti i player
-        foreach (GameObject current in allMovableThings)
+        GetAllInterestingData(); // Trova tutti gli oggetti che potrebbero interferire con il movimento
+        foreach (var item in Players)
         {
-            if (current.transform.position == (grid.GetWorldPosition(x, y) + new Vector3(0, 4))) // Se uno di essi si trova nella casella selezionata
-                return false; // Non posso andarci
+            if (grid.GetWorldPosition(x, y) == item.transform.position) // Controlla se la cella è occupata da un altro giocatore
+            {
+                return false;
+            }
         }
-        return true; // Se nessuno la occupa invece posso andarci
+        foreach (var item in Walls)
+        {
+            if (grid.GetWorldPosition(x, y) == item.transform.position) // Controlla se la cella è occupata da un muro
+            {
+                return false;
+            }
+        }
+        return true; // Se invece è libera posso andarci
     }
 
+    public void GetAllInterestingData()
+    {
+        // Creo una lista di tutti i Player presenti nel livello.
+        Players = FindObjectsOfType<Player>().ToList();
+
+        // Creo una lista di tutti i Wall presenti nel livello.
+        Walls = FindObjectsOfType<Wall>().ToList();
+
+    }
 }

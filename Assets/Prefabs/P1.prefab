@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 6150663039642530448}
   - component: {fileID: 4114346956989665641}
   - component: {fileID: 4114346956989665642}
+  - component: {fileID: 746548429964448093}
   m_Layer: 0
   m_Name: P1
   m_TagString: Movable
@@ -117,6 +118,7 @@ MonoBehaviour:
   BasicAtt: {fileID: 0}
   Lifetext: {fileID: 0}
   respawn: {fileID: 0}
+  configGrid: {fileID: 0}
 --- !u!114 &4114346956989665643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,6 +192,18 @@ MonoBehaviour:
   BasicAttack: 32
   Attack2: 0
   ManagerPlayerID: 0
+--- !u!114 &746548429964448093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4114346956989665635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5746cf1716c8f841be66393a40050bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4114346957532756551
 GameObject:
   m_ObjectHideFlags: 0
@@ -247,3 +261,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70f08b58a9297c54f8f32468cb96d5f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Manager: {fileID: 0}

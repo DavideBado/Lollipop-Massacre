@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using GridSystem;
 using UnityEngine.UI;
+using System.Linq;
 
 public class PositionTester1 : MonoBehaviour {
     bool _Round, OnTheRoad = false;
@@ -13,7 +14,9 @@ public class PositionTester1 : MonoBehaviour {
     public Collider ColliderBasicAtt;
     public Text Lifetext;
     public GameObject respawn;
-    public GridConfigData configGrid;
+    public GridConfigData configGrid;  
+    List<Player> Players = new List<Player>();
+    List<Wall> Walls = new List<Wall>();
 
     private void Start()
     {
@@ -75,9 +78,10 @@ public class PositionTester1 : MonoBehaviour {
 
     void Movement()
     {
+
         if (grid) // Check if we have a grid
         {
-
+          
             if (checkIfPosEmpty()) // Now if the cell is free
             { // Move the player && save x && y
                 ColliderBasicAtt.enabled = false; // Assicurati che l'attacco base non sia attivo
@@ -97,6 +101,7 @@ public class PositionTester1 : MonoBehaviour {
             { // Carica i vecchi valori di x e y
                 x = x2;
                 y = y2;
+                OnTheRoad = false;
             }
         }
     }
@@ -147,12 +152,31 @@ public class PositionTester1 : MonoBehaviour {
 
     public bool checkIfPosEmpty() // This check if the cell is free
     {
-        GameObject[] allMovableThings = GameObject.FindGameObjectsWithTag("Player"); // Trova tutti i player
-        foreach (GameObject current in allMovableThings)
+        GetAllInterestingData(); // Trova tutti gli oggetti che potrebbero interferire con il movimento
+        foreach (var item in Players)
         {
-            if (current.transform.position == (grid.GetWorldPosition(x, y) + new Vector3(0, 4))) // Se uno di essi si trova nella casella dove voglio andare
-                return false; // Non posso anarci
+           if(grid.GetWorldPosition(x, y) == item.transform.position) // Controlla se la cella è occupata da un altro giocatore
+           {
+                return false;
+           }
+        }
+        foreach (var item in Walls)
+        {
+            if (grid.GetWorldPosition(x, y) == item.transform.position) // Controlla se la cella è occupata da un muro
+            {
+                return false;
+            }
         }
         return true; // Se invece è libera posso andarci
+    }
+
+    public void GetAllInterestingData()
+    {
+        // Creo una lista di tutti i Player presenti nel livello.
+        Players = FindObjectsOfType<Player>().ToList();
+
+        // Creo una lista di tutti i Wall presenti nel livello.
+        Walls = FindObjectsOfType<Wall>().ToList();
+
     }
 }
