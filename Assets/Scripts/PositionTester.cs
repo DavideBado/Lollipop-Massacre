@@ -14,9 +14,10 @@ public class PositionTester : MonoBehaviour {
     public Text Lifetext;
     public GameObject respawn;
     public GridConfigData configGrid;
+    public RespawnController RespawnController;
     List<Player> Players = new List<Player>();
     List<Wall> Walls = new List<Wall>();
-
+    public GameManager GameManager;   
     private void Start()
     {
         InStart();
@@ -28,7 +29,7 @@ public class PositionTester : MonoBehaviour {
     }
 
     void InStart()
-    {       
+    {        
         Spawn(); // Posiziona il giocatore
         FirstSaveXY(); // Salvo le coordinate della mia posizione
     }
@@ -42,6 +43,7 @@ public class PositionTester : MonoBehaviour {
     }
 
     #region Start
+
     void FirstSaveXY()
     {
         // x2 && y2 Start = null, the next code lines change x2 && y2 != null
@@ -51,7 +53,18 @@ public class PositionTester : MonoBehaviour {
 
     void Spawn()
     {
-        transform.position = respawn.transform.position; // Posiziona il giocatore nella posizione di partenza
+        if (GameManager.Spawn1 == true) // Se il gioco è appena iniziato
+        {
+            transform.position = respawn.transform.position; // Posiziona il giocatore nella posizione di partenza
+            x = (int)(transform.position.x);
+            y = (int)(transform.position.z);
+        }
+        else
+        {
+            transform.position = RespawnController.FindAGoodPoint();
+            x = (int)(transform.position.x);
+            y = (int)(transform.position.z);
+        }
     }
     #endregion
 

@@ -8,16 +8,16 @@ using System.Linq;
 public class PositionTester1 : MonoBehaviour {
     bool _Round, OnTheRoad = false;
     public int x, x2;
-    public int y, y2;  
+    public int y, y2;
     public BaseGrid grid;
-    int MaxAct;
-    public Collider ColliderBasicAtt;
+    public Collider BasicAtt;
     public Text Lifetext;
     public GameObject respawn;
-    public GridConfigData configGrid;  
+    public GridConfigData configGrid;
+    public RespawnController RespawnController;
     List<Player> Players = new List<Player>();
     List<Wall> Walls = new List<Wall>();
-
+    public GameManager GameManager;
     private void Start()
     {
         InStart();             
@@ -52,7 +52,18 @@ public class PositionTester1 : MonoBehaviour {
 
     void Spawn()
     {
-        transform.position = respawn.transform.position; // Posiziona il giocatore nella posizione di partenza
+        if (GameManager.Spawn1 == true) // Se il gioco è appena iniziato
+        {
+            transform.position = respawn.transform.position; // Posiziona il giocatore nella posizione di partenza
+            x = (int)(transform.position.x);
+            y = (int)(transform.position.z);
+        }
+        else
+        {
+            transform.position = RespawnController.FindAGoodPoint();
+            x = (int)(transform.position.x);
+            y = (int)(transform.position.z);
+        }
     }
     #endregion
 
@@ -72,7 +83,7 @@ public class PositionTester1 : MonoBehaviour {
         if (_Round == true)
         {
 
-            ColliderBasicAtt.enabled = false;
+            BasicAtt.enabled = false;
         }
     }
 
@@ -84,7 +95,7 @@ public class PositionTester1 : MonoBehaviour {
           
             if (checkIfPosEmpty()) // Now if the cell is free
             { // Move the player && save x && y
-                ColliderBasicAtt.enabled = false; // Assicurati che l'attacco base non sia attivo
+                BasicAtt.enabled = false; // Assicurati che l'attacco base non sia attivo
 
                 // Muove il player verso la casella selezionata alla velocità di Speed unità/s
                 transform.position = Vector3.MoveTowards(transform.position, grid.GetWorldPosition(x, y),
@@ -144,9 +155,9 @@ public class PositionTester1 : MonoBehaviour {
     {
         if (_Round == false) // Se è il mio turno
         {
-            ColliderBasicAtt.enabled = true; // Attiva il collider di attacco
+            BasicAtt.enabled = true; // Attiva il collider di attacco
         }
-        else ColliderBasicAtt.enabled = false;
+        else BasicAtt.enabled = false;
     }
     #endregion 
 

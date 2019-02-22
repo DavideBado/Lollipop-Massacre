@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour {
-    public Text Timertext, TimeMaxText;
+public class GameManager : MonoBehaviour
+{
+    public Text Timertext, TimeMaxText, TurnoText;
     float Timer, Timer2, TimerSafe = 0.2f;
     public float TimeMax = 3f, Speed = 25f;
     public bool Round = true, CanAttack = true;
     public int RoundCount = 0;
-
+    public bool Spawn1 = true;
     // Update is called once per frame
     void Update()
     {
@@ -19,6 +20,7 @@ public class GameManager : MonoBehaviour {
     {
         TimeForThePlayer(); // Controlla il tempo e gestisce i round
         TextUpdate(); // Aggiorna i testi a schermo
+        SpawnUpdate();// Controlla quando attivare lo spawn dinamico
         QuitNow(); // Chuide il gioco
     }
 
@@ -36,13 +38,17 @@ public class GameManager : MonoBehaviour {
     {
         Timertext.text = "Tempo:" + Timer2.ToString(); // Visualizza il tempo        
         TimeMaxText.text = "Tempo massimo:" + TimeMax.ToString(); // Visualizza il tempo massimo
+        if(Round == true)
+        {
+            TurnoText.text = "TURNO P1";
+        } else TurnoText.text = "TURNO P2";
     }
 
     void TimeForThePlayer() // This check the time && switch the rounds
     {
         Timer2 = Mathf.Round(Timer);
         Timer -= Time.deltaTime;
-        if(Timer <= 0) // Se è finito il round
+        if (Timer <= 0) // Se è finito il round
         {
             TimerSafe -= Time.deltaTime; // Attiva il tempo supplementare
         }
@@ -59,7 +65,21 @@ public class GameManager : MonoBehaviour {
                     RoundCount++; // Aggiorna il contatore dei round
                 }
             }
-        }    
+        }
+    }
+
+    void SpawnUpdate()
+    {
+        if(RoundCount == 2) // Se non è più il primo round
+        {
+            Spawn1 = false; // Il metodo di spawn cambia
+        }
     }
     #endregion
+
+    public void NextPlease(GameObject Player)
+    {
+        Instantiate(Player);
+    }
+
 }
