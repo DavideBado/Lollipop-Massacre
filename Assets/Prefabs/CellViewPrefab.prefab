@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33593766478368074}
   - component: {fileID: 65108163791946052}
   - component: {fileID: 23749995406009080}
+  - component: {fileID: 1281031198614463732}
   m_Layer: 0
   m_Name: CellViewPrefab
   m_TagString: Cell
@@ -91,3 +92,15 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &1281031198614463732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1587447391253838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1916fe1aaa2f7ec48a891b4a202cf538, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

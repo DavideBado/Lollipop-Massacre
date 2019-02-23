@@ -6,7 +6,7 @@ using UnityEngine;
 public class ItemData
 {
 
-    public enum Type { Wall, Player}
+    public enum Type { Wall, Player, Area, Cell}
 
     public Vector3 GridPosition;
     public Type ItemType;
