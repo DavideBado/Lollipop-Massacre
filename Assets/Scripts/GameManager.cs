@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public Text Timertext, TimeMaxText, TurnoText;
-    float Timer, Timer2, TimerSafe = 0.2f;
+    float Timer, Timer2;
+    public float TimerSafe = 0.2f;
     public float TimeMax = 3f, Speed = 25f;
     public bool Round = true, CanAttack = true;
     public int RoundCount = 0;
