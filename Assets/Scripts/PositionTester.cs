@@ -123,6 +123,7 @@ public class PositionTester : MonoBehaviour {
         {
             y++;
             OnTheRoad = true;
+            Rotation();
         }
     }
     public void Left()
@@ -131,6 +132,7 @@ public class PositionTester : MonoBehaviour {
         {
             x--;
             OnTheRoad = true;
+            Rotation();
         }
     }
     public void Down()
@@ -139,6 +141,7 @@ public class PositionTester : MonoBehaviour {
         {
             y--;
             OnTheRoad = true;
+            Rotation();
         }
     }
     public void Right()
@@ -147,6 +150,7 @@ public class PositionTester : MonoBehaviour {
         {
             x++;
             OnTheRoad = true;
+            Rotation();
         }
     }
 
@@ -188,5 +192,17 @@ public class PositionTester : MonoBehaviour {
         // Creo una lista di tutti i Wall presenti nel livello.
         Walls = FindObjectsOfType<Wall>().ToList();
 
+    }
+
+    void Rotation()
+    {
+
+        Vector3 lookAt = grid.GetWorldPosition(x,y);
+
+        float AngleRad = Mathf.Atan2(lookAt.x - this.transform.position.x, lookAt.z - this.transform.position.z);
+
+        float AngleDeg = (180 / Mathf.PI) * AngleRad;
+
+        transform.rotation = Quaternion.Euler(0, AngleDeg, 0);
     }
 }
