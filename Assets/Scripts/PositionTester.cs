@@ -17,7 +17,8 @@ public class PositionTester : MonoBehaviour {
     public RespawnController RespawnController;
     List<Player> Players = new List<Player>();
     List<Wall> Walls = new List<Wall>();
-    public GameManager GameManager;   
+    public GameManager GameManager;
+    bool RotUp = false, RotDown = false, RotLeft = false, RotRight = false;
     private void Start()
     {
         InStart();
@@ -121,36 +122,60 @@ public class PositionTester : MonoBehaviour {
     {
         if (y < (configGrid.DimY - 1) && OnTheRoad == false && _Round == true)
         {
-            y++;
+            RotDown = false; RotLeft = false; RotRight = false;            
             OnTheRoad = true;
+            y++;
             Rotation();
+            if (RotUp == false)
+            {
+                y--;
+                RotUp = true;
+            }           
         }
     }
     public void Left()
     {
         if (x > 0 && OnTheRoad == false && _Round == true)
         {
+            RotUp = false; RotDown = false; RotRight = false;
+            OnTheRoad = true;            
             x--;
-            OnTheRoad = true;
             Rotation();
+            if (RotLeft == false)
+            {
+                x++;
+                RotLeft = true;
+            }
         }
     }
     public void Down()
     {
         if (y > 0 && OnTheRoad == false && _Round == true)
         {
+            RotUp = false; RotLeft = false; RotRight = false;
+            OnTheRoad = true;           
             y--;
-            OnTheRoad = true;
             Rotation();
+            if (RotDown == false)
+            {
+                y++;
+                RotDown = true;
+            }
         }
     }
     public void Right()
     {
         if (x < (configGrid.DimX - 1) && OnTheRoad == false && _Round == true)
         {
-            x++;
+            RotUp = false; RotDown = false; RotLeft = false;
             OnTheRoad = true;
+            x++;
             Rotation();
+            if (RotRight == false)
+            {
+                x--;
+                RotRight = true;
+            }          
         }
     }
 
@@ -196,7 +221,6 @@ public class PositionTester : MonoBehaviour {
 
     void Rotation()
     {
-
         Vector3 lookAt = grid.GetWorldPosition(x,y);
 
         float AngleRad = Mathf.Atan2(lookAt.x - this.transform.position.x, lookAt.z - this.transform.position.z);

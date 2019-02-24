@@ -18,6 +18,7 @@ public class PositionTester1 : MonoBehaviour {
     List<Player> Players = new List<Player>();
     List<Wall> Walls = new List<Wall>();
     public GameManager GameManager;
+    bool RotUp = false, RotDown = false, RotLeft = false, RotRight = false;
     private void Start()
     {
         InStart();             
@@ -123,32 +124,60 @@ public class PositionTester1 : MonoBehaviour {
     {
         if (y < (configGrid.DimY - 1) && OnTheRoad == false && _Round == false)
         {
-            y++;
+            RotDown = false; RotLeft = false; RotRight = false;
             OnTheRoad = true;
+            y++;
+            Rotation();
+            if (RotUp == false)
+            {
+                y--;
+                RotUp = true;
+            }
         }
     }
     public void Left()
     {
         if (x > 0 && OnTheRoad == false && _Round == false)
         {
-            x--;
+            RotUp = false; RotDown = false; RotRight = false;
             OnTheRoad = true;
+            x--;
+            Rotation();
+            if (RotLeft == false)
+            {
+                x++;
+                RotLeft = true;
+            }
         }
     }
     public void Down()
     {
         if (y > 0 && OnTheRoad == false && _Round == false)
         {
-            y--;
+            RotUp = false; RotLeft = false; RotRight = false;
             OnTheRoad = true;
+            y--;
+            Rotation();
+            if (RotDown == false)
+            {
+                y++;
+                RotDown = true;
+            }
         }
     }
     public void Right()
     {
         if (x < (configGrid.DimX - 1) && OnTheRoad == false && _Round == false)
         {
-            x++;
+            RotUp = false; RotDown = false; RotLeft = false;
             OnTheRoad = true;
+            x++;
+            Rotation();
+            if (RotRight == false)
+            {
+                x--;
+                RotRight = true;
+            }
         }
     }
     public void BasicAttack()
@@ -190,4 +219,16 @@ public class PositionTester1 : MonoBehaviour {
         Walls = FindObjectsOfType<Wall>().ToList();
 
     }
+
+    void Rotation()
+    {
+        Vector3 lookAt = grid.GetWorldPosition(x, y);
+
+        float AngleRad = Mathf.Atan2(lookAt.x - this.transform.position.x, lookAt.z - this.transform.position.z);
+
+        float AngleDeg = (180 / Mathf.PI) * AngleRad;
+
+        transform.rotation = Quaternion.Euler(0, AngleDeg, 0);
+    }
 }
+
