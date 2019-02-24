@@ -14,4 +14,12 @@ public class CellPrefScript : MonoBehaviour
 
         return itemData;
     }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if(other.GetComponent<Player>() != null)
+        {
+            other.transform.parent = this.transform.parent;
+        }
+    }
 }

@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     float Timer, Timer2, TimerSafe = 0.2f;
     public float TimeMax = 3f, Speed = 25f;
     public bool Round = true, CanAttack = true;
-    public int RoundCount = 0;
+    public int RoundCount = 0, PickUpRoundCount = 0;
     public bool Spawn1 = true;
     // Update is called once per frame
     void Update()
@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
         TextUpdate(); // Aggiorna i testi a schermo
         SpawnUpdate();// Controlla quando attivare lo spawn dinamico
         QuitNow(); // Chuide il gioco
+        PickUpSpawn();
     }
 
     #region UPDATE
@@ -63,6 +64,7 @@ public class GameManager : MonoBehaviour
                 if (Round == true)// Se è nuovamente il turno del primo giocatore
                 {
                     RoundCount++; // Aggiorna il contatore dei round
+                    PickUpRoundCount++;
                 }
             }
         }
@@ -73,6 +75,15 @@ public class GameManager : MonoBehaviour
         if(RoundCount == 2) // Se non è più il primo round
         {
             Spawn1 = false; // Il metodo di spawn cambia
+        }
+    }
+
+    void PickUpSpawn()
+    {
+        if(PickUpRoundCount == 3)
+        {
+            SendMessage("SpawnAPickUp");
+            PickUpRoundCount = 0;
         }
     }
     #endregion

@@ -8,9 +8,13 @@ public class PickUpsSpawner : MonoBehaviour
     public List<GridArea> GridAreas = new List<GridArea>();
     public List<CellPrefScript> cellPrefs = new List<CellPrefScript>();
     public List<Wall> Walls = new List<Wall>();
+    List<energyscript> Pickups = new List<energyscript>();
+    public GameObject P1, P2;
+    int P1AreaID, P2AreaID;
     int RandomList, RandomCell, Counter = 0;
     public GameObject PickUp;
     bool CanSpawn;
+    bool Searching;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,13 +24,14 @@ public class PickUpsSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        SpawnAPickUp(); 
+
     }
 
     void InStart()
     {
         AreasPlease();
         WallsPlease();
+        PickUpsPlease();
     }
 
     void AreasPlease()
@@ -39,22 +44,32 @@ public class PickUpsSpawner : MonoBehaviour
         Walls = FindObjectsOfType<Wall>().ToList();
     }
 
+    void PickUpsPlease()
+    {
+        
+    }
+
     public void SpawnAPickUp()
     {
+        Pickups = FindObjectsOfType<energyscript>().ToList();
+        P1AreaID = P1.GetComponentInParent<GridArea>().AreaID;
+        P2AreaID = P2.GetComponentInParent<GridArea>().AreaID;
         Counter = 0;
         RandomList = Random.Range(1, 7);
-        foreach(GridArea Area in GridAreas)
+        Searching = true;
+        
+        foreach (GridArea Area in GridAreas)
         {
-            if(Area.AreaID == RandomList)
+            if (Area.AreaID == RandomList && Area.AreaID != P1AreaID && Area.AreaID != P2AreaID)
             {
                 cellPrefs = Area.GetComponentsInChildren<CellPrefScript>().ToList();
                 RandomCell = Random.Range(0, cellPrefs.Count);
-                foreach(CellPrefScript Cell in cellPrefs)
+                foreach (CellPrefScript Cell in cellPrefs)
                 {
                     if (RandomCell == Counter)
                     {
                         CanSpawn = true;
-                        
+
                         foreach (Wall _wall in Walls)
                         {
                             if (_wall.transform.position == Cell.transform.position)
@@ -64,7 +79,12 @@ public class PickUpsSpawner : MonoBehaviour
                         }
                         if (CanSpawn == true)
                         {
+                            foreach(energyscript Pickup in Pickups)
+                            {
+                                Destroy(Pickup.gameObject);
+                            }
                             Instantiate(PickUp, Cell.transform.position, Quaternion.identity);
+                            return;
                         }
                     }
                     else Counter++;
@@ -73,5 +93,7 @@ public class PickUpsSpawner : MonoBehaviour
             }
 
         }
+        
+
     }
 }

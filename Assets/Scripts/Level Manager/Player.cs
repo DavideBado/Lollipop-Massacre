@@ -9,7 +9,7 @@ public class Player : MonoBehaviour
         ItemData itemData = new ItemData()
         {
             GridPosition = transform.position,
-            ItemType = ItemData.Type.Cell,
+            ItemType = ItemData.Type.Player,
         };
 
         return itemData;

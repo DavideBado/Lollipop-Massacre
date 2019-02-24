@@ -208,7 +208,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1256719107}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 996976812}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c7731c7462ec29a4588c7625f33b618e, type: 3}
@@ -1311,6 +1311,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6418170069893652636, guid: 317eeab201742c3418a54a5e50f9b31a,
     type: 3}
   m_PrefabInstance: {fileID: 574477391}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &586337162 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6872588833091197580, guid: def42def7a1b4404dbf7cdc298162e43,
+    type: 3}
+  m_PrefabInstance: {fileID: 348239449}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &619244504
 PrefabInstance:
@@ -2629,6 +2635,36 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6418170069893652636, guid: 317eeab201742c3418a54a5e50f9b31a,
     type: 3}
   m_PrefabInstance: {fileID: 972779720}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &996976812 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 427756179222368938, guid: ba0c0a689b90c3b4c89806f41e8fdef4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1256719107}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &996976814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 996976812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f174be3eef4daf4ca0eb84422d31a46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GridAreas: []
+  cellPrefs: []
+  Walls: []
+  P1: {fileID: 999679821}
+  P2: {fileID: 586337162}
+  PickUp: {fileID: 6401599724218344512, guid: 69d0bd9a1dac35540be1035a2fe6119c, type: 3}
+--- !u!1 &999679821 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4114346956989665635, guid: a8c0f63a24133224cb9e382a7b2279d1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1563732416}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1007859729
 PrefabInstance:
@@ -4150,7 +4186,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1645329846
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4166,6 +4202,8 @@ MonoBehaviour:
   GridAreas: []
   cellPrefs: []
   Walls: []
+  P1: {fileID: 999679821}
+  P2: {fileID: 586337162}
   PickUp: {fileID: 6401599724218344512, guid: 69d0bd9a1dac35540be1035a2fe6119c, type: 3}
 --- !u!4 &1645329847
 Transform:
