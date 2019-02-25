@@ -30,8 +30,7 @@ public class PickUpsSpawner : MonoBehaviour
     void InStart()
     {
         AreasPlease();
-        WallsPlease();
-        PickUpsPlease();
+        WallsPlease();       
     }
 
     void AreasPlease()
@@ -44,13 +43,9 @@ public class PickUpsSpawner : MonoBehaviour
         Walls = FindObjectsOfType<Wall>().ToList();
     }
 
-    void PickUpsPlease()
-    {
-        
-    }
-
     public void SpawnAPickUp()
     {
+        PlayersPlease();
         Pickups = FindObjectsOfType<energyscript>().ToList();
         P1AreaID = P1.GetComponentInParent<GridArea>().AreaID;
         P2AreaID = P2.GetComponentInParent<GridArea>().AreaID;
@@ -95,5 +90,11 @@ public class PickUpsSpawner : MonoBehaviour
         }
         
 
+    }
+
+    void PlayersPlease()
+    {
+        P1 = FindObjectOfType<PositionTester>().gameObject;
+        P2 = FindObjectOfType<PositionTester1>().gameObject;
     }
 }

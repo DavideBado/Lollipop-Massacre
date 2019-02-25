@@ -11,7 +11,12 @@ public class GameManager : MonoBehaviour
     public bool Round = true, CanAttack = true;
     public int RoundCount = 0, PickUpRoundCount = 0;
     public bool Spawn1 = true;
+    RespawnController RespawnController;
     // Update is called once per frame
+    private void Start()
+    {
+        RespawnController = GetComponent<RespawnController>();
+    }
     void Update()
     {
         InUpdate();
@@ -90,7 +95,7 @@ public class GameManager : MonoBehaviour
 
     public void NextPlease(GameObject Player)
     {
-        Instantiate(Player);
+        Instantiate(Player, RespawnController.FindAGoodPoint(), Quaternion.identity);
     }
 
 }

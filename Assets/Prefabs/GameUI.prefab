@@ -159,9 +159,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'WASD Verde
 
-    Frecce Bianco
-
-    Esc chiude il test'
+    Frecce Bianco'
 --- !u!1 &8363656158574909289
 GameObject:
   m_ObjectHideFlags: 0

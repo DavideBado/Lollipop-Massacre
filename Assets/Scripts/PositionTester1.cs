@@ -55,16 +55,17 @@ public class PositionTester1 : MonoBehaviour {
     {
         if (GameManager.Spawn1 == true) // Se il gioco è appena iniziato
         {
-            transform.position = respawn.transform.position; // Posiziona il giocatore nella posizione di partenza
-            x = (int)(transform.position.x);
-            y = (int)(transform.position.z);
+            transform.position = respawn.transform.position; // Posiziona il giocatore nella posizione di partenza           
         }
-        else
-        {
-            transform.position = RespawnController.FindAGoodPoint();
-            x = (int)(transform.position.x);
-            y = (int)(transform.position.z);
-        }
+
+        x = (int)(transform.position.x);
+        y = (int)(transform.position.z);
+        //else
+        //{
+        //    transform.position = RespawnController.FindAGoodPoint();
+        //    x = (int)(transform.position.x);
+        //    y = (int)(transform.position.z);
+        //}
     }
     #endregion
 

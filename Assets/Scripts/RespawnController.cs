@@ -9,17 +9,20 @@ public class RespawnController : MonoBehaviour
     Vector3 farthestSpawnPoint;
     List<SpawnPoint> SpawnPoints = new List<SpawnPoint>();
     List<Player> Players = new List<Player>();
-    // Start is called before the first frame update
 
-    public Vector3 FindAGoodPoint()
+    // Start is called before the first frame update
+    private void Start()
     {
         FindAllThePoints();
+    }
+    public Vector3 FindAGoodPoint()
+    {        
         FindAllThePlayers(); // trova tutti i player vivi
         foreach (Player player in Players) // Per ogni giocatore in scena
         {
             foreach (SpawnPoint point in SpawnPoints) // E per ogni punto di possibile spawn
             {
-                distance = Vector3.Distance(player.transform.position, point.transform.position); // Confronta la posizione del punto con quella del player
+                distance = Vector3.Distance(point.transform.position, player.transform.position); // Confronta la posizione del punto con quella del player
 
                 if (distance > longestDistance) // Se la distanza attuale è la maggiore tra quelle misurate fino ad ora
                 {
@@ -30,6 +33,7 @@ public class RespawnController : MonoBehaviour
         }
         return farthestSpawnPoint;
     }
+
     void FindAllThePoints()
     {
         SpawnPoints = FindObjectsOfType<SpawnPoint>().ToList(); // Trova tutti i punti nella scena

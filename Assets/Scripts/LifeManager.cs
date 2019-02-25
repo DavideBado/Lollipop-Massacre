@@ -25,12 +25,13 @@ public class LifeManager : MonoBehaviour
     {
         if (Life <= 0) // Se la vita è minore o uguale a 0
         {
-            Destroy(this.gameObject, 0.5f); // Lascia il tempo alla UI di aggiornare la vita e poi elimina il cadavere
             if (CanRespawn == true)
             {
                 GameManager.NextPlease(this.gameObject);
-                CanRespawn = false;               
+                CanRespawn = false;
             }
+            Destroy(this.gameObject); // Lascia il tempo alla UI di aggiornare la vita e poi elimina il cadavere
+           
         }
     }
 }
