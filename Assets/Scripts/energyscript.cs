@@ -9,7 +9,7 @@ public class energyscript : MonoBehaviour
         if (other.tag == "Player")
         {
             FindObjectOfType<GMcontroller>().CanSpawnEnergy = true;
-            Destroy(gameObject);
+           // Destroy(gameObject);
         }
     }
 }
