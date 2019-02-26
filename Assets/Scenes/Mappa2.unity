@@ -596,8 +596,56 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 784684687217983756, guid: def42def7a1b4404dbf7cdc298162e43,
+        type: 3}
+      propertyPath: grid
+      value: 
+      objectReference: {fileID: 1984844720}
+    - target: {fileID: 784684687217983756, guid: def42def7a1b4404dbf7cdc298162e43,
+        type: 3}
+      propertyPath: BasicAtt
+      value: 
+      objectReference: {fileID: 932511745}
+    - target: {fileID: 784684687217983756, guid: def42def7a1b4404dbf7cdc298162e43,
+        type: 3}
+      propertyPath: Lifetext
+      value: 
+      objectReference: {fileID: 800481076}
+    - target: {fileID: 784684687217983756, guid: def42def7a1b4404dbf7cdc298162e43,
+        type: 3}
+      propertyPath: respawn
+      value: 
+      objectReference: {fileID: 1153853560}
+    - target: {fileID: 784684687217983756, guid: def42def7a1b4404dbf7cdc298162e43,
+        type: 3}
+      propertyPath: configGrid
+      value: 
+      objectReference: {fileID: 11400000, guid: 784a1aafb257b974b8f0dcc97f2ca78d,
+        type: 2}
+    - target: {fileID: 784684687217983756, guid: def42def7a1b4404dbf7cdc298162e43,
+        type: 3}
+      propertyPath: RespawnController
+      value: 
+      objectReference: {fileID: 996976815}
+    - target: {fileID: 784684687217983756, guid: def42def7a1b4404dbf7cdc298162e43,
+        type: 3}
+      propertyPath: GameManager
+      value: 
+      objectReference: {fileID: 111599182}
+    - target: {fileID: 784684687217983756, guid: def42def7a1b4404dbf7cdc298162e43,
+        type: 3}
+      propertyPath: Mana
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 784684687217983756, guid: def42def7a1b4404dbf7cdc298162e43,
+        type: 3}
+      propertyPath: RotDown
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1582286813572465343, guid: def42def7a1b4404dbf7cdc298162e43, type: 3}
+    - {fileID: 3520070379880494900, guid: def42def7a1b4404dbf7cdc298162e43, type: 3}
+    - {fileID: 3703439531580826963, guid: def42def7a1b4404dbf7cdc298162e43, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: def42def7a1b4404dbf7cdc298162e43, type: 3}
 --- !u!1001 &372953024
 PrefabInstance:
@@ -2363,6 +2411,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 905871241}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &932511745 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 6872588833920836526, guid: def42def7a1b4404dbf7cdc298162e43,
+    type: 3}
+  m_PrefabInstance: {fileID: 348239449}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &962349691
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3993,8 +4047,55 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 746548429964448093, guid: a8c0f63a24133224cb9e382a7b2279d1,
+        type: 3}
+      propertyPath: grid
+      value: 
+      objectReference: {fileID: 1984844720}
+    - target: {fileID: 746548429964448093, guid: a8c0f63a24133224cb9e382a7b2279d1,
+        type: 3}
+      propertyPath: BasicAtt
+      value: 
+      objectReference: {fileID: 1741542993}
+    - target: {fileID: 746548429964448093, guid: a8c0f63a24133224cb9e382a7b2279d1,
+        type: 3}
+      propertyPath: Lifetext
+      value: 
+      objectReference: {fileID: 1917140700}
+    - target: {fileID: 746548429964448093, guid: a8c0f63a24133224cb9e382a7b2279d1,
+        type: 3}
+      propertyPath: respawn
+      value: 
+      objectReference: {fileID: 1708590935}
+    - target: {fileID: 746548429964448093, guid: a8c0f63a24133224cb9e382a7b2279d1,
+        type: 3}
+      propertyPath: configGrid
+      value: 
+      objectReference: {fileID: 11400000, guid: 784a1aafb257b974b8f0dcc97f2ca78d,
+        type: 2}
+    - target: {fileID: 746548429964448093, guid: a8c0f63a24133224cb9e382a7b2279d1,
+        type: 3}
+      propertyPath: RespawnController
+      value: 
+      objectReference: {fileID: 996976815}
+    - target: {fileID: 746548429964448093, guid: a8c0f63a24133224cb9e382a7b2279d1,
+        type: 3}
+      propertyPath: GameManager
+      value: 
+      objectReference: {fileID: 111599182}
+    - target: {fileID: 746548429964448093, guid: a8c0f63a24133224cb9e382a7b2279d1,
+        type: 3}
+      propertyPath: Mana
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 746548429964448093, guid: a8c0f63a24133224cb9e382a7b2279d1,
+        type: 3}
+      propertyPath: RotLeft
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7546716473394912116, guid: a8c0f63a24133224cb9e382a7b2279d1, type: 3}
+    - {fileID: 8419230192622104801, guid: a8c0f63a24133224cb9e382a7b2279d1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a8c0f63a24133224cb9e382a7b2279d1, type: 3}
 --- !u!1 &1700198428
 GameObject:
@@ -4230,6 +4331,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21de95a8111141c44b5d26f96b1e1596, type: 3}
+--- !u!65 &1741542993 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 4114346957532756554, guid: a8c0f63a24133224cb9e382a7b2279d1,
+    type: 3}
+  m_PrefabInstance: {fileID: 1563732416}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1759723469
 PrefabInstance:
   m_ObjectHideFlags: 0

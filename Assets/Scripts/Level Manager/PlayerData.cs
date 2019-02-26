@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CellPrefScript : MonoBehaviour
+public class PlayerData : MonoBehaviour
 {
     public ItemData GetData()
     {
@@ -13,13 +13,5 @@ public class CellPrefScript : MonoBehaviour
         };
 
         return itemData;
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        if(other.GetComponent<PlayerData>() != null)
-        {
-            other.transform.parent = this.transform.parent;
-        }
     }
 }

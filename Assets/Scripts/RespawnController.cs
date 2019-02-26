@@ -8,7 +8,7 @@ public class RespawnController : MonoBehaviour
     float distance = 0.0f;
     Vector3 farthestSpawnPoint;
     List<SpawnPoint> SpawnPoints = new List<SpawnPoint>();
-    List<Player> Players = new List<Player>();
+    List<PlayerData> Players = new List<PlayerData>();
 
     // Start is called before the first frame update
     private void Start()
@@ -18,7 +18,7 @@ public class RespawnController : MonoBehaviour
     public Vector3 FindAGoodPoint()
     {        
         FindAllThePlayers(); // trova tutti i player vivi
-        foreach (Player player in Players) // Per ogni giocatore in scena
+        foreach (PlayerData player in Players) // Per ogni giocatore in scena
         {
             foreach (SpawnPoint point in SpawnPoints) // E per ogni punto di possibile spawn
             {
@@ -41,7 +41,7 @@ public class RespawnController : MonoBehaviour
 
     void FindAllThePlayers()
     {
-        Players = FindObjectsOfType<Player>().ToList(); // Trova tutti i player nella scena
+        Players = FindObjectsOfType<PlayerData>().ToList(); // Trova tutti i player nella scena
     }
 
 }

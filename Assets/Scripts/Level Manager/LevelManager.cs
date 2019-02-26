@@ -15,7 +15,7 @@ public class LevelManager : MonoBehaviour
     public Button ButtonLoadLevelPrefab;
     public GameObject ButtonsContainer;
 
-    List<Player> Players = new List<Player>();
+    List<PlayerData> Players = new List<PlayerData>();
     List<Wall> Walls = new List<Wall>();
 
     public GameObject PlayerPref;
@@ -117,7 +117,7 @@ public class LevelManager : MonoBehaviour
     public void GetAllInterestingData()
     {
         // Creo una lista di tutti i Block presenti nel livello.
-        Players = FindObjectsOfType<Player>().ToList();
+        Players = FindObjectsOfType<PlayerData>().ToList();
 
         // Creo una lista di tutti i RoutingPoint presenti nel livello.
         Walls = FindObjectsOfType<Wall>().ToList();

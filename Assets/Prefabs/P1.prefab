@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 4114346956989665642}
   - component: {fileID: 746548429964448093}
   - component: {fileID: 7546716473394912116}
+  - component: {fileID: 4989335969889711836}
   m_Layer: 0
   m_Name: P1
   m_TagString: Player
@@ -111,6 +112,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba6292a7d5bfc944096249082df5273a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _Round: 0
+  OnTheRoad: 0
   x: 0
   x2: 0
   y: 0
@@ -122,6 +125,10 @@ MonoBehaviour:
   configGrid: {fileID: 0}
   RespawnController: {fileID: 7546716473394912116}
   GameManager: {fileID: 0}
+  RotUp: 0
+  RotDown: 0
+  RotLeft: 0
+  RotRight: 0
 --- !u!114 &4114346956989665643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,6 +190,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5746cf1716c8f841be66393a40050bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _Round: 0
+  OnTheRoad: 0
+  x: 0
+  x2: 0
+  y: 0
+  y2: 0
+  grid: {fileID: 0}
+  BasicAtt: {fileID: 0}
+  Lifetext: {fileID: 0}
+  respawn: {fileID: 0}
+  configGrid: {fileID: 0}
+  RespawnController: {fileID: 0}
+  GameManager: {fileID: 0}
+  RotUp: 0
+  RotDown: 0
+  RotLeft: 0
+  RotRight: 0
 --- !u!114 &7546716473394912116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,6 +217,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8fdd44d24960fbb4eba6191f389aa2be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4989335969889711836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4114346956989665635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4880a0391b245146a31703c3180e415, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &4114346957532756551

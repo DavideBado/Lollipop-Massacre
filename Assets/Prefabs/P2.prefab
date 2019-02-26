@@ -103,12 +103,12 @@ GameObject:
   - component: {fileID: 6872588833091197576}
   - component: {fileID: 6872588833091197577}
   - component: {fileID: 6872588833091197578}
-  - component: {fileID: 3520070379880494900}
   - component: {fileID: 6872588833091197572}
   - component: {fileID: 1582286813572465343}
   - component: {fileID: 6872588833091197574}
   - component: {fileID: 6872588833091197573}
-  - component: {fileID: 3703439531580826963}
+  - component: {fileID: 784684687217983756}
+  - component: {fileID: 2142981787031377278}
   m_Layer: 0
   m_Name: P2
   m_TagString: Player
@@ -190,29 +190,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &3520070379880494900
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6872588833091197580}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6078ae09244aaa54ebee79fe4e441e7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  x: 0
-  x2: 0
-  y: 0
-  y2: 0
-  grid: {fileID: 0}
-  BasicAtt: {fileID: 6872588833920836526}
-  Lifetext: {fileID: 0}
-  respawn: {fileID: 0}
-  configGrid: {fileID: 0}
-  RespawnController: {fileID: 1582286813572465343}
-  GameManager: {fileID: 0}
 --- !u!114 &6872588833091197572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -274,7 +251,7 @@ MonoBehaviour:
   BasicAttack: 323
   Attack2: 0
   ManagerPlayerID: 0
---- !u!114 &3703439531580826963
+--- !u!114 &784684687217983756
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -283,7 +260,36 @@ MonoBehaviour:
   m_GameObject: {fileID: 6872588833091197580}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5746cf1716c8f841be66393a40050bd, type: 3}
+  m_Script: {fileID: 11500000, guid: 62a6c9b588170a24a921bc82faf2dc93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Round: 0
+  OnTheRoad: 0
+  x: 0
+  x2: 0
+  y: 0
+  y2: 0
+  grid: {fileID: 0}
+  BasicAtt: {fileID: 0}
+  Lifetext: {fileID: 0}
+  respawn: {fileID: 0}
+  configGrid: {fileID: 0}
+  RespawnController: {fileID: 0}
+  GameManager: {fileID: 0}
+  RotUp: 0
+  RotDown: 0
+  RotLeft: 0
+  RotRight: 0
+--- !u!114 &2142981787031377278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6872588833091197580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4880a0391b245146a31703c3180e415, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6872588833920836497

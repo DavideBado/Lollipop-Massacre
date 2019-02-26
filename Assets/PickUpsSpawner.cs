@@ -94,7 +94,7 @@ public class PickUpsSpawner : MonoBehaviour
 
     void PlayersPlease()
     {
-        P1 = FindObjectOfType<PositionTester>().gameObject;
-        P2 = FindObjectOfType<PositionTester1>().gameObject;
+        P1 = FindObjectOfType<Player1>().gameObject;
+        P2 = FindObjectOfType<Player2>().gameObject;
     }
 }
