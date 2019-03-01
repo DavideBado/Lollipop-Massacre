@@ -12,7 +12,7 @@ public class LifeManager : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        Life = 3;
+        Life = 6;
         GameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
     // Update is called once per frame

@@ -642,6 +642,11 @@ PrefabInstance:
       propertyPath: RotDown
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6872588833091197572, guid: def42def7a1b4404dbf7cdc298162e43,
+        type: 3}
+      propertyPath: Life
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1582286813572465343, guid: def42def7a1b4404dbf7cdc298162e43, type: 3}
     - {fileID: 3520070379880494900, guid: def42def7a1b4404dbf7cdc298162e43, type: 3}
@@ -2639,6 +2644,19 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1563732416}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &999679822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 999679821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a2ce0d5fd39c5443a7417126a1b40bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Poison: {fileID: 1761248820065099990, guid: 09146529f478bc2478cc8b53284fb07d, type: 3}
 --- !u!1001 &1007859729
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4092,6 +4110,26 @@ PrefabInstance:
         type: 3}
       propertyPath: RotLeft
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4114346956989665643, guid: a8c0f63a24133224cb9e382a7b2279d1,
+        type: 3}
+      propertyPath: Life
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4114346956989665642, guid: a8c0f63a24133224cb9e382a7b2279d1,
+        type: 3}
+      propertyPath: Ability
+      value: 113
+      objectReference: {fileID: 0}
+    - target: {fileID: 4114346957532756551, guid: a8c0f63a24133224cb9e382a7b2279d1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5183155136094523543, guid: a8c0f63a24133224cb9e382a7b2279d1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7546716473394912116, guid: a8c0f63a24133224cb9e382a7b2279d1, type: 3}

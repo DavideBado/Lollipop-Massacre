@@ -10,7 +10,7 @@ public class Attack1 : MonoBehaviour
     {
         if (other.tag == "Player" && Manager.CanAttack == true) // Se è in collisione con un player e può attaccare
         {
-            other.GetComponent<LifeManager>().Life--; // Togli vita al player in collisione
+            other.GetComponent<LifeManager>().Life-=2; // Togli vita al player in collisione
             Manager.CanAttack = false; // Non posso più attaccare
             this.GetComponent<Collider>().enabled = false; // Spegni il collider di attacco
         }
