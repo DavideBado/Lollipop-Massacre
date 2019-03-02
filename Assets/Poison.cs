@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Poison : MonoBehaviour
 {
-    int MaxRounds = 2;
+    public int MaxRounds = 2;
     bool RoundCheck, CanAttack;
     // Start is called before the first frame update
     void Start()

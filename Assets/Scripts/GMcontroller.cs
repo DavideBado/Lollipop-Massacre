@@ -29,7 +29,7 @@ public class GMcontroller : MonoBehaviour
     {
         if(Input.GetAxis("R2") != 0)
         {
-            EditorApplication.isPaused = !EditorApplication.isPaused;
+            //EditorApplication.isPaused = !EditorApplication.isPaused;
         }
 
         transform.position += new Vector3(1 * Input.GetAxis("GP_HorizontalArrow1") / 10, 0, 1 * Input.GetAxis("GP_VerticalArrow1") / 10);

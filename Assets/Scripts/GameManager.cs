@@ -94,7 +94,10 @@ public class GameManager : MonoBehaviour
     #endregion
 
     public void NextPlease(GameObject Player)
-    {
+    {if(Player.GetComponentInChildren<Poison>() != null)
+        {
+            Player.GetComponentInChildren<Poison>().MaxRounds = 0;
+        }
         Instantiate(Player, RespawnController.FindAGoodPoint(), Quaternion.identity);
     }
 

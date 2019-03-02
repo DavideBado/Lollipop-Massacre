@@ -7,17 +7,20 @@ using System.Linq;
 
 public class Player1 : Agent
 {
-
-   
+    public bool CanAttack;  
 
     private void Update()
     {
         TextUpdate();
         Sicura();
         InUpdate();
+        RoundUpdate();
     }
 
-   
+   void RoundUpdate()
+    {
+        CanAttack = GameObject.Find("GameManager").GetComponent<GameManager>().Round; //Mettendo questa anche in P2 ma != potremmo rimettere la region input dentro Agent
+    }
 
     void TextUpdate()
     {
