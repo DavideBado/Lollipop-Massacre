@@ -15,6 +15,9 @@ public class PickUpsSpawner : MonoBehaviour
     public GameObject PickUp;
     bool CanSpawn;
     bool Searching;
+    
+    
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -74,13 +77,17 @@ public class PickUpsSpawner : MonoBehaviour
                         }
                         if (CanSpawn == true)
                         {
-                            foreach(energyscript Pickup in Pickups)
+                            foreach (energyscript Pickup in Pickups)
                             {
                                 Destroy(Pickup.gameObject);
+
                             }
                             Instantiate(PickUp, Cell.transform.position, Quaternion.identity);
+                           
+
                             return;
                         }
+                        
                     }
                     else Counter++;
                 }

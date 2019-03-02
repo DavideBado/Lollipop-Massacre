@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Wall : MonoBehaviour
 {
-   
+    
+    
+
     public ItemData GetData()
     {
         ItemData itemData = new ItemData()
@@ -15,5 +17,7 @@ public class Wall : MonoBehaviour
 
         return itemData;
     }
+
+
 }
 
