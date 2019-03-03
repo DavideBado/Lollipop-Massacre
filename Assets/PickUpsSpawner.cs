@@ -15,7 +15,7 @@ public class PickUpsSpawner : MonoBehaviour
     public GameObject PickUp;
     bool CanSpawn;
     bool Searching;
-    
+    public bool AllManaFull = true;
     
     
     // Start is called before the first frame update
@@ -55,47 +55,52 @@ public class PickUpsSpawner : MonoBehaviour
         Counter = 0;
         RandomList = Random.Range(1, 7);
         Searching = true;
-        
-        foreach (GridArea Area in GridAreas)
+        if (Pickups.Count ==  0 && (P1.GetComponent<Agent>().Mana == 0  || P2.GetComponent<Agent>().Mana == 0))
         {
-            if (Area.AreaID == RandomList && Area.AreaID != P1AreaID && Area.AreaID != P2AreaID)
+            foreach (GridArea Area in GridAreas)
             {
-                cellPrefs = Area.GetComponentsInChildren<CellPrefScript>().ToList();
-                RandomCell = Random.Range(0, cellPrefs.Count);
-                foreach (CellPrefScript Cell in cellPrefs)
+                if (Area.AreaID == RandomList && Area.AreaID != P1AreaID && Area.AreaID != P2AreaID)
                 {
-                    if (RandomCell == Counter)
+                    cellPrefs = Area.GetComponentsInChildren<CellPrefScript>().ToList();
+                    RandomCell = Random.Range(0, cellPrefs.Count);
+                    foreach (CellPrefScript Cell in cellPrefs)
                     {
-                        CanSpawn = true;
-
-                        foreach (Wall _wall in Walls)
+                        if (RandomCell == Counter)
                         {
-                            if (_wall.transform.position == Cell.transform.position)
-                            {
-                                CanSpawn = false;
-                            }
-                        }
-                        if (CanSpawn == true)
-                        {
-                            foreach (energyscript Pickup in Pickups)
-                            {
-                                Destroy(Pickup.gameObject);
+                            CanSpawn = true;
 
+                            foreach (Wall _wall in Walls)
+                            {
+                                if (_wall.transform.position == Cell.transform.position)
+                                {
+                                    CanSpawn = false;
+                                }
                             }
-                            Instantiate(PickUp, Cell.transform.position, Quaternion.identity);
-                           
+                            if (CanSpawn == true)
+                            {
+                                //foreach (energyscript Pickup in Pickups)
+                                //{
+                                //    Destroy(Pickup.gameObject);
 
-                            return;
+                                //}
+                                Instantiate(PickUp, Cell.transform.position, Quaternion.identity);
+
+
+                                return;
+                            }
+
                         }
-                        
+                        else Counter++;
                     }
-                    else Counter++;
+
                 }
 
             }
-
         }
-        
+        else if(P1.GetComponent<Agent>().Mana > 0 && P2.GetComponent<Agent>().Mana > 0)
+        {
+            AllManaFull = true;
+        }
 
     }
 

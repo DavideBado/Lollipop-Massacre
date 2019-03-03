@@ -5652,9 +5652,10 @@ MonoBehaviour:
   GridAreas: []
   cellPrefs: []
   Walls: []
-  P1: {fileID: 0}
-  P2: {fileID: 0}
+  P1: {fileID: 1510294126}
+  P2: {fileID: 1256144805}
   PickUp: {fileID: 6401599724218344512, guid: 69d0bd9a1dac35540be1035a2fe6119c, type: 3}
+  AllManaFull: 1
 --- !u!114 &996976815
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7208,7 +7209,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1256144805}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.8, y: 1, z: 0.8}
@@ -8376,7 +8377,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1510294126}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.8, y: 1, z: 0.8}

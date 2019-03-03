@@ -8,13 +8,13 @@ public class energyscript : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
-        {     
-           if(other.GetComponent<Agent>().Mana == 0)
+        {
+            if (other.GetComponent<Agent>().Mana == 0)
             {
                 other.GetComponent<Agent>().Mana++;
-               
             }
-            Destroy(gameObject);
+            FindObjectOfType<GameManager>().PickUpRoundCount = 0;
+            Destroy(gameObject);          
            
         }
 
