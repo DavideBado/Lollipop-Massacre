@@ -31,7 +31,7 @@ public class PositionTesterOld : MonoBehaviour {
     }
     // Update is called once per frame
     void Update () {
-        _Round = GameObject.Find("GameManager").GetComponent<GameManager>().Round;
+        _Round = GameObject.Find("GameManager").GetComponent<GameManager>().Turn;
         Lifetext.text = "P1 Life:" + GetComponent<LifeManager>().Life.ToString(); // Life on screen
 
         if (_Round == false)

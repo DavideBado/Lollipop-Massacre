@@ -73,7 +73,7 @@ public class PositionTester : MonoBehaviour {
     #region Update
     void RoundCheck()
     {
-        _Round = GameObject.Find("GameManager").GetComponent<GameManager>().Round;
+        _Round = GameObject.Find("GameManager").GetComponent<GameManager>().Turn;
     }
 
     void TextUpdate()

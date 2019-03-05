@@ -8,7 +8,7 @@ public class WallTransparency : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            this.GetComponent<MeshRenderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 0.2f);
+            GetComponentInParent<MeshRenderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 0.2f);
         }
     }
 
@@ -16,7 +16,7 @@ public class WallTransparency : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            this.GetComponent<MeshRenderer>().material.color = new Color(1.0f, 0f, 0.7611f, 1f);
+            GetComponentInParent<MeshRenderer>().material.color = new Color(1.0f, 0f, 0.7611f, 1f);
         }
     }
 }

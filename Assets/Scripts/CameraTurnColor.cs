@@ -20,11 +20,11 @@ public class CameraTurnColor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(gm.Round == true)
+        if(gm.Turn == true)
         {
             cam.backgroundColor = color1;
         }
-        else if(gm.Round == false)
+        else if(gm.Turn == false)
         {
             cam.backgroundColor = color2;
         }

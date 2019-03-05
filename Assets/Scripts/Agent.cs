@@ -10,8 +10,8 @@ public class Agent : MonoBehaviour {
     public KeyCode BigD1, Drain2, Stun3, Venom4;
     public int PlayerType = 0;
     //*************************************************
-    public Vector3 SavedlookAt;
-    public bool _Round, OnTheRoad = false;
+    public Vector3 SavedlookAt, RayCenter, RayLeft, RayRight;
+    public bool MyTurn, OnTheRoad = false;
     public int x, x2;
     public int y, y2;   
     public BaseGrid grid;
@@ -23,8 +23,9 @@ public class Agent : MonoBehaviour {
     List<PlayerData> Players = new List<PlayerData>();
     List<Wall> Walls = new List<Wall>();
     public GameManager GameManager;
-    public bool RotUp = false, RotDown = false, RotLeft = false, RotRight = false;
+    public bool RotUp = false, RotDown = false, RotLeft = false, RotRight = false, ImStunned = false;
     public int Mana = 0;
+    public bool OhStunnedShit;
     private void Start()
     {
         InStart();
@@ -43,9 +44,11 @@ public class Agent : MonoBehaviour {
 
     public void InUpdate()
     {
-        RoundCheck(); // Controlla i round       
-        Movement(); // Muove il giocatore
+		Sicura();
+		Movement(); // Muove il giocatore
         APlayerTypeSelector();
+        RayDirections();
+        Stunname();
     }
 
     #region Start
@@ -73,14 +76,17 @@ public class Agent : MonoBehaviour {
         //    y = (int)(transform.position.z);
         //}
     }
-    #endregion
+	#endregion
 
-    #region Update
-    void RoundCheck()
-    {
-        _Round = GameObject.Find("GameManager").GetComponent<GameManager>().Round;
-    }
-    void APlayerTypeSelector()
+	#region Update
+	void Sicura()
+	{
+		if (MyTurn == false) // Se non è il tuo turno
+		{
+			BasicAtt.enabled = false; // Metti via le armi
+		}
+	}
+	void APlayerTypeSelector()
     {
         if (Input.GetKeyDown(BigD1))
         {
@@ -104,7 +110,7 @@ public class Agent : MonoBehaviour {
         if (grid) // Check if we have a grid
         {
 
-            if (checkIfPosEmpty()) // Now if the cell is free
+            if (checkIfPosEmpty() && ImStunned == false) // Now if the cell is free
             { // Move the player && save x && y
                 BasicAtt.enabled = false; // Assicurati di avere le armi nel fodero
                  // Spostati verso la casella selezionata alla velocità di Speed unità al secondo
@@ -126,9 +132,55 @@ public class Agent : MonoBehaviour {
             }
         }
     }
+
+    void RayDirections()
+    {
+        if(RotUp == true)
+        {
+            SavedlookAt = new Vector3(0, 0, 1);
+            RayLeft = transform.position + new Vector3(-1, 0, 0.5f);
+            RayCenter = transform.position + new Vector3(0, 0, 0.5f);
+            RayRight = transform.position + new Vector3(1, 0, 0.5f);
+        }
+        if(RotLeft == true)
+        {
+            SavedlookAt = new Vector3(-1, 0, 0);
+            RayLeft = transform.position + new Vector3(-0.5f, 0, -1);
+            RayCenter = transform.position + new Vector3(-0.5f, 0, 0);
+            RayRight = transform.position + new Vector3(-0.5f, 0, 1);
+        }
+        if(RotDown == true)
+        {
+            SavedlookAt = new Vector3(0, 0, -1);
+            RayLeft = transform.position + new Vector3(-1, 0, -0.5f);
+            RayCenter = transform.position + new Vector3(0, 0, -0.5f);
+            RayRight = transform.position + new Vector3(1, 0, -0.5f);
+        }
+        if(RotRight == true)
+        {
+            SavedlookAt = new Vector3(1, 0, 0);
+            RayLeft = transform.position + new Vector3(0.5f, 0, 1);
+            RayCenter = transform.position + new Vector3(0.5f, 0, 0);
+            RayRight = transform.position + new Vector3(0.5f, 0, -1);
+        }
+    }
+
+    void Stunname()
+    {
+        if (ImStunned == true && MyTurn == true)
+        {
+            OhStunnedShit = true;
+        }
+        if (OhStunnedShit == true && MyTurn == false)
+        {
+            OhStunnedShit = false;
+            ImStunned = false;
+        }
+    }
+
     #endregion
 
-    
+
 
     public bool checkIfPosEmpty() // This check if the cell is free
     {
@@ -170,4 +222,80 @@ public class Agent : MonoBehaviour {
 
         transform.rotation = Quaternion.Euler(0, AngleDeg, 0);
     }
+	#region Input
+
+	public void Up() //Trasforma la chiamata del manager in una richiesta di movimento
+	{
+
+		if (y < (configGrid.DimY - 1) && OnTheRoad == false && MyTurn == true && ImStunned == false)
+		{
+			RotDown = false; RotLeft = false; RotRight = false;
+			OnTheRoad = true;
+			y++;						
+            Rotation();
+            if (RotUp == false)
+			{
+				y--;
+				RotUp = true;
+			}
+
+		}
+	}
+	public void Left()
+	{
+		if (x > 0 && OnTheRoad == false && MyTurn == true && ImStunned == false)
+		{
+			RotUp = false; RotDown = false; RotRight = false;
+			OnTheRoad = true;
+			x--;			
+            Rotation();
+            if (RotLeft == false)
+			{
+				x++;
+				RotLeft = true;
+			}
+		}
+	}
+	public void Down()
+	{
+		if (y > 0 && OnTheRoad == false && MyTurn == true && ImStunned == false)
+		{
+			RotUp = false; RotLeft = false; RotRight = false;
+			OnTheRoad = true;
+			y--;			
+            Rotation();
+            if (RotDown == false)
+			{
+				y++;
+				RotDown = true;
+			}
+		}
+	}
+	public void Right()
+	{
+		if (x < (configGrid.DimX - 1) && OnTheRoad == false && MyTurn == true && ImStunned == false)
+		{
+			RotUp = false; RotDown = false; RotLeft = false;
+			OnTheRoad = true;
+			x++;
+            Rotation();
+            if (RotRight == false)
+			{
+				x--;
+				RotRight = true;
+			}
+		}
+	}
+
+	public void BasicAttack()
+	{
+		if (MyTurn == true && ImStunned == false) // Se è il mio turno
+		{
+			BasicAtt.enabled = true; // Attiva il collider di attacco
+		}
+		else BasicAtt.enabled = false;
+	}
+
+	#endregion
+   
 }

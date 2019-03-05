@@ -72,7 +72,7 @@ public class PositionTester1 : MonoBehaviour {
     #region UPDATE
     void RoundCheck()
     {
-        _Round = GameObject.Find("GameManager").GetComponent<GameManager>().Round; // Controlla i round contati dal manager
+        _Round = GameObject.Find("GameManager").GetComponent<GameManager>().Turn; // Controlla i round contati dal manager
     }
 
     void TextUpdate() // Aggiorna i testi a schermo

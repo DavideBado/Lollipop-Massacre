@@ -39,7 +39,7 @@ public class PositionTester1Old : MonoBehaviour {
             BasicAtt.enabled = false;
         }
 
-        _Round = GameObject.Find("GameManager").GetComponent<GameManager>().Round;
+        _Round = GameObject.Find("GameManager").GetComponent<GameManager>().Turn;
        
         if (grid) // Check if we have a grid
         {

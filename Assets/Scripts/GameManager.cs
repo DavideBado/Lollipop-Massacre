@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public Text Timertext, TimeMaxText, TurnoText;
     float Timer, Timer2, TimerSafe = 0.2f;
     public float TimeMax = 3f, Speed = 25f;
-    public bool Round = true, CanAttack = true;
+    public bool Turn = true, CanAttack = true;
     public int RoundCount = 0, PickUpRoundCount = 0;
     public bool Spawn1 = true;
     RespawnController RespawnController;
@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
     {
         Timertext.text = "Tempo:" + Timer2.ToString(); // Visualizza il tempo        
         TimeMaxText.text = "Tempo massimo:" + TimeMax.ToString(); // Visualizza il tempo massimo
-        if(Round == true)
+        if(Turn == true)
         {
             TurnoText.text = "TURNO P1";
         } else TurnoText.text = "TURNO P2";
@@ -62,11 +62,11 @@ public class GameManager : MonoBehaviour
         {
             if (TimerSafe <= 0) // E anche il tempo supplementare è finito
             {
-                Round = !Round; // Change player
+                Turn = !Turn; // Change player
                 Timer = TimeMax; //Imposta nuovamente il timer
                 TimerSafe = 0.2f; //Imposta nuovamente il tempo supplementare
                 CanAttack = true;// Il giocatore può attaccare
-                if (Round == true)// Se è nuovamente il turno del primo giocatore
+                if (Turn == true)// Se è nuovamente il turno del primo giocatore
                 {
                     RoundCount++; // Aggiorna il contatore dei round
                     PickUpRoundCount++;
