@@ -10,7 +10,7 @@ public class Agent : MonoBehaviour {
     public KeyCode BigD1, Drain2, Stun3, Venom4;
     public int PlayerType = 0;
     //*************************************************
-    public Vector3 lookAt;
+    public Vector3 SavedlookAt;
     public bool _Round, OnTheRoad = false;
     public int x, x2;
     public int y, y2;   
@@ -162,8 +162,8 @@ public class Agent : MonoBehaviour {
 
     public void Rotation()
     {
-        lookAt = grid.GetWorldPosition(x,y);
-
+        Vector3 lookAt = grid.GetWorldPosition(x,y);
+        
         float AngleRad = Mathf.Atan2(lookAt.x - this.transform.position.x, lookAt.z - this.transform.position.z);
 
         float AngleDeg = (180 / Mathf.PI) * AngleRad;

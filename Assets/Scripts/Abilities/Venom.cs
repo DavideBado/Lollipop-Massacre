@@ -48,14 +48,14 @@ public class Venom : MonoBehaviour
                     PoisonPower(hit);
                 }
             }
-            if(FindObjectOfType<PickUpsSpawner>().AllManaFull == true)
+            if (FindObjectOfType<PickUpsSpawner>().AllManaFull == true)
             {
                 FindObjectOfType<GameManager>().PickUpRoundCount = 0;
                 FindObjectOfType<PickUpsSpawner>().AllManaFull = false;
             }
             GetComponent<Agent>().Mana--;
         }
-   }
+    }
 
     void PoisonPower(RaycastHit hit)
     {

@@ -47,7 +47,7 @@ public class Player1 : Agent
             OnTheRoad = true;
             y++;
             Rotation();
-            
+            SavedlookAt = new Vector3(0, 0, 1);
             if (RotUp == false)
             {
                 y--;
@@ -63,6 +63,7 @@ public class Player1 : Agent
             RotUp = false; RotDown = false; RotRight = false;
             OnTheRoad = true;
             x--;
+            SavedlookAt = new Vector3(-1, 0, 0);
             Rotation();
             if (RotLeft == false)
             {
@@ -78,6 +79,7 @@ public class Player1 : Agent
             RotUp = false; RotLeft = false; RotRight = false;
             OnTheRoad = true;
             y--;
+            SavedlookAt = new Vector3(0, 0, -1);
             Rotation();
             if (RotDown == false)
             {
@@ -93,6 +95,7 @@ public class Player1 : Agent
             RotUp = false; RotDown = false; RotLeft = false;
             OnTheRoad = true;
             x++;
+            SavedlookAt = new Vector3(1, 0, 0);
             Rotation();
             if (RotRight == false)
             {
