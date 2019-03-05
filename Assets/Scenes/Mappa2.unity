@@ -7150,6 +7150,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62a6c9b588170a24a921bc82faf2dc93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BigD1: 257
+  Drain2: 258
+  Stun3: 259
+  Venom4: 260
+  PlayerType: 0
+  lookAt: {x: 0, y: 0, z: 0}
   _Round: 0
   OnTheRoad: 0
   x: 0
@@ -8301,6 +8307,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5746cf1716c8f841be66393a40050bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BigD1: 49
+  Drain2: 50
+  Stun3: 51
+  Venom4: 52
+  PlayerType: 0
+  lookAt: {x: 0, y: 0, z: 0}
   _Round: 0
   OnTheRoad: 0
   x: 0

@@ -6,6 +6,11 @@ using UnityEngine.UI;
 using System.Linq;
 
 public class Agent : MonoBehaviour {
+    //************Variabili per test abilità***********
+    public KeyCode BigD1, Drain2, Stun3, Venom4;
+    public int PlayerType = 0;
+    //*************************************************
+    public Vector3 lookAt;
     public bool _Round, OnTheRoad = false;
     public int x, x2;
     public int y, y2;   
@@ -31,20 +36,20 @@ public class Agent : MonoBehaviour {
     }
 
     void InStart()
-    {        
+    {
         Spawn(); // Posiziona il giocatore
         FirstSaveXY(); // Salvo le coordinate della mia posizione
     }
 
     public void InUpdate()
     {
-        RoundCheck(); // Controlla i round
-       
+        RoundCheck(); // Controlla i round       
         Movement(); // Muove il giocatore
+        APlayerTypeSelector();
     }
 
     #region Start
-
+    
     void FirstSaveXY()
     {
         // x2 && y2 Start = null, the next code lines change x2 && y2 != null
@@ -75,10 +80,25 @@ public class Agent : MonoBehaviour {
     {
         _Round = GameObject.Find("GameManager").GetComponent<GameManager>().Round;
     }
-
-   
-
-   
+    void APlayerTypeSelector()
+    {
+        if (Input.GetKeyDown(BigD1))
+        {
+            PlayerType = 1;
+        }
+        if (Input.GetKeyDown(Drain2))
+        {
+            PlayerType = 2;
+        }
+        if (Input.GetKeyDown(Stun3))
+        {
+            PlayerType = 3;
+        }
+        if (Input.GetKeyDown(Venom4))
+        {
+            PlayerType = 4;
+        }
+    }
     void Movement() // Muove il giocatore
     {
         if (grid) // Check if we have a grid
@@ -142,7 +162,7 @@ public class Agent : MonoBehaviour {
 
     public void Rotation()
     {
-        Vector3 lookAt = grid.GetWorldPosition(x,y);
+        lookAt = grid.GetWorldPosition(x,y);
 
         float AngleRad = Mathf.Atan2(lookAt.x - this.transform.position.x, lookAt.z - this.transform.position.z);
 
