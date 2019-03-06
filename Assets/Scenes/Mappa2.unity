@@ -1456,7 +1456,8 @@ PrefabInstance:
       propertyPath: field of view
       value: 45.7
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 270265264, guid: d8c6d5f169d2dea428f9103687bd9bd0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d8c6d5f169d2dea428f9103687bd9bd0, type: 3}
 --- !u!1 &388124565
 GameObject:

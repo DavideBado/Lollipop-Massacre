@@ -27,7 +27,15 @@ public class PickUpsSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+       if(FindObjectOfType<GameManager>().PickUpTurnCount == 3)
+        {
+            Pickups = FindObjectsOfType<energyscript>().ToList();
+            if (Pickups.Count == 0)
+            {
+                SpawnAPickUp();
+            }
+            else { FindObjectOfType<GameManager>().PickUpTurnCount = 0; }
+        }
     }
 
     void InStart()
@@ -49,31 +57,37 @@ public class PickUpsSpawner : MonoBehaviour
     public void SpawnAPickUp()
     {
         PlayersPlease();
-        Pickups = FindObjectsOfType<energyscript>().ToList();
+        //Pickups = FindObjectsOfType<energyscript>().ToList();
         P1AreaID = P1.GetComponentInParent<GridArea>().AreaID;
         P2AreaID = P2.GetComponentInParent<GridArea>().AreaID;
         Counter = 0;
         RandomList = Random.Range(1, 7);
+        Debug.Log("RandomList" + RandomList.ToString());
         Searching = true;
-        if (Pickups.Count ==  0 && (P1.GetComponent<Agent>().Mana == 0  || P2.GetComponent<Agent>().Mana == 0))
+        if (Pickups.Count == 0 /*&& (P1.GetComponent<Agent>().Mana == 0  || P2.GetComponent<Agent>().Mana == 0)*/)
         {
             foreach (GridArea Area in GridAreas)
             {
                 if (Area.AreaID == RandomList && Area.AreaID != P1AreaID && Area.AreaID != P2AreaID)
                 {
+                    Debug.Log("AreaID" + Area.AreaID.ToString());
                     cellPrefs = Area.GetComponentsInChildren<CellPrefScript>().ToList();
                     RandomCell = Random.Range(0, cellPrefs.Count);
-                    foreach (CellPrefScript Cell in cellPrefs)
+                    Debug.Log("RandomCell" + RandomCell.ToString());
+                    for (int i = 0; i < cellPrefs.Count; i++)
                     {
-                        if (RandomCell == Counter)
+                        if (i == RandomCell)
                         {
+                            Debug.Log("Cella" + cellPrefs[i].transform.position.ToString());
+                            Debug.Log("Area della Cella" + cellPrefs[i].GetComponentInParent<GridArea>().AreaID.ToString());
                             CanSpawn = true;
 
                             foreach (Wall _wall in Walls)
                             {
-                                if (_wall.transform.position == Cell.transform.position)
+                                if (_wall.transform.position == cellPrefs[i].transform.position)
                                 {
-                                    CanSpawn = false;
+                                    CanSpawn = false;                                   
+                                    return;
                                 }
                             }
                             if (CanSpawn == true)
@@ -83,23 +97,47 @@ public class PickUpsSpawner : MonoBehaviour
                                 //    Destroy(Pickup.gameObject);
 
                                 //}
-                                Instantiate(PickUp, Cell.transform.position, Quaternion.identity);
-
-
+                                Instantiate(PickUp, cellPrefs[i].transform.position, Quaternion.identity);
                                 return;
                             }
-
                         }
-                        else Counter++;
                     }
+                    //foreach (CellPrefScript Cell in cellPrefs)
+                    //{
+                    //    /*if (RandomCell == Counter)
+                    //    {*/
+                    //        CanSpawn = true;
+
+                    //        foreach (Wall _wall in Walls)
+                    //        {
+                    //            if (_wall.transform.position == Cell.transform.position)
+                    //            {
+                    //                CanSpawn = false;
+                    //            }
+                    //        }
+                    //        if (CanSpawn == true)
+                    //        {
+                    //            //foreach (energyscript Pickup in Pickups)
+                    //            //{
+                    //            //    Destroy(Pickup.gameObject);
+
+                    //            //}
+                    //            Instantiate(PickUp, Cell.transform.position, Quaternion.identity);
+
+
+                    //            return;
+                    //        }
+
+                    //    //}
+                    //    //else Counter++;
+                    //}
 
                 }
-
             }
         }
         else if(P1.GetComponent<Agent>().Mana > 0 && P2.GetComponent<Agent>().Mana > 0)
         {
-            AllManaFull = true;
+            //AllManaFull = true;
         }
 
     }

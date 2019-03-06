@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 427756179222368936}
   - component: {fileID: 427756179222368939}
+  - component: {fileID: 996976814}
+  - component: {fileID: 996976815}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -24,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 427756179222368938}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -45,8 +47,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Timertext: {fileID: 0}
   TimeMaxText: {fileID: 0}
-  TimeMax: 3
-  Speed: 30
-  Round: 1
+  TurnoText: {fileID: 0}
+  TimeMax: 4.5
+  Speed: 3
+  Turn: 1
   CanAttack: 1
   RoundCount: 0
+  PickUpTurnCount: 0
+  Spawn1: 1
+--- !u!114 &996976814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 427756179222368938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f174be3eef4daf4ca0eb84422d31a46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GridAreas: []
+  cellPrefs: []
+  Walls: []
+  P1: {fileID: 0}
+  P2: {fileID: 0}
+  PickUp: {fileID: 6401599724218344512, guid: 69d0bd9a1dac35540be1035a2fe6119c, type: 3}
+  AllManaFull: 1
+--- !u!114 &996976815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 427756179222368938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fdd44d24960fbb4eba6191f389aa2be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

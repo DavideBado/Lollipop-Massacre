@@ -20,7 +20,7 @@ public class Drain : MonoBehaviour
 
             if (FindObjectOfType<PickUpsSpawner>().AllManaFull == true)
             {
-                FindObjectOfType<GameManager>().PickUpRoundCount = 0;
+                FindObjectOfType<GameManager>().PickUpTurnCount = 0;
                 FindObjectOfType<PickUpsSpawner>().AllManaFull = false;
             }
             GetComponent<Agent>().Mana--;

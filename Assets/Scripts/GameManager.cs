@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     float Timer, Timer2, TimerSafe = 0.2f;
     public float TimeMax = 3f, Speed = 25f;
     public bool Turn = true, CanAttack = true;
-    public int RoundCount = 0, PickUpRoundCount = 0;
+    public int RoundCount = 0, PickUpTurnCount = 0;
     public bool Spawn1 = true;
     RespawnController RespawnController;
     // Update is called once per frame
@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
         TextUpdate(); // Aggiorna i testi a schermo
         SpawnUpdate();// Controlla quando attivare lo spawn dinamico
         QuitNow(); // Chuide il gioco
-        PickUpSpawn();
+        //PickUpSpawn();
     }
 
     #region UPDATE
@@ -66,10 +66,10 @@ public class GameManager : MonoBehaviour
                 Timer = TimeMax; //Imposta nuovamente il timer
                 TimerSafe = 0.2f; //Imposta nuovamente il tempo supplementare
                 CanAttack = true;// Il giocatore può attaccare
+                PickUpTurnCount++;
                 if (Turn == true)// Se è nuovamente il turno del primo giocatore
                 {
-                    RoundCount++; // Aggiorna il contatore dei round
-                    PickUpRoundCount++;
+                    RoundCount++; // Aggiorna il contatore dei round                  
                 }
             }
         }
@@ -85,10 +85,10 @@ public class GameManager : MonoBehaviour
 
     void PickUpSpawn()
     {
-        if(PickUpRoundCount == 3)
+        if(PickUpTurnCount == 3)
         {
             SendMessage("SpawnAPickUp");
-            PickUpRoundCount = 0;
+            PickUpTurnCount = 0;
         }
     }
     #endregion
