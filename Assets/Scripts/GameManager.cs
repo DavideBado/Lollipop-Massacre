@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -26,17 +27,17 @@ public class GameManager : MonoBehaviour
         TimeForThePlayer(); // Controlla il tempo e gestisce i round
         TextUpdate(); // Aggiorna i testi a schermo
         SpawnUpdate();// Controlla quando attivare lo spawn dinamico
-        QuitNow(); // Chuide il gioco
+        MainMenu(); // Chuide il gioco
         //PickUpSpawn();
     }
 
     #region UPDATE
 
-    void QuitNow()
+    void MainMenu()
     {
         if (Input.GetKeyDown(KeyCode.Escape))// Close the game, only in the build version
         {
-            Application.Quit();
+            SceneManager.LoadScene(0);
         }
     }
 

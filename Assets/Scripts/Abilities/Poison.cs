@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Poison : MonoBehaviour
-{
+{   
     public int MaxRounds = 2;
     bool RoundCheck, CanAttack;
     // Start is called before the first frame update

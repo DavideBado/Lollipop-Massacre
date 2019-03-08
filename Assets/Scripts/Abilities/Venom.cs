@@ -5,10 +5,11 @@ using UnityEditor;
 
 public class Venom : MonoBehaviour
 {
-   public GameObject Poison;
+    public GameManager Manager;
+    public GameObject Poison;
    
     public void Ability()
-    { if (GetComponent<Agent>().Mana > 0 && GetComponent<Player1>().MyTurn && GetComponent<Agent>().PlayerType == 4 && GetComponent<Agent>().ImStunned == false)
+    { if (GetComponent<Agent>().Mana > 0 && GetComponent<Player1>().MyTurn && GetComponent<Agent>().PlayerType == 4 && GetComponent<Agent>().ImStunned == false && Manager.CanAttack == true)
         {
             RaycastHit hit;
             if (Physics.Raycast(transform.position + new Vector3(0, 0.5f), Vector3.forward, out hit, Mathf.Infinity))
@@ -54,6 +55,7 @@ public class Venom : MonoBehaviour
                 FindObjectOfType<PickUpsSpawner>().AllManaFull = false;
             }
             GetComponent<Agent>().Mana--;
+            Manager.CanAttack = false;
         }
     }
 

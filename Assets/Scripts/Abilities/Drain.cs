@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Drain : MonoBehaviour
 {
+    public GameManager Manager;
     public void Ability()
     {
-        if (GetComponent<Agent>().Mana > 0 && GetComponent<Player1>().MyTurn && GetComponent<Agent>().PlayerType == 2 && GetComponent<Agent>().ImStunned == false)
+        if (GetComponent<Agent>().Mana > 0 && GetComponent<Player1>().MyTurn && GetComponent<Agent>().PlayerType == 2 && GetComponent<Agent>().ImStunned == false && Manager.CanAttack == true)
         {
             if(GetComponent<LifeManager>().Life == 6)
             {
@@ -24,6 +25,7 @@ public class Drain : MonoBehaviour
                 FindObjectOfType<PickUpsSpawner>().AllManaFull = false;
             }
             GetComponent<Agent>().Mana--;
+            Manager.CanAttack = false;
         }        
     }
     void ImFullButIWannaDrain()
