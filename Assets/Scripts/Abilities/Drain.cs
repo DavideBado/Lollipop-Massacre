@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class Drain : MonoBehaviour
 {
-    public GameManager Manager;
+    GameManager Manager;
+    private void Start()
+    {
+        Manager = FindObjectOfType<GameManager>();
+    }
     public void Ability()
     {
-        if (GetComponent<Agent>().Mana > 0 && GetComponent<Player1>().MyTurn && GetComponent<Agent>().PlayerType == 2 && GetComponent<Agent>().ImStunned == false && Manager.CanAttack == true)
+        if (GetComponent<Agent>().Mana > 0 && GetComponent<Agent>().MyTurn && GetComponent<Agent>().PlayerType == 2 && GetComponent<Agent>().ImStunned == false && Manager.CanAttack == true)
         {
             if(GetComponent<LifeManager>().Life == 6)
             {

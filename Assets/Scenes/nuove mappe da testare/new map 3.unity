@@ -3259,11 +3259,6 @@ PrefabInstance:
       objectReference: {fileID: 290914150}
     - target: {fileID: 427756179222368939, guid: ba0c0a689b90c3b4c89806f41e8fdef4,
         type: 3}
-      propertyPath: Speed
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 427756179222368939, guid: ba0c0a689b90c3b4c89806f41e8fdef4,
-        type: 3}
       propertyPath: TurnoText
       value: 
       objectReference: {fileID: 429631438}
@@ -3323,17 +3318,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 996976814, guid: ba0c0a689b90c3b4c89806f41e8fdef4, type: 3}
-      propertyPath: P2
-      value: 
-      objectReference: {fileID: 371234834}
-    - target: {fileID: 996976814, guid: ba0c0a689b90c3b4c89806f41e8fdef4, type: 3}
       propertyPath: P1
       value: 
       objectReference: {fileID: 126664019}
     - target: {fileID: 996976814, guid: ba0c0a689b90c3b4c89806f41e8fdef4, type: 3}
-      propertyPath: AllManaFull
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: P2
+      value: 
+      objectReference: {fileID: 371234834}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba0c0a689b90c3b4c89806f41e8fdef4, type: 3}
 --- !u!4 &1215166053 stripped

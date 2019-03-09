@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class BigD : MonoBehaviour
 {
-    public GameManager Manager;
+    GameManager Manager;
+    private void Start()
+    {
+        Manager = FindObjectOfType<GameManager>();
+    }
     public void Ability()
 
     {
-        if (GetComponent<Agent>().Mana > 0 && GetComponent<Player1>().MyTurn && GetComponent<Agent>().PlayerType == 1 && GetComponent<Agent>().ImStunned == false && Manager.CanAttack == true)
+        if (GetComponent<Agent>().Mana > 0 && GetComponent<Agent>().MyTurn && GetComponent<Agent>().PlayerType == 1 && GetComponent<Agent>().ImStunned == false && Manager.CanAttack == true)
 
         {
 

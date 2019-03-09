@@ -48,7 +48,7 @@ MonoBehaviour:
   Timertext: {fileID: 0}
   TimeMaxText: {fileID: 0}
   TurnoText: {fileID: 0}
-  TimeMax: 4.5
+  TimeMax: 5.5
   Speed: 3
   Turn: 1
   CanAttack: 1
