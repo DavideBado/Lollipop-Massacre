@@ -7,7 +7,7 @@ using System.Linq;
 
 public class Agent : MonoBehaviour {
     //************Variabili per test abilità***********
-    public KeyCode BigD1, Drain2, Stun3, Venom4;
+    public KeyCode BigD1, Drain2, Stun3, Venom4, Charge5;
     public int PlayerType = 0;
     //*************************************************
     public Vector3 SavedlookAt, RayCenter, RayLeft, RayRight;
@@ -26,6 +26,8 @@ public class Agent : MonoBehaviour {
     public bool RotUp = false, RotDown = false, RotLeft = false, RotRight = false, ImStunned = false;
     public int Mana = 0;
     public bool OhStunnedShit;
+    public float AgentSpeed;
+
     private void Start()
     {
         InStart();
@@ -62,6 +64,8 @@ public class Agent : MonoBehaviour {
 
     void Spawn()
     {
+        AgentSpeed = GameObject.Find("GameManager").GetComponent<GameManager>().Speed;
+        Mana = 1;
         if (GameManager.Spawn1 == true) // Se il gioco è appena iniziato
         {
             transform.position = respawn.transform.position; // Posiziona il giocatore nella posizione di partenza            
@@ -104,6 +108,10 @@ public class Agent : MonoBehaviour {
         {
             PlayerType = 4;
         }
+        if (Input.GetKeyDown(Charge5))
+        {
+            PlayerType = 5;
+        }
     }
     void Movement() // Muove il giocatore
     {
@@ -115,13 +123,15 @@ public class Agent : MonoBehaviour {
                 BasicAtt.enabled = false; // Assicurati di avere le armi nel fodero
                  // Spostati verso la casella selezionata alla velocità di Speed unità al secondo
                 transform.position = Vector3.MoveTowards(transform.position, grid.GetWorldPosition(x, y),
-                GameObject.Find("GameManager").GetComponent<GameManager>().Speed * Time.deltaTime);
+                AgentSpeed * Time.deltaTime);
                 if (transform.position == grid.GetWorldPosition(x, y)) // Se hai raggiunto la tua destinazione
                 {
+                    AgentSpeed = GameObject.Find("GameManager").GetComponent<GameManager>().Speed;
                     // Salva le coordinate della posizione attuale
                     x2 = x;
                     y2 = y;
                     OnTheRoad = false;
+                    FindObjectOfType<GameManager>().TimerOn = true;
                 }
             }
             else // Load the old values of x && y

@@ -77,6 +77,7 @@ GameObject:
   - component: {fileID: 1256144814}
   - component: {fileID: 855088209455006340}
   - component: {fileID: 1242158603117144819}
+  - component: {fileID: 7152227641638942373}
   m_Layer: 0
   m_Name: pg 1m 2
   m_TagString: Player
@@ -158,6 +159,7 @@ MonoBehaviour:
   Drain2: 258
   Stun3: 259
   Venom4: 260
+  Charge5: 261
   PlayerType: 0
   SavedlookAt: {x: 0, y: 0, z: 0}
   RayCenter: {x: 0, y: 0, z: 0}
@@ -183,6 +185,7 @@ MonoBehaviour:
   ImStunned: 0
   Mana: 1
   OhStunnedShit: 0
+  AgentSpeed: 0
 --- !u!114 &1256144808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,7 +231,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70f2941645093384388583cfc8b0c606, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Manager: {fileID: 0}
 --- !u!114 &1256144814
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,7 +243,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfd07e33101c4a3449846087c5ebf2d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Manager: {fileID: 0}
 --- !u!114 &855088209455006340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,7 +255,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f45f31b2797764941b6d3e0c3aeddc58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Manager: {fileID: 0}
 --- !u!114 &1242158603117144819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -267,8 +267,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a2ce0d5fd39c5443a7417126a1b40bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Manager: {fileID: 0}
   Poison: {fileID: 1761248820065099990, guid: 09146529f478bc2478cc8b53284fb07d, type: 3}
+--- !u!114 &7152227641638942373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1256144805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d872d7d50addca4eaaafafe05b13c4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3595088801534984405
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,10 +8,10 @@ public class GameManager : MonoBehaviour
 {
     public Text Timertext, TimeMaxText, TurnoText;
     float Timer, Timer2, TimerSafe = 0.2f;
-    public float TimeMax = 3f, Speed = 25f;
+    public float TimeMax = 3f, Speed = 3f;
     public bool Turn = true, CanAttack = true;
     public int RoundCount = 0, PickUpTurnCount = 0;
-    public bool Spawn1 = true;
+    public bool Spawn1 = true, TimerOn = true;
     RespawnController RespawnController;
     // Update is called once per frame
     private void Start()
@@ -54,23 +54,26 @@ public class GameManager : MonoBehaviour
     void TimeForThePlayer() // This check the time && switch the rounds
     {
         Timer2 = Mathf.Round(Timer);
-        Timer -= Time.deltaTime;
-        if (Timer <= 0) // Se è finito il round
+        if (TimerOn == true)
         {
-            TimerSafe -= Time.deltaTime; // Attiva il tempo supplementare
-        }
-        if (Timer <= 0) // Se il timer raggiunge lo 0
-        {
-            if (TimerSafe <= 0) // E anche il tempo supplementare è finito
+            Timer -= Time.deltaTime;
+            if (Timer <= 0) // Se è finito il round
             {
-                Turn = !Turn; // Change player
-                Timer = TimeMax; //Imposta nuovamente il timer
-                TimerSafe = 0.2f; //Imposta nuovamente il tempo supplementare
-                CanAttack = true;// Il giocatore può attaccare
-                PickUpTurnCount++;
-                if (Turn == true)// Se è nuovamente il turno del primo giocatore
+                TimerSafe -= Time.deltaTime; // Attiva il tempo supplementare
+            }
+            if (Timer <= 0) // Se il timer raggiunge lo 0
+            {
+                if (TimerSafe <= 0) // E anche il tempo supplementare è finito
                 {
-                    RoundCount++; // Aggiorna il contatore dei round                  
+                    Turn = !Turn; // Change player
+                    Timer = TimeMax; //Imposta nuovamente il timer
+                    TimerSafe = 0.2f; //Imposta nuovamente il tempo supplementare
+                    CanAttack = true;// Il giocatore può attaccare
+                    PickUpTurnCount++;
+                    if (Turn == true)// Se è nuovamente il turno del primo giocatore
+                    {
+                        RoundCount++; // Aggiorna il contatore dei round                  
+                    }
                 }
             }
         }
