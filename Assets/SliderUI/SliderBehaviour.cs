@@ -18,6 +18,9 @@ public class SliderBehaviour : MonoBehaviour
 
     public TimerDelegate StartTimer;
     public TimerDelegate EndTimer;
+    public GameManager manager;
+    public float endValue = 0;
+
 
     public void Start() {
         if (StartOnAwake)
@@ -27,6 +30,7 @@ public class SliderBehaviour : MonoBehaviour
             StartCounter(countAmount);
 
         fillImage.color = RingColor;
+        manager = FindObjectOfType<GameManager>();
     }
 
    
@@ -39,22 +43,34 @@ public class SliderBehaviour : MonoBehaviour
         //}
 
         counterText.text = ((int)countAmount + 1).ToString();
-        Debug.Log(countAmount);
+        if (manager.TimerOn == false)
+        {
+            
+            endValue = countAmount;
+        }
+        else
+        {
+            endValue = 0;
+        }
     }
 
     public float initialCountAmount;
 
     public void StartCounter(float time) {
         initialCountAmount = time;
+       
+            fillImage.DOFillAmount(0, 1 / countAmount)
+           .SetSpeedBased(true)
+           .SetEase(Ease.Linear);
 
-        fillImage.DOFillAmount(0, 1 / countAmount)
-            .SetSpeedBased(true)
-            .SetEase(Ease.Linear);
-            
 
-        DOTween.To(() => countAmount, x => countAmount = x, 0, countAmount)
+            DOTween.To(() => countAmount, x => countAmount = x, endValue, countAmount)
             .SetEase(Ease.Linear)
             .OnComplete(timerCompleted);
+        
+       
+        
+        
     }
 
     public void timerCompleted() {
@@ -62,7 +78,8 @@ public class SliderBehaviour : MonoBehaviour
         countAmount = initialCountAmount;
         if(EndTimer != null)
             EndTimer();
-        if (Loop) {
+        if (Loop)
+        {
             StartCounter(countAmount);
         }
     }

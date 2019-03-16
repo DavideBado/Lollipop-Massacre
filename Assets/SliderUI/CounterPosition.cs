@@ -7,11 +7,13 @@ public class CounterPosition : MonoBehaviour
     public Player1 P1;
     public Player2 P2;
     public SliderBehaviour _slider;
+    
    
     void Awake()
     {
         P1 = FindObjectOfType<Player1>();
         P2 = FindObjectOfType<Player2>();
+        
     }
 
     // Update is called once per frame

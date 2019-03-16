@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public int RoundCount = 0, PickUpTurnCount = 0;
     public bool Spawn1 = true;
     RespawnController RespawnController;
+    public bool TimerOn = true;
     // Update is called once per frame
     private void Start()
     {
@@ -53,7 +54,11 @@ public class GameManager : MonoBehaviour
     void TimeForThePlayer() // This check the time && switch the rounds
     {
         Timer2 = Mathf.Round(Timer);
-        Timer -= Time.deltaTime;
+        if(TimerOn == true)
+        {
+            Timer -= Time.deltaTime;
+        }
+        
         if (Timer <= 0) // Se è finito il round
         {
             TimerSafe -= Time.deltaTime; // Attiva il tempo supplementare
