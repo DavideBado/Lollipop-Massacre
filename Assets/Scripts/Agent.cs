@@ -73,12 +73,7 @@ public class Agent : MonoBehaviour {
 
         x = (int)(transform.position.x);
         y = (int)(transform.position.z);
-        //else
-        //{
-        //    transform.position = RespawnController.FindAGoodPoint();
-        //    x = (int)(transform.position.x);
-        //    y = (int)(transform.position.z);
-        //}
+      
     }
 	#endregion
 
