@@ -6,7 +6,7 @@ public class WallTransparency : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" || other.gameObject.tag == "EnergyUp")
         {
             GetComponentInParent<MeshRenderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 0.2f);
         }
@@ -14,7 +14,7 @@ public class WallTransparency : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" || other.gameObject.tag == "EnergyUp")
         {
             GetComponentInParent<MeshRenderer>().material.color = new Color(1.0f, 0f, 0.7611f, 1f);
         }
