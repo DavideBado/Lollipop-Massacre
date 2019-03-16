@@ -62,7 +62,7 @@ public class PickUpsSpawner : MonoBehaviour
         P2AreaID = P2.GetComponentInParent<GridArea>().AreaID;
         Counter = 0;
         RandomList = Random.Range(1, 7);
-        Debug.Log("RandomList" + RandomList.ToString());
+        //Debug.Log("RandomList" + RandomList.ToString());
         Searching = true;
         if (Pickups.Count == 0 /*&& (P1.GetComponent<Agent>().Mana == 0  || P2.GetComponent<Agent>().Mana == 0)*/)
         {
@@ -70,10 +70,10 @@ public class PickUpsSpawner : MonoBehaviour
             {
                 if (Area.AreaID == RandomList && Area.AreaID != P1AreaID && Area.AreaID != P2AreaID)
                 {
-                    Debug.Log("AreaID" + Area.AreaID.ToString());
+                    //Debug.Log("AreaID" + Area.AreaID.ToString());
                     cellPrefs = Area.GetComponentsInChildren<CellPrefScript>().ToList();
                     RandomCell = Random.Range(0, cellPrefs.Count);
-                    Debug.Log("RandomCell" + RandomCell.ToString());
+                    //Debug.Log("RandomCell" + RandomCell.ToString());
                     for (int i = 0; i < cellPrefs.Count; i++)
                     {
                         if (i == RandomCell)

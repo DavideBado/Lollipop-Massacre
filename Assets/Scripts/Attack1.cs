@@ -5,7 +5,10 @@ using UnityEngine;
 public class Attack1 : MonoBehaviour
 {
     public GameManager Manager;
-
+    private void Start()
+    {
+        Manager = FindObjectOfType<GameManager>();
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player" && Manager.CanAttack == true) // Se è in collisione con un player e può attaccare

@@ -14,20 +14,29 @@ public class RespawnController : MonoBehaviour
     private void Start()
     {
         FindAllThePoints();
+        foreach (SpawnPoint point in SpawnPoints)
+        {
+            Debug.Log(point.name);
+        }
     }
     public Vector3 FindAGoodPoint()
-    {        
+    {
+        longestDistance = 0.0f;
         FindAllThePlayers(); // trova tutti i player vivi
         foreach (PlayerData player in Players) // Per ogni giocatore in scena
         {
-            foreach (SpawnPoint point in SpawnPoints) // E per ogni punto di possibile spawn
+            if (player.GetComponent<LifeManager>().Life > 0)
             {
-                distance = Vector3.Distance(point.transform.position, player.transform.position); // Confronta la posizione del punto con quella del player
-
-                if (distance > longestDistance) // Se la distanza attuale è la maggiore tra quelle misurate fino ad ora
+                foreach (SpawnPoint point in SpawnPoints) // E per ogni punto di possibile spawn
                 {
-                    longestDistance = distance; // Salvala come distanza maggiore
-                    farthestSpawnPoint = point.transform.position; // Salva anche il vettore
+                    distance = Vector3.Distance(point.transform.position, player.transform.position); // Confronta la posizione del punto con quella del player
+
+                    if (distance > longestDistance) // Se la distanza attuale è la maggiore tra quelle misurate fino ad ora
+                    {
+                        longestDistance = distance; // Salvala come distanza maggiore
+                        farthestSpawnPoint = point.transform.position; // Salva anche il vettore                    
+                    }
+                    Debug.Log("Player:" + player.name + "Player position:" + player.transform.position + " point:" + point.name + ", distance:" + distance + ", longestD:" + longestDistance);
                 }
             }
         }

@@ -76,6 +76,8 @@ GameObject:
   - component: {fileID: 1510294132}
   - component: {fileID: 1510294135}
   - component: {fileID: 1510294136}
+  - component: {fileID: 2341422362458811237}
+  - component: {fileID: 397459704151230688}
   m_Layer: 0
   m_Name: pg 1m
   m_TagString: Player
@@ -170,6 +172,7 @@ MonoBehaviour:
   Drain2: 50
   Stun3: 51
   Venom4: 52
+  Charge5: 53
   PlayerType: 0
   SavedlookAt: {x: 0, y: 0, z: 0}
   RayCenter: {x: 0, y: 0, z: 0}
@@ -250,6 +253,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bfd07e33101c4a3449846087c5ebf2d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2341422362458811237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1510294126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f45f31b2797764941b6d3e0c3aeddc58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &397459704151230688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1510294126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d872d7d50addca4eaaafafe05b13c4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1980843689978317343
