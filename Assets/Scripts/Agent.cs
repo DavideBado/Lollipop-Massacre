@@ -5,6 +5,7 @@ using GridSystem;
 using UnityEngine.UI;
 using System.Linq;
 
+
 public class Agent : MonoBehaviour {
     //************Variabili per test abilità***********
     public KeyCode BigD1, Drain2, Stun3, Venom4;
@@ -16,7 +17,7 @@ public class Agent : MonoBehaviour {
     public int y, y2;   
     public BaseGrid grid;
     public Collider BasicAtt;
-    public Text Lifetext;
+    public TMPro.TextMeshProUGUI Lifetext;
     public GameObject respawn;
     public GridConfigData configGrid;
     public RespawnController RespawnController;

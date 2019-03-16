@@ -21,7 +21,7 @@ public class Player1 : Agent
 
     void TextUpdate()
     {
-        Lifetext.text = "P1 Life:" + GetComponent<LifeManager>().Life.ToString(); // Life on screen
+        Lifetext.text = GetComponent<LifeManager>().Life.ToString(); // Life on screen
 
     }   
     

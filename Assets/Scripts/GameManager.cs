@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public Text Timertext, TimeMaxText, TurnoText;
-    float Timer, Timer2, TimerSafe = 0.2f;
+    float Timer, Timer2, TimerSafe = 0f;
     public float TimeMax = 3f, Speed = 25f;
     public bool Turn = true, CanAttack = true;
     public int RoundCount = 0, PickUpTurnCount = 0;
@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
             {
                 Turn = !Turn; // Change player
                 Timer = TimeMax; //Imposta nuovamente il timer
-                TimerSafe = 0.2f; //Imposta nuovamente il tempo supplementare
+                TimerSafe = 0f; //Imposta nuovamente il tempo supplementare
                 CanAttack = true;// Il giocatore può attaccare
                 PickUpTurnCount++;
                 if (Turn == true)// Se è nuovamente il turno del primo giocatore
