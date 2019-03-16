@@ -20,7 +20,8 @@ public class RespawnController : MonoBehaviour
         }
     }
     public Vector3 FindAGoodPoint()
-    {        
+    {
+        longestDistance = 0.0f;
         FindAllThePlayers(); // trova tutti i player vivi
         foreach (PlayerData player in Players) // Per ogni giocatore in scena
         {
@@ -35,7 +36,7 @@ public class RespawnController : MonoBehaviour
                         longestDistance = distance; // Salvala come distanza maggiore
                         farthestSpawnPoint = point.transform.position; // Salva anche il vettore                    
                     }
-                    Debug.Log("Player:" + player.name + " point:" + point.name + ", distance:" + distance + ", longestD:" + longestDistance);
+                    Debug.Log("Player:" + player.name + "Player position:" + player.transform.position + " point:" + point.name + ", distance:" + distance + ", longestD:" + longestDistance);
                 }
             }
         }

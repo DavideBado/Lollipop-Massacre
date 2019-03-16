@@ -3159,14 +3159,12 @@ PrefabInstance:
 
         Esc chiude il test'
       objectReference: {fileID: 0}
+    - target: {fileID: 429631440, guid: 0800eb943cd2dd649ac0cc43a69baffd, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0800eb943cd2dd649ac0cc43a69baffd, type: 3}
---- !u!224 &974268911 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 8363656159539503550, guid: 0800eb943cd2dd649ac0cc43a69baffd,
-    type: 3}
-  m_PrefabInstance: {fileID: 974268910}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &974268912 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8363656159513100391, guid: 0800eb943cd2dd649ac0cc43a69baffd,
@@ -3210,6 +3208,24 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 974268910}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &997677150 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 429631437, guid: 0800eb943cd2dd649ac0cc43a69baffd,
+    type: 3}
+  m_PrefabInstance: {fileID: 974268910}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &997677151 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 429631438, guid: 0800eb943cd2dd649ac0cc43a69baffd,
+    type: 3}
+  m_PrefabInstance: {fileID: 974268910}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 997677150}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
@@ -3558,7 +3574,7 @@ PrefabInstance:
         type: 3}
       propertyPath: TurnoText
       value: 
-      objectReference: {fileID: 1964696040}
+      objectReference: {fileID: 997677151}
     - target: {fileID: 427756179222368936, guid: ba0c0a689b90c3b4c89806f41e8fdef4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3622,6 +3638,10 @@ PrefabInstance:
       propertyPath: P2
       value: 
       objectReference: {fileID: 622209845}
+    - target: {fileID: 996976814, guid: ba0c0a689b90c3b4c89806f41e8fdef4, type: 3}
+      propertyPath: PickUp
+      value: 
+      objectReference: {fileID: 997677150}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba0c0a689b90c3b4c89806f41e8fdef4, type: 3}
 --- !u!114 &1163756033 stripped
@@ -5786,85 +5806,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 317eeab201742c3418a54a5e50f9b31a, type: 3}
---- !u!1 &1964696039
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1964696042}
-  - component: {fileID: 1964696041}
-  - component: {fileID: 1964696040}
-  m_Layer: 5
-  m_Name: Turno
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1964696040
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1964696039}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 40
-    m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 4
-    m_MaxSize: 40
-    m_Alignment: 0
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
-    m_LineSpacing: 1
-  m_Text: TURNO P1
---- !u!222 &1964696041
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1964696039}
-  m_CullTransparentMesh: 0
---- !u!224 &1964696042
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1964696039}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 974268911}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -95, y: -460.67}
-  m_SizeDelta: {x: 250, y: 851.33}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!20 &1988563733 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 4471618172827174659, guid: d8c6d5f169d2dea428f9103687bd9bd0,
