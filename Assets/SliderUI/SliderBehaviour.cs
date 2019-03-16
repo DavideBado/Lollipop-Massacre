@@ -7,6 +7,7 @@ using System;
 
 public class SliderBehaviour : MonoBehaviour
 {
+    private Sequence sequenceTimer;
     public Image fillImage;
     public TMPro.TextMeshProUGUI counterText;
     public bool Loop = false;
@@ -45,12 +46,11 @@ public class SliderBehaviour : MonoBehaviour
         counterText.text = ((int)countAmount + 1).ToString();
         if (manager.TimerOn == false)
         {
-            
-            endValue = countAmount;
+            sequenceTimer.Pause();
         }
         else
         {
-            endValue = 0;
+            sequenceTimer.Play();
         }
     }
 
@@ -64,9 +64,9 @@ public class SliderBehaviour : MonoBehaviour
            .SetEase(Ease.Linear);
 
 
-            DOTween.To(() => countAmount, x => countAmount = x, endValue, countAmount)
+          sequenceTimer = DOTween.Sequence().Append(DOTween.To(() => countAmount, x => countAmount = x, endValue, countAmount)
             .SetEase(Ease.Linear)
-            .OnComplete(timerCompleted);
+            .OnComplete(timerCompleted));
         
        
         
