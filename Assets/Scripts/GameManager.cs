@@ -102,6 +102,7 @@ public class GameManager : MonoBehaviour
         {
             Player.GetComponentInChildren<Poison>().MaxRounds = 0;
         }
+        Timer = 0;
         Instantiate(Player, RespawnController.FindAGoodPoint(), Quaternion.identity);
     }
 
