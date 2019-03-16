@@ -4,18 +4,41 @@ using UnityEngine;
 
 public class Charge : MonoBehaviour
 {
+    int power = 0;
+    bool attackCheck = false;
     GameManager Manager;
     private void Start()
     {
         Manager = FindObjectOfType<GameManager>();
     }
-    public void Ability()
 
+    private void Update()
+    {
+        InUpdate();
+    }
+
+    void InUpdate()
+    {
+        if (attackCheck == true)
+        {
+            Attack();
+        }
+    }
+
+    void Attack()
+    {
+        RaycastHit hit;
+
+        if ((Physics.Raycast(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt, out hit, 1f)) && (hit.transform.tag == "Player" && hit.transform != transform))
+        {
+            hit.transform.GetComponent<LifeManager>().Life -= power;
+            attackCheck = false;
+        }            
+    }
+    public void Ability()
     {
         if (GetComponent<Agent>().Mana > 0 && GetComponent<Agent>().MyTurn && GetComponent<Agent>().PlayerType == 5 && GetComponent<Agent>().ImStunned == false && Manager.CanAttack == true)
-
-        {
-
+        {            
             RaycastHit hit;
 
             if (Physics.Raycast(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt, out hit, Mathf.Infinity))
@@ -64,15 +87,42 @@ public class Charge : MonoBehaviour
                     Debug.DrawRay(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
                     if (dist < 5)
                     {
-                        hit.transform.GetComponent<LifeManager>().Life -= 1;
+                        power = 2;                       
                     } else if (dist >= 5)
                     {
-                        hit.transform.GetComponent<LifeManager>().Life -= 2;
+                        power = 4;                   
                     }
-
+                    attackCheck = true;
                 }
 
-            }            
+            } else
+            {
+                float _lookX = GetComponent<Agent>().SavedlookAt.x;
+                float _lookY = GetComponent<Agent>().SavedlookAt.z;
+
+                if (_lookX != 0)
+                {
+                    if(_lookX < 0)
+                    {
+                        GetComponent<Agent>().x = 0;
+                    }
+                    else if (_lookX > 0)
+                    {
+                        GetComponent<Agent>().x = GetComponent<Agent>().configGrid.DimX;
+                    }
+                }
+                else if (_lookY != 0)
+                {
+                    if (_lookY < 0)
+                    {
+                        GetComponent<Agent>().y = 0;
+                    }
+                    else if (_lookY > 0)
+                    {
+                        GetComponent<Agent>().y = GetComponent<Agent>().configGrid.DimY;
+                    }
+                }
+            }        
 
             if (FindObjectOfType<PickUpsSpawner>().AllManaFull == true)
 

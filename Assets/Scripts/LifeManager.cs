@@ -27,10 +27,10 @@ public class LifeManager : MonoBehaviour
         {
             if (CanRespawn == true)
             {
-                GameManager.NextPlease(this.gameObject);
+                GameManager.NextPlease(gameObject);
                 CanRespawn = false;
             }
-            Destroy(this.gameObject); // Lascia il tempo alla UI di aggiornare la vita e poi elimina il cadavere
+            Destroy(gameObject); // Lascia il tempo alla UI di aggiornare la vita e poi elimina il cadavere
            
         }
     }
