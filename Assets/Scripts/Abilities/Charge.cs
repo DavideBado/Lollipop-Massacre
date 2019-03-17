@@ -44,6 +44,7 @@ public class Charge : MonoBehaviour
             if (Physics.Raycast(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt, out hit, Mathf.Infinity))
 
             {
+                FindObjectOfType<AbilityPrev>().Preview(hit, transform.position);
                 if(hit.transform.position.x == transform.position.x)
                 {
                     int dist = (GetComponent<Agent>().y - (int)hit.transform.position.z);

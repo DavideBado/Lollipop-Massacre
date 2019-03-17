@@ -7,11 +7,6 @@ public class Areaco : MonoBehaviour
 {
     public GameObject Area1, Area2, Area3, Area4, Area5, Area6;
     List<CellPrefScript> CellPrefs = new List<CellPrefScript>();
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()

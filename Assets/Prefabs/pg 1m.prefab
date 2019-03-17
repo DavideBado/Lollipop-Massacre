@@ -198,6 +198,7 @@ MonoBehaviour:
   ImStunned: 0
   Mana: 1
   OhStunnedShit: 0
+  AgentSpeed: 0
 --- !u!114 &1510294131
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,6 +217,7 @@ MonoBehaviour:
   Right: 100
   BasicAttack: 32
   Ability: 113
+  Preview: 304
   ManagerPlayerID: 0
 --- !u!114 &1510294132
 MonoBehaviour:
