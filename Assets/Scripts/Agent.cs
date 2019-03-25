@@ -25,7 +25,7 @@ public class Agent : MonoBehaviour {
     List<PlayerData> Players = new List<PlayerData>();
     List<Wall> Walls = new List<Wall>();
     public GameManager GameManager;
-    public bool RotUp = false, RotDown = false, RotLeft = false, RotRight = false, ImStunned = false;
+    public bool RotUp = false, RotDown = false, RotLeft = false, RotRight = false, ImStunned = false, imDrained = false, StartDrain;
     public int Mana = 0;
     public bool OhStunnedShit;
     public float AgentSpeed;
@@ -56,6 +56,7 @@ public class Agent : MonoBehaviour {
         APlayerTypeSelector();
         RayDirections();
         Stunname();
+        ImDrained();
     }
 
     #region Start
@@ -333,6 +334,20 @@ public class Agent : MonoBehaviour {
         }
     }
 
-	#endregion
-   
+    #endregion
+
+    public void ImDrained()
+    {        
+        if (imDrained == true && StartDrain == GameManager.Turn)
+        {
+            DrainPS.SetActive(true);
+        }
+        else 
+        { if (StartDrain != GameManager.Turn)
+            {
+                imDrained = false;
+                DrainPS.SetActive(false);
+            }
+        }
+    }
 }

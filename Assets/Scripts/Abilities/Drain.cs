@@ -35,6 +35,7 @@ public class Drain : MonoBehaviour
             GetComponent<Agent>().Mana--;
             Manager.CanAttack = false;
             agent.DrainPS.SetActive(true);
+            agent.StartDrain = Manager.Turn;
         }        
     }
     void ImFullButIWannaDrain()
@@ -47,7 +48,8 @@ public class Drain : MonoBehaviour
             {
                 Debug.DrawRay(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
                 hit.transform.GetComponent<LifeManager>().Life-=2;
-                imDrained = true;
+                hit.transform.GetComponent<Agent>().imDrained = true;
+                hit.transform.GetComponent<Agent>().StartDrain = Manager.Turn;
             }
         }
     }
@@ -70,7 +72,8 @@ public class Drain : MonoBehaviour
                     GetComponent<LifeManager>().Life += 2;
                 }
                 hit.transform.GetComponent<LifeManager>().Life -= 2;
-                imDrained = true;
+                hit.transform.GetComponent<Agent>().imDrained = true;
+                hit.transform.GetComponent<Agent>().StartDrain = Manager.Turn;
             }
         }
         if (Physics.Raycast(GetComponent<Agent>().RayLeft + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt, out hit, 3))
@@ -81,7 +84,8 @@ public class Drain : MonoBehaviour
                 Debug.DrawRay(GetComponent<Agent>().RayLeft + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
                 GetComponent<LifeManager>().Life += 2;
                 hit.transform.GetComponent<LifeManager>().Life -= 2;
-                imDrained = true;
+                hit.transform.GetComponent<Agent>().imDrained = true;
+                hit.transform.GetComponent<Agent>().StartDrain = Manager.Turn;
             }
         }
         if (Physics.Raycast(GetComponent<Agent>().RayRight + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt, out hit, 3))
@@ -92,21 +96,11 @@ public class Drain : MonoBehaviour
                 Debug.DrawRay(GetComponent<Agent>().RayRight + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
                 GetComponent<LifeManager>().Life += 2;
                 hit.transform.GetComponent<LifeManager>().Life -= 2;
-                imDrained = true;
+                hit.transform.GetComponent<Agent>().imDrained = true;
+                hit.transform.GetComponent<Agent>().StartDrain = Manager.Turn;
             }
         }
 
     }
 
-    public void ImDrained()
-    {
-        if(imDrained == true)
-        {
-            agent.DrainPS.SetActive(true);
-        }
-        else
-        {
-            agent.DrainPS.SetActive(false);
-        }
-    }
 }
