@@ -7,7 +7,8 @@ using System.Linq;
 using DG.Tweening;
 
 
-public class Agent : MonoBehaviour {
+public class Agent : MonoBehaviour, ICharacter
+{
     //************Variabili per test abilità***********
     public KeyCode BigD1, Drain2, Stun3, Venom4, Charge5;
     public int PlayerType = 0;
@@ -31,6 +32,22 @@ public class Agent : MonoBehaviour {
     public float AgentSpeed;
     public Rigidbody rg;
     public GameObject StunPS, PoisonPS, DrainPS;
+        
+    // ********** Cose per il menu *************
+
+    public int Type 
+    {
+        get
+        {
+            throw new System.NotImplementedException();
+        }
+    }
+
+    public Sprite Sprite;
+
+    public List<Material> Materials;
+
+    //********************************************
 
     private void Start()
     {
