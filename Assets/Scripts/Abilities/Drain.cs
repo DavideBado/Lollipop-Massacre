@@ -5,9 +5,13 @@ using UnityEngine;
 public class Drain : MonoBehaviour
 {
     GameManager Manager;
+    public Agent agent;
+    bool imDrained = false;
+
     private void Start()
     {
         Manager = FindObjectOfType<GameManager>();
+        agent = GetComponent<Agent>();
     }
     public void Ability()
     {
@@ -30,6 +34,7 @@ public class Drain : MonoBehaviour
             }
             GetComponent<Agent>().Mana--;
             Manager.CanAttack = false;
+            agent.DrainPS.SetActive(true);
         }        
     }
     void ImFullButIWannaDrain()
@@ -42,6 +47,7 @@ public class Drain : MonoBehaviour
             {
                 Debug.DrawRay(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
                 hit.transform.GetComponent<LifeManager>().Life-=2;
+                imDrained = true;
             }
         }
     }
@@ -64,6 +70,7 @@ public class Drain : MonoBehaviour
                     GetComponent<LifeManager>().Life += 2;
                 }
                 hit.transform.GetComponent<LifeManager>().Life -= 2;
+                imDrained = true;
             }
         }
         if (Physics.Raycast(GetComponent<Agent>().RayLeft + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt, out hit, 3))
@@ -74,6 +81,7 @@ public class Drain : MonoBehaviour
                 Debug.DrawRay(GetComponent<Agent>().RayLeft + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
                 GetComponent<LifeManager>().Life += 2;
                 hit.transform.GetComponent<LifeManager>().Life -= 2;
+                imDrained = true;
             }
         }
         if (Physics.Raycast(GetComponent<Agent>().RayRight + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt, out hit, 3))
@@ -84,8 +92,21 @@ public class Drain : MonoBehaviour
                 Debug.DrawRay(GetComponent<Agent>().RayRight + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
                 GetComponent<LifeManager>().Life += 2;
                 hit.transform.GetComponent<LifeManager>().Life -= 2;
+                imDrained = true;
             }
         }
 
+    }
+
+    public void ImDrained()
+    {
+        if(imDrained == true)
+        {
+            agent.DrainPS.SetActive(true);
+        }
+        else
+        {
+            agent.DrainPS.SetActive(false);
+        }
     }
 }

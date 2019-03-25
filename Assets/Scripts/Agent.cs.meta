@@ -3,7 +3,18 @@ guid: ba6292a7d5bfc944096249082df5273a
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - grid: {instanceID: 0}
+  - BasicAtt: {instanceID: 0}
+  - Lifetext: {instanceID: 0}
+  - respawn: {instanceID: 0}
+  - configGrid: {instanceID: 0}
+  - RespawnController: {instanceID: 0}
+  - GameManager: {instanceID: 0}
+  - rg: {instanceID: 0}
+  - StunPS: {instanceID: 0}
+  - PoisonPS: {instanceID: 0}
+  - DrainPS: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -4,6 +4,7 @@ using UnityEngine;
 using GridSystem;
 using UnityEngine.UI;
 using System.Linq;
+using DG.Tweening;
 
 
 public class Agent : MonoBehaviour {
@@ -28,10 +29,13 @@ public class Agent : MonoBehaviour {
     public int Mana = 0;
     public bool OhStunnedShit;
     public float AgentSpeed;
+    public Rigidbody rg;
+    public GameObject StunPS, PoisonPS, DrainPS;
 
     private void Start()
     {
         InStart();
+        rg = GetComponent<Rigidbody>();
     }
     // Update is called once per frame
     void Update()
@@ -173,6 +177,14 @@ public class Agent : MonoBehaviour {
 
     void Stunname()
     {
+        if(ImStunned == true)
+        {
+            StunPS.SetActive(true);
+        }
+        else
+        {
+            StunPS.SetActive(false);
+        }
         if (ImStunned == true && MyTurn == true)
         {
             OhStunnedShit = true;
@@ -295,12 +307,31 @@ public class Agent : MonoBehaviour {
 
 	public void BasicAttack()
 	{
-		if (MyTurn == true && ImStunned == false) // Se è il mio turno
+		if (MyTurn == true && ImStunned == false && GameManager.CanAttack == true) // Se è il mio turno
 		{
 			BasicAtt.enabled = true; // Attiva il collider di attacco
-		}
+            GameManager.CanAttack = false; // Non posso più attaccare
+            rg.transform.DOMove(transform.position + SavedlookAt * 0.1f, 0.1f)
+                .SetAutoKill();
+               
+
+
+
+        }
 		else BasicAtt.enabled = false;
 	}
+
+    public void Poisoned()
+    {
+        if(GetComponentInChildren<Poison>() != null)
+        {
+            PoisonPS.SetActive(true);
+        }
+        else
+        {
+            PoisonPS.SetActive(false);
+        }
+    }
 
 	#endregion
    
