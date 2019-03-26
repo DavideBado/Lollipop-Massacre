@@ -13,6 +13,8 @@ public class Agent : MonoBehaviour, ICharacter
     public KeyCode BigD1, Drain2, Stun3, Venom4, Charge5;
     public int PlayerType = 0;
     //*************************************************
+    public List<Sprite> _Sprites = new List<Sprite>();
+    public List<Material> _Materials = new List<Material>();
     public Vector3 SavedlookAt, RayCenter, RayLeft, RayRight;
     public bool MyTurn, OnTheRoad = false;
     public int x, x2;
@@ -35,17 +37,23 @@ public class Agent : MonoBehaviour, ICharacter
         
     // ********** Cose per il menu *************
 
-    public int Type 
+   
+    public List<Sprite> Sprites
     {
-        get
+        set
         {
-            throw new System.NotImplementedException();
+            Sprites = _Sprites;
         }
     }
 
-    public Sprite Sprite;
+    public List<Material> Materials 
+    { set
+        {
+            Materials = _Materials;
+        }
+            
+    }
 
-    public List<Material> Materials;
 
     //********************************************
 

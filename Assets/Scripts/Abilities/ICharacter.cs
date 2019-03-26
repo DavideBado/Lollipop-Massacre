@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public interface ICharacter
 {
-  int Type { get; }
-  Sprite Sprite { get; }
-  List<Material> Materials { get; }
+  List<Sprite> Sprites { set;}
+  List<Material> Materials { set;}
 }
