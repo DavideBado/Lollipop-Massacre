@@ -89,7 +89,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1510294126}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.8, y: 10, z: 16.327}
+  m_LocalPosition: {x: 0, y: 0, z: 11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 961757380075200649}
@@ -151,11 +151,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5746cf1716c8f841be66393a40050bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerID: 0
   BigD1: 49
   Drain2: 50
   Stun3: 51
   Venom4: 52
   Charge5: 53
+  Whirlwind6: 0
   PlayerType: 1
   _Sprites:
   - {fileID: 21300000, guid: 22eb189603b22c14db43a94e2d300747, type: 3}
@@ -228,7 +230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OnShield: 0
-  Life: 3
+  Life: -17
 --- !u!114 &4941934340564905669
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -73,9 +73,9 @@ GameObject:
   - component: {fileID: 1510294130}
   - component: {fileID: 1510294131}
   - component: {fileID: 1510294132}
-  - component: {fileID: 397459704151230688}
+  - component: {fileID: 9156285678273493149}
   m_Layer: 0
-  m_Name: Charge
+  m_Name: Whirlwind
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -151,11 +151,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5746cf1716c8f841be66393a40050bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerID: 0
   BigD1: 49
   Drain2: 50
   Stun3: 51
   Venom4: 52
   Charge5: 53
+  Whirlwind6: 54
   PlayerType: 0
   _Sprites:
   - {fileID: 21300000, guid: 22eb189603b22c14db43a94e2d300747, type: 3}
@@ -229,7 +231,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnShield: 0
   Life: 3
---- !u!114 &397459704151230688
+--- !u!114 &9156285678273493149
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -238,7 +240,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1510294126}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d872d7d50addca4eaaafafe05b13c4b, type: 3}
+  m_Script: {fileID: 11500000, guid: 6c8d8d4600527e149b7c207135b39f1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1980843689978317343

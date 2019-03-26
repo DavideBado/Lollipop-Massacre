@@ -5,17 +5,21 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject BenchPOne, BenchPTwo;
+    public List<Agent> POneParty = new List<Agent>();
+    public List<Agent> PTwoParty = new List<Agent>();
     public Text Timertext, TimeMaxText, TurnoText;
     float Timer, Timer2, TimerSafe = 0f;
     public float TimeMax = 3f, Speed = 25f;
     public bool Turn = true, CanAttack = true;
     public int RoundCount = 0, PickUpTurnCount = 0;
     public bool Spawn1 = true;
-    RespawnController RespawnController;
+    public RespawnController RespawnController;
     public bool TimerOn = true;
     // Update is called once per frame
     private void Start()
     {
+        UpdateBench();
         RespawnController = GetComponent<RespawnController>();
     }
     void Update()
@@ -24,6 +28,7 @@ public class GameManager : MonoBehaviour
     }
     void InUpdate()
     {
+       
         TimeForThePlayer(); // Controlla il tempo e gestisce i round
         TextUpdate(); // Aggiorna i testi a schermo
         SpawnUpdate();// Controlla quando attivare lo spawn dinamico
@@ -106,4 +111,23 @@ public class GameManager : MonoBehaviour
         Instantiate(Player, RespawnController.FindAGoodPoint(), Quaternion.identity);
     }
 
+    void UpdateBench()
+    {
+        if (POneParty != null)
+        {
+            foreach (Agent agent in POneParty)
+            {
+                GameObject Character = Instantiate(agent.gameObject, BenchPOne.transform);
+                Character.SetActive(false);
+            }
+        }
+        if (PTwoParty != null)
+        {
+            foreach (Agent agent in PTwoParty)
+            {
+                GameObject Character = Instantiate(agent.gameObject, BenchPTwo.transform);
+                Character.SetActive(false);
+            }
+        }
+    }
 }

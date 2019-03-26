@@ -667,6 +667,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21de95a8111141c44b5d26f96b1e1596, type: 3}
+--- !u!1 &233554594
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 233554595}
+  m_Layer: 0
+  m_Name: P2Bench
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &233554595
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 233554594}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -10, y: 0.5, z: 5.75}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 23
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &237955744 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 6189e0d627f813645bd050d9c09a81cf,
@@ -7353,6 +7383,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1529123129}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1256144818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1256144805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c8d8d4600527e149b7c207135b39f1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1256719107
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7364,6 +7406,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 427756179222368939, guid: ba0c0a689b90c3b4c89806f41e8fdef4,
+        type: 3}
+      propertyPath: POneParty.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 427756179222368939, guid: ba0c0a689b90c3b4c89806f41e8fdef4,
+        type: 3}
+      propertyPath: PTwoParty.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 427756179222368939, guid: ba0c0a689b90c3b4c89806f41e8fdef4,
         type: 3}
@@ -7395,6 +7447,34 @@ PrefabInstance:
       propertyPath: TimeMax
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 427756179222368939, guid: ba0c0a689b90c3b4c89806f41e8fdef4,
+        type: 3}
+      propertyPath: BenchPOne
+      value: 
+      objectReference: {fileID: 1510335916}
+    - target: {fileID: 427756179222368939, guid: ba0c0a689b90c3b4c89806f41e8fdef4,
+        type: 3}
+      propertyPath: BenchPTwo
+      value: 
+      objectReference: {fileID: 233554594}
+    - target: {fileID: 427756179222368939, guid: ba0c0a689b90c3b4c89806f41e8fdef4,
+        type: 3}
+      propertyPath: POneParty.Array.data[0]
+      value: 
+      objectReference: {fileID: 1510294130, guid: ebb463ce90856334fa764d77d790fb37,
+        type: 3}
+    - target: {fileID: 427756179222368939, guid: ba0c0a689b90c3b4c89806f41e8fdef4,
+        type: 3}
+      propertyPath: POneParty.Array.data[1]
+      value: 
+      objectReference: {fileID: 1510294130, guid: ec6aec2190354854189670a2f41e9cf2,
+        type: 3}
+    - target: {fileID: 427756179222368939, guid: ba0c0a689b90c3b4c89806f41e8fdef4,
+        type: 3}
+      propertyPath: POneParty.Array.data[2]
+      value: 
+      objectReference: {fileID: 1510294130, guid: 3055f9c3f55c65542ae2fd5bbe53fd72,
+        type: 3}
     - target: {fileID: 427756179222368936, guid: ba0c0a689b90c3b4c89806f41e8fdef4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8976,6 +9056,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5746cf1716c8f841be66393a40050bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1510335916
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1510335917}
+  m_Layer: 0
+  m_Name: P1Bench
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1510335917
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1510335916}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 21, y: 0.5, z: 5.75}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 22
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1529123129
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9019,6 +9129,14 @@ PrefabInstance:
       propertyPath: DrainPS
       value: 
       objectReference: {fileID: 556312409}
+    - target: {fileID: 1256144807, guid: 732a70763f69f0a458d7a423e26d44fa, type: 3}
+      propertyPath: Whirlwind6
+      value: 262
+      objectReference: {fileID: 0}
+    - target: {fileID: 1256144807, guid: 732a70763f69f0a458d7a423e26d44fa, type: 3}
+      propertyPath: PlayerID
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1256144812, guid: 732a70763f69f0a458d7a423e26d44fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.358
@@ -9088,38 +9206,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: pg 1m
       objectReference: {fileID: 0}
-    - target: {fileID: 1510294130, guid: 73b5a86f97a5d7c42a5aa47ee7a231eb, type: 3}
-      propertyPath: grid
-      value: 
-      objectReference: {fileID: 1984844720}
-    - target: {fileID: 1510294130, guid: 73b5a86f97a5d7c42a5aa47ee7a231eb, type: 3}
-      propertyPath: Lifetext
-      value: 
-      objectReference: {fileID: 1320537014}
-    - target: {fileID: 1510294130, guid: 73b5a86f97a5d7c42a5aa47ee7a231eb, type: 3}
-      propertyPath: respawn
-      value: 
-      objectReference: {fileID: 1708590935}
-    - target: {fileID: 1510294130, guid: 73b5a86f97a5d7c42a5aa47ee7a231eb, type: 3}
-      propertyPath: RespawnController
-      value: 
-      objectReference: {fileID: 996976815}
-    - target: {fileID: 1510294130, guid: 73b5a86f97a5d7c42a5aa47ee7a231eb, type: 3}
-      propertyPath: GameManager
-      value: 
-      objectReference: {fileID: 111599182}
-    - target: {fileID: 1510294130, guid: 73b5a86f97a5d7c42a5aa47ee7a231eb, type: 3}
-      propertyPath: DrainPS
-      value: 
-      objectReference: {fileID: 1773670063}
-    - target: {fileID: 1510294130, guid: 73b5a86f97a5d7c42a5aa47ee7a231eb, type: 3}
-      propertyPath: StunPS
-      value: 
-      objectReference: {fileID: 499284364}
-    - target: {fileID: 1510294130, guid: 73b5a86f97a5d7c42a5aa47ee7a231eb, type: 3}
-      propertyPath: PoisonPS
-      value: 
-      objectReference: {fileID: 1040974879}
     - target: {fileID: 1510294127, guid: 73b5a86f97a5d7c42a5aa47ee7a231eb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.8
@@ -9163,6 +9249,42 @@ PrefabInstance:
     - target: {fileID: 1510294127, guid: 73b5a86f97a5d7c42a5aa47ee7a231eb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1510294130, guid: 73b5a86f97a5d7c42a5aa47ee7a231eb, type: 3}
+      propertyPath: grid
+      value: 
+      objectReference: {fileID: 1984844720}
+    - target: {fileID: 1510294130, guid: 73b5a86f97a5d7c42a5aa47ee7a231eb, type: 3}
+      propertyPath: Lifetext
+      value: 
+      objectReference: {fileID: 1320537014}
+    - target: {fileID: 1510294130, guid: 73b5a86f97a5d7c42a5aa47ee7a231eb, type: 3}
+      propertyPath: respawn
+      value: 
+      objectReference: {fileID: 1708590935}
+    - target: {fileID: 1510294130, guid: 73b5a86f97a5d7c42a5aa47ee7a231eb, type: 3}
+      propertyPath: RespawnController
+      value: 
+      objectReference: {fileID: 996976815}
+    - target: {fileID: 1510294130, guid: 73b5a86f97a5d7c42a5aa47ee7a231eb, type: 3}
+      propertyPath: GameManager
+      value: 
+      objectReference: {fileID: 111599182}
+    - target: {fileID: 1510294130, guid: 73b5a86f97a5d7c42a5aa47ee7a231eb, type: 3}
+      propertyPath: DrainPS
+      value: 
+      objectReference: {fileID: 1773670063}
+    - target: {fileID: 1510294130, guid: 73b5a86f97a5d7c42a5aa47ee7a231eb, type: 3}
+      propertyPath: StunPS
+      value: 
+      objectReference: {fileID: 499284364}
+    - target: {fileID: 1510294130, guid: 73b5a86f97a5d7c42a5aa47ee7a231eb, type: 3}
+      propertyPath: PoisonPS
+      value: 
+      objectReference: {fileID: 1040974879}
+    - target: {fileID: 1510294130, guid: 73b5a86f97a5d7c42a5aa47ee7a231eb, type: 3}
+      propertyPath: PlayerID
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 936545435, guid: 73b5a86f97a5d7c42a5aa47ee7a231eb, type: 3}
       propertyPath: Manager

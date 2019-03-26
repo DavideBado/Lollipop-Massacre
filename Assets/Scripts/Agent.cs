@@ -9,8 +9,9 @@ using DG.Tweening;
 
 public class Agent : MonoBehaviour, ICharacter
 {
+    public int PlayerID;
     //************Variabili per test abilità***********
-    public KeyCode BigD1, Drain2, Stun3, Venom4, Charge5;
+    public KeyCode BigD1, Drain2, Stun3, Venom4, Charge5, Whirlwind6;
     public int PlayerType = 0;
     //*************************************************
     public List<Sprite> _Sprites = new List<Sprite>();
@@ -106,10 +107,11 @@ public class Agent : MonoBehaviour, ICharacter
         y = (int)(transform.position.z);
       
     }
-	#endregion
+    #endregion
 
-	#region Update
-	void Sicura()
+    #region Update
+
+    void Sicura()
 	{
 		if (MyTurn == false) // Se non è il tuo turno
 		{
@@ -137,6 +139,10 @@ public class Agent : MonoBehaviour, ICharacter
         if (Input.GetKeyDown(Charge5))
         {
             PlayerType = 5;
+        }
+        if (Input.GetKeyDown(Whirlwind6))
+        {
+            PlayerType = 6;
         }
     }
     void Movement() // Muove il giocatore
