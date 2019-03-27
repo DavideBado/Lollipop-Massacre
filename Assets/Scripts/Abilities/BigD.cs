@@ -90,6 +90,7 @@ public class BigD : MonoBehaviour
 
     public void Preview()
     {
+        CleanPreview();
         float _lookX = GetComponent<Agent>().SavedlookAt.x;
         float _lookY = GetComponent<Agent>().SavedlookAt.z;
         Vector3 playerPosition = transform.position;
