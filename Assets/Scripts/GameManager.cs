@@ -25,7 +25,8 @@ public class GameManager : MonoBehaviour
     }
     void Update()
     {
-        Debug.Log("primo:" + POneParty[0].name + " ultimo:" + POneParty[2].name);
+        Debug.Log(POneParty[0].name + " è attivo:" + POneParty[0].gameObject.activeInHierarchy + "  " + POneParty[0].gameObject.activeSelf);
+        //Debug.Log("primo:" + POneParty[0].name + " ultimo:" + POneParty[2].name);
         InUpdate();
     }
     void InUpdate()

@@ -16,7 +16,7 @@ public class RespawnController : MonoBehaviour
         FindAllThePoints();
         foreach (SpawnPoint point in SpawnPoints)
         {
-            Debug.Log(point.name);
+            //Debug.Log(point.name);
         }
     }
     public Vector3 FindAGoodPoint()
@@ -36,7 +36,7 @@ public class RespawnController : MonoBehaviour
                         longestDistance = distance; // Salvala come distanza maggiore
                         farthestSpawnPoint = point.transform.position; // Salva anche il vettore                    
                     }
-                    Debug.Log("Player:" + player.name + "Player position:" + player.transform.position + " point:" + point.name + ", distance:" + distance + ", longestD:" + longestDistance);
+                   //Debug.Log("Player:" + player.name + "Player position:" + player.transform.position + " point:" + point.name + ", distance:" + distance + ", longestD:" + longestDistance);
                 }
             }
         }

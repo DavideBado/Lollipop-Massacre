@@ -35,9 +35,11 @@ public void Ability()
                         if(Manager.POneParty.Count > 0)
                         {
                             Agent _chara = Manager.POneParty[0];
+                            Debug.Log(_chara.gameObject.activeInHierarchy);
                             Manager.POneParty.Remove(_chara);
                             _chara.transform.parent = null;
                             _chara.gameObject.SetActive(true);
+                            Debug.Log(_chara.gameObject.activeInHierarchy);
                             _chara.transform.position =  Manager.RespawnController.FindAGoodPoint();
                            
                             Manager.POneParty.Add(_chara);

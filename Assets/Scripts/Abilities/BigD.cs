@@ -102,109 +102,136 @@ public class BigD : MonoBehaviour
 
             RaycastHit hit;
 
-            if (Physics.Raycast(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt, out hit, 2)) 
+            if (Physics.Raycast(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt, out hit, 2))
             {
-                CellsGreenInRay(hit, cells, playerPosition);
-            }
-            else
-            {            
-
-                if (_lookX != 0)
-                {
-
-                    foreach (CellPrefScript cell in cells)
-                    {
-                        if (((cell.transform.position.x == (transform.position.x - 1) || cell.transform.position.x == (transform.position.x - 2)) ||
-                            ((cell.transform.position.x == (transform.position.x + 1) || cell.transform.position.x == (transform.position.x + 2)))) &&
-                            ((cell.transform.position.z == (transform.position.z + GetComponent<Agent>().RayCenter.z))))
-                        {
-                            cell.GetComponentInParent<CellPrefScript>().Color = Color.green;
-
-                        }
-                    }
-                    
-                   
-                }
-                else if (_lookY != 0)
-                {
-
-                    foreach (CellPrefScript cell in cells)
-                    {
-                        if (((cell.transform.position.z == (transform.position.z - 1) || cell.transform.position.z == (transform.position.z - 2)) ||
-                            ((cell.transform.position.z == (transform.position.x + 1) || cell.transform.position.z == (transform.position.x + 2)))) &&
-                            ((cell.transform.position.x == (transform.position.x + GetComponent<Agent>().RayCenter.x))))
-                        {
-                            cell.GetComponentInParent<CellPrefScript>().Color = Color.green;
-
-                        }
-                    }
-                    
-                   
-                }
-            }
-
-            if (Physics.Raycast(GetComponent<Agent>().RayLeft + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt, out hit, 2))
-            {
+                Debug.DrawRay(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.black);
                 CellsGreenInRay(hit, cells, playerPosition);
             }
             else
             {
 
                 if (_lookX != 0)
+            {
+                if (_lookX > 0)
                 {
-                    if (_lookX < 0)
+                    foreach (CellPrefScript cell in cells)
                     {
-                        foreach (CellPrefScript cell in cells)
+                        if ((((cell.transform.position.x == (transform.position.x + 1) ||
+                            cell.transform.position.x == (transform.position.x + 2)))) &&
+                            ((cell.transform.position.z == (transform.position.z))))
                         {
-                            if ((cell.transform.position.x == (transform.position.x - 1) || cell.transform.position.x == (transform.position.x - 2)) &&
-                                ((cell.transform.position.z == (transform.position.z + GetComponent<Agent>().RayLeft.z))))
-                            {
-                                cell.GetComponentInParent<CellPrefScript>().Color = Color.green;
+                            cell.GetComponentInParent<CellPrefScript>().Color = Color.green;
 
-                            }
-                        }
-                    }
-                    else if (_lookX > 0)
-                    {
-                        foreach (CellPrefScript cell in cells)
-                        {
-                            if ((cell.transform.position.x == (transform.position.x + 1) || cell.transform.position.x == (transform.position.x + 2)) &&
-                                ((cell.transform.position.z == (transform.position.z + GetComponent<Agent>().RayLeft.z))))
-                            {
-                                cell.GetComponentInParent<CellPrefScript>().Color = Color.green;
-
-                            }
                         }
                     }
                 }
-                else if (_lookY != 0)
+                else if (_lookX < 0)
                 {
-                    if (_lookY < 0)
+                    foreach (CellPrefScript cell in cells)
                     {
-                        foreach (CellPrefScript cell in cells)
+                        if (((cell.transform.position.x == (transform.position.x - 1) || cell.transform.position.x == (transform.position.x - 2))) &&
+                            ((cell.transform.position.z == (transform.position.z))))
                         {
-                            if ((cell.transform.position.z == (transform.position.z - 1) || cell.transform.position.z == (transform.position.z - 2)) &&
-                                ((cell.transform.position.x == (transform.position.x + GetComponent<Agent>().RayLeft.x))))
-                            {
-                                cell.GetComponentInParent<CellPrefScript>().Color = Color.green;
+                            cell.GetComponentInParent<CellPrefScript>().Color = Color.green;
 
-                            }
                         }
                     }
-                    else if (_lookY > 0)
-                    {
-                        foreach (CellPrefScript cell in cells)
-                        {
-                            if ((cell.transform.position.z == (transform.position.x + 1) || cell.transform.position.z == (transform.position.x + 2)) &&
-                                ((cell.transform.position.x == (transform.position.x + GetComponent<Agent>().RayLeft.x))))
-                            {
-                                cell.GetComponentInParent<CellPrefScript>().Color = Color.green;
+                }
 
-                            }
+            }
+            else if (_lookY != 0)
+            {
+
+                if (_lookY < 0)
+                {
+                    foreach (CellPrefScript cell in cells)
+                    {
+                        if ((cell.transform.position.z == (transform.position.z - 1) || cell.transform.position.z == (transform.position.z - 2)) &&
+                            ((cell.transform.position.x == (transform.position.x))))
+                        {
+                            cell.GetComponentInParent<CellPrefScript>().Color = Color.green;
+
+                        }
+                    }
+                }
+                else if (_lookY > 0)
+                {
+                    foreach (CellPrefScript cell in cells)
+                    {
+                        if ((cell.transform.position.z == (transform.position.z + 1) || cell.transform.position.z == (transform.position.z + 2)) &&
+                            ((cell.transform.position.x == (transform.position.x))))
+                        {
+                            cell.GetComponentInParent<CellPrefScript>().Color = Color.green;
+
+                        }
+                    }
+                }
+
+            }
+        }
+
+        if (Physics.Raycast(GetComponent<Agent>().RayLeft + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt, out hit, 2))
+        {
+            CellsGreenInRay(hit, cells, playerPosition);
+        }
+        else
+        {
+
+            if (_lookX != 0)
+            {
+                if (_lookX < 0)
+                {
+                    foreach (CellPrefScript cell in cells)
+                    {
+                        if ((cell.transform.position.x == (transform.position.x - 1) || cell.transform.position.x == (transform.position.x - 2)) &&
+                            ((cell.transform.position.z == (transform.position.z - 1))))
+                        {
+                            cell.GetComponentInParent<CellPrefScript>().Color = Color.green;
+
+                        }
+                    }
+                }
+                else if (_lookX > 0)
+                {
+                    foreach (CellPrefScript cell in cells)
+                    {
+                        if ((cell.transform.position.x == (transform.position.x + 1) || cell.transform.position.x == (transform.position.x + 2)) &&
+                            ((cell.transform.position.z == (transform.position.z + 1))))
+                        {
+                            cell.GetComponentInParent<CellPrefScript>().Color = Color.green;
+
                         }
                     }
                 }
             }
+            else if (_lookY != 0)
+            {
+                if (_lookY < 0)
+                {
+                    foreach (CellPrefScript cell in cells)
+                    {
+                        if ((cell.transform.position.z == (transform.position.z - 1) || cell.transform.position.z == (transform.position.z - 2)) &&
+                            ((cell.transform.position.x == (transform.position.x + 1))))
+                        {
+                            cell.GetComponentInParent<CellPrefScript>().Color = Color.green;
+
+                        }
+                    }
+                }
+                else if (_lookY > 0)
+                {
+                    foreach (CellPrefScript cell in cells)
+                    {
+                        if ((cell.transform.position.z == (transform.position.z + 1) || cell.transform.position.z == (transform.position.z + 2)) &&
+                            ((cell.transform.position.x == (transform.position.x - 1))))
+                        {
+                            cell.GetComponentInParent<CellPrefScript>().Color = Color.green;
+
+                        }
+                    }
+                }
+            }
+        }
 
             if (Physics.Raycast(GetComponent<Agent>().RayRight + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt, out hit, 2))
             {
@@ -214,61 +241,61 @@ public class BigD : MonoBehaviour
             {
 
                 if (_lookX != 0)
+            {
+                if (_lookX < 0)
                 {
-                    if (_lookX < 0)
+                    foreach (CellPrefScript cell in cells)
                     {
-                        foreach (CellPrefScript cell in cells)
+                        if ((cell.transform.position.x == (transform.position.x - 1) || cell.transform.position.x == (transform.position.x - 2)) &&
+                            ((cell.transform.position.z == (transform.position.z + 1))))
                         {
-                            if ((cell.transform.position.x == (transform.position.x - 1) || cell.transform.position.x == (transform.position.x - 2)) &&
-                                ((cell.transform.position.z == (transform.position.z + GetComponent<Agent>().RayRight.z))))
-                            {
-                                cell.GetComponentInParent<CellPrefScript>().Color = Color.green;
+                            cell.GetComponentInParent<CellPrefScript>().Color = Color.green;
 
-                            }
-                        }
-                    }
-                    else if (_lookX > 0)
-                    {
-                        foreach (CellPrefScript cell in cells)
-                        {
-                            if ((cell.transform.position.x == (transform.position.x + 1) || cell.transform.position.x == (transform.position.x + 2)) &&
-                                ((cell.transform.position.z == (transform.position.z + GetComponent<Agent>().RayRight.z))))
-                            {
-                                cell.GetComponentInParent<CellPrefScript>().Color = Color.green;
-
-                            }
                         }
                     }
                 }
-                else if (_lookY != 0)
+                else if (_lookX > 0)
                 {
-                    if (_lookY < 0)
+                    foreach (CellPrefScript cell in cells)
                     {
-                        foreach (CellPrefScript cell in cells)
+                        if ((cell.transform.position.x == (transform.position.x + 1) || cell.transform.position.x == (transform.position.x + 2)) &&
+                            ((cell.transform.position.z == (transform.position.z - 1))))
                         {
-                            if ((cell.transform.position.z == (transform.position.z - 1) || cell.transform.position.z == (transform.position.z - 2)) &&
-                                ((cell.transform.position.x == (transform.position.x + GetComponent<Agent>().RayRight.x))))
-                            {
-                                cell.GetComponentInParent<CellPrefScript>().Color = Color.green;
+                            cell.GetComponentInParent<CellPrefScript>().Color = Color.green;
 
-                            }
                         }
                     }
-                    else if (_lookY > 0)
+                }
+            }
+            else if (_lookY != 0)
+            {
+                if (_lookY < 0)
+                {
+                    foreach (CellPrefScript cell in cells)
                     {
-                        foreach (CellPrefScript cell in cells)
+                        if ((cell.transform.position.z == (transform.position.z - 1) || cell.transform.position.z == (transform.position.z - 2)) &&
+                            ((cell.transform.position.x == (transform.position.x - 1))))
                         {
-                            if ((cell.transform.position.z == (transform.position.x + 1) || cell.transform.position.z == (transform.position.x + 2)) &&
-                                ((cell.transform.position.x == (transform.position.x + GetComponent<Agent>().RayRight.x))))
-                            {
-                                cell.GetComponentInParent<CellPrefScript>().Color = Color.green;
+                            cell.GetComponentInParent<CellPrefScript>().Color = Color.green;
 
-                            }
+                        }
+                    }
+                }
+                else if (_lookY > 0)
+                {
+                    foreach (CellPrefScript cell in cells)
+                    {
+                        if ((cell.transform.position.z == (transform.position.z + 1) || cell.transform.position.z == (transform.position.z + 2)) &&
+                            ((cell.transform.position.x == (transform.position.x + 1))))
+                        {
+                            cell.GetComponentInParent<CellPrefScript>().Color = Color.green;
+
                         }
                     }
                 }
             }
         }
+    }
     }
 
     public void CleanPreview()
@@ -289,11 +316,11 @@ public class BigD : MonoBehaviour
     {
         foreach (CellPrefScript cell in cells)
         {
-            if ((((playerPosition.x < cell.transform.position.x && cell.transform.position.x <= hit.transform.position.x) ||
-               (playerPosition.x > cell.transform.position.x && cell.transform.position.x >= hit.transform.position.x)) &&
+            if ((((playerPosition.x < cell.transform.position.x && cell.transform.position.x < hit.transform.position.x) ||
+               (playerPosition.x > cell.transform.position.x && cell.transform.position.x > hit.transform.position.x)) &&
                (cell.transform.position.z == hit.transform.position.z)) ||
-               (((playerPosition.z < cell.transform.position.z && cell.transform.position.z <= hit.transform.position.z) ||
-               (playerPosition.z > cell.transform.position.z && cell.transform.position.z >= hit.transform.position.z)) &&
+               (((playerPosition.z < cell.transform.position.z && cell.transform.position.z < hit.transform.position.z) ||
+               (playerPosition.z > cell.transform.position.z && cell.transform.position.z > hit.transform.position.z)) &&
                (cell.transform.position.x == hit.transform.position.x)))
             {
                 cell.GetComponentInParent<CellPrefScript>().Color = Color.green;

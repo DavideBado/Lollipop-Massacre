@@ -180,30 +180,30 @@ public class Agent : MonoBehaviour, ICharacter
         if(RotUp == true)
         {
             SavedlookAt = new Vector3(0, 0, 1);
-            RayLeft = transform.position + new Vector3(-1, 0, 0.5f);
-            RayCenter = transform.position + new Vector3(0, 0, 0.5f);
-            RayRight = transform.position + new Vector3(1, 0, 0.5f);
+            RayLeft = transform.position + new Vector3(-1, 0, 0);
+            RayCenter = transform.position + new Vector3(0, 0, 0);
+            RayRight = transform.position + new Vector3(1, 0, 0);
         }
         if(RotLeft == true)
         {
             SavedlookAt = new Vector3(-1, 0, 0);
-            RayLeft = transform.position + new Vector3(-0.5f, 0, -1);
-            RayCenter = transform.position + new Vector3(-0.5f, 0, 0);
-            RayRight = transform.position + new Vector3(-0.5f, 0, 1);
+            RayLeft = transform.position + new Vector3(0, 0, -1);
+            RayCenter = transform.position + new Vector3(0, 0, 0);
+            RayRight = transform.position + new Vector3(0, 0, 1);
         }
         if(RotDown == true)
         {
             SavedlookAt = new Vector3(0, 0, -1);
-            RayLeft = transform.position + new Vector3(-1, 0, -0.5f);
-            RayCenter = transform.position + new Vector3(0, 0, -0.5f);
-            RayRight = transform.position + new Vector3(1, 0, -0.5f);
+            RayLeft = transform.position + new Vector3(-1, 0, 0);
+            RayCenter = transform.position + new Vector3(0, 0, 0);
+            RayRight = transform.position + new Vector3(1, 0, 0);
         }
         if(RotRight == true)
         {
             SavedlookAt = new Vector3(1, 0, 0);
-            RayLeft = transform.position + new Vector3(0.5f, 0, 1);
-            RayCenter = transform.position + new Vector3(0.5f, 0, 0);
-            RayRight = transform.position + new Vector3(0.5f, 0, -1);
+            RayLeft = transform.position + new Vector3(0, 0, 1);
+            RayCenter = transform.position + new Vector3(0, 0, 0);
+            RayRight = transform.position + new Vector3(0, 0, -1);
         }
     }
 
