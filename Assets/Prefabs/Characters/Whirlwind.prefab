@@ -230,7 +230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OnShield: 0
-  Life: 3
+  Life: 6
 --- !u!114 &9156285678273493149
 MonoBehaviour:
   m_ObjectHideFlags: 0

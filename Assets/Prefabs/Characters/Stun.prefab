@@ -151,11 +151,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5746cf1716c8f841be66393a40050bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerID: 0
   BigD1: 49
   Drain2: 50
   Stun3: 51
   Venom4: 52
   Charge5: 53
+  Whirlwind6: 0
   PlayerType: 3
   _Sprites:
   - {fileID: 21300010, guid: 106d07bb4156c9743a055a0741d6eadf, type: 3}
@@ -228,7 +230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OnShield: 0
-  Life: 3
+  Life: 6
 --- !u!114 &1293814292230231335
 MonoBehaviour:
   m_ObjectHideFlags: 0

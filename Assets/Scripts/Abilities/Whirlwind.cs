@@ -29,21 +29,22 @@ public void Ability()
                 Debug.DrawRay(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
                 hit.transform.GetComponent<LifeManager>().Life -= 2;
                 int EnemyID = hit.transform.GetComponent<Agent>().PlayerID;
-                hit.transform.gameObject.SetActive(false);
+               
                     if(EnemyID == 1)
                     {
                         if(Manager.POneParty.Count > 0)
                         {
-                            Agent _chara = Manager.POneParty[0];                          
-                            _chara.gameObject.SetActive(true);
-                            _chara.transform.parent = null;
-                            _chara.transform.position =  Manager.RespawnController.FindAGoodPoint();
+                            Agent _chara = Manager.POneParty[0];
                             Manager.POneParty.Remove(_chara);
+                            _chara.transform.parent = null;
+                            _chara.gameObject.SetActive(true);
+                            _chara.transform.position =  Manager.RespawnController.FindAGoodPoint();
+                           
                             Manager.POneParty.Add(_chara);
                             _chara.GetComponent<LifeManager>().Life -= 2;
                         }
                     }
-                    else if (EnemyID == 1)
+                    else if (EnemyID == 2)
                     {
                         if (Manager.PTwoParty.Count > 0)
                         {
@@ -55,7 +56,7 @@ public void Ability()
                             _chara.GetComponent<LifeManager>().Life -= 2;
                         }
                     }
-
+                    hit.transform.gameObject.SetActive(false);
                 }
 
         }

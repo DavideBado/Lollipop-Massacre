@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public GameObject BenchPOne, BenchPTwo;
+    bool state;
     public List<Agent> POneParty = new List<Agent>();
     public List<Agent> PTwoParty = new List<Agent>();
     public Text Timertext, TimeMaxText, TurnoText;
@@ -24,6 +25,7 @@ public class GameManager : MonoBehaviour
     }
     void Update()
     {
+        Debug.Log("primo:" + POneParty[0].name + " ultimo:" + POneParty[2].name);
         InUpdate();
     }
     void InUpdate()
@@ -117,7 +119,7 @@ public class GameManager : MonoBehaviour
         {
             foreach (Agent agent in POneParty)
             {
-                GameObject Character = Instantiate(agent.gameObject, BenchPOne.transform);
+                GameObject Character = Instantiate(agent.gameObject);
                 Character.SetActive(false);
             }
         }
@@ -125,7 +127,7 @@ public class GameManager : MonoBehaviour
         {
             foreach (Agent agent in PTwoParty)
             {
-                GameObject Character = Instantiate(agent.gameObject, BenchPTwo.transform);
+                GameObject Character = Instantiate(agent.gameObject);
                 Character.SetActive(false);
             }
         }
