@@ -9044,6 +9044,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1530984336}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1510294128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1510294126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c8d8d4600527e149b7c207135b39f1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1510294131 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1510294130, guid: 73b5a86f97a5d7c42a5aa47ee7a231eb,
@@ -9285,6 +9297,10 @@ PrefabInstance:
     - target: {fileID: 1510294130, guid: 73b5a86f97a5d7c42a5aa47ee7a231eb, type: 3}
       propertyPath: PlayerID
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1510294130, guid: 73b5a86f97a5d7c42a5aa47ee7a231eb, type: 3}
+      propertyPath: Whirlwind6
+      value: 54
       objectReference: {fileID: 0}
     - target: {fileID: 936545435, guid: 73b5a86f97a5d7c42a5aa47ee7a231eb, type: 3}
       propertyPath: Manager
@@ -12505,7 +12521,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2037423821
 Transform:
   m_ObjectHideFlags: 0
