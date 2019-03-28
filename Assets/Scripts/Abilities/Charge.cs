@@ -147,13 +147,15 @@ public class Charge : MonoBehaviour
 
     public void Preview()
     {
-        CleanPreview();
-        float _lookX = GetComponent<Agent>().SavedlookAt.x;
-        float _lookY = GetComponent<Agent>().SavedlookAt.z;
-        Vector3 playerPosition = transform.position;
+       
         if (GetComponent<Agent>().MyTurn && GetComponent<Agent>().PlayerType == 5 && GetComponent<Agent>().ImStunned == false && Manager.CanAttack == true)
 
         {
+            CleanPreview();
+            float _lookX = GetComponent<Agent>().SavedlookAt.x;
+            float _lookY = GetComponent<Agent>().SavedlookAt.z;
+            Vector3 playerPosition = transform.position;
+
             List<CellPrefScript> cells = new List<CellPrefScript>();
 
             cells = FindObjectsOfType<CellPrefScript>().ToList();
