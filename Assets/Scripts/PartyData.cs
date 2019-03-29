@@ -5,28 +5,28 @@ using UnityEngine;
 public static class PartyData
 
 {
-    public static List<Agent> POneParty = new List<Agent>();
-    public static List<Agent> PTwoParty = new List<Agent>();
+    public static List<Agent> POnePart = new List<Agent>();
+    public static List<Agent> PTwoPart = new List<Agent>();
 
     public static void AddToPartyOne(Agent Character)
     {
-        POneParty.Add(Character);
+        POnePart.Add(Character);
     }
 
     public static int POnePartyCount()
     {
-        return POneParty.Count;
+        return POnePart.Count;
     }
 
 
     public static void AddToPartyTwo(Agent Character)
     {
-        PTwoParty.Add(Character);
+        PTwoPart.Add(Character);
     }
 
     public static int PTwoPartyCount()
     {
-        return PTwoParty.Count;
+        return PTwoPart.Count;
     }
 
 }

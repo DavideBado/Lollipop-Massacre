@@ -22,7 +22,7 @@ public class TempManager : MonoBehaviour
     void ShowParty()
     {
         Image image1 = POnePartyObj.transform.GetChild(0).GetComponent<Image>();
-            image1.sprite = PartyData.POneParty[0]._Sprites[0];
+            image1.sprite = PartyData.POnePart[0]._Sprites[0];
     }
 
     void AddToParty()
