@@ -12,11 +12,11 @@ public class WallTransparency : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.tag == "Player" || other.gameObject.tag == "EnergyUp")
-        {
-            GetComponentInParent<MeshRenderer>().material.color = new Color(1.0f, 0f, 0.7611f, 1f);
-        }
-    }
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    if (other.gameObject.tag == "Player" || other.gameObject.tag == "EnergyUp")
+    //    {
+    //        GetComponentInParent<MeshRenderer>().material.color = new Color(1.0f, 0f, 0.7611f, 1f);
+    //    }
+    //}
 }

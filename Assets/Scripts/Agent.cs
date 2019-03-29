@@ -33,7 +33,7 @@ public class Agent : MonoBehaviour, ICharacter
     public int Mana = 0;
     public bool OhStunnedShit;
     public float AgentSpeed;
-    public Rigidbody rg;
+    Rigidbody rg;
     public GameObject StunPS, PoisonPS, DrainPS;
         
     // ********** Cose per il menu *************
@@ -83,6 +83,7 @@ public class Agent : MonoBehaviour, ICharacter
         RayDirections();
         Stunname();
         ImDrained();
+        Poisoned();
     }
 
     #region Start

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Mana : MonoBehaviour
 {
@@ -18,11 +19,11 @@ public class Mana : MonoBehaviour
     {
         if(agent.Mana == 0)
         {
-            manacolor = Color.white;
+           GetComponent<Image>().color = Color.white;
         }
         else
         {
-            manacolor = Color.green;
+            GetComponent<Image>().color = Color.green;
         }
     }
 }

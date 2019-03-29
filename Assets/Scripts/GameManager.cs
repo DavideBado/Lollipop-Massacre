@@ -20,12 +20,12 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     private void Start()
     {
-        UpdateBench();
+        //UpdateBench();
         RespawnController = GetComponent<RespawnController>();
     }
     void Update()
     {
-        Debug.Log(POneParty[0].name + " è attivo:" + POneParty[0].gameObject.activeInHierarchy + "  " + POneParty[0].gameObject.activeSelf);
+        //Debug.Log(POneParty[0].name + " è attivo:" + POneParty[0].gameObject.activeInHierarchy + "  " + POneParty[0].gameObject.activeSelf);
         //Debug.Log("primo:" + POneParty[0].name + " ultimo:" + POneParty[2].name);
         InUpdate();
     }
