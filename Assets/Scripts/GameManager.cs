@@ -11,8 +11,8 @@ public class GameManager : MonoBehaviour
     public List<Agent> POneParty = new List<Agent>();
     public List<Agent> PTwoParty = new List<Agent>();
     public Text Timertext, TimeMaxText, TurnoText;
-    float Timer, Timer2, TimerSafe = 0f;
-    public float TimeMax = 3f, Speed = 25f;
+    float Timer, Timer2;
+    public float TimeMax = 3f, Speed = 25f, TimerSafe = 0.5f;
     public bool Turn = true, CanAttack = true;
     public int RoundCount = 0, PickUpTurnCount = 0;
     public bool Spawn1 = true;
