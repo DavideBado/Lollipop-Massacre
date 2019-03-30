@@ -10790,7 +10790,7 @@ PrefabInstance:
     - target: {fileID: 427756179222368939, guid: ba0c0a689b90c3b4c89806f41e8fdef4,
         type: 3}
       propertyPath: TimerSafe
-      value: 1.5
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 427756179222368939, guid: ba0c0a689b90c3b4c89806f41e8fdef4,
         type: 3}

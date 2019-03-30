@@ -7,7 +7,7 @@ public class Drain : MonoBehaviour
 {
     GameManager Manager;
     public Agent agent;
-    bool imDrained = false;
+    
 
     private void Start()
     {
@@ -16,7 +16,7 @@ public class Drain : MonoBehaviour
     }
     public void Ability()
     {
-        if (GetComponent<Agent>().Mana > 0 && GetComponent<Agent>().MyTurn && GetComponent<Agent>().PlayerType == 2 && GetComponent<Agent>().ImStunned == false && Manager.CanAttack == true)
+        if (GetComponent<Agent>().Mana > 0 && GetComponent<Agent>().MyTurn && GetComponent<Agent>().PlayerType == 2 && GetComponent<Agent>().ImStunned == false && Manager.CanAttack == true && Manager.Pause == false)
         {
             if(GetComponent<LifeManager>().Life == 6)
             {
@@ -107,7 +107,7 @@ public class Drain : MonoBehaviour
     public void Preview()
     {
 
-        if (GetComponent<Agent>().MyTurn && GetComponent<Agent>().PlayerType == 2 && GetComponent<Agent>().ImStunned == false && Manager.CanAttack == true)
+        if (GetComponent<Agent>().MyTurn && GetComponent<Agent>().PlayerType == 2 && GetComponent<Agent>().ImStunned == false && Manager.CanAttack == true && Manager.Pause == false)
 
         {
             CleanPreview();

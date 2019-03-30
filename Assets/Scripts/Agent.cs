@@ -273,12 +273,13 @@ public class Agent : MonoBehaviour, ICharacter
 
         transform.rotation = Quaternion.Euler(0, AngleDeg, 0);
     }
-	#region Input
+	
+    #region Input
 
 	public void Up() //Trasforma la chiamata del manager in una richiesta di movimento
 	{
 
-		if (y < (configGrid.DimY - 1) && OnTheRoad == false && MyTurn == true && ImStunned == false)
+		if (y < (configGrid.DimY - 1) && OnTheRoad == false && MyTurn == true && ImStunned == false && GameManager.Pause == false)
 		{
 			RotDown = false; RotLeft = false; RotRight = false;
 			OnTheRoad = true;
@@ -294,7 +295,7 @@ public class Agent : MonoBehaviour, ICharacter
 	}
 	public void Left()
 	{
-		if (x > 0 && OnTheRoad == false && MyTurn == true && ImStunned == false)
+		if (x > 0 && OnTheRoad == false && MyTurn == true && ImStunned == false && GameManager.Pause == false)
 		{
 			RotUp = false; RotDown = false; RotRight = false;
 			OnTheRoad = true;
@@ -309,7 +310,7 @@ public class Agent : MonoBehaviour, ICharacter
 	}
 	public void Down()
 	{
-		if (y > 0 && OnTheRoad == false && MyTurn == true && ImStunned == false)
+		if (y > 0 && OnTheRoad == false && MyTurn == true && ImStunned == false && GameManager.Pause == false)
 		{
 			RotUp = false; RotLeft = false; RotRight = false;
 			OnTheRoad = true;
@@ -324,7 +325,7 @@ public class Agent : MonoBehaviour, ICharacter
 	}
 	public void Right()
 	{
-		if (x < (configGrid.DimX - 1) && OnTheRoad == false && MyTurn == true && ImStunned == false)
+		if (x < (configGrid.DimX - 1) && OnTheRoad == false && MyTurn == true && ImStunned == false && GameManager.Pause == false)
 		{
 			RotUp = false; RotDown = false; RotLeft = false;
 			OnTheRoad = true;
@@ -340,7 +341,7 @@ public class Agent : MonoBehaviour, ICharacter
 
 	public void BasicAttack()
 	{
-		if (MyTurn == true && ImStunned == false && GameManager.CanAttack == true) // Se è il mio turno
+		if (MyTurn == true && ImStunned == false && GameManager.CanAttack == true && GameManager.Pause == false) // Se è il mio turno
 		{
 			BasicAtt.enabled = true; // Attiva il collider di attacco           
             rg.transform.DOMove(transform.position + SavedlookAt * 0.1f, 0.1f)

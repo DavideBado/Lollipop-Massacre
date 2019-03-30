@@ -12,7 +12,7 @@ public class Stun : MonoBehaviour
     }
     public void Ability()
     {
-        if (GetComponent<Agent>().Mana > 0 && GetComponent<Agent>().MyTurn && GetComponent<Agent>().PlayerType == 3 && GetComponent<Agent>().ImStunned == false && Manager.CanAttack == true)
+        if (GetComponent<Agent>().Mana > 0 && GetComponent<Agent>().MyTurn && GetComponent<Agent>().PlayerType == 3 && GetComponent<Agent>().ImStunned == false && Manager.CanAttack == true && Manager.Pause == false)
         {
             RaycastHit hit;
             if (Physics.Raycast(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt, out hit, 3))
@@ -59,7 +59,7 @@ public class Stun : MonoBehaviour
     public void Preview()
     {
       
-        if (GetComponent<Agent>().MyTurn && GetComponent<Agent>().PlayerType == 3 && GetComponent<Agent>().ImStunned == false && Manager.CanAttack == true)
+        if (GetComponent<Agent>().MyTurn && GetComponent<Agent>().PlayerType == 3 && GetComponent<Agent>().ImStunned == false && Manager.CanAttack == true && Manager.Pause == false)
 
         {
             CleanPreview();

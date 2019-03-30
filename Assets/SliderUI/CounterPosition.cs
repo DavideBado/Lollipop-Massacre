@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CounterPosition : MonoBehaviour
 {
+    GameManager manager;
     public Player1 P1;
     public Player2 P2;
     public SliderBehaviour _slider;
@@ -11,6 +12,7 @@ public class CounterPosition : MonoBehaviour
    
     void Awake()
     {
+        manager = FindObjectOfType<GameManager>();
         P1 = FindObjectOfType<Player1>();
         P2 = FindObjectOfType<Player2>();
         
@@ -19,7 +21,7 @@ public class CounterPosition : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        FindPosition();
+        FindPosition();      
     }
 
     public void FindPosition()
@@ -38,4 +40,5 @@ public class CounterPosition : MonoBehaviour
 
         }
     }
+   
 }
