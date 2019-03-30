@@ -8,25 +8,38 @@ public static class PartyData
     public static List<Agent> POnePart = new List<Agent>();
     public static List<Agent> PTwoPart = new List<Agent>();
 
-    public static void AddToPartyOne(Agent Character)
+    public static void AddToParty(int m_PlayerID, Agent m_Character)
     {
-        POnePart.Add(Character);
+        if (m_PlayerID == 1)
+        {
+            POnePart.Add(m_Character);
+        }
+        else if (m_PlayerID == 2)
+        {
+            PTwoPart.Add(m_Character);
+        }
     }
 
-    public static int POnePartyCount()
+    public static int PartyCount(int m_PlayerID)
     {
-        return POnePart.Count;
+        if (m_PlayerID == 1)
+        {
+            return POnePart.Count;
+        }
+        else if (m_PlayerID == 2)
+        {
+            return PTwoPart.Count;
+        }
+        else
+        {
+            return -1;
+        }
     }
-
-
-    public static void AddToPartyTwo(Agent Character)
+    
+    public static void ClearData()
     {
-        PTwoPart.Add(Character);
-    }
-
-    public static int PTwoPartyCount()
-    {
-        return PTwoPart.Count;
+        POnePart.Clear();
+        PTwoPart.Clear();
     }
 
 }

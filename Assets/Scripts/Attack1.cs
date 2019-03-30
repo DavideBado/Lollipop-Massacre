@@ -6,7 +6,7 @@ using DG.Tweening;
 public class Attack1 : MonoBehaviour
 {
     public GameManager Manager;
-    
+    float Timer;
 
     private void Start()
     {
@@ -20,10 +20,24 @@ public class Attack1 : MonoBehaviour
             other.GetComponent<LifeManager>().Life-=2; // Togli vita al player in collisione
            
             this.GetComponent<Collider>().enabled = false; // Spegni il collider di attacco
-
+            Manager.CanAttack = false; // Non posso più attaccare
 
             other.transform.DOShakePosition(0.5f, 0.1f, 10, 45);
         }
     }
+
+    private void Update()
+    {
+        if(GetComponent<Collider>().enabled == true)
+        {
+            Timer += Time.deltaTime;
+            if (Timer >= 0.5f)
+            {
+                Manager.CanAttack = false; // Non posso più attaccare
+            }
+        }
+    }
+
+
 
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -20,7 +21,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     private void Start()
     {
-        //UpdateBench();
+        UpdateBench();
         RespawnController = GetComponent<RespawnController>();
     }
     void Update()
@@ -45,7 +46,8 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))// Close the game, only in the build version
         {
-            Application.Quit();
+            SceneManager.LoadScene(0);
+            //Application.Quit();
         }
     }
 
@@ -116,17 +118,17 @@ public class GameManager : MonoBehaviour
 
     void UpdateBench()
     {
-        if (POneParty != null)
+        if (PartyData.POnePart != null)
         {
-            foreach (Agent agent in POneParty)
+            foreach (Agent agent in PartyData.POnePart)
             {
                 GameObject Character = Instantiate(agent.gameObject);
                 Character.SetActive(false);
             }
         }
-        if (PTwoParty != null)
+        if (PartyData.PTwoPart != null)
         {
-            foreach (Agent agent in PTwoParty)
+            foreach (Agent agent in PartyData.PTwoPart)
             {
                 GameObject Character = Instantiate(agent.gameObject);
                 Character.SetActive(false);
