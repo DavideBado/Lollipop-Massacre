@@ -34,31 +34,12 @@ public class Whirlwind : MonoBehaviour
 
                     if (EnemyID == 1)
                     {
-                        if (Manager.POneParty.Count > 0)
-                        {
-                            Agent _chara = Manager.POneParty[0];
-                            Debug.Log(_chara.gameObject.activeInHierarchy);
-                            Manager.POneParty.Remove(_chara);
-                            _chara.transform.parent = null;
-                            _chara.gameObject.SetActive(true);
-                            Debug.Log(_chara.gameObject.activeInHierarchy);
-                            _chara.transform.position = Manager.RespawnController.FindAGoodPoint();
+                        ChangePg(PartyData.POnePart);
 
-                            Manager.POneParty.Add(_chara);
-                            _chara.GetComponent<LifeManager>().Life -= 2;
-                        }
                     }
                     else if (EnemyID == 2)
                     {
-                        if (Manager.PTwoParty.Count > 0)
-                        {
-                            Agent _chara = Manager.PTwoParty[0];
-                            _chara.transform.position = Manager.RespawnController.FindAGoodPoint();
-                            Manager.PTwoParty.Remove(_chara);
-                            _chara.gameObject.SetActive(true);
-                            Manager.PTwoParty.Add(_chara);
-                            _chara.GetComponent<LifeManager>().Life -= 2;
-                        }
+                        ChangePg(PartyData.PTwoPart);
                     }
                     hit.transform.gameObject.SetActive(false);
                 }
@@ -112,7 +93,7 @@ public class Whirlwind : MonoBehaviour
                 }
                 else if (_lookY != 0)
                 {
-                    CellsGreenInRay(new Vector3(transform.position.x, 0,(transform.position.z + (5 * _lookY))), cells, playerPosition);
+                    CellsGreenInRay(new Vector3(transform.position.x, 0, (transform.position.z + (5 * _lookY))), cells, playerPosition);
                 }
 
             }
@@ -152,6 +133,32 @@ public class Whirlwind : MonoBehaviour
                 cell.GetComponentInParent<CellPrefScript>().Color = Color.green;
             }
         }
+    }
+
+    void ChangePg(List<Agent> _m_agents)
+    {
+        if (_m_agents.Count > 0)
+        {
+            Agent _chara = _m_agents[0];
+            _m_agents.Remove(_chara);
+            _m_agents.Add(_chara);
+            ToggleObject(_chara);
+            SetNewPosition(_chara);
+            //_chara.GetComponent<LifeManager>().Life -= 2;
+        }
+    }
+
+    void SetNewPosition(Agent _agent)
+    {
+        _agent.transform.position = Manager.RespawnController.FindAGoodPoint();
+    }
+
+    void ToggleObject(Agent _go)
+    {
+
+            _go.gameObject.SetActive(true);
+            Debug.Log(_go.name);
+      
     }
 }
 

@@ -13,11 +13,7 @@ public class RespawnController : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        FindAllThePoints();
-        foreach (SpawnPoint point in SpawnPoints)
-        {
-            //Debug.Log(point.name);
-        }
+        FindAllThePoints();       
     }
     public Vector3 FindAGoodPoint()
     {

@@ -13,6 +13,7 @@ public class Agent : MonoBehaviour, ICharacter
     //************Variabili per test abilità***********
     public KeyCode BigD1, Drain2, Stun3, Venom4, Charge5, Whirlwind6;
     public int PlayerType = 0;
+    public int CurrentID;
     //*************************************************
     public List<Sprite> _Sprites = new List<Sprite>();
     public List<Material> _Materials = new List<Material>();

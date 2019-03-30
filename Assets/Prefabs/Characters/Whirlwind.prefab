@@ -89,7 +89,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1510294126}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.8, y: 10, z: 16.327}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 961757380075200649}
@@ -159,6 +159,7 @@ MonoBehaviour:
   Charge5: 53
   Whirlwind6: 54
   PlayerType: 0
+  CurrentID: 0
   _Sprites:
   - {fileID: 21300008, guid: 106d07bb4156c9743a055a0741d6eadf, type: 3}
   - {fileID: 21300006, guid: fd1e8b0a9cd99cd47adcec57072edf55, type: 3}
@@ -192,7 +193,6 @@ MonoBehaviour:
   Mana: 1
   OhStunnedShit: 0
   AgentSpeed: 0
-  rg: {fileID: 0}
   StunPS: {fileID: 5298261247215913519, guid: 0f1aa92cd496721488cd60806f7a7db9, type: 3}
   PoisonPS: {fileID: 3546577233330127496, guid: b2d7d5452ee40b74abd6b290fdd7c3f3,
     type: 3}

@@ -8,9 +8,7 @@ public class GameManager : MonoBehaviour
 {
     GameObject m_slider;
     public GameObject BenchPOne, BenchPTwo;
-    bool state;
-    public List<Agent> POneParty = new List<Agent>();
-    public List<Agent> PTwoParty = new List<Agent>();
+    bool state;    
     public Text Timertext, TimeMaxText, TurnoText;
     float Timer, Timer2, m_TimerSafe = 0;
     public float TimeMax = 3f, Speed = 25f, TimerSafe = 0;
@@ -28,8 +26,8 @@ public class GameManager : MonoBehaviour
     }
     void Update()
     {
-        //Debug.Log(POneParty[0].name + " è attivo:" + POneParty[0].gameObject.activeInHierarchy + "  " + POneParty[0].gameObject.activeSelf);
-        //Debug.Log("primo:" + POneParty[0].name + " ultimo:" + POneParty[2].name);
+        Debug.Log(PartyData.POnePart[0].name + " è attivo:" + PartyData.POnePart[0].gameObject.activeInHierarchy + "  " + PartyData.POnePart[0].gameObject.activeSelf);
+        Debug.Log("primo:" + PartyData.POnePart[0].name + " ultimo:" + PartyData.POnePart[2].name);
         InUpdate();
     }
     void InUpdate()
@@ -128,6 +126,7 @@ public class GameManager : MonoBehaviour
                 GameObject Character = Instantiate(agent.gameObject);
                 Character.SetActive(false);
             }
+            ChangePg(PartyData.POnePart);
         }
         if (PartyData.PTwoPart != null)
         {
@@ -136,6 +135,32 @@ public class GameManager : MonoBehaviour
                 GameObject Character = Instantiate(agent.gameObject);
                 Character.SetActive(false);
             }
+            ChangePg(PartyData.PTwoPart);
         }
+    }
+    void ChangePg(List<Agent> _m_agents)
+    {
+        if (_m_agents.Count > 0)
+        {
+            Agent _chara = _m_agents[0];
+            _m_agents.Remove(_chara);
+            _m_agents.Add(_chara);
+            ToggleObject(_chara);
+            SetNewPosition(_chara);
+            //_chara.GetComponent<LifeManager>().Life -= 2;
+        }
+    }
+
+    void SetNewPosition(Agent _agent)
+    {
+        _agent.transform.position = RespawnController.FindAGoodPoint();
+    }
+
+    void ToggleObject(Agent _go)
+    {
+
+        _go.gameObject.SetActive(true);
+        Debug.Log(_go.name);
+
     }
 }
