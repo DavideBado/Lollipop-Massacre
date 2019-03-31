@@ -29,6 +29,17 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.P) && Time.timeScale != 0)
+        {
+            Time.timeScale = 0;
+            Debug.Log("In pausa");
+        }
+        else if (Input.GetKeyDown(KeyCode.P) && Time.timeScale == 0)
+        {
+            Time.timeScale = 1;
+            Debug.Log("Out pausa");
+
+        }
         Debug.Log(PartyData.POnePart[0].name + " è attivo:" + PartyData.POnePart[0].gameObject.activeInHierarchy + "  " + PartyData.POnePart[0].gameObject.activeSelf);
         Debug.Log("primo:" + PartyData.POnePart[0].name + " ultimo:" + PartyData.POnePart[2].name);
         InUpdate();
