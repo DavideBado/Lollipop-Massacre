@@ -5,10 +5,10 @@ using UnityEngine;
 public static class PartyData
 
 {
-    public static List<Agent> POnePart = new List<Agent>();
-    public static List<Agent> PTwoPart = new List<Agent>();
+    public static List<GameObject> POnePart = new List<GameObject>();
+    public static List<GameObject> PTwoPart = new List<GameObject>();
 
-    public static void AddToParty(int m_PlayerID, Agent m_Character)
+    public static void AddToParty(int m_PlayerID, GameObject m_Character)
     {
         if (m_PlayerID == 1)
         {

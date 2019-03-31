@@ -9,7 +9,7 @@ public class Player1 : Agent
 {
     private void Update()
     {
-        TextUpdate();    
+        //TextUpdate();    
         InUpdate();
         TurnUpdate();
     }

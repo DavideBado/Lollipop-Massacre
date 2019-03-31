@@ -182,7 +182,6 @@ MonoBehaviour:
   respawn: {fileID: 0}
   configGrid: {fileID: 11400000, guid: 784a1aafb257b974b8f0dcc97f2ca78d, type: 2}
   RespawnController: {fileID: 0}
-  GameManager: {fileID: 0}
   RotUp: 0
   RotDown: 0
   RotLeft: 0

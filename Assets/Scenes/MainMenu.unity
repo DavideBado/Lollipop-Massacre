@@ -1103,7 +1103,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Character
       value: 
-      objectReference: {fileID: 1510294130, guid: ec6aec2190354854189670a2f41e9cf2,
+      objectReference: {fileID: 1510294126, guid: ec6aec2190354854189670a2f41e9cf2,
         type: 3}
     - target: {fileID: 2732604918226821885, guid: 53f4fa7204ed7e54f9d76661f1fd0752,
         type: 3}
@@ -1317,7 +1317,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Character
       value: 
-      objectReference: {fileID: 1510294130, guid: 30271baf1f334be4aa4f1daa57524ed5,
+      objectReference: {fileID: 1510294126, guid: 30271baf1f334be4aa4f1daa57524ed5,
         type: 3}
     - target: {fileID: 2732604918226821885, guid: 53f4fa7204ed7e54f9d76661f1fd0752,
         type: 3}
@@ -3476,7 +3476,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Character
       value: 
-      objectReference: {fileID: 1510294130, guid: 3055f9c3f55c65542ae2fd5bbe53fd72,
+      objectReference: {fileID: 1510294126, guid: 3055f9c3f55c65542ae2fd5bbe53fd72,
         type: 3}
     - target: {fileID: 2732604918226821885, guid: 53f4fa7204ed7e54f9d76661f1fd0752,
         type: 3}
@@ -5646,7 +5646,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Character
       value: 
-      objectReference: {fileID: 1510294130, guid: d26d9c9b0f96f1c4b9a614fd21de008f,
+      objectReference: {fileID: 1510294126, guid: d26d9c9b0f96f1c4b9a614fd21de008f,
         type: 3}
     - target: {fileID: 2732604918226821885, guid: 53f4fa7204ed7e54f9d76661f1fd0752,
         type: 3}
@@ -5868,7 +5868,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Character
       value: 
-      objectReference: {fileID: 1510294130, guid: cdf462e64bc47f249960d4c9b7673d5c,
+      objectReference: {fileID: 1510294126, guid: cdf462e64bc47f249960d4c9b7673d5c,
         type: 3}
     - target: {fileID: 2732604918226821885, guid: 53f4fa7204ed7e54f9d76661f1fd0752,
         type: 3}
@@ -6039,6 +6039,12 @@ PrefabInstance:
       propertyPath: ChildImage
       value: 
       objectReference: {fileID: 763218716}
+    - target: {fileID: 2732604918226821885, guid: 53f4fa7204ed7e54f9d76661f1fd0752,
+        type: 3}
+      propertyPath: Character
+      value: 
+      objectReference: {fileID: 1510294126, guid: ebb463ce90856334fa764d77d790fb37,
+        type: 3}
     - target: {fileID: 7306310037128779215, guid: 53f4fa7204ed7e54f9d76661f1fd0752,
         type: 3}
       propertyPath: m_Enabled

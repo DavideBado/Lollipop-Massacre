@@ -9,7 +9,7 @@ public class CharaSprites : MonoBehaviour
     List<PlayerInMenu> Players = new List<PlayerInMenu>();
     bool PlayerOneOn, PlayerTwoOn, AllPlayersOn;
     public Image ChildImage;
-    public Agent Character;
+    public GameObject Character;
     Sprite Image;
     [SerializeField] public List<Sprite> OnSelectSprites = new List<Sprite>();
     public int SpriteID;
@@ -17,7 +17,7 @@ public class CharaSprites : MonoBehaviour
     private void Start()
     {
         Image = GetComponent<Image>().sprite;
-        ChildImage.sprite = Character._Sprites[0];
+        ChildImage.sprite = Character.GetComponent<Agent>()._Sprites[0];
         FindPlayer();
         
     }

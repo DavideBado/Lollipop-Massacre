@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public List<Transform> SpawnPoints = new List<Transform>();
     GameObject m_slider;
     public GameObject BenchPOne, BenchPTwo;
     bool state;    
@@ -18,18 +19,21 @@ public class GameManager : MonoBehaviour
     public RespawnController RespawnController;
     public bool TimerOn = true;
     // Update is called once per frame
+
     private void Start()
     {
-        m_slider = FindObjectOfType<CounterPosition>().gameObject;
+        //m_slider = FindObjectOfType<CounterPosition>().gameObject;
         UpdateBench();
         RespawnController = GetComponent<RespawnController>();
     }
+
     void Update()
     {
         Debug.Log(PartyData.POnePart[0].name + " è attivo:" + PartyData.POnePart[0].gameObject.activeInHierarchy + "  " + PartyData.POnePart[0].gameObject.activeSelf);
         Debug.Log("primo:" + PartyData.POnePart[0].name + " ultimo:" + PartyData.POnePart[2].name);
         InUpdate();
     }
+
     void InUpdate()
     {       
         TimeForThePlayer(); // Controlla il tempo e gestisce i round
@@ -73,10 +77,10 @@ public class GameManager : MonoBehaviour
         {
             m_TimerSafe -= Time.deltaTime; // Attiva il tempo supplementare
             Pause = true;
-            m_slider.SetActive(false);
+            //m_slider.SetActive(false);
             if (m_TimerSafe <= 0) // E anche il tempo supplementare è finito
             {
-                m_slider.SetActive(true);
+                //m_slider.SetActive(true);
                 Pause = false;
                 Turn = !Turn; // Change player
                 Timer = TimeMax; //Imposta nuovamente il timer
@@ -121,46 +125,65 @@ public class GameManager : MonoBehaviour
     {
         if (PartyData.POnePart != null)
         {
-            foreach (Agent agent in PartyData.POnePart)
+            foreach (GameObject agent in PartyData.POnePart)
             {
-                GameObject Character = Instantiate(agent.gameObject);
+                GameObject Character = Instantiate(agent);
+                Character.transform.parent = BenchPOne.transform;
                 Character.SetActive(false);
             }
-            ChangePg(PartyData.POnePart);
         }
         if (PartyData.PTwoPart != null)
         {
-            foreach (Agent agent in PartyData.PTwoPart)
+            foreach (GameObject _Character in PartyData.PTwoPart)
             {
-                GameObject Character = Instantiate(agent.gameObject);
-                Character.SetActive(false);
-            }
-            ChangePg(PartyData.PTwoPart);
+                GameObject m_Character = Instantiate(_Character);
+                m_Character.transform.parent = BenchPTwo.transform;
+                m_Character.SetActive(false);
+            }            
         }
+        ActiveStarters();
     }
-    void ChangePg(List<Agent> _m_agents)
+    void ChangePg(List<GameObject> _m_agents, int _SpawnPointIndex)
     {
+        Transform _Bench = null;
+
+        if(_SpawnPointIndex == 0)
+        {
+            _Bench = BenchPOne.transform;
+        }
+        else if(_SpawnPointIndex == 1)
+        {
+            _Bench = BenchPTwo.transform;
+        }
         if (_m_agents.Count > 0)
         {
-            Agent _chara = _m_agents[0];
+            
+            GameObject _chara = _m_agents[0];
             _m_agents.Remove(_chara);
             _m_agents.Add(_chara);
-            ToggleObject(_chara);
-            SetNewPosition(_chara);
+            ToggleObject(_chara, _Bench);
+            SetNewPosition(_chara, _SpawnPointIndex);
             //_chara.GetComponent<LifeManager>().Life -= 2;
         }
     }
 
-    void SetNewPosition(Agent _agent)
+    void SetNewPosition(GameObject _agent, int _SpawnPointIndex)
     {
-        _agent.transform.position = RespawnController.FindAGoodPoint();
+        _agent.transform.position = SpawnPoints[_SpawnPointIndex].position;
     }
 
-    void ToggleObject(Agent _go)
+    void ToggleObject(GameObject _go, Transform _goBench)
     {
-
-        _go.gameObject.SetActive(true);
+        _goBench.GetChild(_go.transform.GetSiblingIndex()).gameObject.SetActive(true);
+        
+        _go.SetActive(true);
         Debug.Log(_go.name);
 
+    }
+
+    void ActiveStarters()
+    {
+        ChangePg(PartyData.POnePart, 0);
+        ChangePg(PartyData.PTwoPart, 1);
     }
 }

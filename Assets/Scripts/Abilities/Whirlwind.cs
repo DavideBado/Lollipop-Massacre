@@ -135,11 +135,11 @@ public class Whirlwind : MonoBehaviour
         }
     }
 
-    void ChangePg(List<Agent> _m_agents)
+    void ChangePg(List<GameObject> _m_agents)
     {
         if (_m_agents.Count > 0)
         {
-            Agent _chara = _m_agents[0];
+            GameObject _chara = _m_agents[0];
             _m_agents.Remove(_chara);
             _m_agents.Add(_chara);
             ToggleObject(_chara);
@@ -148,15 +148,15 @@ public class Whirlwind : MonoBehaviour
         }
     }
 
-    void SetNewPosition(Agent _agent)
+    void SetNewPosition(GameObject _agent)
     {
         _agent.transform.position = Manager.RespawnController.FindAGoodPoint();
     }
 
-    void ToggleObject(Agent _go)
+    void ToggleObject(GameObject _go)
     {
 
-            _go.gameObject.SetActive(true);
+            _go.SetActive(true);
             Debug.Log(_go.name);
       
     }

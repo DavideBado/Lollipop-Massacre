@@ -33,28 +33,28 @@ public class SelectMenu : MonoBehaviour
     {
         if (PartyData.PartyCount(1) > 0)
         {
-            POnePaty.transform.GetChild(0).GetComponent<Image>().sprite = PartyData.POnePart[0]._Sprites[1];
+            POnePaty.transform.GetChild(0).GetComponent<Image>().sprite = PartyData.POnePart[0].GetComponent<Agent>()._Sprites[1];
         }
         if (PartyData.PartyCount(1) > 1)
         {
-            POnePaty.transform.GetChild(1).GetComponent<Image>().sprite = PartyData.POnePart[1]._Sprites[1];
+            POnePaty.transform.GetChild(1).GetComponent<Image>().sprite = PartyData.POnePart[1].GetComponent<Agent>()._Sprites[1];
         }
         if (PartyData.PartyCount(1) > 2)
         {
-            POnePaty.transform.GetChild(2).GetComponent<Image>().sprite = PartyData.POnePart[2]._Sprites[1];
+            POnePaty.transform.GetChild(2).GetComponent<Image>().sprite = PartyData.POnePart[2].GetComponent<Agent>()._Sprites[1];
         }
 
         if (PartyData.PartyCount(2) > 0)
         {
-            PTwoParty.transform.GetChild(0).GetComponent<Image>().sprite = PartyData.PTwoPart[0]._Sprites[1];
+            PTwoParty.transform.GetChild(0).GetComponent<Image>().sprite = PartyData.PTwoPart[0].GetComponent<Agent>()._Sprites[1];
         }
         if (PartyData.PartyCount(2) > 1)
         {
-            PTwoParty.transform.GetChild(1).GetComponent<Image>().sprite = PartyData.PTwoPart[1]._Sprites[1];
+            PTwoParty.transform.GetChild(1).GetComponent<Image>().sprite = PartyData.PTwoPart[1].GetComponent<Agent>()._Sprites[1];
         }
         if (PartyData.PartyCount(2) > 2)
         {
-            PTwoParty.transform.GetChild(2).GetComponent<Image>().sprite = PartyData.PTwoPart[2]._Sprites[1];
+            PTwoParty.transform.GetChild(2).GetComponent<Image>().sprite = PartyData.PTwoPart[2].GetComponent<Agent>()._Sprites[1];
         }
 
 

@@ -29,7 +29,7 @@ public class Agent : MonoBehaviour, ICharacter
     public RespawnController RespawnController;
     List<PlayerData> Players = new List<PlayerData>();
     List<Wall> Walls = new List<Wall>();
-    public GameManager GameManager;
+    GameManager GameManager;
     public bool RotUp = false, RotDown = false, RotLeft = false, RotRight = false, ImStunned = false, imDrained = false, StartDrain;
     public int Mana = 0;
     public bool OhStunnedShit;
@@ -61,6 +61,7 @@ public class Agent : MonoBehaviour, ICharacter
 
     private void Start()
     {
+        GameManager = FindObjectOfType<GameManager>();
         InStart();
         rg = GetComponent<Rigidbody>();
     }
