@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 1510294132}
   - component: {fileID: 1293814292230231335}
   m_Layer: 0
-  m_Name: Stun
+  m_Name: Stun P1
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5746cf1716c8f841be66393a40050bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerID: 0
+  PlayerID: 1
   BigD1: 49
   Drain2: 50
   Stun3: 51
@@ -182,7 +182,6 @@ MonoBehaviour:
   respawn: {fileID: 0}
   configGrid: {fileID: 11400000, guid: 784a1aafb257b974b8f0dcc97f2ca78d, type: 2}
   RespawnController: {fileID: 0}
-  GameManager: {fileID: 0}
   RotUp: 0
   RotDown: 0
   RotLeft: 0

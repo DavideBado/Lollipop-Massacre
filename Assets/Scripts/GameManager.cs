@@ -113,12 +113,12 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-    public void NextPlease(GameObject Player)
+    public void NextPlease(GameObject Player, PlayerData _OtherPlayer)
     {if(Player.GetComponentInChildren<Poison>() != null)
         {
             Player.GetComponentInChildren<Poison>().MaxRounds = 0;
         }
-        Instantiate(Player, RespawnController.FindAGoodPoint(), Quaternion.identity);
+        Instantiate(Player, RespawnController.FindAGoodPoint(_OtherPlayer), Quaternion.identity);
     }
 
     void UpdateBench()

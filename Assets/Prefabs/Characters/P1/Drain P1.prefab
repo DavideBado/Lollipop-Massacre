@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 1510294132}
   - component: {fileID: 3399150555332824342}
   m_Layer: 0
-  m_Name: Drain
+  m_Name: Drain P1
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -89,7 +89,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1510294126}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.8, y: 10, z: 16.327}
+  m_LocalPosition: {x: 15, y: 0, z: 11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 961757380075200649}
@@ -151,14 +151,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5746cf1716c8f841be66393a40050bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerID: 0
-  BigD1: 49
-  Drain2: 50
-  Stun3: 51
-  Venom4: 52
-  Charge5: 53
+  PlayerID: 1
+  BigD1: 0
+  Drain2: 0
+  Stun3: 0
+  Venom4: 0
+  Charge5: 0
   Whirlwind6: 0
   PlayerType: 2
+  CurrentID: 0
   _Sprites:
   - {fileID: 21300002, guid: 106d07bb4156c9743a055a0741d6eadf, type: 3}
   - {fileID: 21300002, guid: fd1e8b0a9cd99cd47adcec57072edf55, type: 3}
@@ -181,7 +182,6 @@ MonoBehaviour:
   respawn: {fileID: 0}
   configGrid: {fileID: 11400000, guid: 784a1aafb257b974b8f0dcc97f2ca78d, type: 2}
   RespawnController: {fileID: 0}
-  GameManager: {fileID: 0}
   RotUp: 0
   RotDown: 0
   RotLeft: 0
@@ -192,7 +192,6 @@ MonoBehaviour:
   Mana: 1
   OhStunnedShit: 0
   AgentSpeed: 0
-  rg: {fileID: 0}
   StunPS: {fileID: 5298261247215913519, guid: 0f1aa92cd496721488cd60806f7a7db9, type: 3}
   PoisonPS: {fileID: 3546577233330127496, guid: b2d7d5452ee40b74abd6b290fdd7c3f3,
     type: 3}

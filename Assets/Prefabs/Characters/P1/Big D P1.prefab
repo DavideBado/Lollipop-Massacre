@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 1510294132}
   - component: {fileID: 4941934340564905669}
   m_Layer: 0
-  m_Name: Big D
+  m_Name: Big D P1
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -89,7 +89,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1510294126}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 15, y: 0, z: 11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 961757380075200649}
@@ -151,12 +151,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5746cf1716c8f841be66393a40050bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerID: 0
-  BigD1: 49
-  Drain2: 50
-  Stun3: 51
-  Venom4: 52
-  Charge5: 53
+  PlayerID: 1
+  BigD1: 0
+  Drain2: 0
+  Stun3: 0
+  Venom4: 0
+  Charge5: 0
   Whirlwind6: 0
   PlayerType: 1
   CurrentID: 1
@@ -229,7 +229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OnShield: 0
-  Life: 2
+  Life: 6
 --- !u!114 &4941934340564905669
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -60,8 +60,7 @@ public class Agent : MonoBehaviour, ICharacter
     //********************************************
 
     private void Start()
-    {
-        GameManager = FindObjectOfType<GameManager>();
+    {        
         InStart();
         rg = GetComponent<Rigidbody>();
     }
@@ -73,6 +72,7 @@ public class Agent : MonoBehaviour, ICharacter
 
     void InStart()
     {
+        UpdateReference();
         Spawn(); // Posiziona il giocatore
         FirstSaveXY(); // Salvo le coordinate della mia posizione
     }
@@ -89,7 +89,12 @@ public class Agent : MonoBehaviour, ICharacter
     }
 
     #region Start
-    
+    void UpdateReference()
+    {
+        GameManager = FindObjectOfType<GameManager>();
+        grid = FindObjectOfType<BaseGrid>();
+        configGrid = grid.ConfigData;
+    }
     void FirstSaveXY()
     {
         // x2 && y2 Start = null, the next code lines change x2 && y2 != null
@@ -99,13 +104,8 @@ public class Agent : MonoBehaviour, ICharacter
 
     void Spawn()
     {
-        AgentSpeed = GameObject.Find("GameManager").GetComponent<GameManager>().Speed;
+        AgentSpeed = GameManager.Speed;
         Mana = 1;
-        if (GameManager.Spawn1 == true) // Se il gioco è appena iniziato
-        {
-            transform.position = respawn.transform.position; // Posiziona il giocatore nella posizione di partenza            
-        }
-
         x = (int)(transform.position.x);
         y = (int)(transform.position.z);
       

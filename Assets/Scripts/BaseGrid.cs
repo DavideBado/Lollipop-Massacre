@@ -6,16 +6,16 @@ namespace GridSystem {
 
     public class BaseGrid : MonoBehaviour {
 
+        
+        public GridConfigData ConfigData;
         [SerializeField]
-        private GridConfigData configData;
-
-        public GameObject CellPrefab;
+        protected GameObject CellPrefab;
 
         protected List<Cell> Cells = new List<Cell>();
         List<GameObject> Objects = new List<GameObject>();
        
         void Start() {
-            CreateGrid(configData);
+            CreateGrid(ConfigData);
 
         }
 
@@ -23,13 +23,13 @@ namespace GridSystem {
 
         public void CreateGrid(GridConfigData _configData) {
             // iterazione per la dimensione X della griglia
-            for (int x = 0; x < configData.DimX; x++) {
+            for (int x = 0; x < _configData.DimX; x++) {
                 // iterazione per la dimensione Y della griglia
-                for (int y = 0; y < configData.DimY; y++) {
+                for (int y = 0; y < _configData.DimY; y++) {
                     Cell cellToAdd = new Cell(x, y, new Vector3(
-                        transform.position.x + (x * configData.CellDim),
+                        transform.position.x + (x * _configData.CellDim),
                         0,
-                        transform.position.z + (y * configData.CellDim)
+                        transform.position.z + (y * _configData.CellDim)
                         ));
                     Cells.Add(cellToAdd);
                     GameObject _Cell = Instantiate(CellPrefab, cellToAdd.worldPosition, Quaternion.identity);

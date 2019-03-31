@@ -4142,6 +4142,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 784a1aafb257b974b8f0dcc97f2ca78d,
         type: 2}
+    - target: {fileID: 33554246518750194, guid: c1eb8c41bffb8f64b9ce1446fc01ae7c,
+        type: 3}
+      propertyPath: ConfigData
+      value: 
+      objectReference: {fileID: 11400000, guid: 784a1aafb257b974b8f0dcc97f2ca78d,
+        type: 2}
     - target: {fileID: 33554246518750193, guid: c1eb8c41bffb8f64b9ce1446fc01ae7c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10813,7 +10819,7 @@ PrefabInstance:
     - target: {fileID: 427756179222368939, guid: ba0c0a689b90c3b4c89806f41e8fdef4,
         type: 3}
       propertyPath: TimerSafe
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 427756179222368939, guid: ba0c0a689b90c3b4c89806f41e8fdef4,
         type: 3}

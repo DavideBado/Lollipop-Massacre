@@ -34,15 +34,18 @@ public class Whirlwind : MonoBehaviour
 
                     if (EnemyID == 1)
                     {
-                        ChangePg(PartyData.POnePart);
+                        ChangePg(PartyData.POnePart, EnemyID);
+                        hit.transform.parent = Manager.BenchPOne.transform;
+                        hit.transform.gameObject.SetActive(false);
 
                     }
                     else if (EnemyID == 2)
                     {
-                        ChangePg(PartyData.PTwoPart);
-                    }
-                    hit.transform.gameObject.SetActive(false);
-                }
+                        ChangePg(PartyData.PTwoPart, EnemyID);
+                        hit.transform.parent = Manager.BenchPTwo.transform;
+                        hit.transform.gameObject.SetActive(false);
+                    }                    
+                                   }
 
             }
 
@@ -135,30 +138,42 @@ public class Whirlwind : MonoBehaviour
         }
     }
 
-    void ChangePg(List<GameObject> _m_agents)
+    void ChangePg(List<GameObject> _m_agents, int _OtherPlayerID)
     {
+        Transform _Bench = null;
+        Vector3 m_SpawnPoint = Manager.RespawnController.FindAGoodPoint(GetComponent<PlayerData>());
+        if (_OtherPlayerID == 1)
+        {
+            _Bench = Manager.BenchPOne.transform;
+        }
+        else if (_OtherPlayerID == 2)
+        {
+            _Bench = Manager.BenchPTwo.transform;
+        }
         if (_m_agents.Count > 0)
         {
+
             GameObject _chara = _m_agents[0];
             _m_agents.Remove(_chara);
             _m_agents.Add(_chara);
-            ToggleObject(_chara);
-            SetNewPosition(_chara);
+            ToggleObject(_chara, _Bench);
+            SetNewPosition(_chara, m_SpawnPoint);
             //_chara.GetComponent<LifeManager>().Life -= 2;
         }
     }
 
-    void SetNewPosition(GameObject _agent)
+    void SetNewPosition(GameObject _agent, Vector3 _SpawnPoint)
     {
-        _agent.transform.position = Manager.RespawnController.FindAGoodPoint();
+        _agent.transform.position = _SpawnPoint;
     }
 
-    void ToggleObject(GameObject _go)
+    void ToggleObject(GameObject _go, Transform _goBench)
     {
+        _goBench.GetChild(_go.transform.GetSiblingIndex()).gameObject.SetActive(true);
 
-            _go.SetActive(true);
-            Debug.Log(_go.name);
-      
+        _go.SetActive(true);
+        Debug.Log(_go.name);
+
     }
 }
 

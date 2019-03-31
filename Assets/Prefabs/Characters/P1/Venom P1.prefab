@@ -73,9 +73,9 @@ GameObject:
   - component: {fileID: 1510294130}
   - component: {fileID: 1510294131}
   - component: {fileID: 1510294132}
-  - component: {fileID: 397459704151230688}
+  - component: {fileID: 2873265479648818374}
   m_Layer: 0
-  m_Name: Charge
+  m_Name: Venom P1
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -151,18 +151,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5746cf1716c8f841be66393a40050bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayerID: 0
-  BigD1: 49
-  Drain2: 50
-  Stun3: 51
-  Venom4: 52
-  Charge5: 53
+  PlayerID: 1
+  BigD1: 0
+  Drain2: 0
+  Stun3: 0
+  Venom4: 0
+  Charge5: 0
   Whirlwind6: 0
-  PlayerType: 5
-  CurrentID: 2
+  PlayerType: 4
+  CurrentID: 0
   _Sprites:
-  - {fileID: 21300000, guid: 106d07bb4156c9743a055a0741d6eadf, type: 3}
-  - {fileID: 21300000, guid: fd1e8b0a9cd99cd47adcec57072edf55, type: 3}
+  - {fileID: 21300004, guid: 106d07bb4156c9743a055a0741d6eadf, type: 3}
+  - {fileID: 21300004, guid: fd1e8b0a9cd99cd47adcec57072edf55, type: 3}
   _Materials:
   - {fileID: 2100000, guid: fda81b5bad2464f4faebf2e9ff3b84e8, type: 2}
   - {fileID: 2100000, guid: 7c56ca6d99673fa418f43a54d46454de, type: 2}
@@ -182,7 +182,6 @@ MonoBehaviour:
   respawn: {fileID: 0}
   configGrid: {fileID: 11400000, guid: 784a1aafb257b974b8f0dcc97f2ca78d, type: 2}
   RespawnController: {fileID: 0}
-  GameManager: {fileID: 0}
   RotUp: 0
   RotDown: 0
   RotLeft: 0
@@ -231,7 +230,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnShield: 0
   Life: 6
---- !u!114 &397459704151230688
+--- !u!114 &2873265479648818374
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -240,9 +239,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1510294126}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d872d7d50addca4eaaafafe05b13c4b, type: 3}
+  m_Script: {fileID: 11500000, guid: 1a2ce0d5fd39c5443a7417126a1b40bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Poison: {fileID: 1761248820065099990, guid: 09146529f478bc2478cc8b53284fb07d, type: 3}
 --- !u!1 &1980843689978317343
 GameObject:
   m_ObjectHideFlags: 0
