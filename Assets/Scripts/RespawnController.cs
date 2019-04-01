@@ -10,13 +10,10 @@ public class RespawnController : MonoBehaviour
     List<SpawnPoint> SpawnPoints = new List<SpawnPoint>();
     List<PlayerData> Players = new List<PlayerData>();
 
-    // Start is called before the first frame update
-    private void Start()
-    {
-        FindAllThePoints();       
-    }
+
     public Vector3 FindAGoodPoint(PlayerData _player)
     {
+        FindAllThePoints();
         longestDistance = 0.0f;
         farthestSpawnPoint = Vector3.zero;
         FindAllThePlayers(); // trova tutti i player vivi

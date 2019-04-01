@@ -35,6 +35,7 @@ public class Whirlwind : MonoBehaviour
                     if (EnemyID == 1)
                     {
                         ChangePg(PartyData.POnePart, EnemyID);
+                        hit.transform.position = Vector3.zero;
                         hit.transform.parent = Manager.BenchPOne.transform;
                         hit.transform.gameObject.SetActive(false);
 
@@ -42,6 +43,7 @@ public class Whirlwind : MonoBehaviour
                     else if (EnemyID == 2)
                     {
                         ChangePg(PartyData.PTwoPart, EnemyID);
+                        hit.transform.position = Vector3.zero;
                         hit.transform.parent = Manager.BenchPTwo.transform;
                         hit.transform.gameObject.SetActive(false);
                     }                    
@@ -164,7 +166,7 @@ public class Whirlwind : MonoBehaviour
 
     void SetNewPosition(GameObject _agent, Vector3 _SpawnPoint)
     {
-        _agent.transform.position = _SpawnPoint;
+        _agent.transform.SetPositionAndRotation(_SpawnPoint, Quaternion.identity);
     }
 
     void ToggleObject(GameObject _go, Transform _goBench)

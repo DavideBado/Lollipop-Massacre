@@ -67,13 +67,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1510294127}
-  - component: {fileID: 1510294133}
   - component: {fileID: 1510294134}
   - component: {fileID: 1510294129}
   - component: {fileID: 1510294130}
   - component: {fileID: 1510294131}
   - component: {fileID: 1510294132}
   - component: {fileID: 4941934340564905669}
+  - component: {fileID: 1783881620859497908}
   m_Layer: 0
   m_Name: Big D P1
   m_TagString: Player
@@ -89,7 +89,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1510294126}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 10, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 961757380075200649}
@@ -98,22 +98,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &1510294133
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1510294126}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!65 &1510294134
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -242,6 +226,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f45f31b2797764941b6d3e0c3aeddc58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!54 &1783881620859497908
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1510294126}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &1980843689978317343
 GameObject:
   m_ObjectHideFlags: 0

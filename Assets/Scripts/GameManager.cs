@@ -187,7 +187,7 @@ public class GameManager : MonoBehaviour
     {
         _goBench.GetChild(_go.transform.GetSiblingIndex()).gameObject.SetActive(true);
         
-        _go.SetActive(true);
+        //_go.SetActive(true);
         Debug.Log(_go.name);
 
     }
