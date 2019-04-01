@@ -89,7 +89,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1510294126}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 15, y: 0, z: 11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 961757380075200649}
@@ -172,10 +172,10 @@ MonoBehaviour:
   RayRight: {x: 0, y: 0, z: 0}
   MyTurn: 0
   OnTheRoad: 0
-  x: 0
-  x2: 0
-  y: 0
-  y2: 0
+  x: 15
+  x2: 15
+  y: 11
+  y2: 11
   grid: {fileID: 0}
   BasicAtt: {fileID: 936545434}
   Lifetext: {fileID: 0}

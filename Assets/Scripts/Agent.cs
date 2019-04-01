@@ -31,7 +31,7 @@ public class Agent : MonoBehaviour, ICharacter
     List<Wall> Walls = new List<Wall>();
     GameManager GameManager;
     public bool RotUp = false, RotDown = false, RotLeft = false, RotRight = false, ImStunned = false, imDrained = false, StartDrain;
-    public int Mana = 0;
+    public int Mana = 1;
     public bool OhStunnedShit;
     public float AgentSpeed;
     Rigidbody rg;
@@ -58,7 +58,10 @@ public class Agent : MonoBehaviour, ICharacter
 
 
     //********************************************
-
+    private void OnEnable()
+    {
+        transform.parent = null;
+    }
     private void Start()
     {        
         InStart();
@@ -105,7 +108,7 @@ public class Agent : MonoBehaviour, ICharacter
     void Spawn()
     {
         AgentSpeed = GameManager.Speed;
-        Mana = 1;
+        //Mana = 1;
         x = (int)(transform.position.x);
         y = (int)(transform.position.z);
       
