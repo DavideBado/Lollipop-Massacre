@@ -49,6 +49,11 @@ public class PlayerInMenu : MonoBehaviour
         }
     }
 
+    public void Ability()
+    {
+        FindObjectOfType<SelectMenu>().RemoveCharacter(PlayerID);
+    }
+
     public void BasicAttack()
     {
         int m_CharacterIndex = PlayerID - 1;
