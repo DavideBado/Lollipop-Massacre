@@ -13,9 +13,7 @@ public class CounterPosition : MonoBehaviour
     void Awake()
     {
         manager = FindObjectOfType<GameManager>();
-        P1 = FindObjectOfType<Player1>();
-        P2 = FindObjectOfType<Player2>();
-        
+        FindPlayers();
     }
 
     // Update is called once per frame
@@ -39,6 +37,12 @@ public class CounterPosition : MonoBehaviour
            // _slider.StartCounter(_slider.initialCountAmount);
 
         }
+    }
+
+    public void FindPlayers()
+    {
+        P1 = FindObjectOfType<Player1>();
+        P2 = FindObjectOfType<Player2>();
     }
    
 }

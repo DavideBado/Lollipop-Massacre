@@ -61,7 +61,7 @@ public class Agent : MonoBehaviour, ICharacter
 
     //********************************************
     private void OnEnable()
-    {        
+    {           
         AgentOnEnable(AgentParent, AgentSpawnPosition);
     }
 
@@ -83,6 +83,7 @@ public class Agent : MonoBehaviour, ICharacter
     }
     void InStart()
     {
+        FindObjectOfType<CounterPosition>().FindPlayers();
         UpdateReference();
         Spawn(); // Posiziona il giocatore
         FirstSaveXY(); // Salvo le coordinate della mia posizione
