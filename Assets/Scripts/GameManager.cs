@@ -169,15 +169,17 @@ public class GameManager : MonoBehaviour
             GameObject _chara = _m_agents[0];
             _m_agents.Remove(_chara);
             _m_agents.Add(_chara);
-            ToggleObject(_chara, _Bench);
+            
             SetNewPosition(_chara, _SpawnPointIndex);
+            ToggleObject(_chara, _Bench);
             //_chara.GetComponent<LifeManager>().Life -= 2;
         }
     }
 
     void SetNewPosition(GameObject _agent, int _SpawnPointIndex)
     {
-        _agent.transform.position = SpawnPoints[_SpawnPointIndex].position;
+        _agent.GetComponent<Agent>().AgentParent = null;
+        _agent.GetComponent<Agent>().AgentSpawnPosition = SpawnPoints[_SpawnPointIndex].position;
     }
 
     void ToggleObject(GameObject _go, Transform _goBench)

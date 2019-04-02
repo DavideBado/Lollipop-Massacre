@@ -46,8 +46,8 @@ public class Whirlwind : MonoBehaviour
                         hit.transform.position = new Vector3();
                         hit.transform.parent = Manager.BenchPTwo.transform;
                         hit.transform.gameObject.SetActive(false);
-                    }                    
-                                   }
+                    }
+                }
 
             }
 
@@ -157,23 +157,27 @@ public class Whirlwind : MonoBehaviour
 
             GameObject _chara = _m_agents[0];
             _m_agents.Remove(_chara);
-            _m_agents.Add(_chara);            
-            ToggleObject(_chara, _Bench);
+            _m_agents.Add(_chara);
+
             SetNewPosition(_chara, m_SpawnPoint);
+
+            ToggleObject(_chara, _Bench);
+           
             //_chara.GetComponent<LifeManager>().Life -= 2;
         }
     }
 
     void SetNewPosition(GameObject _agent, Vector3 _SpawnPoint)
     {
-        _agent.transform.parent = null;
-        UnityEditor.EditorApplication.isPaused = true;
-        _agent.transform.position = _SpawnPoint;
-        _agent.GetComponent<Agent>().x = (int)_SpawnPoint.x;
-        _agent.GetComponent<Agent>().x2 = (int)_SpawnPoint.x;
-        _agent.GetComponent<Agent>().y = (int)_SpawnPoint.z;
-        _agent.GetComponent<Agent>().y2 = (int)_SpawnPoint.z;
+
+        _agent.GetComponent<Agent>().AgentParent = null;
+         _agent.GetComponent<Agent>().AgentSpawnPosition = _SpawnPoint;
+        //_agent.GetComponent<Agent>().x = (int)_SpawnPoint.x;
+        //_agent.GetComponent<Agent>().x2 = (int)_SpawnPoint.x;
+        //_agent.GetComponent<Agent>().y = (int)_SpawnPoint.z;
+        //_agent.GetComponent<Agent>().y2 = (int)_SpawnPoint.z;
     }
+
 
     void ToggleObject(GameObject _go, Transform _goBench)
     {
