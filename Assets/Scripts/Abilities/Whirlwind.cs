@@ -34,7 +34,7 @@ public class Whirlwind : MonoBehaviour
 
                     if (EnemyID == 1)
                     {
-                        ChangePg(PartyData.POnePart, EnemyID);
+                        ChangePg(Manager.POneParty, EnemyID);
                         hit.transform.position = new Vector3();
                         hit.transform.parent = Manager.BenchPOne.transform;
                         hit.transform.gameObject.SetActive(false);
@@ -42,7 +42,7 @@ public class Whirlwind : MonoBehaviour
                     }
                     else if (EnemyID == 2)
                     {
-                        ChangePg(PartyData.PTwoPart, EnemyID);
+                        ChangePg(Manager.PTwoParty, EnemyID);
                         hit.transform.position = new Vector3();
                         hit.transform.parent = Manager.BenchPTwo.transform;
                         hit.transform.gameObject.SetActive(false);

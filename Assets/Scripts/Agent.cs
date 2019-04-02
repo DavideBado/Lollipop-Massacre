@@ -9,8 +9,8 @@ using DG.Tweening;
 
 public class Agent : MonoBehaviour, ICharacter
 {
-    public Transform AgentParent;
-    public Vector3 AgentSpawnPosition;
+    [HideInInspector] public Transform AgentParent = null;
+    [HideInInspector] public Vector3 AgentSpawnPosition = new Vector3();
     public int PlayerID;
     //************Variabili per test abilità***********
     public KeyCode BigD1, Drain2, Stun3, Venom4, Charge5, Whirlwind6;
@@ -70,11 +70,7 @@ public class Agent : MonoBehaviour, ICharacter
         InStart();
         rg = GetComponent<Rigidbody>();
     }
-    // Update is called once per frame
-    void Update()
-    {
-        InUpdate();
-    }
+
 
     public void AgentOnEnable(Transform _parent, Vector3 _position)
     {
@@ -94,7 +90,8 @@ public class Agent : MonoBehaviour, ICharacter
 
     public void InUpdate()
     {
-		Sicura();
+        Debug.Log(name + " SpawnPoint:" + AgentSpawnPosition);
+        Sicura();
 		Movement(); // Muove il giocatore
         APlayerTypeSelector();
         RayDirections();

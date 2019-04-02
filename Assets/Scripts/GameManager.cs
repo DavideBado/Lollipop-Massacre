@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public List<GameObject> POneParty = new List<GameObject>();
+    public List<GameObject> PTwoParty = new List<GameObject>();
     public List<Transform> SpawnPoints = new List<Transform>();
     GameObject m_slider;
     public GameObject BenchPOne, BenchPTwo;
@@ -19,7 +21,11 @@ public class GameManager : MonoBehaviour
     public RespawnController RespawnController;
     public bool TimerOn = true;
     // Update is called once per frame
-
+    private void Awake()
+    {
+        POneParty = PartyData.POnePart;
+        PTwoParty = PartyData.PTwoPart;
+    }
     private void Start()
     {
         //m_slider = FindObjectOfType<CounterPosition>().gameObject;
@@ -40,8 +46,8 @@ public class GameManager : MonoBehaviour
             Debug.Log("Out pausa");
 
         }
-        Debug.Log(PartyData.POnePart[0].name + " è attivo:" + PartyData.POnePart[0].gameObject.activeInHierarchy + "  " + PartyData.POnePart[0].gameObject.activeSelf);
-        Debug.Log("primo:" + PartyData.POnePart[0].name + " ultimo:" + PartyData.POnePart[2].name);
+        Debug.Log(POneParty[0].name + " è attivo:" + POneParty[0].gameObject.activeInHierarchy + "  " + POneParty[0].gameObject.activeSelf);
+        Debug.Log("primo:" + POneParty[0].name + " ultimo:" + POneParty[2].name);
         InUpdate();
     }
 
@@ -131,18 +137,18 @@ public class GameManager : MonoBehaviour
 
     void UpdateBench()
     {
-        if (PartyData.POnePart != null)
+        if (POneParty != null)
         {
-            foreach (GameObject agent in PartyData.POnePart)
+            foreach (GameObject agent in POneParty)
             {
                 GameObject Character = Instantiate(agent);
                 Character.transform.parent = BenchPOne.transform;
                 Character.SetActive(false);
             }
         }
-        if (PartyData.PTwoPart != null)
+        if (PTwoParty != null)
         {
-            foreach (GameObject _Character in PartyData.PTwoPart)
+            foreach (GameObject _Character in PTwoParty)
             {
                 GameObject m_Character = Instantiate(_Character);
                 m_Character.transform.parent = BenchPTwo.transform;
@@ -193,7 +199,7 @@ public class GameManager : MonoBehaviour
 
     void ActiveStarters()
     {
-        ChangePg(PartyData.POnePart, 0);
-        ChangePg(PartyData.PTwoPart, 1);
+        ChangePg(POneParty, 0);
+        ChangePg(PTwoParty, 1);
     }
 }

@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AgentParent: {fileID: 0}
-  AgentSpawnPosition: {x: 0, y: 0, z: 11}
+  AgentSpawnPosition: {x: 15, y: 0, z: 11}
   PlayerID: 1
   BigD1: 0
   Drain2: 0
