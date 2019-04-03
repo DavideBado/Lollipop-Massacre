@@ -168,15 +168,15 @@ public class GameManager : MonoBehaviour
         }
         ActiveStarters();
     }
-    void ChangePg(List<GameObject> _m_agents, int _SpawnPointIndex)
+    void PgInStartPosition(List<GameObject> _m_agents, int _PlayerID)
     {
         Transform _Bench = null;
 
-        if(_SpawnPointIndex == 0)
+        if(_PlayerID == 1)
         {
             _Bench = BenchPOne.transform;
         }
-        else if(_SpawnPointIndex == 1)
+        else if(_PlayerID == 2)
         {
             _Bench = BenchPTwo.transform;
         }
@@ -187,7 +187,7 @@ public class GameManager : MonoBehaviour
             _m_agents.Remove(_chara);
             _m_agents.Add(_chara);
             
-            SetNewPosition(_chara, SpawnPoints[_SpawnPointIndex].position);
+            SetNewPosition(_chara, SpawnPoints[(_PlayerID -1)].position);
             ToggleObject(_chara, _Bench);
           
         }
@@ -206,8 +206,8 @@ public class GameManager : MonoBehaviour
 
     void ActiveStarters()
     {
-        ChangePg(POneParty, 0);
-        ChangePg(PTwoParty, 1);
+        PgInStartPosition(POneParty, 1);
+        PgInStartPosition(PTwoParty, 2);
     }
 
     public void Switcher(int _PlayerID, int _CharacterIndex, GameObject _ActiveCharacter)
@@ -246,7 +246,7 @@ public class GameManager : MonoBehaviour
        
     }
 
-    public void EndGameCheck(int _PlayerID)
+    public void EndGameCheck(int _PlayerID, GameObject _ActiveCharacter)
     {
         if(POneKO())
         {
@@ -258,7 +258,15 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-
+            if (_PlayerID == 1)
+            {
+                ChangePg(POneParty, _PlayerID);
+            }
+            else if(_PlayerID == 2)
+            {
+                ChangePg(PTwoParty, _PlayerID);
+            }
+            _ActiveCharacter.SetActive(false);
         }
     }
 
@@ -308,4 +316,32 @@ public class GameManager : MonoBehaviour
         }
         return null;
     }
+
+    void ChangePg(List<GameObject> _m_agents, int _PlayerID)
+    {
+        Transform _Bench = null;
+        int m_ActivePlayerID = 0;
+        if (_PlayerID == 1)
+        {
+            _Bench = BenchPOne.transform;
+            m_ActivePlayerID = 2;
+        }
+        else if (_PlayerID == 2)
+        {
+            _Bench = BenchPTwo.transform;
+            m_ActivePlayerID = 1;
+        }
+        if (_m_agents.Count > 0)
+        {
+
+            GameObject _chara = _m_agents[0];
+            _m_agents.Remove(_chara);
+            _m_agents.Add(_chara);
+
+            SetNewPosition(_chara,RespawnController.FindAGoodPoint(FindPlayer(m_ActivePlayerID)));
+            ToggleObject(_chara, _Bench);
+
+        }
+    }
+
 }

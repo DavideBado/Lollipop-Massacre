@@ -35,7 +35,7 @@ public class LifeManager : MonoBehaviour
         }
         if (Life <= 0) // Se la vita è minore o uguale a 0
         {
-            GameManager.EndGameCheck(GetComponent<Agent>().PlayerID);
+            GameManager.EndGameCheck(GetComponent<Agent>().PlayerID, gameObject);
             
         }
     }
