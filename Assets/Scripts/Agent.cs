@@ -9,6 +9,7 @@ using DG.Tweening;
 
 public class Agent : MonoBehaviour, ICharacter
 {
+    public int SwitchIndex;
     [HideInInspector] public Transform AgentParent = null;
     [HideInInspector] public Vector3 AgentSpawnPosition = new Vector3();
     public int PlayerID;
@@ -376,6 +377,21 @@ public class Agent : MonoBehaviour, ICharacter
         {
             PoisonPS.SetActive(false);
         }
+    }
+
+    public void Switch_A()
+    {
+        GameManager.Switcher(PlayerID, 1);
+    }
+
+    public void Switch_B()
+    {
+        GameManager.Switcher(PlayerID, 2);
+    }
+
+    public void Switch_C()
+    {
+        GameManager.Switcher(PlayerID, 3);
     }
 
     #endregion

@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    int m_SwitchPOne, m_SwitchPTwo;
     public List<GameObject> POneParty = new List<GameObject>();
     public List<GameObject> PTwoParty = new List<GameObject>();
     public List<Transform> SpawnPoints = new List<Transform>();
@@ -28,6 +29,8 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
+        m_SwitchPOne = 2;
+        m_SwitchPTwo = 2;
         //m_slider = FindObjectOfType<CounterPosition>().gameObject;
         UpdateBench();
         RespawnController = GetComponent<RespawnController>();
@@ -201,5 +204,18 @@ public class GameManager : MonoBehaviour
     {
         ChangePg(POneParty, 0);
         ChangePg(PTwoParty, 1);
+    }
+
+    public void Switcher(int _PlayerID, int _CharacterIndex)
+    {
+        if(_PlayerID == 1)
+        {
+            // Spegnere il personaggio in scena, attivare quello selezionato e metterlo nella stessa posizione di quello appena  
+            m_SwitchPOne--;
+        }
+        else if(_PlayerID == 2)
+        {
+            m_SwitchPTwo--;
+        }
     }
 }

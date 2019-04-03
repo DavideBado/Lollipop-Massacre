@@ -13,10 +13,12 @@ public static class PartyData
         if (m_PlayerID == 1)
         {
             POnePart.Add(m_Character);
+            m_Character.GetComponent<Agent>().SwitchIndex = POnePart.Count;
         }
         else if (m_PlayerID == 2)
         {
             PTwoPart.Add(m_Character);
+            m_Character.GetComponent<Agent>().SwitchIndex = PTwoPart.Count;
         }
     }
 
