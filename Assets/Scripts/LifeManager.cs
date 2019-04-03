@@ -35,13 +35,8 @@ public class LifeManager : MonoBehaviour
         }
         if (Life <= 0) // Se la vita è minore o uguale a 0
         {
-            if (CanRespawn == true)
-            {
-                GameManager.NextPlease(m_OtherPLayer);
-                CanRespawn = false;
-            }
-            gameObject.SetActive(false); // Lascia il tempo alla UI di aggiornare la vita e poi elimina il cadavere
-           
+            GameManager.EndGameCheck(GetComponent<Agent>().PlayerID);
+            
         }
     }
 }

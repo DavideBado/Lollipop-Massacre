@@ -381,17 +381,26 @@ public class Agent : MonoBehaviour, ICharacter
 
     public void Switch_A()
     {
-        GameManager.Switcher(PlayerID, 1);
+        if (MyTurn == true)
+        {
+            GameManager.Switcher(PlayerID, 1, gameObject);
+        }
     }
 
     public void Switch_B()
     {
-        GameManager.Switcher(PlayerID, 2);
+        if (MyTurn == true)
+        {
+            GameManager.Switcher(PlayerID, 2, gameObject);
+        }
     }
 
     public void Switch_C()
     {
-        GameManager.Switcher(PlayerID, 3);
+        if (MyTurn == true)
+        {
+            GameManager.Switcher(PlayerID, 3, gameObject);
+        }
     }
 
     #endregion

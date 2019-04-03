@@ -135,8 +135,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5746cf1716c8f841be66393a40050bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SwitchIndex: 1
   AgentParent: {fileID: 0}
-  AgentSpawnPosition: {x: 15, y: 0, z: 11}
+  AgentSpawnPosition: {x: 0, y: 0, z: 0}
   PlayerID: 1
   BigD1: 0
   Drain2: 0
@@ -201,6 +202,9 @@ MonoBehaviour:
   BasicAttack: 32
   Ability: 113
   Preview: 304
+  Switch_A: 49
+  Switch_B: 50
+  Switch_C: 51
   ManagerPlayerID: 0
 --- !u!114 &1510294132
 MonoBehaviour:
@@ -215,7 +219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OnShield: 0
-  Life: 6
+  Life: 2
 --- !u!114 &4941934340564905669
 MonoBehaviour:
   m_ObjectHideFlags: 0

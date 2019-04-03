@@ -163,7 +163,7 @@ public class Whirlwind : MonoBehaviour
 
             ToggleObject(_chara, _Bench);
            
-            //_chara.GetComponent<LifeManager>().Life -= 2;
+            _chara.GetComponent<LifeManager>().Life -= 2;
         }
     }
 
