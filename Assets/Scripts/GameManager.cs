@@ -29,7 +29,9 @@ public class GameManager : MonoBehaviour
         m_SwitchPOne = 2;
         m_SwitchPTwo = 2;
         //m_slider = FindObjectOfType<CounterPosition>().gameObject;
-        UpdateBench();
+
+        UpdateBenchTester();
+        //UpdateBench();
         RespawnController = GetComponent<RespawnController>();
     }
 
@@ -342,6 +344,41 @@ public class GameManager : MonoBehaviour
             ToggleObject(_chara, _Bench);
 
         }
+    }
+
+    ///////////////////////////////////////////////////////////
+    void UpdateBenchTester()
+    {
+        if (POneParty != null)
+        {
+            int i = 1;
+
+            foreach (GameObject _Character in POneParty)
+            {
+             
+                GameObject m_Character = Instantiate(_Character);
+    //POneParty.Add(m_Character);
+                m_Character.GetComponent<Agent>().SwitchIndex = i;
+                i ++;
+                m_Character.transform.parent = BenchPOne.transform;
+                m_Character.SetActive(false);
+            }
+        }
+        if (PTwoParty != null)
+        {
+            int i = 1;
+
+            foreach (GameObject _Character in PTwoParty)
+            {
+                GameObject m_Character = Instantiate(_Character);
+//PTwoParty.Add(m_Character);
+                m_Character.GetComponent<Agent>().SwitchIndex = i;
+                i++;
+                m_Character.transform.parent = BenchPTwo.transform;
+                m_Character.SetActive(false);
+            }            
+        }
+        ActiveStarters();
     }
 
 }

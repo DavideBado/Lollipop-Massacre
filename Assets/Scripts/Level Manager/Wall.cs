@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class Wall : MonoBehaviour
 {
-    
-    
+
+    public List<GameObject> Models = new List<GameObject>();
 
     public ItemData GetData()
     {
@@ -18,6 +19,16 @@ public class Wall : MonoBehaviour
         return itemData;
     }
 
+
+    private void OnCollisionStay(Collision other)
+    {
+        if(other.gameObject.GetComponent<wallModelReference>() != null)
+        {
+            Models.Add(other.gameObject);
+            other.collider.enabled = false;
+            
+        }
+    }
 
 }
 
