@@ -26,9 +26,9 @@ public class Wall : MonoBehaviour
         {
             Models.Add(other.gameObject);
             other.collider.enabled = false;
-            
+          
         }
     }
-
+    
 }
 

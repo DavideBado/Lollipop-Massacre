@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class WallTransparency : MonoBehaviour
 {
-
+    public Texture texture;
+    
 
     private void OnTriggerEnter(Collider other)
     {
@@ -12,7 +13,16 @@ public class WallTransparency : MonoBehaviour
         {
             foreach(GameObject _object in GetComponentInParent<Wall>().Models)
             {
-                _object.GetComponentInParent<MeshRenderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 0.2f);
+                //Renderer rend = GetComponent<Renderer>();
+
+                ////Set the main Color of the Material to green
+                //rend.material.shader = Shader.Find("_Color");
+                //rend.material.SetColor("_Color", Color.green);
+                //_object.GetComponent<MeshRenderer>().material.color = new Color(1.0f, 1.0f, 1.0f, 0.2f);
+                Renderer rend = _object.GetComponent<Renderer>();
+
+                rend.material.shader = Shader.Find("_Color");
+                rend.material.SetColor("_Color", new Color(1.0f, 1.0f, 1.0f, 0.2f));
             }
 
         }

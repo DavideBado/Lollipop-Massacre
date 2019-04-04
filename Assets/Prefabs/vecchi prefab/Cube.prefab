@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40aa5773d41c0654392f538b19eaa4b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  texture: {fileID: 2800000, guid: 56c988832e7434c4cbc7c25ea49414b4, type: 3}
 --- !u!64 &3930334189448795601
 MeshCollider:
   m_ObjectHideFlags: 0
