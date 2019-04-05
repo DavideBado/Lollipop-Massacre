@@ -6,6 +6,7 @@ using System.Linq;
 
 public class CharaSprites : MonoBehaviour
 {
+    public GameObject ArrowPOne, ArrowPTwo;
     public RawImage CharacterImage;
     List<PlayerInMenu> Players = new List<PlayerInMenu>();
     bool PlayerOneOn, PlayerTwoOn, AllPlayersOn;
