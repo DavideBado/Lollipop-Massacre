@@ -30,8 +30,8 @@ public class GameManager : MonoBehaviour
         m_SwitchPTwo = 2;
         //m_slider = FindObjectOfType<CounterPosition>().gameObject;
 
-        UpdateBenchTester();
-        //UpdateBench();
+        //UpdateBenchTester();
+        UpdateBench();
         RespawnController = GetComponent<RespawnController>();
     }
 
