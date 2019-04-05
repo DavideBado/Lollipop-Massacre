@@ -123,7 +123,7 @@ public class BigD : MonoBehaviour
                             cell.transform.position.x == (transform.position.x + 2)))) &&
                             ((cell.transform.position.z == (transform.position.z))))
                         {
-                            cell.GetComponentInParent<CellPrefScript>().Color = Color.green;
+                            cell.GetComponent<MeshRenderer>().material = cell.Materials[3];
 
                         }
                     }
@@ -135,7 +135,7 @@ public class BigD : MonoBehaviour
                         if (((cell.transform.position.x == (transform.position.x - 1) || cell.transform.position.x == (transform.position.x - 2))) &&
                             ((cell.transform.position.z == (transform.position.z))))
                         {
-                            cell.GetComponentInParent<CellPrefScript>().Color = Color.green;
+                                cell.GetComponent<MeshRenderer>().material = cell.Materials[3];
 
                         }
                     }
@@ -152,9 +152,9 @@ public class BigD : MonoBehaviour
                         if ((cell.transform.position.z == (transform.position.z - 1) || cell.transform.position.z == (transform.position.z - 2)) &&
                             ((cell.transform.position.x == (transform.position.x))))
                         {
-                            cell.GetComponentInParent<CellPrefScript>().Color = Color.green;
+                                cell.GetComponent<MeshRenderer>().material = cell.Materials[3];
 
-                        }
+                            }
                     }
                 }
                 else if (_lookY > 0)
@@ -164,9 +164,9 @@ public class BigD : MonoBehaviour
                         if ((cell.transform.position.z == (transform.position.z + 1) || cell.transform.position.z == (transform.position.z + 2)) &&
                             ((cell.transform.position.x == (transform.position.x))))
                         {
-                            cell.GetComponentInParent<CellPrefScript>().Color = Color.green;
+                                cell.GetComponent<MeshRenderer>().material = cell.Materials[3];
 
-                        }
+                            }
                     }
                 }
 
@@ -189,9 +189,9 @@ public class BigD : MonoBehaviour
                         if ((cell.transform.position.x == (transform.position.x - 1) || cell.transform.position.x == (transform.position.x - 2)) &&
                             ((cell.transform.position.z == (transform.position.z - 1))))
                         {
-                            cell.GetComponentInParent<CellPrefScript>().Color = Color.green;
+                                cell.GetComponent<MeshRenderer>().material = cell.Materials[3];
 
-                        }
+                            }
                     }
                 }
                 else if (_lookX > 0)
@@ -201,9 +201,9 @@ public class BigD : MonoBehaviour
                         if ((cell.transform.position.x == (transform.position.x + 1) || cell.transform.position.x == (transform.position.x + 2)) &&
                             ((cell.transform.position.z == (transform.position.z + 1))))
                         {
-                            cell.GetComponentInParent<CellPrefScript>().Color = Color.green;
+                                cell.GetComponent<MeshRenderer>().material = cell.Materials[3];
 
-                        }
+                            }
                     }
                 }
             }
@@ -216,9 +216,9 @@ public class BigD : MonoBehaviour
                         if ((cell.transform.position.z == (transform.position.z - 1) || cell.transform.position.z == (transform.position.z - 2)) &&
                             ((cell.transform.position.x == (transform.position.x + 1))))
                         {
-                            cell.GetComponentInParent<CellPrefScript>().Color = Color.green;
+                                cell.GetComponent<MeshRenderer>().material = cell.Materials[3];
 
-                        }
+                            }
                     }
                 }
                 else if (_lookY > 0)
@@ -228,9 +228,9 @@ public class BigD : MonoBehaviour
                         if ((cell.transform.position.z == (transform.position.z + 1) || cell.transform.position.z == (transform.position.z + 2)) &&
                             ((cell.transform.position.x == (transform.position.x - 1))))
                         {
-                            cell.GetComponentInParent<CellPrefScript>().Color = Color.green;
+                                cell.GetComponent<MeshRenderer>().material = cell.Materials[3];
 
-                        }
+                            }
                     }
                 }
             }
@@ -252,9 +252,9 @@ public class BigD : MonoBehaviour
                         if ((cell.transform.position.x == (transform.position.x - 1) || cell.transform.position.x == (transform.position.x - 2)) &&
                             ((cell.transform.position.z == (transform.position.z + 1))))
                         {
-                            cell.GetComponentInParent<CellPrefScript>().Color = Color.green;
+                                cell.GetComponent<MeshRenderer>().material = cell.Materials[3];
 
-                        }
+                            }
                     }
                 }
                 else if (_lookX > 0)
@@ -264,9 +264,9 @@ public class BigD : MonoBehaviour
                         if ((cell.transform.position.x == (transform.position.x + 1) || cell.transform.position.x == (transform.position.x + 2)) &&
                             ((cell.transform.position.z == (transform.position.z - 1))))
                         {
-                            cell.GetComponentInParent<CellPrefScript>().Color = Color.green;
+                                cell.GetComponent<MeshRenderer>().material = cell.Materials[3];
 
-                        }
+                            }
                     }
                 }
             }
@@ -279,9 +279,9 @@ public class BigD : MonoBehaviour
                         if ((cell.transform.position.z == (transform.position.z - 1) || cell.transform.position.z == (transform.position.z - 2)) &&
                             ((cell.transform.position.x == (transform.position.x - 1))))
                         {
-                            cell.GetComponentInParent<CellPrefScript>().Color = Color.green;
+                                cell.GetComponent<MeshRenderer>().material = cell.Materials[3];
 
-                        }
+                            }
                     }
                 }
                 else if (_lookY > 0)
@@ -291,9 +291,9 @@ public class BigD : MonoBehaviour
                         if ((cell.transform.position.z == (transform.position.z + 1) || cell.transform.position.z == (transform.position.z + 2)) &&
                             ((cell.transform.position.x == (transform.position.x + 1))))
                         {
-                            cell.GetComponentInParent<CellPrefScript>().Color = Color.green;
+                                cell.GetComponent<MeshRenderer>().material = cell.Materials[3];
 
-                        }
+                            }
                     }
                 }
             }
@@ -309,9 +309,9 @@ public class BigD : MonoBehaviour
 
         foreach (CellPrefScript cell in cells)
         {
-           cell.GetComponentInParent<CellPrefScript>().Color = cell.GetComponentInParent<CellPrefScript>().BaseColor;
+            cell.GetComponent<MeshRenderer>().material = cell.Materials[0];
 
-            
+
         }
     }
 
@@ -326,7 +326,7 @@ public class BigD : MonoBehaviour
                (playerPosition.z > cell.transform.position.z && cell.transform.position.z > hit.transform.position.z)) &&
                (cell.transform.position.x == hit.transform.position.x)))
             {
-                cell.GetComponentInParent<CellPrefScript>().Color = Color.green;
+                cell.GetComponent<MeshRenderer>().material = cell.Materials[3];
 
             }
         }
