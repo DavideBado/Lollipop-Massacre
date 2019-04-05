@@ -6,26 +6,27 @@ using System.Linq;
 
 public class CharaSprites : MonoBehaviour
 {
+    public RawImage CharacterImage;
     List<PlayerInMenu> Players = new List<PlayerInMenu>();
     bool PlayerOneOn, PlayerTwoOn, AllPlayersOn;
-    public Image ChildImage;
+    public RawImage RedImage;
     public List<GameObject> Character = new List<GameObject>();
-    Sprite Image;
-    [SerializeField] public List<Sprite> OnSelectSprites = new List<Sprite>();
+    Texture ThisImage;
+    [SerializeField] public List<Texture> OnSelectSprites = new List<Texture>();
     public int SpriteID;
 
     private void Start()
     {
-        Image = GetComponent<Image>().sprite;
-        ChildImage.sprite = Character[1].GetComponent<Agent>()._Sprites[0];
+        // ChildImage.sprite = Character[1].GetComponent<Agent>()._Sprites[0];
+        CharacterImage.texture = Character[0].GetComponent<Agent>()._Sprites[0];
         FindPlayer();
         
     }
 
-    private void Update()
-    {     
-        SelectCheck();       
-    }
+    //private void Update()
+    //{     
+    //    SelectCheck();       
+    //}
 
     void SelectCheck()
     {
@@ -61,21 +62,21 @@ public class CharaSprites : MonoBehaviour
     {
         if (PlayerOneOn == false && PlayerTwoOn == false)
         {
-            Image = OnSelectSprites[0];
+            ThisImage = OnSelectSprites[0];
         }
         else if (PlayerOneOn == true && PlayerTwoOn == false)
         {
-            Image = OnSelectSprites[1];
+            ThisImage = OnSelectSprites[1];
         }
         else if (PlayerTwoOn == true && PlayerOneOn == false)
         {
-            Image = OnSelectSprites[2];
+            ThisImage = OnSelectSprites[2];
         } else if (PlayerOneOn == true && PlayerTwoOn == true)
         {
-            Image = OnSelectSprites[3];
+            ThisImage = OnSelectSprites[3];
         }
 
-        GetComponent<Image>().sprite = Image;
+        GetComponent<RawImage>().texture = ThisImage;
     }
 
     void FindPlayer()
