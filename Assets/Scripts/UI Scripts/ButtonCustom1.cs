@@ -44,7 +44,16 @@ public class ButtonCustom1 : Button
 
     public override void OnSubmit(BaseEventData eventData)
     {
-        //Output that the Button is in the submit stage
+        
+        if(GetComponent<OnSelectData>().NextCanvas != null)
+        {
+            GetComponent<OnSelectData>().NextCanvas.SetActive(true);
+        }
+        else if(GetComponent<OnClick>() != null)
+        {
+            GetComponent<OnClick>().LoadByIndex(GetComponent<OnSelectData>().SceneIndex);
+        }
+        GetComponent<OnSelectData>().ThisCanvas.SetActive(false);
         Debug.Log(gameObject.name + " Submitted!" + eventSystem.gameObject.name);
     }
 

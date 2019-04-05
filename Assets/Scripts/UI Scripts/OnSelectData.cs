@@ -7,10 +7,7 @@ public class OnSelectData : MonoBehaviour
 {
     public RectTransform OnSelectDim;
     public Image OnSelectImage;
+    public GameObject ThisCanvas, NextCanvas;
+    public int SceneIndex;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

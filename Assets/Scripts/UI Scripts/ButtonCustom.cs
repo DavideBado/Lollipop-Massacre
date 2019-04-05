@@ -43,8 +43,16 @@ public class ButtonCustom : Button
     //}
 
     public override void OnSubmit(BaseEventData eventData)
-    {
-        //Output that the Button is in the submit stage
+    { //Output that the Button is in the submit stage
+        int m_CharacterIndex = eventSystem.GetComponent<EventSystemCustom>().ID - 1;
+        // Aggiungi alla lista e visualizza sprite grande nella preview del party --------> prima bisogna risolvere il bug del setactive con la lista in game
+
+        if (PartyData.PartyCount(eventSystem.GetComponent<EventSystemCustom>().ID) < 3)
+        {
+
+            PartyData.AddToParty(eventSystem.GetComponent<EventSystemCustom>().ID, GetComponent<CharaSprites>().Character[m_CharacterIndex]);
+        }
+
         Debug.Log(gameObject.name + " Submitted!" + eventSystem.gameObject.name);
     }
 

@@ -167,8 +167,8 @@ MonoBehaviour:
   PlayerType: 4
   CurrentID: 0
   _Sprites:
-  - {fileID: 21300004, guid: 106d07bb4156c9743a055a0741d6eadf, type: 3}
-  - {fileID: 21300004, guid: fd1e8b0a9cd99cd47adcec57072edf55, type: 3}
+  - {fileID: 2800000, guid: e5a9316b0b54c044597d00884f1653e1, type: 3}
+  - {fileID: 2800000, guid: b7953ca3aa067dc4d81b29d655dd87e1, type: 3}
   _Materials: []
   SavedlookAt: {x: 0, y: 0, z: 0}
   RayCenter: {x: 0, y: 0, z: 0}

@@ -1,9 +1,12 @@
 ﻿using UnityEngine.EventSystems;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
+using System.Collections.Generic;
 
 public class EventSystemCustom : EventSystem
 {
+    List<ButtonCustom1> m_Buttons = new List<ButtonCustom1>();
     public Sprite PlayTexture, BackTexture;
     CharaSprites currentCharaSprite;
     public RawImage Preview;
@@ -19,6 +22,19 @@ public class EventSystemCustom : EventSystem
         current = this;
         base.Update();
         current = originalCurrent;
+
+        if (firstSelectedGameObject.activeInHierarchy == false)
+        {
+            m_Buttons = FindObjectsOfType<ButtonCustom1>().ToList();
+            if(m_Buttons.Count > 0)
+            {
+                SetSelectedGameObject(m_Buttons[0].gameObject);
+            }
+        }
+        else if(currentSelectedGameObject.activeInHierarchy == false && firstSelectedGameObject.activeInHierarchy == true)
+        {
+            SetSelectedGameObject(firstSelectedGameObject);
+        }
         if (currentSelectedGameObject == null)
         {
             SetSelectedGameObject(firstSelectedGameObject);
