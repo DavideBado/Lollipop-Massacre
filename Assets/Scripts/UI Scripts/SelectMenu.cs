@@ -33,51 +33,51 @@ public class SelectMenu : MonoBehaviour
     {
         if (PartyData.PartyCount(1) == 0)
         {
-            POnePaty.transform.GetChild(0).gameObject.SetActive(false);
-            POnePaty.transform.GetChild(1).gameObject.SetActive(false);
-            POnePaty.transform.GetChild(2).gameObject.SetActive(false);
+            POnePaty.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
+            POnePaty.transform.GetChild(1).GetChild(0).gameObject.SetActive(false);
+            POnePaty.transform.GetChild(2).GetChild(0).gameObject.SetActive(false);
         }
             if (PartyData.PartyCount(1) == 1)
         {
-            POnePaty.transform.GetChild(0).gameObject.SetActive(true);
-            POnePaty.transform.GetChild(1).gameObject.SetActive(false);
-            POnePaty.transform.GetChild(2).gameObject.SetActive(false);
+            POnePaty.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
+            POnePaty.transform.GetChild(1).GetChild(0).gameObject.SetActive(false);
+            POnePaty.transform.GetChild(2).GetChild(0).gameObject.SetActive(false);
             POnePaty.transform.GetChild(0).GetComponent<RawImage>().texture = PartyData.POnePart[0].GetComponent<Agent>()._Sprites[1];
         }
         if (PartyData.PartyCount(1) == 2)
         {
-            POnePaty.transform.GetChild(1).gameObject.SetActive(true);
-            POnePaty.transform.GetChild(2).gameObject.SetActive(false);
+            POnePaty.transform.GetChild(1).GetChild(0).gameObject.SetActive(true);
+            POnePaty.transform.GetChild(2).GetChild(0).gameObject.SetActive(false);
             POnePaty.transform.GetChild(1).GetComponent<RawImage>().texture = PartyData.POnePart[1].GetComponent<Agent>()._Sprites[1];
         }
         if (PartyData.PartyCount(1) == 3)
         {
-            POnePaty.transform.GetChild(2).gameObject.SetActive(true);
+            POnePaty.transform.GetChild(2).GetChild(0).gameObject.SetActive(true);
             POnePaty.transform.GetChild(2).GetComponent<RawImage>().texture = PartyData.POnePart[2].GetComponent<Agent>()._Sprites[1];
         }
 
         if (PartyData.PartyCount(2) == 0)
         {
-            PTwoParty.transform.GetChild(0).gameObject.SetActive(false);
-            PTwoParty.transform.GetChild(1).gameObject.SetActive(false);
-            PTwoParty.transform.GetChild(2).gameObject.SetActive(false);            
+            PTwoParty.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
+            PTwoParty.transform.GetChild(1).GetChild(0).gameObject.SetActive(false);
+            PTwoParty.transform.GetChild(2).GetChild(0).gameObject.SetActive(false);            
         }
         if (PartyData.PartyCount(2) == 1)
         {
-            PTwoParty.transform.GetChild(0).gameObject.SetActive(true);
-            PTwoParty.transform.GetChild(1).gameObject.SetActive(false);
-            PTwoParty.transform.GetChild(2).gameObject.SetActive(false);
+            PTwoParty.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
+            PTwoParty.transform.GetChild(1).GetChild(0).gameObject.SetActive(false);
+            PTwoParty.transform.GetChild(2).GetChild(0).gameObject.SetActive(false);
             PTwoParty.transform.GetChild(0).GetComponent<RawImage>().texture = PartyData.PTwoPart[0].GetComponent<Agent>()._Sprites[1];
         }
         if (PartyData.PartyCount(2) == 2)
         {
-            PTwoParty.transform.GetChild(1).gameObject.SetActive(true);
-            PTwoParty.transform.GetChild(2).gameObject.SetActive(false);
+            PTwoParty.transform.GetChild(1).GetChild(0).gameObject.SetActive(true);
+            PTwoParty.transform.GetChild(2).GetChild(0).gameObject.SetActive(false);
             PTwoParty.transform.GetChild(1).GetComponent<RawImage>().texture = PartyData.PTwoPart[1].GetComponent<Agent>()._Sprites[1];
         }
         if (PartyData.PartyCount(2) == 3)
         {
-            PTwoParty.transform.GetChild(2).gameObject.SetActive(true);
+            PTwoParty.transform.GetChild(2).GetChild(0).gameObject.SetActive(true);
             PTwoParty.transform.GetChild(2).GetComponent<RawImage>().texture = PartyData.PTwoPart[2].GetComponent<Agent>()._Sprites[1];
         }
     }

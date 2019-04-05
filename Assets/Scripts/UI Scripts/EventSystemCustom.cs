@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class EventSystemCustom : EventSystem
 {
+    public Sprite PlayTexture, BackTexture;
     CharaSprites currentCharaSprite;
     public RawImage Preview;
     public int ID;
@@ -26,16 +27,29 @@ public class EventSystemCustom : EventSystem
         currentSelectedGameObject.GetComponent<MyEventSystemProvider>().eventSystem = this;
         
         if(ID == 1)
-        {
-            currentCharaSprite = currentSelectedGameObject.GetComponent<CharaSprites>();
-            currentCharaSprite.ArrowPOne.SetActive(true);
-            Preview.texture = currentCharaSprite.Character[0].GetComponent<Agent>()._Sprites[2];
+        {if (currentSelectedGameObject.GetComponent<CharaSprites>() != null)
+            {
+                currentCharaSprite = currentSelectedGameObject.GetComponent<CharaSprites>();
+                currentCharaSprite.ArrowPOne.SetActive(true);
+                Preview.texture = currentCharaSprite.Character[0].GetComponent<Agent>()._Sprites[2];
+            }
         }
         else if (ID == 2)
         {
-            currentCharaSprite = currentSelectedGameObject.GetComponent<CharaSprites>();
-            currentCharaSprite.ArrowPTwo.SetActive(true);
-            Preview.texture = currentCharaSprite.Character[0].GetComponent<Agent>()._Sprites[3];
+            if (currentSelectedGameObject.GetComponent<CharaSprites>() != null)
+            {
+                currentCharaSprite = currentSelectedGameObject.GetComponent<CharaSprites>();
+                currentCharaSprite.ArrowPTwo.SetActive(true);
+                Preview.texture = currentCharaSprite.Character[0].GetComponent<Agent>()._Sprites[3];
+            }
+            //else if(currentSelectedGameObject.name == "Play")
+            //{
+            //    currentSelectedGameObject.GetComponent<Image>().sprite = PlayTexture;
+            //}
+            //else if (currentSelectedGameObject.name == "Back")
+            //{
+            //    currentSelectedGameObject.GetComponent<Image>().sprite = BackTexture;
+            //}
         }
     }
 

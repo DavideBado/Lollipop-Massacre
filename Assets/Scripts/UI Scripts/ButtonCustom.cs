@@ -12,8 +12,11 @@ public class ButtonCustom : Button
 
     protected override void Start()
     {
-        SelectPOne = GetComponent<CharaSprites>().ArrowPOne;
-        SelectPTwo = GetComponent<CharaSprites>().ArrowPTwo;
+        if (GetComponent<CharaSprites>() != null)
+        {
+            SelectPOne = GetComponent<CharaSprites>().ArrowPOne;
+            SelectPTwo = GetComponent<CharaSprites>().ArrowPTwo;
+        }
     }
     //public override void OnPointerDown(PointerEventData eventData)
     //{
