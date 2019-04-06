@@ -4693,7 +4693,27 @@ PrefabInstance:
       propertyPath: PanelPos
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2288428379538083523, guid: cc94d74079f010647bd413094cfc35a0,
+        type: 3}
+      propertyPath: gm
+      value: 
+      objectReference: {fileID: 362814543}
     - target: {fileID: 2288428379589847970, guid: cc94d74079f010647bd413094cfc35a0,
+        type: 3}
+      propertyPath: PanelPos
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2288428379589847970, guid: cc94d74079f010647bd413094cfc35a0,
+        type: 3}
+      propertyPath: gm
+      value: 
+      objectReference: {fileID: 362814543}
+    - target: {fileID: 2288428379762309845, guid: cc94d74079f010647bd413094cfc35a0,
+        type: 3}
+      propertyPath: gm
+      value: 
+      objectReference: {fileID: 362814543}
+    - target: {fileID: 2288428379762309845, guid: cc94d74079f010647bd413094cfc35a0,
         type: 3}
       propertyPath: PanelPos
       value: 1
@@ -18288,6 +18308,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 962448604}
     m_Modifications:
+    - target: {fileID: 100018, guid: b27161a71b1c8fc458aabaca2fa4c9bf, type: 3}
+      propertyPath: m_Name
+      value: red panda
+      objectReference: {fileID: 0}
     - target: {fileID: 400018, guid: b27161a71b1c8fc458aabaca2fa4c9bf, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -18331,10 +18355,6 @@ PrefabInstance:
     - target: {fileID: 400018, guid: b27161a71b1c8fc458aabaca2fa4c9bf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 100018, guid: b27161a71b1c8fc458aabaca2fa4c9bf, type: 3}
-      propertyPath: m_Name
-      value: red panda
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b27161a71b1c8fc458aabaca2fa4c9bf, type: 3}

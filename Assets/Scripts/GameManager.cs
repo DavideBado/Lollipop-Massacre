@@ -58,15 +58,15 @@ public class GameManager : MonoBehaviour
             Debug.Log("Out pausa");
 
         }
-        Debug.Log(POneParty[0].name + " è attivo:" + POneParty[0].gameObject.activeInHierarchy + "  " + POneParty[0].gameObject.activeSelf);
-        Debug.Log("primo:" + POneParty[0].name + " ultimo:" + POneParty[2].name);
+        //Debug.Log(POneParty[0].name + " è attivo:" + POneParty[0].gameObject.activeInHierarchy + "  " + POneParty[0].gameObject.activeSelf);
+        //Debug.Log("primo:" + POneParty[0].name + " ultimo:" + POneParty[2].name);
         InUpdate();
     }
 
     void InUpdate()
     {       
         TimeForThePlayer(); // Controlla il tempo e gestisce i round
-        TextUpdate(); // Aggiorna i testi a schermo
+        //TextUpdate(); // Aggiorna i testi a schermo
         SpawnUpdate();// Controlla quando attivare lo spawn dinamico
         QuitNow(); // Chuide il gioco
         //PickUpSpawn();
@@ -83,15 +83,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void TextUpdate()
-    {
-        //Timertext.text = "Tempo:" + Timer2.ToString(); // Visualizza il tempo        
-        //TimeMaxText.text = "Tempo massimo:" + TimeMax.ToString(); // Visualizza il tempo massimo
-        if(Turn == true)
-        {
-            TurnoText.text = "TURNO P1";
-        } else TurnoText.text = "TURNO P2";
-    }
+    //void TextUpdate()
+    //{
+    //    //Timertext.text = "Tempo:" + Timer2.ToString(); // Visualizza il tempo        
+    //    //TimeMaxText.text = "Tempo massimo:" + TimeMax.ToString(); // Visualizza il tempo massimo
+    //    if(Turn == true)
+    //    {
+    //        TurnoText.text = "TURNO P1";
+    //    } else TurnoText.text = "TURNO P2";
+    //}
 
     void TimeForThePlayer() // This check the time && switch the rounds
     {

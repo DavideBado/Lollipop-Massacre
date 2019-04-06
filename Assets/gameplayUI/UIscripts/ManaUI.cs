@@ -7,14 +7,18 @@ public class ManaUI : MonoBehaviour
 {
     public Image img;
     public Sprite sp1, sp2;
-    public Agent player;
+    Agent player;
     public bool PanelPos;
     public GameManager gm;
 
     private void Start()
     {
         PoolFinder();
-        gm = FindObjectOfType<GameManager>();
+        if (gm = null)
+        {
+            gm = FindObjectOfType<GameManager>();
+        }
+        img = GetComponent<Image>();
     }
 
     private void Update()

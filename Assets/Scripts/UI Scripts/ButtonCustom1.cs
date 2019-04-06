@@ -54,13 +54,13 @@ public class ButtonCustom1 : Button
             GetComponent<OnClick>().LoadByIndex(GetComponent<OnSelectData>().SceneIndex);
         }
         GetComponent<OnSelectData>().ThisCanvas.SetActive(false);
-        Debug.Log(gameObject.name + " Submitted!" + eventSystem.gameObject.name);
+        //Debug.Log(gameObject.name + " Submitted!" + eventSystem.gameObject.name);
     }
 
     private void Update()
     {
         eventSystem = GetComponent<MyEventSystemProvider>().eventSystem;
-        Debug.Log(eventSystem);
+        //Debug.Log(eventSystem);
         if (IsHighlighted(m_BaseEvent))
         {
             GetComponent<Image>().sprite = GetComponent<OnSelectData>().OnSelectImage.sprite;

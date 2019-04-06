@@ -19,10 +19,10 @@ public class Player1 : Agent
         MyTurn = GameObject.Find("GameManager").GetComponent<GameManager>().Turn;
     }
 
-    void TextUpdate()
-    {
-        Lifetext.text = GetComponent<LifeManager>().Life.ToString(); // Life on screen
+    //void TextUpdate()
+    //{
+    //    Lifetext.text = GetComponent<LifeManager>().Life.ToString(); // Life on screen
 
-    }   
+    //}   
     
 }

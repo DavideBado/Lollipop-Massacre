@@ -6,16 +6,21 @@ using UnityEngine.UI;
 public class StatusUI : MonoBehaviour
 {
     public Agent player;
-    public int ID;
+    
     public Image statusimg;
     public Sprite sprite1, sprite2;
     public GameManager gm;
     public bool PanelPos;
 
+
     private void Start()
     {
-        gm = FindObjectOfType<GameManager>();
+        if (gm = null)
+        {
+            gm = FindObjectOfType<GameManager>();
+        }
         PoolFinder();
+        statusimg = GetComponent<Image>();
     }
 
     private void Update()

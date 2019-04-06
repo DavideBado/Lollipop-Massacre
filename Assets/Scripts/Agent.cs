@@ -27,7 +27,7 @@ public class Agent : MonoBehaviour, ICharacter
     public int y, y2;   
     public BaseGrid grid;
     public Collider BasicAtt;
-    public TMPro.TextMeshProUGUI Lifetext;
+    //public TMPro.TextMeshProUGUI Lifetext;
     public GameObject respawn;
     public GridConfigData configGrid;
     public RespawnController RespawnController;
@@ -96,7 +96,7 @@ public class Agent : MonoBehaviour, ICharacter
 
     public void InUpdate()
     {
-        Debug.Log(name + " SpawnPoint:" + AgentSpawnPosition);
+        //Debug.Log(name + " SpawnPoint:" + AgentSpawnPosition);
         Sicura();
 		Movement(); // Muove il giocatore
         APlayerTypeSelector();

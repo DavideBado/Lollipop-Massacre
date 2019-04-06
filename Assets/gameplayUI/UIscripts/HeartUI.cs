@@ -7,7 +7,7 @@ public class HeartUI : MonoBehaviour
 {
 
     public Texture tex1, tex2;
-    public Agent player;
+    Agent player;
     public RawImage h1, h2, h3;
     public bool PanelPos;
     public GameManager gm;
@@ -15,7 +15,10 @@ public class HeartUI : MonoBehaviour
     private void Start()
     {
         PoolFinder();
-        gm = FindObjectOfType<GameManager>();
+        if (gm = null)
+        {
+            gm = FindObjectOfType<GameManager>();
+        }
     }
 
     private void Update()

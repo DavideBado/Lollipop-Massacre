@@ -9,12 +9,17 @@ public class characterSprite : MonoBehaviour
     public Image img;
     public GameManager gm;
     public bool PanelPos;
-    public Agent player;
+    Agent player;
     // Start is called before the first frame update
     void Start()
     {
         img = GetComponent<Image>();
-        gm = FindObjectOfType<GameManager>();
+
+        if(gm = null)
+        {
+            gm = FindObjectOfType<GameManager>();
+        }
+        
         PoolFinder();
     }
 
@@ -22,36 +27,37 @@ public class characterSprite : MonoBehaviour
     void Update()
     {
         avatarSelection();
+        
     }
 
     void avatarSelection()
     {
-        if (player.GetComponent<Agent>().PlayerType == 1)
+        if (player.PlayerType == 1)
         {
             img.sprite = s1;
         }
 
-        else if (player.GetComponent<Agent>().PlayerType == 2)
+        else if (player.PlayerType == 2)
         {
             img.sprite = s2;
         }
 
-        else if (player.GetComponent<Agent>().PlayerType == 3)
+        else if (player.PlayerType == 3)
         {
             img.sprite = s3;
         }
 
-        else if (player.GetComponent<Agent>().PlayerType == 4)
+        else if (player.PlayerType == 4)
         {
             img.sprite = s4;
         }
 
-        else if (player.GetComponent<Agent>().PlayerType == 5)
+        else if (player.PlayerType == 5)
         {
             img.sprite = s5;
         }
 
-        else if (player.GetComponent<Agent>().PlayerType == 6)
+        else if (player.PlayerType == 6)
         {
             img.sprite = s6;
         }
@@ -66,6 +72,7 @@ public class characterSprite : MonoBehaviour
 
         else if (PanelPos == false)
         {
+            
             player = gm.PTwoParty[2].GetComponent<Agent>();
         }
     }

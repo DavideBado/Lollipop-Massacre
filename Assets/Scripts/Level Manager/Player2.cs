@@ -22,10 +22,10 @@ public class Player2 : Agent
 
 
 
-	void TextUpdate()
-    {
-        Lifetext.text = GetComponent<LifeManager>().Life.ToString(); // Life on screen
+	//void TextUpdate()
+ //   {
+ //       Lifetext.text = GetComponent<LifeManager>().Life.ToString(); // Life on screen
 
-    }
+ //   }
    
 }

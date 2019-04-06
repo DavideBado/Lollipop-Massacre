@@ -39,7 +39,7 @@ public class EventSystemCustom : EventSystem
         {
             SetSelectedGameObject(firstSelectedGameObject);
         }
-        Debug.Log(gameObject.name + currentSelectedGameObject.name);
+        //Debug.Log(gameObject.name + currentSelectedGameObject.name);
         currentSelectedGameObject.GetComponent<MyEventSystemProvider>().eventSystem = this;
         
         if(ID == 1)
