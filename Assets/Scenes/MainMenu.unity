@@ -3980,7 +3980,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &549386675
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5529,6 +5529,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 157ef0db196cfc644bdecfd46ff71855, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OldCanvas: {fileID: 381481657}
+  NewCanvas: {fileID: 1050275428}
   Loading: {fileID: 1790805578643114116}
 --- !u!4 &808219069
 Transform:
@@ -6097,6 +6099,12 @@ MonoBehaviour:
   ThisCanvas: {fileID: 1539715508}
   NextCanvas: {fileID: 1586136394}
   SceneIndex: 0
+--- !u!1 &1050275428 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3973146404045809169, guid: a93422f9f0f21cd4f8323d2afab0dda4,
+    type: 3}
+  m_PrefabInstance: {fileID: 94710531}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1075200374
 GameObject:
   m_ObjectHideFlags: 0

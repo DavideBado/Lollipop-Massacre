@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class RemoveCharacter : MonoBehaviour
 {
-    public GameObject Loading;  
+    public GameObject OldCanvas, NewCanvas;
+    public GameObject Loading;
+    
 
     // Update is called once per frame
     void Update()
@@ -22,6 +24,12 @@ public class RemoveCharacter : MonoBehaviour
         {
             GameObject Bottone = FindObjectOfType<OnClick>().gameObject;
             Bottone.GetComponent<OnClick>().LoadByIndex(1);
+        }
+
+        if(Input.GetKey(KeyCode.E) && Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.C))
+        {
+            NewCanvas.SetActive(false);           
+            OldCanvas.SetActive(true);
         }
     }
 }
