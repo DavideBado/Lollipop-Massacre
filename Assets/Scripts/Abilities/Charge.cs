@@ -217,7 +217,7 @@ public class Charge : MonoBehaviour
 
         foreach (CellPrefScript cell in cells)
         {
-            cell.GetComponentInParent<CellPrefScript>().Color = cell.GetComponentInParent<CellPrefScript>().BaseColor;
+            cell.GetComponent<MeshRenderer>().material = cell.Materials[0];
 
 
         }
@@ -246,11 +246,11 @@ public class Charge : MonoBehaviour
             {
                 if (dist >= 0 && dist < 5)
                 {
-                    cell.GetComponentInParent<CellPrefScript>().Color = Color.green;
+                    cell.GetComponent<MeshRenderer>().material = cell.Materials[3];
                 }
                 else if(dist >= 5)
                 {
-                    cell.GetComponentInParent<CellPrefScript>().Color = Color.blue;
+                    cell.GetComponent<MeshRenderer>().material = cell.Materials[1];
                 }
 
             }

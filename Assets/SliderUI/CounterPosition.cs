@@ -19,6 +19,7 @@ public class CounterPosition : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        FindPlayers();
         FindPosition();      
     }
 
@@ -27,14 +28,14 @@ public class CounterPosition : MonoBehaviour
         if (P1.MyTurn == true)
         {
             transform.position = (P1.transform.position + new Vector3(0, 2.5f, 0));
-            //_slider.StartCounter(_slider.initialCountAmount);
+           
 
         }
 
         else if (P2.MyTurn == true)
         {
             transform.position = (P2.transform.position + new Vector3(0, 2.5f, 0));
-           // _slider.StartCounter(_slider.initialCountAmount);
+
 
         }
     }

@@ -112,7 +112,7 @@ public class Whirlwind : MonoBehaviour
 
         foreach (CellPrefScript cell in cells)
         {
-            cell.GetComponentInParent<CellPrefScript>().Color = cell.GetComponentInParent<CellPrefScript>().BaseColor;
+            cell.GetComponent<MeshRenderer>().material = cell.Materials[0];
         }
     }
 
@@ -135,7 +135,7 @@ public class Whirlwind : MonoBehaviour
                (playerPosition.z > cell.transform.position.z && cell.transform.position.z > HitPosition.z)) &&
                (cell.transform.position.x == HitPosition.x)))
             {
-                cell.GetComponentInParent<CellPrefScript>().Color = Color.green;
+                cell.GetComponent<MeshRenderer>().material = cell.Materials[3];
             }
         }
     }

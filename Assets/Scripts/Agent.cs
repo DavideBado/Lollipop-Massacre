@@ -18,7 +18,7 @@ public class Agent : MonoBehaviour, ICharacter
     public int PlayerType = 0;
     public int CurrentID;
     //*************************************************
-    public List<Sprite> _Sprites = new List<Sprite>();
+    public List<Texture> _Sprites = new List<Texture>();
     public List<Material> _Materials = new List<Material>();
     public Vector3 SavedlookAt, RayCenter, RayLeft, RayRight;
     public bool MyTurn, OnTheRoad = false;
@@ -43,7 +43,7 @@ public class Agent : MonoBehaviour, ICharacter
     // ********** Cose per il menu *************
 
    
-    public List<Sprite> Sprites
+    public List<Texture> Sprites
     {
         set
         {
