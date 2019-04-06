@@ -10,6 +10,9 @@ public class ButtonCustom1 : Button
     BaseEventData m_BaseEvent;
     Sprite m_StandardTexture;
     Vector2 m_StandardRect;
+    public delegate void OnSpriteChange();
+    public OnSpriteChange OnChangeCharacter;
+
 
     protected override void Start()
     {
@@ -55,6 +58,7 @@ public class ButtonCustom1 : Button
         }
         GetComponent<OnSelectData>().ThisCanvas.SetActive(false);
         //Debug.Log(gameObject.name + " Submitted!" + eventSystem.gameObject.name);
+        //OnChangeCharacter();
     }
 
     private void Update()

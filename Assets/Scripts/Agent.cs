@@ -364,7 +364,7 @@ public class Agent : MonoBehaviour, ICharacter
 		if (MyTurn == true && ImStunned == false && GameManager.CanAttack == true && GameManager.Pause == false) // Se è il mio turno
 		{
 			BasicAtt.enabled = true; // Attiva il collider di attacco           
-            rg.transform.DOMove(transform.position + SavedlookAt * 0.1f, 0.1f)
+            rg.transform.DOMove(transform.position + SavedlookAt * 0.1f, 0.2f)
                 .SetAutoKill();            
 
         }
