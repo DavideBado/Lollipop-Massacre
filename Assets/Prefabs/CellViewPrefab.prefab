@@ -18,7 +18,7 @@ GameObject:
   m_TagString: Cell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4264090484615838
 Transform:
@@ -109,5 +109,3 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 213031586315ce841980be1c37ea9dfe, type: 2}
   - {fileID: 2100000, guid: e3bdd3f1cee69784d80b48a4a2e01362, type: 2}
   - {fileID: 2100000, guid: 4388133dbaf5a8646ade7296028fe779, type: 2}
-  Color: {r: 0, g: 0, b: 0, a: 0}
-  BaseColor: {r: 0, g: 0, b: 0, a: 0}

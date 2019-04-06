@@ -1,0 +1,178 @@
+fileFormatVersion: 2
+guid: 93ed79353879b424d897ce65cb421036
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Ctrl_Hands
+    100002: J_Boidy
+    100004: J_Face
+    100006: J_Head
+    100008: J_HipTop
+    100010: J_Nek
+    100012: L_Ctrl_Foot
+    100014: L_Ctrl_Hand
+    100016: L_J_Arm
+    100018: L_J_Finger
+    100020: L_J_Foot
+    100022: L_J_Hand
+    100024: L_J_Knee
+    100026: L_J_Leg
+    100028: L_J_Midhand
+    100030: L_J_Toes
+    100032: M_Ctrl_RedPanda
+    100034: M_J_Hip
+    100036: R_Ctrl_Foot
+    100038: R_Ctrl_Hand
+    100040: R_J_Arm
+    100042: R_J_Finger
+    100044: R_J_Foot
+    100046: R_J_Hand
+    100048: R_J_Knee
+    100050: R_J_Midhand
+    100052: R_J_Reg
+    100054: R_J_Toes
+    100056: SM_Body
+    100058: SM_L_Foot
+    100060: SM_L_Hand
+    100062: //RootNode
+    100064: SM_R_Foot
+    100066: SM_R_Hand
+    100068: SM_Redpanda
+    100070: SM_Tail
+    400000: Ctrl_Hands
+    400002: J_Boidy
+    400004: J_Face
+    400006: J_Head
+    400008: J_HipTop
+    400010: J_Nek
+    400012: L_Ctrl_Foot
+    400014: L_Ctrl_Hand
+    400016: L_J_Arm
+    400018: L_J_Finger
+    400020: L_J_Foot
+    400022: L_J_Hand
+    400024: L_J_Knee
+    400026: L_J_Leg
+    400028: L_J_Midhand
+    400030: L_J_Toes
+    400032: M_Ctrl_RedPanda
+    400034: M_J_Hip
+    400036: R_Ctrl_Foot
+    400038: R_Ctrl_Hand
+    400040: R_J_Arm
+    400042: R_J_Finger
+    400044: R_J_Foot
+    400046: R_J_Hand
+    400048: R_J_Knee
+    400050: R_J_Midhand
+    400052: R_J_Reg
+    400054: R_J_Toes
+    400056: SM_Body
+    400058: SM_L_Foot
+    400060: SM_L_Hand
+    400062: //RootNode
+    400064: SM_R_Foot
+    400066: SM_R_Hand
+    400068: SM_Redpanda
+    400070: SM_Tail
+    2100000: diffuse
+    4300000: SM_Body
+    4300002: SM_L_Foot
+    4300004: SM_Tail
+    4300006: SM_R_Foot
+    4300008: SM_L_Hand
+    4300010: SM_R_Hand
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: SM_Body
+    13700002: SM_L_Foot
+    13700004: SM_L_Hand
+    13700006: SM_R_Foot
+    13700008: SM_R_Hand
+    13700010: SM_Tail
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
