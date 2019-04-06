@@ -75,8 +75,8 @@ public class GameManager : MonoBehaviour
 
     void TextUpdate()
     {
-        Timertext.text = "Tempo:" + Timer2.ToString(); // Visualizza il tempo        
-        TimeMaxText.text = "Tempo massimo:" + TimeMax.ToString(); // Visualizza il tempo massimo
+        //Timertext.text = "Tempo:" + Timer2.ToString(); // Visualizza il tempo        
+        //TimeMaxText.text = "Tempo massimo:" + TimeMax.ToString(); // Visualizza il tempo massimo
         if(Turn == true)
         {
             TurnoText.text = "TURNO P1";
