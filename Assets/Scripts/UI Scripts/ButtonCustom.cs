@@ -59,7 +59,7 @@ public class ButtonCustom : Button
     private void Update()
     {
         eventSystem = GetComponent<MyEventSystemProvider>().eventSystem;
-        Debug.Log(eventSystem);
+        //Debug.Log(eventSystem);
         if(IsHighlighted(m_BaseEvent))
         {
             //if(eventSystem.GetComponent<EventSystemCustom>().ID == 1)

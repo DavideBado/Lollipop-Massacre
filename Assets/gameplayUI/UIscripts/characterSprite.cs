@@ -1,34 +1,59 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class characterSprite : MonoBehaviour
 {
+
+    //ButtonCustom1 bc;
+
+
     public Sprite s1, s2, s3, s4, s5, s6;
     public Image img;
     public GameManager gm;
     public bool PanelPos;
     Agent player;
+
+
+    //private void OnEnable()
+    //{
+    //    bc.OnChangeCharacter += HandleOnChangeCharacter;
+    //}
+
+    //public void HandleOnChangeCharacter()
+    //{
+    //    if (bc.OnChangeCharacter != null)
+    //    {
+    //        avatarSelection();
+    //    }
+    //}
+
+    //private void OnDisable()
+    //{
+    //    bc.OnChangeCharacter -= HandleOnChangeCharacter;
+
+    //}
+
     // Start is called before the first frame update
     void Start()
     {
         img = GetComponent<Image>();
 
-        if(gm = null)
+        if (gm = null)
         {
             gm = FindObjectOfType<GameManager>();
         }
-        
+
         PoolFinder();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         avatarSelection();
-        
     }
+
 
     void avatarSelection()
     {
@@ -63,17 +88,18 @@ public class characterSprite : MonoBehaviour
         }
     }
 
+
+
     void PoolFinder()
     {
         if (PanelPos == true)
         {
-            player = gm.POneParty[2].GetComponent<Agent>();
+            player = PartyData.POnePart[2].GetComponent<Agent>();
         }
 
         else if (PanelPos == false)
         {
-            
-            player = gm.PTwoParty[2].GetComponent<Agent>();
+            player = PartyData.PTwoPart[2].GetComponent<Agent>();
         }
     }
 }

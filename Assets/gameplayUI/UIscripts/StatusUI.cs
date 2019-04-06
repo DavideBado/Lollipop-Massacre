@@ -52,14 +52,14 @@ public class StatusUI : MonoBehaviour
 
     void PoolFinder()
     {
-        if(PanelPos == true)
+        if (PanelPos == true)
         {
-            player = gm.POneParty[2].GetComponent<Agent>();
+            player = PartyData.POnePart[2].GetComponent<Agent>();
         }
 
         else if (PanelPos == false)
         {
-            player = gm.PTwoParty[2].GetComponent<Agent>();
+            player = PartyData.PTwoPart[2].GetComponent<Agent>();
         }
     }
 }

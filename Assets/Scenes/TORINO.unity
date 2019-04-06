@@ -4678,31 +4678,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2288428380377208598, guid: cc94d74079f010647bd413094cfc35a0,
-        type: 3}
-      propertyPath: gm
-      value: 
-      objectReference: {fileID: 362814543}
-    - target: {fileID: 2288428380377208598, guid: cc94d74079f010647bd413094cfc35a0,
-        type: 3}
-      propertyPath: PanelPos
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2288428379538083523, guid: cc94d74079f010647bd413094cfc35a0,
-        type: 3}
-      propertyPath: PanelPos
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2288428379538083523, guid: cc94d74079f010647bd413094cfc35a0,
         type: 3}
       propertyPath: gm
       value: 
       objectReference: {fileID: 362814543}
-    - target: {fileID: 2288428379589847970, guid: cc94d74079f010647bd413094cfc35a0,
-        type: 3}
-      propertyPath: PanelPos
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2288428379589847970, guid: cc94d74079f010647bd413094cfc35a0,
         type: 3}
       propertyPath: gm
@@ -4713,11 +4693,6 @@ PrefabInstance:
       propertyPath: gm
       value: 
       objectReference: {fileID: 362814543}
-    - target: {fileID: 2288428379762309845, guid: cc94d74079f010647bd413094cfc35a0,
-        type: 3}
-      propertyPath: PanelPos
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cc94d74079f010647bd413094cfc35a0, type: 3}
 --- !u!1001 &279335613
@@ -8719,7 +8694,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: eff1ca41857fe7741acee800059db461, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 589
+      value: 651
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: eff1ca41857fe7741acee800059db461, type: 3}
       propertyPath: m_LocalRotation.x
@@ -20908,7 +20883,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: eff1ca41857fe7741acee800059db461, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 717
+      value: 751
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: eff1ca41857fe7741acee800059db461, type: 3}
       propertyPath: m_LocalRotation.x
