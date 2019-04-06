@@ -7,6 +7,8 @@ using System.Linq;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject EventSBase, EventSPOne, EventSTwo;
+    public GameObject PausePanel, EndGamePanel, POneWins, PTwoWins;
     int m_SwitchPOne, m_SwitchPTwo;
     public List<GameObject> POneParty = new List<GameObject>();
     public List<GameObject> PTwoParty = new List<GameObject>();
@@ -39,11 +41,19 @@ public class GameManager : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.P) && Time.timeScale != 0)
         {
+            EventSBase.SetActive(false);
+            EventSPOne.SetActive(true);
+            EventSTwo.SetActive(true);
+            PausePanel.SetActive(true);
             Time.timeScale = 0;
             Debug.Log("In pausa");
         }
         else if (Input.GetKeyDown(KeyCode.P) && Time.timeScale == 0)
         {
+            EventSBase.SetActive(true);
+            EventSPOne.SetActive(false);
+            EventSTwo.SetActive(false);
+            PausePanel.SetActive(false);
             Time.timeScale = 1;
             Debug.Log("Out pausa");
 
@@ -146,12 +156,15 @@ public class GameManager : MonoBehaviour
             foreach (GameObject _Character in PartyData.POnePart)
             {
              
-                GameObject m_Character = Instantiate(_Character);
+                GameObject m_Character = Instantiate(_Character, SpawnPoints[0].position, Quaternion.identity, null);
                 POneParty.Add(m_Character);
                 m_Character.GetComponent<Agent>().SwitchIndex = i;
                 i ++;
+                Debug.Log(m_Character.activeSelf);
+
                 m_Character.transform.parent = BenchPOne.transform;
                 m_Character.SetActive(false);
+                Debug.Log("Dopo" + m_Character.activeSelf);
             }
         }
         if (PartyData.PTwoPart != null)
@@ -160,7 +173,7 @@ public class GameManager : MonoBehaviour
 
             foreach (GameObject _Character in PartyData.PTwoPart)
             {
-                GameObject m_Character = Instantiate(_Character);
+                GameObject m_Character = Instantiate(_Character, SpawnPoints[1].position, Quaternion.identity, null);
                 PTwoParty.Add(m_Character);
                 m_Character.GetComponent<Agent>().SwitchIndex = i;
                 i++;
@@ -199,6 +212,9 @@ public class GameManager : MonoBehaviour
     {
         _agent.GetComponent<Agent>().AgentParent = null;
         _agent.GetComponent<Agent>().AgentSpawnPosition = _SpawnPoint;
+        _agent.GetComponent<Agent>().transform.parent = null;
+        _agent.GetComponent<Agent>().transform.position = _SpawnPoint;
+
     }
 
     void ToggleObject(GameObject _go, Transform _goBench)
@@ -252,10 +268,22 @@ public class GameManager : MonoBehaviour
     {
         if(POneKO())
         {
+            EventSBase.SetActive(false);
+            EventSPOne.SetActive(true);
+            EventSTwo.SetActive(true);
+            EndGamePanel.SetActive(true);
+            POneWins.SetActive(true);
+            PTwoWins.SetActive(false);
             Debug.Log("P2 Ha vinto");
         }
         else if (PTwoKO())
         {
+            EventSBase.SetActive(false);
+            EventSPOne.SetActive(true);
+            EventSTwo.SetActive(true);
+            EndGamePanel.SetActive(true);
+            POneWins.SetActive(false);
+            PTwoWins.SetActive(true);
             Debug.Log("P1 Ha vinto");
         }
         else
@@ -347,38 +375,38 @@ public class GameManager : MonoBehaviour
     }
 
     ///////////////////////////////////////////////////////////
-    void UpdateBenchTester()
-    {
-        if (POneParty != null)
-        {
-            int i = 1;
+//    void UpdateBenchTester()
+//    {
+//        if (POneParty != null)
+//        {
+//            int i = 1;
 
-            foreach (GameObject _Character in POneParty)
-            {
+//            foreach (GameObject _Character in POneParty)
+//            {
              
-                GameObject m_Character = Instantiate(_Character);
-    //POneParty.Add(m_Character);
-                m_Character.GetComponent<Agent>().SwitchIndex = i;
-                i ++;
-                m_Character.transform.parent = BenchPOne.transform;
-                m_Character.SetActive(false);
-            }
-        }
-        if (PTwoParty != null)
-        {
-            int i = 1;
+//                GameObject m_Character = Instantiate(_Character);
+//    //POneParty.Add(m_Character);
+//                m_Character.GetComponent<Agent>().SwitchIndex = i;
+//                i ++;
+//                m_Character.transform.parent = BenchPOne.transform;
+//                m_Character.SetActive(false);
+//            }
+//        }
+//        if (PTwoParty != null)
+//        {
+//            int i = 1;
 
-            foreach (GameObject _Character in PTwoParty)
-            {
-                GameObject m_Character = Instantiate(_Character);
-//PTwoParty.Add(m_Character);
-                m_Character.GetComponent<Agent>().SwitchIndex = i;
-                i++;
-                m_Character.transform.parent = BenchPTwo.transform;
-                m_Character.SetActive(false);
-            }            
-        }
-        ActiveStarters();
-    }
+//            foreach (GameObject _Character in PTwoParty)
+//            {
+//                GameObject m_Character = Instantiate(_Character);
+////PTwoParty.Add(m_Character);
+//                m_Character.GetComponent<Agent>().SwitchIndex = i;
+//                i++;
+//                m_Character.transform.parent = BenchPTwo.transform;
+//                m_Character.SetActive(false);
+//            }            
+//        }
+//        ActiveStarters();
+//    }
 
 }

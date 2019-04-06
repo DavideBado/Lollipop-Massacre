@@ -23,7 +23,7 @@ public class EventSystemCustom : EventSystem
         base.Update();
         current = originalCurrent;
 
-        if (firstSelectedGameObject.activeInHierarchy == false || currentSelectedGameObject == null)
+        if (firstSelectedGameObject.activeInHierarchy == false || currentSelectedGameObject == null || firstSelectedGameObject == null)
         {
             m_Buttons = FindObjectsOfType<ButtonCustom1>().ToList();
             if(m_Buttons.Count > 0)

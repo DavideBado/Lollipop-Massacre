@@ -94,7 +94,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1256144805}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.358, y: 10, z: 16.327}
+  m_LocalPosition: {x: 15, y: 0, z: 11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 667731940467146177}
@@ -159,6 +159,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62a6c9b588170a24a921bc82faf2dc93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SwitchIndex: 0
+  AgentParent: {fileID: 0}
+  AgentSpawnPosition: {x: 15, y: 0, z: 11}
   PlayerID: 2
   BigD1: 257
   Drain2: 258
@@ -167,6 +170,7 @@ MonoBehaviour:
   Charge5: 261
   Whirlwind6: 262
   PlayerType: 0
+  CurrentID: 0
   _Sprites: []
   _Materials: []
   SavedlookAt: {x: 0, y: 0, z: 0}
@@ -175,17 +179,16 @@ MonoBehaviour:
   RayRight: {x: 0, y: 0, z: 0}
   MyTurn: 0
   OnTheRoad: 0
-  x: 0
-  x2: 0
-  y: 0
-  y2: 0
+  x: 15
+  x2: 15
+  y: 11
+  y2: 11
   grid: {fileID: 0}
   BasicAtt: {fileID: 1061427032}
   Lifetext: {fileID: 0}
   respawn: {fileID: 0}
   configGrid: {fileID: 11400000, guid: 784a1aafb257b974b8f0dcc97f2ca78d, type: 2}
   RespawnController: {fileID: 0}
-  GameManager: {fileID: 0}
   RotUp: 0
   RotDown: 0
   RotLeft: 0
@@ -196,7 +199,6 @@ MonoBehaviour:
   Mana: 1
   OhStunnedShit: 0
   AgentSpeed: 0
-  rg: {fileID: 0}
   StunPS: {fileID: 5298261245568440394}
   PoisonPS: {fileID: 3546577234016537918}
   DrainPS: {fileID: 4266508302952437199}
@@ -219,6 +221,9 @@ MonoBehaviour:
   BasicAttack: 323
   Ability: 271
   Preview: 0
+  Switch_A: 0
+  Switch_B: 0
+  Switch_C: 0
   ManagerPlayerID: 0
 --- !u!114 &1256144809
 MonoBehaviour:

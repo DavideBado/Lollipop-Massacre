@@ -7,38 +7,35 @@ using System;
 
 public class SliderBehaviour : MonoBehaviour
 {
-    private Sequence sequenceTimer;
-    private Sequence sequenceFill;
+    private Sequence sequenceTimer, sequenceSlid;
     public Image fillImage;
     public TMPro.TextMeshProUGUI counterText;
     public bool Loop = false;
     public bool StartOnAwake = false;
     [SerializeField] private float countAmount = 5f;
-    float m_StopFill;
     public Color RingColor;
 
     public delegate void TimerDelegate();
 
     public TimerDelegate StartTimer;
     public TimerDelegate EndTimer;
-    GameManager manager;
+    public GameManager manager;
     public float endValue = 0;
 
 
     public void Start()
     {
-        m_StopFill = countAmount;
-        fillImage.color = RingColor;
-        manager = FindObjectOfType<GameManager>();
         if (StartOnAwake)
-            StartCounter();
+            StartCounter(countAmount);
 
         if (Loop)
-            StartCounter();
+            StartCounter(countAmount);
 
+        fillImage.color = RingColor;
+        manager = FindObjectOfType<GameManager>();
     }
 
-   
+
 
     // Update is called once per frame
     void Update()
@@ -48,52 +45,48 @@ public class SliderBehaviour : MonoBehaviour
         //}
 
         counterText.text = ((int)countAmount + 1).ToString();
-
         if (manager.TimerOn == false)
         {
-
-            m_StopFill = -100000;
             sequenceTimer.Pause();
         }
         else
         {
-            m_StopFill = countAmount;
             sequenceTimer.Play();
-           
-
-
         }
     }
 
-    float initialCountAmount = 5f;
+    public float initialCountAmount;
 
-    public void StartCounter() {
+    public void StartCounter(float time)
+    {
+        initialCountAmount = time;
+        sequenceTimer = DOTween.Sequence();
+        sequenceTimer.Append(fillImage.DOFillAmount(0, countAmount)
+       .SetSpeedBased(true)
+       .SetEase(Ease.Linear));
 
 
-           fillImage.DOFillAmount(0, 1 / countAmount)
-           .SetSpeedBased(true)
-           .SetEase(Ease.Linear);
+        sequenceTimer.Insert(0, DOTween.To(() => countAmount, x => countAmount = x, endValue, countAmount)
+          .SetEase(Ease.Linear)
+          .OnComplete(timerCompleted));
 
 
-          sequenceTimer = DOTween.Sequence().Append(DOTween.To(() => countAmount, x => countAmount = x, endValue, countAmount)
-            .SetEase(Ease.Linear)
-            .OnComplete(timerCompleted));   
-       
-        
-        
+
+
     }
 
-    public void timerCompleted() {
+    public void timerCompleted()
+    {
         fillImage.DOFillAmount(1, 0);
         countAmount = initialCountAmount;
-       
         if (EndTimer != null)
             EndTimer();
         if (Loop)
         {
-            StartCounter();
+            StartCounter(countAmount);
         }
     }
 
-    
+
 }
+

@@ -9,9 +9,10 @@ using DG.Tweening;
 
 public class Agent : MonoBehaviour, ICharacter
 {
+    int m_OnEnableCounter = 0;
     public int SwitchIndex;
     [HideInInspector] public Transform AgentParent = null;
-    [HideInInspector] public Vector3 AgentSpawnPosition = new Vector3();
+    [HideInInspector] public Vector3 AgentSpawnPosition;
     public int PlayerID;
     //************Variabili per test abilità***********
     public KeyCode BigD1, Drain2, Stun3, Venom4, Charge5, Whirlwind6;
@@ -74,13 +75,16 @@ public class Agent : MonoBehaviour, ICharacter
 
 
     public void AgentOnEnable(Transform _parent, Vector3 _position)
-    {
-        transform.parent = _parent;
-        transform.position = _position;
-        x = (int)_position.x;
-        x2 = (int)_position.x;
-        y = (int)_position.z;
-        y2 = (int)_position.z;
+    {   if (m_OnEnableCounter > 1)
+        {
+            transform.parent = _parent;
+            transform.position = _position;
+            x = (int)_position.x;
+            x2 = (int)_position.x;
+            y = (int)_position.z;
+            y2 = (int)_position.z;
+        }
+        m_OnEnableCounter++;
     }
     void InStart()
     {
