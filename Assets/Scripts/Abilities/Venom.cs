@@ -89,38 +89,38 @@ public class Venom : MonoBehaviour
 
             if (Physics.Raycast(transform.position + new Vector3(0, 0.5f), Vector3.forward, out hit, Mathf.Infinity))
             {
-                CellsGreenInRay(hit.transform.position, cells, playerPosition);
+                CellsGreenInRay(hit.transform.position, cells, playerPosition, hit.transform.GetComponent<Agent>());
             }
             else
             {
-                CellsGreenInRay(new Vector3(transform.position.x, 0, GetComponent<Agent>().configGrid.DimY), cells, playerPosition);
+                CellsGreenInRay(new Vector3(transform.position.x, 0, GetComponent<Agent>().configGrid.DimY), cells, playerPosition, null);
             }
 
             if (Physics.Raycast(transform.position + new Vector3(0, 0.5f), Vector3.back, out hit, Mathf.Infinity))
             {
-                CellsGreenInRay(hit.transform.position, cells, playerPosition);
+                CellsGreenInRay(hit.transform.position, cells, playerPosition, hit.transform.GetComponent<Agent>());
             }
             else
             {
-                CellsGreenInRay(new Vector3(transform.position.x, 0, -1), cells, playerPosition);
+                CellsGreenInRay(new Vector3(transform.position.x, 0, -1), cells, playerPosition, null);
             }
 
             if (Physics.Raycast(transform.position + new Vector3(0, 0.5f), Vector3.right, out hit, Mathf.Infinity))
             {
-                CellsGreenInRay(hit.transform.position, cells, playerPosition);
+                CellsGreenInRay(hit.transform.position, cells, playerPosition, hit.transform.GetComponent<Agent>());
             }
             else
             {
-                CellsGreenInRay(new Vector3(GetComponent<Agent>().configGrid.DimX, 0, transform.position.z), cells, playerPosition);
+                CellsGreenInRay(new Vector3(GetComponent<Agent>().configGrid.DimX, 0, transform.position.z), cells, playerPosition, null);
             }
 
             if (Physics.Raycast(transform.position + new Vector3(0, 0.5f), Vector3.left, out hit, Mathf.Infinity))
             {
-                CellsGreenInRay(hit.transform.position, cells, playerPosition);
+                CellsGreenInRay(hit.transform.position, cells, playerPosition, hit.transform.GetComponent<Agent>());
             }
             else
             {
-                CellsGreenInRay(new Vector3(-1, 0, transform.position.z), cells, playerPosition);
+                CellsGreenInRay(new Vector3(-1, 0, transform.position.z), cells, playerPosition, null);
             }
         }
     }
@@ -137,24 +137,44 @@ public class Venom : MonoBehaviour
         }
     }
 
-    void CellsGreenInRay(Vector3 HitPosition, List<CellPrefScript> cells, Vector3 playerPosition)
+    void CellsGreenInRay(Vector3 _HitPosition, List<CellPrefScript> _cells, Vector3 _playerPosition, Agent _agent)
     {
-        foreach (CellPrefScript cell in cells)
+        foreach (CellPrefScript cell in _cells)
         {
-            if ((((playerPosition.x < cell.transform.position.x && cell.transform.position.x < HitPosition.x)
+            if (_agent != null)
+            {
+                if ((((_playerPosition.x < cell.transform.position.x && cell.transform.position.x <= _HitPosition.x)
 
-                ||
+                  ||
 
-               (playerPosition.x > cell.transform.position.x && cell.transform.position.x > HitPosition.x)) &&
-
-
-               (cell.transform.position.z == HitPosition.z)) ||
-
+                 (_playerPosition.x > cell.transform.position.x && cell.transform.position.x >= _HitPosition.x)) &&
 
 
-               (((playerPosition.z < cell.transform.position.z && cell.transform.position.z < HitPosition.z) ||
-               (playerPosition.z > cell.transform.position.z && cell.transform.position.z > HitPosition.z)) &&
-               (cell.transform.position.x == HitPosition.x)))
+                 (cell.transform.position.z == _HitPosition.z)) ||
+
+
+
+                 (((_playerPosition.z < cell.transform.position.z && cell.transform.position.z <= _HitPosition.z) ||
+                 (_playerPosition.z > cell.transform.position.z && cell.transform.position.z >= _HitPosition.z)) &&
+                 (cell.transform.position.x == _HitPosition.x)))
+                {
+                    cell.GetComponent<MeshRenderer>().material = cell.Materials[3];
+                }
+            }
+            else if ((((_playerPosition.x < cell.transform.position.x && cell.transform.position.x < _HitPosition.x)
+
+  ||
+
+ (_playerPosition.x > cell.transform.position.x && cell.transform.position.x > _HitPosition.x)) &&
+
+
+ (cell.transform.position.z == _HitPosition.z)) ||
+
+
+
+ (((_playerPosition.z < cell.transform.position.z && cell.transform.position.z < _HitPosition.z) ||
+ (_playerPosition.z > cell.transform.position.z && cell.transform.position.z > _HitPosition.z)) &&
+ (cell.transform.position.x == _HitPosition.x)))
             {
                 cell.GetComponent<MeshRenderer>().material = cell.Materials[3];
             }

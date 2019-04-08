@@ -10,6 +10,7 @@ public class BigD : MonoBehaviour
     {
         Manager = FindObjectOfType<GameManager>();
     }
+ 
     public void Ability()
 
     {
@@ -319,12 +320,25 @@ public class BigD : MonoBehaviour
     {
         foreach (CellPrefScript cell in cells)
         {
-            if ((((playerPosition.x < cell.transform.position.x && cell.transform.position.x < hit.transform.position.x) ||
-               (playerPosition.x > cell.transform.position.x && cell.transform.position.x > hit.transform.position.x)) &&
-               (cell.transform.position.z == hit.transform.position.z)) ||
-               (((playerPosition.z < cell.transform.position.z && cell.transform.position.z < hit.transform.position.z) ||
-               (playerPosition.z > cell.transform.position.z && cell.transform.position.z > hit.transform.position.z)) &&
-               (cell.transform.position.x == hit.transform.position.x)))
+            if (hit.transform.GetComponent<Agent>() != null)
+            {
+                if ((((playerPosition.x < cell.transform.position.x && cell.transform.position.x <= hit.transform.position.x) ||
+                 (playerPosition.x > cell.transform.position.x && cell.transform.position.x >= hit.transform.position.x)) &&
+                 (cell.transform.position.z == hit.transform.position.z)) ||
+                 (((playerPosition.z < cell.transform.position.z && cell.transform.position.z <= hit.transform.position.z) ||
+                 (playerPosition.z > cell.transform.position.z && cell.transform.position.z >= hit.transform.position.z)) &&
+                 (cell.transform.position.x == hit.transform.position.x)))
+                {
+                    cell.GetComponent<MeshRenderer>().material = cell.Materials[3];
+
+                }
+            }
+            else if ((((playerPosition.x < cell.transform.position.x && cell.transform.position.x < hit.transform.position.x) ||
+                 (playerPosition.x > cell.transform.position.x && cell.transform.position.x > hit.transform.position.x)) &&
+                 (cell.transform.position.z == hit.transform.position.z)) ||
+                 (((playerPosition.z < cell.transform.position.z && cell.transform.position.z < hit.transform.position.z) ||
+                 (playerPosition.z > cell.transform.position.z && cell.transform.position.z > hit.transform.position.z)) &&
+                 (cell.transform.position.x == hit.transform.position.x)))
             {
                 cell.GetComponent<MeshRenderer>().material = cell.Materials[3];
 
