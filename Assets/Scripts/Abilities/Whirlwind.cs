@@ -180,10 +180,10 @@ public class Whirlwind : MonoBehaviour
             _m_agents.Add(_chara);
 
             SetNewPosition(_chara, m_SpawnPoint);
-
+            
             ToggleObject(_chara, _Bench);
            
-            _chara.GetComponent<LifeManager>().Life -= 2;
+
         }
     }
 
@@ -204,6 +204,7 @@ public class Whirlwind : MonoBehaviour
         _goBench.GetChild(_go.transform.GetSiblingIndex()).gameObject.SetActive(true);
 
         _go.SetActive(true);
+        _go.GetComponent<LifeManager>().Life -= 2;
         Debug.Log(_go.name);
 
     }

@@ -33,6 +33,10 @@ public class CellPrefScript : MonoBehaviour
                 GetComponent<MeshRenderer>().material = Materials[2];
             }
         }
+        else
+        {
+            GetComponent<MeshRenderer>().material = Materials[0];
+        }
     }
 
     private void OnTriggerExit(Collider other)

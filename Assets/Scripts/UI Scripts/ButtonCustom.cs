@@ -53,8 +53,10 @@ public class ButtonCustom : Button
 
         if (PartyData.PartyCount(eventData.currentInputModule.GetComponent<EventSystemCustom>().ID) < 3)
         {
-
-            PartyData.AddToParty(eventData.currentInputModule.GetComponent<EventSystemCustom>().ID, GetComponent<CharaSprites>().Character[m_CharacterIndex]);
+            if (PartyCheck(eventData.currentInputModule.GetComponent<EventSystemCustom>().ID))
+            {
+                PartyData.AddToParty(eventData.currentInputModule.GetComponent<EventSystemCustom>().ID, GetComponent<CharaSprites>().Character[m_CharacterIndex]);
+            }
         }
 
         Debug.Log(gameObject.name + " Submitted!" + eventData.currentInputModule.GetComponent<EventSystemCustom>().gameObject.name);
@@ -65,4 +67,32 @@ public class ButtonCustom : Button
         eventSystem = GetComponent<MyEventSystemProvider>().eventSystem;
 
     }
+
+    bool PartyCheck(int _PlayerID)
+    {
+        if(_PlayerID == 1)
+        {
+            foreach (GameObject _Object in PartyData.POnePart)
+            {
+                if (_Object == GetComponent<CharaSprites>().Character[(_PlayerID - 1)])
+                {
+                    return false;
+                }
+               
+            }
+        }
+        else if (_PlayerID == 2)
+        {
+            foreach (GameObject _Object in PartyData.PTwoPart)
+            {
+                if (_Object == GetComponent<CharaSprites>().Character[(_PlayerID - 1)])
+                {
+                    return false;
+                }
+       
+            }
+        }
+        return true;
+    }
+    
 }
