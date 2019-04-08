@@ -169,6 +169,7 @@ MonoBehaviour:
   _Sprites:
   - {fileID: 2800000, guid: e5a9316b0b54c044597d00884f1653e1, type: 3}
   - {fileID: 2800000, guid: b7953ca3aa067dc4d81b29d655dd87e1, type: 3}
+  - {fileID: 2800000, guid: 927a0212c24d424449323a5b9fa188af, type: 3}
   _Materials: []
   SavedlookAt: {x: 0, y: 0, z: 0}
   RayCenter: {x: 0, y: 0, z: 0}

@@ -169,6 +169,7 @@ MonoBehaviour:
   _Sprites:
   - {fileID: 2800000, guid: 365e81504a4750245835c79ab231ebd3, type: 3}
   - {fileID: 2800000, guid: f6087da6582c8cf4789a6bb8b8854554, type: 3}
+  - {fileID: 2800000, guid: 9b7e32a5e3004a048bddb58b15766cdf, type: 3}
   _Materials: []
   SavedlookAt: {x: 0, y: 0, z: 0}
   RayCenter: {x: 0, y: 0, z: 0}
@@ -182,7 +183,6 @@ MonoBehaviour:
   y2: 0
   grid: {fileID: 0}
   BasicAtt: {fileID: 1061427032}
-  Lifetext: {fileID: 0}
   respawn: {fileID: 0}
   configGrid: {fileID: 11400000, guid: 784a1aafb257b974b8f0dcc97f2ca78d, type: 2}
   RespawnController: {fileID: 0}

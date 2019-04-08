@@ -1,10 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class energyscript : MonoBehaviour
 {
-    
+    float endvalue = 1;
+    private void Start()
+    {
+        Rotate(endvalue);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
@@ -18,5 +24,16 @@ public class energyscript : MonoBehaviour
            
         }
 
+    }
+
+    void Rotate(float _end)
+    {
+        transform.DORotate(new Vector3 (0, _end), 0.01f).OnComplete(UpdateEndValue);
+    }
+
+    void UpdateEndValue()
+    {
+        endvalue ++;
+        Rotate(endvalue);
     }
 }

@@ -166,6 +166,7 @@ MonoBehaviour:
   _Sprites:
   - {fileID: 2800000, guid: 1ab2530e11383b745a80d60079603142, type: 3}
   - {fileID: 2800000, guid: 3e8bb38ecf0772e4a880b1410e44b195, type: 3}
+  - {fileID: 2800000, guid: b5c96527a5abc754caf2e1febd430c95, type: 3}
   - {fileID: 2800000, guid: 9336fe687c47da34d89344fca88640d2, type: 3}
   - {fileID: 2800000, guid: 26914ccdc4d0f0d458aca0fe1b7f4262, type: 3}
   _Materials:
@@ -183,7 +184,6 @@ MonoBehaviour:
   y2: 11
   grid: {fileID: 0}
   BasicAtt: {fileID: 936545434}
-  Lifetext: {fileID: 0}
   respawn: {fileID: 0}
   configGrid: {fileID: 11400000, guid: 784a1aafb257b974b8f0dcc97f2ca78d, type: 2}
   RespawnController: {fileID: 0}

@@ -52,7 +52,7 @@ public class EventSystemCustom : EventSystem
             {
                 currentCharaSprite = currentSelectedGameObject.GetComponent<CharaSprites>();
                 currentCharaSprite.ArrowPOne.SetActive(true);
-                Preview.texture = currentCharaSprite.Character[0].GetComponent<Agent>()._Sprites[2];
+                Preview.texture = currentCharaSprite.Character[0].GetComponent<Agent>()._Sprites[3];
             }
         }
         else if (ID == 2)
@@ -61,7 +61,7 @@ public class EventSystemCustom : EventSystem
             {
                 currentCharaSprite = currentSelectedGameObject.GetComponent<CharaSprites>();
                 currentCharaSprite.ArrowPTwo.SetActive(true);
-                Preview.texture = currentCharaSprite.Character[0].GetComponent<Agent>()._Sprites[3];
+                Preview.texture = currentCharaSprite.Character[0].GetComponent<Agent>()._Sprites[4];
             }
             //else if(currentSelectedGameObject.name == "Play")
             //{
