@@ -63,29 +63,27 @@ public class Agent : MonoBehaviour, ICharacter
 
     //********************************************
     private void OnEnable()
-    {           
+    {
         AgentOnEnable(AgentParent, AgentSpawnPosition);
     }
 
     private void Start()
-    {        
+    {
         InStart();
         rg = GetComponent<Rigidbody>();
     }
 
 
     public void AgentOnEnable(Transform _parent, Vector3 _position)
-    {   if (m_OnEnableCounter > 1)
-        {
-            transform.parent = _parent;
-            transform.position = _position;
-            x = (int)_position.x;
-            x2 = (int)_position.x;
-            y = (int)_position.z;
-            y2 = (int)_position.z;
-        }
-        m_OnEnableCounter++;
+    {
+        transform.parent = _parent;
+        transform.position = _position;
+        x = (int)_position.x;
+        x2 = (int)_position.x;
+        y = (int)_position.z;
+        y2 = (int)_position.z;
     }
+
     void InStart()
     {
         FindObjectOfType<CounterPosition>().FindPlayers();

@@ -219,7 +219,8 @@ public class GameManager : MonoBehaviour
 
     void ToggleObject(GameObject _go, Transform _goBench)
     {
-        _goBench.GetChild(_go.transform.GetSiblingIndex()).gameObject.SetActive(true);   
+        _go.SetActive(true);
+       // _goBench.GetChild(_go.transform.GetSiblingIndex()).gameObject.SetActive(true);   
     }
 
     void ActiveStarters()
@@ -264,6 +265,7 @@ public class GameManager : MonoBehaviour
        
     }
 
+
     public void EndGameCheck(int _PlayerID, GameObject _ActiveCharacter)
     {
         if(POneKO())
@@ -272,8 +274,8 @@ public class GameManager : MonoBehaviour
             EventSPOne.SetActive(true);
             EventSTwo.SetActive(true);
             EndGamePanel.SetActive(true);
-            POneWins.SetActive(true);
-            PTwoWins.SetActive(false);
+            POneWins.SetActive(false);
+            PTwoWins.SetActive(true);
             Debug.Log("P2 Ha vinto");
         }
         else if (PTwoKO())
@@ -282,11 +284,11 @@ public class GameManager : MonoBehaviour
             EventSPOne.SetActive(true);
             EventSTwo.SetActive(true);
             EndGamePanel.SetActive(true);
-            POneWins.SetActive(false);
-            PTwoWins.SetActive(true);
+            POneWins.SetActive(true);
+            PTwoWins.SetActive(false);
             Debug.Log("P1 Ha vinto");
         }
-        else
+       else
         {
             if (_PlayerID == 1)
             {
@@ -368,45 +370,46 @@ public class GameManager : MonoBehaviour
             _m_agents.Remove(_chara);
             _m_agents.Add(_chara);
 
-            SetNewPosition(_chara,RespawnController.FindAGoodPoint(FindPlayer(m_ActivePlayerID)));
+            SetNewPosition(_chara, RespawnController.FindAGoodPoint(FindPlayer(m_ActivePlayerID)));
             ToggleObject(_chara, _Bench);
 
         }
     }
 
+
     ///////////////////////////////////////////////////////////
-//    void UpdateBenchTester()
-//    {
-//        if (POneParty != null)
-//        {
-//            int i = 1;
+    //    void UpdateBenchTester()
+    //    {
+    //        if (POneParty != null)
+    //        {
+    //            int i = 1;
 
-//            foreach (GameObject _Character in POneParty)
-//            {
-             
-//                GameObject m_Character = Instantiate(_Character);
-//    //POneParty.Add(m_Character);
-//                m_Character.GetComponent<Agent>().SwitchIndex = i;
-//                i ++;
-//                m_Character.transform.parent = BenchPOne.transform;
-//                m_Character.SetActive(false);
-//            }
-//        }
-//        if (PTwoParty != null)
-//        {
-//            int i = 1;
+    //            foreach (GameObject _Character in POneParty)
+    //            {
 
-//            foreach (GameObject _Character in PTwoParty)
-//            {
-//                GameObject m_Character = Instantiate(_Character);
-////PTwoParty.Add(m_Character);
-//                m_Character.GetComponent<Agent>().SwitchIndex = i;
-//                i++;
-//                m_Character.transform.parent = BenchPTwo.transform;
-//                m_Character.SetActive(false);
-//            }            
-//        }
-//        ActiveStarters();
-//    }
+    //                GameObject m_Character = Instantiate(_Character);
+    //    //POneParty.Add(m_Character);
+    //                m_Character.GetComponent<Agent>().SwitchIndex = i;
+    //                i ++;
+    //                m_Character.transform.parent = BenchPOne.transform;
+    //                m_Character.SetActive(false);
+    //            }
+    //        }
+    //        if (PTwoParty != null)
+    //        {
+    //            int i = 1;
+
+    //            foreach (GameObject _Character in PTwoParty)
+    //            {
+    //                GameObject m_Character = Instantiate(_Character);
+    ////PTwoParty.Add(m_Character);
+    //                m_Character.GetComponent<Agent>().SwitchIndex = i;
+    //                i++;
+    //                m_Character.transform.parent = BenchPTwo.transform;
+    //                m_Character.SetActive(false);
+    //            }            
+    //        }
+    //        ActiveStarters();
+    //    }
 
 }

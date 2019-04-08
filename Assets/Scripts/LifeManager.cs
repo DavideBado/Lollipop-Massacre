@@ -28,7 +28,7 @@ public class LifeManager : MonoBehaviour
         PlayerData m_OtherPLayer = null;
         foreach (PlayerData _player in m_Players)
         {
-            if(_player.transform != transform)
+            if (_player.transform != transform)
             {
                 m_OtherPLayer = _player;
             }
@@ -36,7 +36,8 @@ public class LifeManager : MonoBehaviour
         if (Life <= 0) // Se la vita è minore o uguale a 0
         {
             GameManager.EndGameCheck(GetComponent<Agent>().PlayerID, gameObject);
-            
+
         }
     }
+
 }
