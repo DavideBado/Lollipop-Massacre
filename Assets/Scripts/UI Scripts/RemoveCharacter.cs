@@ -20,11 +20,11 @@ public class RemoveCharacter : MonoBehaviour
             FindObjectOfType<SelectMenu>().RemoveCharacter(2);
         }
 
-        if(Loading.activeInHierarchy == true && Input.GetKeyDown(KeyCode.A))
-        {
-            GameObject Bottone = FindObjectOfType<OnClick>().gameObject;
-            Bottone.GetComponent<OnClick>().LoadByIndex(1);
-        }
+        //if(Loading.activeInHierarchy == true && Input.GetKeyDown(KeyCode.A))
+        //{
+        //    GameObject Bottone = FindObjectOfType<OnClick>().gameObject;
+        //    Bottone.GetComponent<OnClick>().LoadByIndex(1);
+        //}
 
         if(Input.GetKey(KeyCode.E) && Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.C))
         {
