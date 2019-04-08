@@ -9,6 +9,7 @@ TagManager:
   - BasicAttack
   - Wall
   - EnergyUp
+  - Loading
   layers:
   - Default
   - TransparentFX
