@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -9,9 +10,11 @@ public class ButtonCustom : Button
     public EventSystem eventSystem;
     BaseEventData m_BaseEvent;
     GameObject SelectPOne, SelectPTwo;
+    List<EventSystemCustom> eventSystemCustoms = new List<EventSystemCustom>();
 
     protected override void Start()
     {
+        eventSystemCustoms = FindObjectsOfType<EventSystemCustom>().ToList();
         if (GetComponent<CharaSprites>() != null)
         {
             SelectPOne = GetComponent<CharaSprites>().ArrowPOne;
@@ -59,30 +62,6 @@ public class ButtonCustom : Button
     private void Update()
     {
         eventSystem = GetComponent<MyEventSystemProvider>().eventSystem;
-        //Debug.Log(eventSystem);
-        if(IsHighlighted(m_BaseEvent))
-        {
-            //if(eventSystem.GetComponent<EventSystemCustom>().ID == 1)
-            //{
-            //    SelectPOne.SetActive(true);
-            //}
-            //else
-            //{
-            //    SelectPOne.SetActive(false);
-            //}
-            //if (eventSystem.GetComponent<EventSystemCustom>().ID == 2)
-            //{
-            //    SelectPTwo.SetActive(true);
-            //}
-            //else
-            //{
-            //    SelectPTwo.SetActive(false);
-            //}
-        } else
-        {
-            SelectPOne.SetActive(false);
-            SelectPTwo.SetActive(false);
 
-        }
     }
 }

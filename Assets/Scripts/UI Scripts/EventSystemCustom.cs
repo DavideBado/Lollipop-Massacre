@@ -6,6 +6,7 @@ using System.Collections.Generic;
 
 public class EventSystemCustom : EventSystem
 {
+    List<CharaSprites> m_characterSprites = new List<CharaSprites>();
     List<ButtonCustom1> m_Buttons = new List<ButtonCustom1>();
     public Sprite PlayTexture, BackTexture;
     CharaSprites currentCharaSprite;
@@ -13,6 +14,7 @@ public class EventSystemCustom : EventSystem
     public int ID;
     protected override void OnEnable()
     {
+        m_characterSprites = FindObjectsOfType<CharaSprites>().ToList();
         base.OnEnable();
     }
 
@@ -66,6 +68,21 @@ public class EventSystemCustom : EventSystem
             //{
             //    currentSelectedGameObject.GetComponent<Image>().sprite = BackTexture;
             //}
+        }
+
+        foreach (CharaSprites _Sprite in m_characterSprites)
+        {
+            if(_Sprite.gameObject != currentSelectedGameObject)
+            {
+                if(ID == 1)
+                {
+                    _Sprite.ArrowPOne.SetActive(false);
+                }
+                else if (ID == 2)
+                {
+                    _Sprite.ArrowPTwo.SetActive(false);
+                }
+            }
         }
     }
 
