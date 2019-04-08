@@ -182,7 +182,6 @@ MonoBehaviour:
   y2: 0
   grid: {fileID: 0}
   BasicAtt: {fileID: 1061427032}
-  Lifetext: {fileID: 0}
   respawn: {fileID: 0}
   configGrid: {fileID: 11400000, guid: 784a1aafb257b974b8f0dcc97f2ca78d, type: 2}
   RespawnController: {fileID: 0}
@@ -217,7 +216,7 @@ MonoBehaviour:
   Right: 275
   BasicAttack: 256
   Ability: 271
-  Preview: 306
+  Preview: 305
   Switch_A: 257
   Switch_B: 258
   Switch_C: 259

@@ -14,12 +14,15 @@ public class EventSystemCustom : EventSystem
     public int ID;
     protected override void OnEnable()
     {
-        m_characterSprites = FindObjectsOfType<CharaSprites>().ToList();
+        
         base.OnEnable();
     }
 
+    
+
     protected override void Update()
     {
+        m_characterSprites = FindObjectsOfType<CharaSprites>().ToList();
         EventSystem originalCurrent = EventSystem.current;
         current = this;
         base.Update();
