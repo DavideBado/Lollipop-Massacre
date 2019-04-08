@@ -182,14 +182,13 @@ public class Whirlwind : MonoBehaviour
             SetNewPosition(_chara, m_SpawnPoint);
             
             ToggleObject(_chara, _Bench);
-           
+          
 
         }
     }
 
     void SetNewPosition(GameObject _agent, Vector3 _SpawnPoint)
     {
-
         _agent.GetComponent<Agent>().AgentParent = null;
          _agent.GetComponent<Agent>().AgentSpawnPosition = _SpawnPoint;
         //_agent.GetComponent<Agent>().x = (int)_SpawnPoint.x;
@@ -201,10 +200,10 @@ public class Whirlwind : MonoBehaviour
 
     void ToggleObject(GameObject _go, Transform _goBench)
     {
-        _goBench.GetChild(_go.transform.GetSiblingIndex()).gameObject.SetActive(true);
+        //_goBench.GetChild(_go.transform.GetSiblingIndex()).gameObject.SetActive(true);
 
         _go.SetActive(true);
-        _go.GetComponent<LifeManager>().Life -= 2;
+        _go.GetComponent<LifeManager>().Damage(2);
         Debug.Log(_go.name);
 
     }

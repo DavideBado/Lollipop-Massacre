@@ -7,13 +7,13 @@ using System.Linq;
 public class LifeManager : MonoBehaviour
 {
     public bool OnShield = false;
-    public int Life = 3;
+    public int Life = 6;
     GameManager GameManager;   
     bool CanRespawn = true;
     // Start is called before the first frame update
     private void Start()
     {
-        Life = 6;
+
         GameManager = FindObjectOfType<GameManager>();
     }
     // Update is called once per frame
@@ -38,6 +38,11 @@ public class LifeManager : MonoBehaviour
             GameManager.EndGameCheck(GetComponent<Agent>().PlayerID, gameObject);
 
         }
+    }
+
+    public void Damage(int _amount)
+    {
+        Life -= _amount;
     }
 
 }
