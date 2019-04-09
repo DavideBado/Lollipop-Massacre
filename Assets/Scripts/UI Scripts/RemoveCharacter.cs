@@ -15,7 +15,7 @@ public class RemoveCharacter : MonoBehaviour
         {
             FindObjectOfType<SelectMenu>().RemoveCharacter(1);
         }
-        if (Input.GetKeyDown(KeyCode.KeypadEnter))
+        if (Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Keypad9))
         {
             FindObjectOfType<SelectMenu>().RemoveCharacter(2);
         }

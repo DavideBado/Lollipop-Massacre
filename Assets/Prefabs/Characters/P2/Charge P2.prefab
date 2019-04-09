@@ -74,6 +74,7 @@ GameObject:
   - component: {fileID: 1256144808}
   - component: {fileID: 1256144809}
   - component: {fileID: 7152227641638942373}
+  - component: {fileID: 1609075901232016146}
   m_Layer: 0
   m_Name: Charge P2
   m_TagString: Player
@@ -248,6 +249,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d872d7d50addca4eaaafafe05b13c4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1609075901232016146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1256144805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f0259fd9bc2d244393805e00dd3b502, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: 0
+  playerIndex: 0
 --- !u!1 &3595088801534984405
 GameObject:
   m_ObjectHideFlags: 0
