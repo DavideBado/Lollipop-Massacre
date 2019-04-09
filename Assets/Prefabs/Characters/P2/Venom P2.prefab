@@ -263,7 +263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 0
-  playerIndex: 0
+  playerIndex: 1
 --- !u!1 &3595088801534984405
 GameObject:
   m_ObjectHideFlags: 0

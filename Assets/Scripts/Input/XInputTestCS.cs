@@ -34,31 +34,28 @@ public class XInputTestCS : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		if (ID == 1)
-		{
+		
+		//CheckIndex();
+		//// Find a PlayerIndex, for a single player game
+		//// Will find the first controller that is connected ans use it
+		//if (!playerIndexSet || !prevState.IsConnected)
+		//{
+		//	for (int i = 0; i < 4; ++i)
+		//	{
+		//		PlayerIndex testPlayerIndex = (PlayerIndex)i;
+		//		GamePadState testState = GamePad.GetState(testPlayerIndex);
+		//		if (testState.IsConnected)
+		//		{
+		//			Debug.Log(string.Format("GamePad found {0}", testPlayerIndex));
+		//			if (IndexForCheck != testPlayerIndex || IndexForCheck == null)
+		//			{
+		//				playerIndex = testPlayerIndex;
+		//				playerIndexSet = true;
+		//			}
 
-		}
-		CheckIndex();
-		// Find a PlayerIndex, for a single player game
-		// Will find the first controller that is connected ans use it
-		if (!playerIndexSet || !prevState.IsConnected)
-		{
-			for (int i = 0; i < 4; ++i)
-			{
-				PlayerIndex testPlayerIndex = (PlayerIndex)i;
-				GamePadState testState = GamePad.GetState(testPlayerIndex);
-				if (testState.IsConnected)
-				{
-					Debug.Log(string.Format("GamePad found {0}", testPlayerIndex));
-					if (IndexForCheck != testPlayerIndex || IndexForCheck == null)
-					{
-						playerIndex = testPlayerIndex;
-						playerIndexSet = true;
-					}
-
-				}
-			}
-		}
+		//		}
+		//	}
+		//}
 
 		prevState = state;
 		state = GamePad.GetState(playerIndex);
