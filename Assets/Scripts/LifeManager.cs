@@ -43,6 +43,8 @@ public class LifeManager : MonoBehaviour
     public void Damage(int _amount)
     {
         Life -= _amount;
+		GetComponent<XInputTestCS>().Damage = _amount;
+		GetComponent<XInputTestCS>().Timer = (_amount * 0.2f);
     }
 
 }

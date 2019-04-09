@@ -6,6 +6,8 @@ using WindowsInput;
 
 public class XInputTestCS : MonoBehaviour
 {
+	public int Damage = 0;
+	public float Timer = 0f;
 	InputSimulator inputSimulator = new InputSimulator();
 	bool m_OnInput;
 	public int ID;
@@ -24,17 +26,22 @@ public class XInputTestCS : MonoBehaviour
 		// No need to initialize anything for the plugin
 	}
 
-	//void FixedUpdate()
-	//{
-	//	// SetVibration should be sent in a slower rate.
-	//	// Set vibration according to triggers
-	//	GamePad.SetVibration(playerIndex, state.Triggers.Left, state.Triggers.Right);
-	//}
+	void FixedUpdate()
+	{
+		// SetVibration should be sent in a slower rate.
+		// Set vibration according to triggers
+		//GamePad.SetVibration(playerIndex, state.Triggers.Left, state.Triggers.Right);
+
+		DamageFeedback(Damage);
+	}
 
 	// Update is called once per frame
 	void Update()
 	{
-		
+	if(Timer > 0)
+	{
+			Timer -= Time.deltaTime;
+		}
 		//CheckIndex();
 		//// Find a PlayerIndex, for a single player game
 		//// Will find the first controller that is connected ans use it
@@ -126,12 +133,12 @@ public class XInputTestCS : MonoBehaviour
 
 		if (state.Triggers.Right > 0 && prevState.Triggers.Right == 0)
 		{
-			SendMessage("Ability"); 
+			SendMessage("Ability");
 		}
 
 		if (state.Triggers.Left > 0)
 		{
-			SendMessage("Preview"); 
+			SendMessage("Preview");
 		}
 
 		if (prevState.Buttons.Start == ButtonState.Released && state.Buttons.Start == ButtonState.Pressed)
@@ -162,6 +169,35 @@ public class XInputTestCS : MonoBehaviour
 				IndexForCheck = _tester.playerIndex;
 			}
 		}
+
+	}
+
+	public void DamageFeedback(int _damage)
+	{
+
+
+		if (Timer > 0)
+		{
+
+			if (_damage == 1)
+			{
+				GamePad.SetVibration(playerIndex, 1, 0);
+			}
+			else if (_damage == 2)
+			{
+				GamePad.SetVibration(playerIndex, 0, 1);
+			}
+			else if (_damage > 2)
+			{
+				GamePad.SetVibration(playerIndex, 1, 1);
+			}
+		} 
+		
+		else
+		{
+			GamePad.SetVibration(playerIndex, 0, 0);
+		}
+
 
 	}
 }

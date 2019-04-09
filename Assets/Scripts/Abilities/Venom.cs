@@ -66,7 +66,7 @@ public class Venom : MonoBehaviour
     void PoisonPower(RaycastHit hit)
     {
         Instantiate(Poison, hit.transform);
-        hit.transform.GetComponent<LifeManager>().Life -= 2;
+        hit.transform.GetComponent<LifeManager>().Damage(2);
         Debug.Log("{0}", hit.transform);
     }
 

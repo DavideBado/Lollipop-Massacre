@@ -29,7 +29,7 @@ public class Whirlwind : MonoBehaviour
                 {
 
                     Debug.DrawRay(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
-                    hit.transform.GetComponent<LifeManager>().Life -= 2;
+                    hit.transform.GetComponent<LifeManager>().Damage(2);
                     int EnemyID = hit.transform.GetComponent<Agent>().PlayerID;
 
                     if (EnemyID == 1)

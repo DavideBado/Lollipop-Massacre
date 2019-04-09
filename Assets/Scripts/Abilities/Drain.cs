@@ -48,7 +48,7 @@ public class Drain : MonoBehaviour
             if (hit.transform.tag == "Player" && hit.transform != transform)
             {
                 Debug.DrawRay(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
-                hit.transform.GetComponent<LifeManager>().Life-=2;
+                hit.transform.GetComponent<LifeManager>().Damage(2);
                 hit.transform.GetComponent<Agent>().imDrained = true;
                 hit.transform.GetComponent<Agent>().StartDrain = Manager.Turn;
             }
@@ -72,7 +72,7 @@ public class Drain : MonoBehaviour
                 {
                     GetComponent<LifeManager>().Life += 2;
                 }
-                hit.transform.GetComponent<LifeManager>().Life -= 2;
+                hit.transform.GetComponent<LifeManager>().Damage(2);
                 hit.transform.GetComponent<Agent>().imDrained = true;
                 hit.transform.GetComponent<Agent>().StartDrain = Manager.Turn;
             }
@@ -84,7 +84,7 @@ public class Drain : MonoBehaviour
             {
                 Debug.DrawRay(GetComponent<Agent>().RayLeft + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
                 GetComponent<LifeManager>().Life += 2;
-                hit.transform.GetComponent<LifeManager>().Life -= 2;
+                hit.transform.GetComponent<LifeManager>().Damage(2);
                 hit.transform.GetComponent<Agent>().imDrained = true;
                 hit.transform.GetComponent<Agent>().StartDrain = Manager.Turn;
             }
@@ -96,7 +96,7 @@ public class Drain : MonoBehaviour
             {
                 Debug.DrawRay(GetComponent<Agent>().RayRight + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
                 GetComponent<LifeManager>().Life += 2;
-                hit.transform.GetComponent<LifeManager>().Life -= 2;
+                hit.transform.GetComponent<LifeManager>().Damage(2);
                 hit.transform.GetComponent<Agent>().imDrained = true;
                 hit.transform.GetComponent<Agent>().StartDrain = Manager.Turn;
             }
