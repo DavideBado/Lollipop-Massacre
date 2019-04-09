@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
         }
       
         //Debug.Log(POneParty[0].name + " è attivo:" + POneParty[0].gameObject.activeInHierarchy + "  " + POneParty[0].gameObject.activeSelf);
-        //Debug.Log("primo:" + POneParty[0].name + " ultimo:" + POneParty[2].name);
+        Debug.Log("primo:" + POneParty[0].name + " secondo:" + POneParty[1].name + " ultimo:" + POneParty[2].name + " count:" + POneParty.Count);
         InUpdate();
     }
 
@@ -146,11 +146,11 @@ public class GameManager : MonoBehaviour
                 POneParty.Add(m_Character);
                 m_Character.GetComponent<Agent>().SwitchIndex = i;
                 i ++;
-                Debug.Log(m_Character.activeSelf);
+                //Debug.Log(m_Character.activeSelf);
 
                 m_Character.transform.parent = BenchPOne.transform;
                 m_Character.SetActive(false);
-                Debug.Log("Dopo" + m_Character.activeSelf);
+                //Debug.Log("Dopo" + m_Character.activeSelf);
             }
         }
         if (PartyData.PTwoPart != null)
@@ -185,11 +185,10 @@ public class GameManager : MonoBehaviour
         {
             
             GameObject _chara = _m_agents[0];
-            _m_agents.Remove(_chara);
-            _m_agents.Add(_chara);
+           
             
             SetNewPosition(_chara, SpawnPoints[(_PlayerID -1)].position);
-            ToggleObject(_chara, _Bench);
+            ToggleObject(_chara, _m_agents);
           
         }
     }
@@ -203,9 +202,11 @@ public class GameManager : MonoBehaviour
 
     }
 
-    void ToggleObject(GameObject _go, Transform _goBench)
-    {
-        _go.SetActive(true);
+    void ToggleObject(GameObject _go, List<GameObject> _m_agents)
+	{
+		_m_agents.Remove(_go);
+		_m_agents.Add(_go);
+		_go.SetActive(true);
        // _goBench.GetChild(_go.transform.GetSiblingIndex()).gameObject.SetActive(true);   
     }
 
@@ -222,11 +223,11 @@ public class GameManager : MonoBehaviour
             // Spegnere il personaggio in scena, attivare quello selezionato e metterlo nella stessa posizione di quello appena  
             foreach (GameObject _Character in POneParty)
             {
-                if(_Character.GetComponent<Agent>().SwitchIndex == _CharacterIndex && _Character.GetComponent<LifeManager>().Life > 0)
+                if(_Character.GetComponent<Agent>().SwitchIndex == _CharacterIndex && _Character.GetComponent<LifeManager>().Life > 0 && _Character != _ActiveCharacter)
                 {
                     _Character.transform.position = _ActiveCharacter.transform.position;
                     _Character.GetComponent<Agent>().AgentSpawnPosition = _ActiveCharacter.transform.position;
-                    ToggleObject(_Character, BenchPOne.transform);
+                    ToggleObject(_Character, POneParty);
                     _ActiveCharacter.transform.parent = BenchPOne.transform;
                     _ActiveCharacter.SetActive(false);
                 }
@@ -238,11 +239,11 @@ public class GameManager : MonoBehaviour
         {
             foreach (GameObject _Character in PTwoParty)
             {
-                if (_Character.GetComponent<Agent>().SwitchIndex == _CharacterIndex && _Character.GetComponent<LifeManager>().Life > 0)
+                if (_Character.GetComponent<Agent>().SwitchIndex == _CharacterIndex && _Character.GetComponent<LifeManager>().Life > 0 && _Character != _ActiveCharacter)
                 {
                     _Character.transform.position = _ActiveCharacter.transform.position;
                     _Character.GetComponent<Agent>().AgentSpawnPosition = _ActiveCharacter.transform.position;
-                    ToggleObject(_Character, BenchPTwo.transform);
+                    ToggleObject(_Character, PTwoParty);
                     _ActiveCharacter.transform.parent = BenchPTwo.transform;
                     _ActiveCharacter.SetActive(false);
                 }
@@ -339,27 +340,25 @@ public class GameManager : MonoBehaviour
 
     void ChangePg(List<GameObject> _m_agents, int _PlayerID)
     {
-        Transform _Bench = null;
+       
         int m_ActivePlayerID = 0;
         if (_PlayerID == 1)
         {
-            _Bench = BenchPOne.transform;
+           
             m_ActivePlayerID = 2;
         }
         else if (_PlayerID == 2)
         {
-            _Bench = BenchPTwo.transform;
+           
             m_ActivePlayerID = 1;
         }
         if (_m_agents.Count > 0)
         {
 
             GameObject _chara = _m_agents[0];
-            _m_agents.Remove(_chara);
-            _m_agents.Add(_chara);
-
+     
             SetNewPosition(_chara, RespawnController.FindAGoodPoint(FindPlayer(m_ActivePlayerID)));
-            ToggleObject(_chara, _Bench);
+            ToggleObject(_chara, _m_agents);
 
         }
     }

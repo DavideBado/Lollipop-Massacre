@@ -59,7 +59,7 @@ public class ButtonCustom : Button
             }
         }
 
-        Debug.Log(gameObject.name + " Submitted!" + eventData.currentInputModule.GetComponent<EventSystemCustom>().gameObject.name);
+        //Debug.Log(gameObject.name + " Submitted!" + eventData.currentInputModule.GetComponent<EventSystemCustom>().gameObject.name);
     }
 
     private void Update()

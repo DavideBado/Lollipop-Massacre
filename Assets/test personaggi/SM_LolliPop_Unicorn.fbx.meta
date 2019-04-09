@@ -1,0 +1,154 @@
+fileFormatVersion: 2
+guid: 2ede4ac6d3aa84c43b97210b6e8e37b1
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: CTRL_Hands
+    100002: Ctrl_L_Foot
+    100004: Ctrl_L_Hand
+    100006: Ctrl_R_Foot
+    100008: Ctrl_R_Hand
+    100010: J_Body
+    100012: J_Face
+    100014: J_Head
+    100016: L_J_Arm
+    100018: L_J_Foot
+    100020: L_J_Hand
+    100022: L_J_Leg
+    100024: M_Ctrl_Unicorn
+    100026: M_J_Unicorn
+    100028: R_J_Arm
+    100030: R_J_Foot
+    100032: R_J_Hand
+    100034: R_J_Reg
+    100036: //RootNode
+    100038: SM_Unicorn_Head
+    100040: SM_Unicorn_L_Foot
+    100042: SM_Unicorn_L_Hand
+    100044: SM_Unicorn_R_Foot
+    100046: SM_Unicorn_R_Hand
+    100048: SM_Unicorn_Rig
+    400000: CTRL_Hands
+    400002: Ctrl_L_Foot
+    400004: Ctrl_L_Hand
+    400006: Ctrl_R_Foot
+    400008: Ctrl_R_Hand
+    400010: J_Body
+    400012: J_Face
+    400014: J_Head
+    400016: L_J_Arm
+    400018: L_J_Foot
+    400020: L_J_Hand
+    400022: L_J_Leg
+    400024: M_Ctrl_Unicorn
+    400026: M_J_Unicorn
+    400028: R_J_Arm
+    400030: R_J_Foot
+    400032: R_J_Hand
+    400034: R_J_Reg
+    400036: //RootNode
+    400038: SM_Unicorn_Head
+    400040: SM_Unicorn_L_Foot
+    400042: SM_Unicorn_L_Hand
+    400044: SM_Unicorn_R_Foot
+    400046: SM_Unicorn_R_Hand
+    400048: SM_Unicorn_Rig
+    2100000: SM_Unicorn_ready_for_rig_cholor
+    4300000: SM_Unicorn_Head
+    4300002: SM_Unicorn_L_Hand
+    4300004: SM_Unicorn_L_Foot
+    4300006: SM_Unicorn_R_Hand
+    4300008: SM_Unicorn_R_Foot
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: SM_Unicorn_Head
+    13700002: SM_Unicorn_L_Foot
+    13700004: SM_Unicorn_L_Hand
+    13700006: SM_Unicorn_R_Foot
+    13700008: SM_Unicorn_R_Hand
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

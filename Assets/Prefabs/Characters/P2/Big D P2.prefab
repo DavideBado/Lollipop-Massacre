@@ -261,6 +261,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f0259fd9bc2d244393805e00dd3b502, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Damage: 0
+  Timer: 0
   ID: 0
   playerIndex: 1
 --- !u!1001 &182770311
@@ -588,6 +590,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2515073210527489483, guid: ace7d13ef661e304999d0998f5d6dd28,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cfdd4b498804deb4f883d16053dea8fd, type: 2}
+    - target: {fileID: 2515073210527489481, guid: ace7d13ef661e304999d0998f5d6dd28,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cfdd4b498804deb4f883d16053dea8fd, type: 2}
+    - target: {fileID: 2515073210527489487, guid: ace7d13ef661e304999d0998f5d6dd28,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cfdd4b498804deb4f883d16053dea8fd, type: 2}
+    - target: {fileID: 2515073210527489485, guid: ace7d13ef661e304999d0998f5d6dd28,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cfdd4b498804deb4f883d16053dea8fd, type: 2}
+    - target: {fileID: 2515073210527489475, guid: ace7d13ef661e304999d0998f5d6dd28,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cfdd4b498804deb4f883d16053dea8fd, type: 2}
+    - target: {fileID: 2515073210527489473, guid: ace7d13ef661e304999d0998f5d6dd28,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cfdd4b498804deb4f883d16053dea8fd, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ace7d13ef661e304999d0998f5d6dd28, type: 3}
 --- !u!4 &8262860612497635628 stripped
@@ -603,6 +635,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1256144812}
     m_Modifications:
+    - target: {fileID: 100018, guid: b27161a71b1c8fc458aabaca2fa4c9bf, type: 3}
+      propertyPath: m_Name
+      value: red panda
+      objectReference: {fileID: 0}
+    - target: {fileID: 100018, guid: b27161a71b1c8fc458aabaca2fa4c9bf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 400018, guid: b27161a71b1c8fc458aabaca2fa4c9bf, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0
@@ -645,14 +685,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400018, guid: b27161a71b1c8fc458aabaca2fa4c9bf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 100018, guid: b27161a71b1c8fc458aabaca2fa4c9bf, type: 3}
-      propertyPath: m_Name
-      value: red panda
-      objectReference: {fileID: 0}
-    - target: {fileID: 100018, guid: b27161a71b1c8fc458aabaca2fa4c9bf, type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

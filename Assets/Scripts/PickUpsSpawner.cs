@@ -78,8 +78,8 @@ public class PickUpsSpawner : MonoBehaviour
                     {
                         if (i == RandomCell)
                         {
-                            Debug.Log("Cella" + cellPrefs[i].transform.position.ToString());
-                            Debug.Log("Area della Cella" + cellPrefs[i].GetComponentInParent<GridArea>().AreaID.ToString());
+                            //Debug.Log("Cella" + cellPrefs[i].transform.position.ToString());
+                            //Debug.Log("Area della Cella" + cellPrefs[i].GetComponentInParent<GridArea>().AreaID.ToString());
                             CanSpawn = true;
 
                             foreach (Wall _wall in Walls)

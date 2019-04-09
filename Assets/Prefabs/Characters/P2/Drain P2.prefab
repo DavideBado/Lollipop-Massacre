@@ -263,6 +263,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f0259fd9bc2d244393805e00dd3b502, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Damage: 0
+  Timer: 0
   ID: 0
   playerIndex: 1
 --- !u!1 &3595088801534984405
@@ -697,6 +699,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6818382762228262419, guid: 0f16214d40d16ef46b3d26c4a08018df,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1c2f29d9d748887469efaa7b56338576, type: 2}
+    - target: {fileID: 6818382762228262421, guid: 0f16214d40d16ef46b3d26c4a08018df,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1c2f29d9d748887469efaa7b56338576, type: 2}
+    - target: {fileID: 6818382762228262423, guid: 0f16214d40d16ef46b3d26c4a08018df,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 1c2f29d9d748887469efaa7b56338576, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f16214d40d16ef46b3d26c4a08018df, type: 3}
 --- !u!4 &7252713895895492417 stripped

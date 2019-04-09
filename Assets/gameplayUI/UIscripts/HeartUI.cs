@@ -5,27 +5,22 @@ using UnityEngine.UI;
 
 public class HeartUI : MonoBehaviour
 {
-
+	public int ID;
     public Texture tex1, tex2;
     Agent player;
     public GameObject h1, h2, h3;
     public bool PanelPos;
-    public GameManager gm;
+	GameManager manager;
 
-    private void Start()
-    {
-        PoolFinder();
-        if (gm = null)
-        {
-            gm = FindObjectOfType<GameManager>();
-        }
-
-        
-    }
 
     private void Update()
     {
-        TexSelector();
+	if(manager == null)
+	{
+			manager = FindObjectOfType<GameManager>();
+	}
+		PoolFinder();
+		TexSelector();
     }
 
     public void TexSelector()
@@ -33,49 +28,56 @@ public class HeartUI : MonoBehaviour
         //cuore 3
         if (player.GetComponent<LifeManager>().Life == 6)
         {
-            h3.GetComponent<RawImage>().texture = tex1;
+			h3.GetComponent<RawImage>().enabled = true;
+			h3.GetComponent<RawImage>().texture = tex1;
         }
 
         else if (player.GetComponent<LifeManager>().Life == 5)
         {
-            h3.GetComponent<RawImage>().texture = tex2;
+			h3.GetComponent<RawImage>().enabled = true;
+			h3.GetComponent<RawImage>().texture = tex2;
         }
 
         else if(player.GetComponent<LifeManager>().Life <= 4)
         {
-            h3.GetComponent<RawImage>().texture = null;
+            h3.GetComponent<RawImage>().enabled = false;
         }
 
         //cuore 2
-        if (player.GetComponent<LifeManager>().Life == 4)
+        if (player.GetComponent<LifeManager>().Life >= 4)
         {
-            h2.GetComponent<RawImage>().texture = tex1;
+			h2.GetComponent<RawImage>().enabled = true;
+			h2.GetComponent<RawImage>().texture = tex1;
         }
 
         else if (player.GetComponent<LifeManager>().Life == 3)
         {
-            h2.GetComponent<RawImage>().texture = tex2;
+			h2.GetComponent<RawImage>().enabled = true;
+			h2.GetComponent<RawImage>().texture = tex2;
         }
 
         else if (player.GetComponent<LifeManager>().Life <= 2)
         {
-            h2.GetComponent<RawImage>().texture = null;
+            h2.GetComponent<RawImage>().enabled = false;
         }
 
         //cuore 1
-        if (player.GetComponent<LifeManager>().Life == 2)
+        if (player.GetComponent<LifeManager>().Life >= 2)
         {
-            h1.GetComponent<RawImage>().texture = tex1;
+			h1.GetComponent<RawImage>().enabled = true;
+			h1.GetComponent<RawImage>().texture = tex1;
         }
 
         else if (player.GetComponent<LifeManager>().Life == 1)
         {
-            h1.GetComponent<RawImage>().texture = tex2;
-        }
+			h1.GetComponent<RawImage>().enabled = true;
+			h1.GetComponent<RawImage>().texture = tex2;
+			
+		}
 
         else if (player.GetComponent<LifeManager>().Life == 0)
         {
-            h1.GetComponent<RawImage>().texture = null;
+            h1.GetComponent<RawImage>().enabled = false;
         }
     }
 
@@ -83,12 +85,12 @@ public class HeartUI : MonoBehaviour
     {
         if (PanelPos == true)
         {
-            player = PartyData.POnePart[2].GetComponent<Agent>();
+            player = manager.POneParty[ID].GetComponent<Agent>();
         }
 
         else if (PanelPos == false)
         {
-            player = PartyData.PTwoPart[2].GetComponent<Agent>();
+            player = manager.PTwoParty[ID].GetComponent<Agent>();
         }
     }
 }

@@ -80,7 +80,7 @@ public class XInputTestCS : MonoBehaviour
 
 		// Make the current object turn
 		// transform.localRotation *= Quaternion.Euler(0.0f, state.ThumbSticks.Left.X * 25.0f * Time.deltaTime, 0.0f);
-		Debug.Log("dpad" + state.DPad.Down);
+		//Debug.Log("dpad" + state.DPad.Down);
 		GamePadDPad m_dPad = state.DPad;
 
 		if (m_dPad.Right.Equals(ButtonState.Pressed) && m_OnInput == true)
