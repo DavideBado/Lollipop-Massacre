@@ -236,30 +236,32 @@ public class GameManager : MonoBehaviour
             // Spegnere il personaggio in scena, attivare quello selezionato e metterlo nella stessa posizione di quello appena  
             foreach (GameObject _Character in POneParty)
             {
-                if(_Character.GetComponent<Agent>().SwitchIndex == _CharacterIndex)
+                if(_Character.GetComponent<Agent>().SwitchIndex == _CharacterIndex && _Character.GetComponent<LifeManager>().Life > 0)
                 {
                     _Character.transform.position = _ActiveCharacter.transform.position;
                     _Character.GetComponent<Agent>().AgentSpawnPosition = _ActiveCharacter.transform.position;
                     ToggleObject(_Character, BenchPOne.transform);
+                    _ActiveCharacter.transform.parent = BenchPOne.transform;
+                    _ActiveCharacter.SetActive(false);
                 }
             }
-            _ActiveCharacter.transform.parent = BenchPOne.transform;
-            _ActiveCharacter.SetActive(false);
+          
             m_SwitchPOne--;
         }
         else if(_PlayerID == 2 && m_SwitchPTwo > 0)
         {
             foreach (GameObject _Character in PTwoParty)
             {
-                if (_Character.GetComponent<Agent>().SwitchIndex == _CharacterIndex)
+                if (_Character.GetComponent<Agent>().SwitchIndex == _CharacterIndex && _Character.GetComponent<LifeManager>().Life > 0)
                 {
                     _Character.transform.position = _ActiveCharacter.transform.position;
                     _Character.GetComponent<Agent>().AgentSpawnPosition = _ActiveCharacter.transform.position;
                     ToggleObject(_Character, BenchPTwo.transform);
+                    _ActiveCharacter.transform.parent = BenchPTwo.transform;
+                    _ActiveCharacter.SetActive(false);
                 }
             }
-            _ActiveCharacter.transform.parent = BenchPTwo.transform;
-            _ActiveCharacter.SetActive(false);
+           
             m_SwitchPTwo--;
         }
        
