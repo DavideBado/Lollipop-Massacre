@@ -105,11 +105,18 @@ public class XInputTestCS : MonoBehaviour
 		if (prevState.Buttons.A == ButtonState.Released && state.Buttons.A == ButtonState.Pressed)
 		{
 			SendMessage("Submit");
+			SendMessage("Switch_A");
 		}
 
 		if (prevState.Buttons.B == ButtonState.Released && state.Buttons.B == ButtonState.Pressed)
 		{
 			SendMessage("Canc");
+			SendMessage("Switch_B");
+		}
+
+		if (prevState.Buttons.Y == ButtonState.Released && state.Buttons.Y == ButtonState.Pressed)
+		{
+			SendMessage("Switch_C");
 		}
 
 		if (prevState.Buttons.RightShoulder == ButtonState.Released && state.Buttons.RightShoulder == ButtonState.Pressed)
