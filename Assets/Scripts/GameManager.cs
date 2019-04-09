@@ -39,25 +39,11 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.P) && Time.timeScale != 0)
+        if(Input.GetKeyDown(KeyCode.P))
         {
-            EventSBase.SetActive(false);
-            EventSPOne.SetActive(true);
-            EventSTwo.SetActive(true);
-            PausePanel.SetActive(true);
-            Time.timeScale = 0;
-            Debug.Log("In pausa");
+            MyPause();
         }
-        else if (Input.GetKeyDown(KeyCode.P) && Time.timeScale == 0)
-        {
-            EventSBase.SetActive(true);
-            EventSPOne.SetActive(false);
-            EventSTwo.SetActive(false);
-            PausePanel.SetActive(false);
-            Time.timeScale = 1;
-            Debug.Log("Out pausa");
-
-        }
+      
         //Debug.Log(POneParty[0].name + " è attivo:" + POneParty[0].gameObject.activeInHierarchy + "  " + POneParty[0].gameObject.activeSelf);
         //Debug.Log("primo:" + POneParty[0].name + " ultimo:" + POneParty[2].name);
         InUpdate();
@@ -378,6 +364,25 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void MyPause()
+    {
+        if (Time.timeScale != 0)
+        {
+            EventSBase.SetActive(false);
+            EventSPOne.SetActive(true);
+            EventSTwo.SetActive(true);
+            PausePanel.SetActive(true);
+            Time.timeScale = 0;
+        }
+        else if (Time.timeScale == 0)
+        {
+            EventSBase.SetActive(true);
+            EventSPOne.SetActive(false);
+            EventSTwo.SetActive(false);
+            PausePanel.SetActive(false);
+            Time.timeScale = 1;
+        }
+    }
 
     ///////////////////////////////////////////////////////////
     //    void UpdateBenchTester()

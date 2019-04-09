@@ -60,6 +60,10 @@ public class ButtonCustom1 : Button
         {
             GetComponent<OnClick>().LoadByIndex(GetComponent<OnSelectData>().SceneIndex);
         }
+        else if(GetComponentInParent<PauseCanvas>() != null)
+        {
+            GetComponent<OnSelectData>().ThisCanvas.SetActive(false);
+        }
 
         if (GetComponent<OnSelectData>().NextCanvas != null && GetComponent<OnSelectData>().NextCanvas.tag != "Loading")
         {

@@ -4,8 +4,15 @@ using UnityEngine;
 
 public class PauseCanvas : MonoBehaviour
 {
+    GameManager manager;
+
+    private void Start()
+    {
+        manager = FindObjectOfType<GameManager>();
+    }
     private void OnDisable()
     {
-        Time.timeScale = 1f;
+
+        manager.MyPause();
     }
 }
