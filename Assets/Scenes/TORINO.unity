@@ -10579,6 +10579,8 @@ GameObject:
   - component: {fileID: 611475171}
   - component: {fileID: 611475170}
   - component: {fileID: 611475169}
+  - component: {fileID: 611475173}
+  - component: {fileID: 611475172}
   m_Layer: 0
   m_Name: EventSystem P2
   m_TagString: Untagged
@@ -10638,6 +10640,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &611475172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 611475168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f0259fd9bc2d244393805e00dd3b502, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 0
+  Timer: 0
+  ID: 0
+  playerIndex: 1
+--- !u!114 &611475173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 611475168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 758abbba159fe9042a1460f260451086, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &612511959
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26061,6 +26091,8 @@ GameObject:
   - component: {fileID: 1554865014}
   - component: {fileID: 1554865013}
   - component: {fileID: 1554865012}
+  - component: {fileID: 1554865016}
+  - component: {fileID: 1554865015}
   m_Layer: 0
   m_Name: EventSystem P1
   m_TagString: Untagged
@@ -26120,6 +26152,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1554865015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1554865011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 476bf00205b168949a3dd3364e8dbf92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1554865016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1554865011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f0259fd9bc2d244393805e00dd3b502, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 0
+  Timer: 0
+  ID: 0
+  playerIndex: 0
 --- !u!1 &1555285131
 GameObject:
   m_ObjectHideFlags: 0
