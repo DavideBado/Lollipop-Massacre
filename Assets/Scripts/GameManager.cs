@@ -7,6 +7,7 @@ using System.Linq;
 
 public class GameManager : MonoBehaviour
 {
+    List<Agent> m_Agents = new List<Agent>();
     public GameObject EventSBase, EventSPOne, EventSTwo;
     public GameObject PausePanel, EndGamePanel, POneWins, PTwoWins;
     int m_SwitchPOne, m_SwitchPTwo;
@@ -367,8 +368,19 @@ public class GameManager : MonoBehaviour
 
     public void MyPause()
     {
+
+
+        if (m_Agents.Count == 0)
+        {
+            m_Agents = FindObjectsOfType<Agent>().ToList();
+        }
+        
         if (Time.timeScale != 0)
         {
+            foreach (Agent _agent in m_Agents)
+            {
+                _agent.gameObject.SetActive(false);
+            }
             EventSBase.SetActive(false);
             EventSPOne.SetActive(true);
             EventSTwo.SetActive(true);
@@ -377,6 +389,11 @@ public class GameManager : MonoBehaviour
         }
         else if (Time.timeScale == 0)
         {
+            foreach (Agent _agent in m_Agents)
+            {
+                _agent.gameObject.SetActive(true);
+            }
+            m_Agents.Clear();
             EventSBase.SetActive(true);
             EventSPOne.SetActive(false);
             EventSTwo.SetActive(false);
