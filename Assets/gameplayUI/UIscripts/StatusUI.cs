@@ -5,26 +5,25 @@ using UnityEngine.UI;
 
 public class StatusUI : MonoBehaviour
 {
-    public Agent player;
+    Agent player;
     
-    public Image statusimg;
-    public Sprite sprite1, sprite2;
-    public GameManager gm;
+    public RawImage statusimg;
+    public Texture sprite1, sprite2;
+    public GameManager manager;
+    public int ID;
     public bool PanelPos;
 
 
-    private void Start()
-    {
-        if (gm = null)
-        {
-            gm = FindObjectOfType<GameManager>();
-        }
-        PoolFinder();
-        statusimg = GetComponent<Image>();
-    }
+
 
     private void Update()
     {
+        statusimg = GetComponent<RawImage>();
+        if (manager == null)
+        {
+            manager = FindObjectOfType<GameManager>();
+        }
+        PoolFinder();
         statusSprite();
         
     }
@@ -34,12 +33,12 @@ public class StatusUI : MonoBehaviour
         
         if(player.ImStunned == true)
         {
-            statusimg.sprite = sprite1;
+            statusimg.texture = sprite1;
         }
 
         else if (player.GetComponentInChildren<Poison>() != null)
         {
-            statusimg.sprite = sprite2;
+            statusimg.texture = sprite2;
         }
 
         else
@@ -54,12 +53,12 @@ public class StatusUI : MonoBehaviour
     {
         if (PanelPos == true)
         {
-            player = PartyData.POnePart[2].GetComponent<Agent>();
+            player = manager.POneParty[ID].GetComponent<Agent>();
         }
 
         else if (PanelPos == false)
         {
-            player = PartyData.PTwoPart[2].GetComponent<Agent>();
+            player = manager.PTwoParty[ID].GetComponent<Agent>();
         }
     }
 }

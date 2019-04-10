@@ -5,37 +5,43 @@ using UnityEngine.UI;
 
 public class ManaUI : MonoBehaviour
 {
-    public Image img;
-    public Sprite sp1, sp2;
+    public RawImage img;
+    public Texture sp1, sp2;
     Agent player;
     public bool PanelPos;
     public GameManager gm;
+    public int ID;
 
     private void Start()
     {
-        PoolFinder();
-        if (gm = null)
-        {
-            gm = FindObjectOfType<GameManager>();
-        }
-        img = GetComponent<Image>();
+        
     }
 
     private void Update()
     {
+        //img = GetComponent<RawImage>();
+        if (gm == null)
+        {
+            gm = FindObjectOfType<GameManager>();
+        }
+        PoolFinder();
         manaSprite();
+        
+        
     }
 
     void manaSprite()
     {
         if (player.Mana == 1)
         {
-            img.sprite = sp1;
+            //img.texture = sp1;
+            GetComponent<RawImage>().texture = sp1;
         }
 
         else if (player.Mana == 0)
         {
-            img.sprite = sp2;
+            //img.texture = sp2;
+            GetComponent<RawImage>().texture = sp1;
         }
     }
 
@@ -43,12 +49,12 @@ public class ManaUI : MonoBehaviour
     {
         if (PanelPos == true)
         {
-            player = PartyData.POnePart[2].GetComponent<Agent>();
+            player = gm.POneParty[ID].GetComponent<Agent>();
+            
         }
-
         else if (PanelPos == false)
         {
-            player = PartyData.PTwoPart[2].GetComponent<Agent>();
+            player = gm.PTwoParty[ID].GetComponent<Agent>();
         }
     }
 }

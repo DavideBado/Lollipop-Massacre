@@ -57,7 +57,7 @@ public class characterSprite : MonoBehaviour
 		if (PanelPos == true)
 		{
 			player = gm.POneParty[ID].GetComponent<Agent>();
-			Debug.Log("ID:" + ID + " Player:" + player.name);
+			
 		}
 		else if (PanelPos == false)
 		{
