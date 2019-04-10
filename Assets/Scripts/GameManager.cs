@@ -379,7 +379,8 @@ public class GameManager : MonoBehaviour
         {
             foreach (Agent _agent in m_Agents)
             {
-                _agent.gameObject.SetActive(false);
+                _agent.GetComponent<InputManagerCustom>().enabled = false;
+                _agent.GetComponent<XInputTestCS>().enabled = false;
             }
             EventSBase.SetActive(false);
             EventSPOne.SetActive(true);
@@ -391,7 +392,8 @@ public class GameManager : MonoBehaviour
         {
             foreach (Agent _agent in m_Agents)
             {
-                _agent.gameObject.SetActive(true);
+                _agent.GetComponent<InputManagerCustom>().enabled = true;
+                _agent.GetComponent<XInputTestCS>().enabled = true;
             }
             m_Agents.Clear();
             EventSBase.SetActive(true);
