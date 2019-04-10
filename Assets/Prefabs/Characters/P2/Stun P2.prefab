@@ -261,6 +261,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f0259fd9bc2d244393805e00dd3b502, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Damage: 0
+  Timer: 0
   ID: 0
   playerIndex: 1
 --- !u!1 &3595088801534984405
@@ -320,7 +322,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3033768dc585ab242ada26ee709afaf6, type: 2}
+  - {fileID: 2100000, guid: ea27640a9f76d3e4eb0d10d18fb706ef, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

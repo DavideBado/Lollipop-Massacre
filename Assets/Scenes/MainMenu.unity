@@ -1612,7 +1612,7 @@ PrefabInstance:
     - target: {fileID: 3973146404402761289, guid: a93422f9f0f21cd4f8323d2afab0dda4,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -1.99
+      value: -1.9900055
       objectReference: {fileID: 0}
     - target: {fileID: 3973146404402761289, guid: a93422f9f0f21cd4f8323d2afab0dda4,
         type: 3}
@@ -3454,7 +3454,6 @@ GameObject:
   - component: {fileID: 405427296}
   - component: {fileID: 405427295}
   - component: {fileID: 405427294}
-  - component: {fileID: 405427293}
   - component: {fileID: 405427292}
   - component: {fileID: 405427291}
   - component: {fileID: 405427297}
@@ -3555,25 +3554,6 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
   eventSystem: {fileID: 0}
---- !u!114 &405427293
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 405427289}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b87a11def6437a642b53fb29e846c697, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
-  m_sendNavigationEvents: 1
-  m_DragThreshold: 10
-  PlayTexture: {fileID: 0}
-  BackTexture: {fileID: 0}
-  Preview: {fileID: 0}
-  ID: 0
 --- !u!114 &405427294
 MonoBehaviour:
   m_ObjectHideFlags: 0
