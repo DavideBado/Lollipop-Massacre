@@ -220,6 +220,8 @@ public class GameManager : MonoBehaviour
     {
         if(_PlayerID == 1 && m_SwitchPOne > 0)
         {
+
+            m_SwitchPOne--;
             // Spegnere il personaggio in scena, attivare quello selezionato e metterlo nella stessa posizione di quello appena  
             foreach (GameObject _Character in POneParty)
             {
@@ -233,10 +235,10 @@ public class GameManager : MonoBehaviour
                 }
             }
           
-            m_SwitchPOne--;
         }
         else if(_PlayerID == 2 && m_SwitchPTwo > 0)
         {
+            m_SwitchPTwo--;
             foreach (GameObject _Character in PTwoParty)
             {
                 if (_Character.GetComponent<Agent>().SwitchIndex == _CharacterIndex && _Character.GetComponent<LifeManager>().Life > 0 && _Character != _ActiveCharacter)
@@ -249,7 +251,7 @@ public class GameManager : MonoBehaviour
                 }
             }
            
-            m_SwitchPTwo--;
+            
         }
        
     }

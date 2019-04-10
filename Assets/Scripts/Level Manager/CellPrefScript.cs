@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class CellPrefScript : MonoBehaviour
 {
     public List<Material> Materials;
-   
+    List<Agent> agents = new List<Agent>();
     int area;
    
     public ItemData GetData()
@@ -19,34 +20,70 @@ public class CellPrefScript : MonoBehaviour
         return itemData;
     }
 
-    private void OnTriggerStay(Collider other)
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.GetComponent<PlayerData>() != null)
+    //    {
+    //        other.transform.parent = transform.parent;
+    //        if (other.GetComponent<Agent>().PlayerID == 1)
+    //        {
+    //            GetComponent<MeshRenderer>().material = Materials[1];
+    //        }
+    //        else if (other.GetComponent<Agent>().PlayerID == 2)
+    //        {
+    //            GetComponent<MeshRenderer>().material = Materials[2];
+    //        }
+    //    }
+    //    //else
+    //    //{
+    //    //    GetComponent<MeshRenderer>().material = Materials[0];
+    //    //}
+    //}
+
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    if (other.GetComponent<PlayerData>() != null)
+    //    {
+    //        GetComponent<MeshRenderer>().material = Materials[0];
+
+    //    }
+    //}
+
+    private void Update()
     {
-        if (other.GetComponent<PlayerData>() != null)
+        CleanTile();
+    }
+
+    void CleanTile()
+    {
+        FindPlayers();
+
+        bool m_agentHere = false;
+
+        foreach (Agent _agent in agents)
         {
-            other.transform.parent = transform.parent;
-            if (other.GetComponent<Agent>().PlayerID == 1)
+            if(_agent.transform.position == transform.position)
             {
-                GetComponent<MeshRenderer>().material = Materials[1];
+                m_agentHere = true;
+                if(_agent.PlayerID == 1)
+                {
+                    GetComponent<MeshRenderer>().material = Materials[1];
+                }
+                else if (_agent.PlayerID == 2)
+                {
+                    GetComponent<MeshRenderer>().material = Materials[2];
+                }
             }
-            else if (other.GetComponent<Agent>().PlayerID == 2)
+
+            if(m_agentHere == false)
             {
-                GetComponent<MeshRenderer>().material = Materials[2];
+                GetComponent<MeshRenderer>().material = Materials[0];
             }
-        }
-        else
-        {
-            GetComponent<MeshRenderer>().material = Materials[0];
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    void FindPlayers()
     {
-        if (other.GetComponent<PlayerData>() != null)
-        {
-            GetComponent<MeshRenderer>().material = Materials[0];
-
-        }
-
-
+        agents = FindObjectsOfType<Agent>().ToList();
     }
 }
