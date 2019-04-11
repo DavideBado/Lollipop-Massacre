@@ -465,6 +465,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: drainPS
       objectReference: {fileID: 0}
+    - target: {fileID: 4266508303113703240, guid: eace5e65e5c21784ea828194d0daffb6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 122086711044818911, guid: eace5e65e5c21784ea828194d0daffb6,
         type: 3}
       propertyPath: m_LocalPosition.x
