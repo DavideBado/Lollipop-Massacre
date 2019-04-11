@@ -58,12 +58,12 @@ public class Drain : MonoBehaviour
     void INeedLifeDrain()
     {
         RaycastHit hit;
-        if (Physics.Raycast(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt, out hit, 3))
+        if (Physics.Raycast(transform.position + new Vector3(0, 0.5f), Vector3.back, out hit, 4))
         {
-            Debug.DrawRay(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.yellow);
+            Debug.DrawRay(transform.position + new Vector3(0, 0.5f), Vector3.back * hit.distance, Color.yellow);
             if (hit.transform.tag == "Player" && hit.transform != transform)
             {
-                Debug.DrawRay(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
+                Debug.DrawRay(transform.position + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
                 if (GetComponent<LifeManager>().Life == 5)
                 {
                     GetComponent<LifeManager>().Life++;
@@ -77,9 +77,9 @@ public class Drain : MonoBehaviour
                 hit.transform.GetComponent<Agent>().StartDrain = Manager.Turn;
             }
         }
-        if (Physics.Raycast(GetComponent<Agent>().RayLeft + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt, out hit, 3))
+        if (Physics.Raycast(transform.position + new Vector3(0, 0.5f), Vector3.forward, out hit, 4))
         {
-            Debug.DrawRay(GetComponent<Agent>().RayLeft + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.yellow);
+            Debug.DrawRay(transform.position + new Vector3(0, 0.5f), Vector3.forward * hit.distance, Color.yellow);
             if (hit.transform.tag == "Player" && hit.transform != transform)
             {
                 Debug.DrawRay(GetComponent<Agent>().RayLeft + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
@@ -89,9 +89,21 @@ public class Drain : MonoBehaviour
                 hit.transform.GetComponent<Agent>().StartDrain = Manager.Turn;
             }
         }
-        if (Physics.Raycast(GetComponent<Agent>().RayRight + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt, out hit, 3))
+        if (Physics.Raycast(transform.position + new Vector3(0, 0.5f), Vector3.left, out hit, 4))
         {
-            Debug.DrawRay(GetComponent<Agent>().RayRight + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.yellow);
+            Debug.DrawRay(transform.position + new Vector3(0, 0.5f), Vector3.left * hit.distance, Color.yellow);
+            if (hit.transform.tag == "Player" && hit.transform != transform)
+            {
+                Debug.DrawRay(GetComponent<Agent>().RayRight + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
+                GetComponent<LifeManager>().Life += 2;
+                hit.transform.GetComponent<LifeManager>().Damage(2);
+                hit.transform.GetComponent<Agent>().imDrained = true;
+                hit.transform.GetComponent<Agent>().StartDrain = Manager.Turn;
+            }
+        }
+        if (Physics.Raycast(transform.position + new Vector3(0, 0.5f), Vector3.right, out hit, 4))
+        {
+            Debug.DrawRay(transform.position + new Vector3(0, 0.5f), Vector3.right * hit.distance, Color.yellow);
             if (hit.transform.tag == "Player" && hit.transform != transform)
             {
                 Debug.DrawRay(GetComponent<Agent>().RayRight + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
