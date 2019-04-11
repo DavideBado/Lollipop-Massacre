@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class StatusUI : MonoBehaviour
+public class SwitcherUI : MonoBehaviour
 {
     Agent player;
     
-    public RawImage statusimg;
-    public Texture sprite1, sprite2;
-    public GameManager manager;
+    RawImage statusimg;
+    public Texture A, B, Y;
+    GameManager manager;
     public int ID;
     public bool PanelPos;
 
@@ -31,22 +31,23 @@ public class StatusUI : MonoBehaviour
     void statusSprite()
     {
         
-        if(player.ImStunned == true)
+        if(player.SwitchIndex == 1)
         {
 			statusimg.enabled = true;
-			statusimg.texture = sprite1;
+			statusimg.texture = A;
         }
 
-        else if (player.GetComponentInChildren<Poison>() != null)
-        {
+		else if (player.SwitchIndex == 2)
+		{
 			statusimg.enabled = true;
-			statusimg.texture = sprite2;
-        }
+			statusimg.texture = B;
+		}
+		else if(player.SwitchIndex == 3)
 
-        else
-        {
-            statusimg.enabled = false;
-        }
+		{
+			statusimg.enabled = true;
+			statusimg.texture = Y;
+		}
 
         
     }

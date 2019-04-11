@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
         }
       
         //Debug.Log(POneParty[0].name + " è attivo:" + POneParty[0].gameObject.activeInHierarchy + "  " + POneParty[0].gameObject.activeSelf);
-        Debug.Log("primo:" + POneParty[0].name + " secondo:" + POneParty[1].name + " ultimo:" + POneParty[2].name + " count:" + POneParty.Count);
+        //Debug.Log("primo:" + POneParty[0].name + " secondo:" + POneParty[1].name + " ultimo:" + POneParty[2].name + " count:" + POneParty.Count);
         InUpdate();
     }
 
@@ -231,6 +231,7 @@ public class GameManager : MonoBehaviour
                     _Character.transform.position = _ActiveCharacter.transform.position;
                     _Character.GetComponent<Agent>().AgentSpawnPosition = _ActiveCharacter.transform.position;
                     ToggleObject(_Character, POneParty);
+					_Character.transform.rotation = _ActiveCharacter.transform.rotation;
                     _ActiveCharacter.transform.parent = BenchPOne.transform;
                     _ActiveCharacter.SetActive(false);
                 }
@@ -247,7 +248,8 @@ public class GameManager : MonoBehaviour
                     _Character.transform.position = _ActiveCharacter.transform.position;
                     _Character.GetComponent<Agent>().AgentSpawnPosition = _ActiveCharacter.transform.position;
                     ToggleObject(_Character, PTwoParty);
-                    _ActiveCharacter.transform.parent = BenchPTwo.transform;
+					_Character.transform.rotation = _ActiveCharacter.transform.rotation;
+					_ActiveCharacter.transform.parent = BenchPTwo.transform;
                     _ActiveCharacter.SetActive(false);
                 }
             }

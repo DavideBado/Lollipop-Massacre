@@ -12,10 +12,6 @@ public class ManaUI : MonoBehaviour
     public GameManager gm;
     public int ID;
 
-    private void Start()
-    {
-        
-    }
 
     private void Update()
     {
@@ -41,7 +37,7 @@ public class ManaUI : MonoBehaviour
         else if (player.Mana == 0)
         {
             //img.texture = sp2;
-            GetComponent<RawImage>().texture = sp1;
+            GetComponent<RawImage>().texture = sp2;
         }
     }
 

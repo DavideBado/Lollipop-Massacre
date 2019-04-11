@@ -17,7 +17,7 @@ public class BigD : MonoBehaviour
         if (GetComponent<Agent>().Mana > 0 && GetComponent<Agent>().MyTurn && GetComponent<Agent>().PlayerType == 1 && GetComponent<Agent>().ImStunned == false && Manager.CanAttack == true && Manager.Pause == false)
 
         {
-
+			//FindObjectOfType<SliderBehaviour>().GetComponentInChildren<AbilityIcon>().OnAbility(1);
             RaycastHit hit;
 
             if (Physics.Raycast(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt, out hit, 2))
@@ -31,7 +31,8 @@ public class BigD : MonoBehaviour
                 {
 
                     Debug.DrawRay(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
-                    hit.transform.GetComponent<LifeManager>().Damage(4);
+					//FindObjectOfType<PointerSpritePosition>().GetComponentInChildren<AbilityIcon>().OnAbility(1);
+					hit.transform.GetComponent<LifeManager>().Damage(4);
 
                 }
 
@@ -48,8 +49,8 @@ public class BigD : MonoBehaviour
                 {
 
                     Debug.DrawRay(GetComponent<Agent>().RayLeft + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
-
-                    hit.transform.GetComponent<LifeManager>().Damage(4);
+					//FindObjectOfType<PointerSpritePosition>().GetComponentInChildren<AbilityIcon>().OnAbility(1);
+					hit.transform.GetComponent<LifeManager>().Damage(4);
                 }
 
             }
@@ -65,8 +66,8 @@ public class BigD : MonoBehaviour
                 {
 
                     Debug.DrawRay(GetComponent<Agent>().RayRight + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
-
-                    hit.transform.GetComponent<LifeManager>().Damage(4);
+					//FindObjectOfType<PointerSpritePosition>().GetComponentInChildren<AbilityIcon>().OnAbility(1);
+					hit.transform.GetComponent<LifeManager>().Damage(4);
 
                 }
 
