@@ -363,7 +363,7 @@ public class Agent : MonoBehaviour, ICharacter
 		{
 			GameManager.CanAttack = false;
 				BasicAtt.enabled = true; // Attiva il collider di attacco           
-            rg.transform.DOMove(transform.position + SavedlookAt * 0.1f, 0.2f)
+            rg.transform.DOMove(transform.position + SavedlookAt * 0.2f, 0.3f)
                 .SetAutoKill();            
 
         }
