@@ -75,7 +75,7 @@ public class HeartUI : MonoBehaviour
 			
 		}
 
-        else if (player.GetComponent<LifeManager>().Life == 0)
+        else if (player.GetComponent<LifeManager>().Life <= 0)
         {
             h1.GetComponent<RawImage>().enabled = false;
         }

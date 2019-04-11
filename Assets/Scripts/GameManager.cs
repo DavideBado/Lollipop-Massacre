@@ -298,11 +298,11 @@ public class GameManager : MonoBehaviour
 
     bool POneKO()
     {
-        if(POneParty[0].GetComponent<LifeManager>().Life == 0)
+        if(POneParty[0].GetComponent<LifeManager>().Life <= 0)
         {
-            if (POneParty[1].GetComponent<LifeManager>().Life == 0)
+            if (POneParty[1].GetComponent<LifeManager>().Life <= 0)
             {
-                if (POneParty[2].GetComponent<LifeManager>().Life == 0)
+                if (POneParty[2].GetComponent<LifeManager>().Life <= 0)
                 {
                     return true;
                 }
@@ -315,11 +315,11 @@ public class GameManager : MonoBehaviour
 
     bool PTwoKO()
     {
-        if (PTwoParty[0].GetComponent<LifeManager>().Life == 0)
+        if (PTwoParty[0].GetComponent<LifeManager>().Life <= 0)
         {
-            if (PTwoParty[1].GetComponent<LifeManager>().Life == 0)
+            if (PTwoParty[1].GetComponent<LifeManager>().Life <= 0)
             {
-                if (PTwoParty[2].GetComponent<LifeManager>().Life == 0)
+                if (PTwoParty[2].GetComponent<LifeManager>().Life <= 0)
                 {
                     return true;
                 }
