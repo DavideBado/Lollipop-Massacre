@@ -362,7 +362,21 @@ public class Agent : MonoBehaviour, ICharacter
 		if (MyTurn == true && ImStunned == false && GameManager.CanAttack == true && GameManager.Pause == false) // Se è il mio turno
 		{
 			GameManager.CanAttack = false;
-				BasicAtt.enabled = true; // Attiva il collider di attacco           
+            //BasicAtt.enabled = true; // Attiva il collider di attacco     
+
+            RaycastHit hit;
+            if (Physics.Raycast(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt, out hit, 1))
+            {
+                Debug.DrawRay(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.yellow);
+                if (hit.transform.tag == "Player" && hit.transform != transform)
+                {
+                    Debug.DrawRay(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
+                    hit.transform.DOShakePosition(0.5f, 0.4f, 10, 45);
+                    hit.transform.GetComponent<LifeManager>().Damage(2); // Togli vita al player in collisione
+
+                }
+            }
+
             rg.transform.DOMove(transform.position + SavedlookAt * 0.2f, 0.3f)
                 .SetAutoKill();            
 
