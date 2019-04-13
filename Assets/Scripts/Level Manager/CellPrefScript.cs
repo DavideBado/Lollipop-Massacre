@@ -74,12 +74,11 @@ public class CellPrefScript : MonoBehaviour
                 {
                     GetComponent<MeshRenderer>().material = Materials[2];
                 }
-            }
-
-            if(m_agentHere == false)
-            {
-                GetComponent<MeshRenderer>().material = Materials[0];
-            }
+            }            
+        }
+        if (m_agentHere == false)
+        {
+            GetComponent<MeshRenderer>().material = Materials[0];
         }
     }
 
