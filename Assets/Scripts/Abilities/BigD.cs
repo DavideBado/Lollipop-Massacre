@@ -5,12 +5,33 @@ using System.Linq;
 
 public class BigD : MonoBehaviour
 {
+    float Timer;
+    bool onAttack;
     GameManager Manager;
     private void Start()
     {
+        Timer = 1f;
         Manager = FindObjectOfType<GameManager>();
     }
- 
+
+    private void Update()
+    {
+        if (onAttack == true)
+        {
+            Timer -= Time.deltaTime;
+            Manager.Pause = true;
+            NewPreview(Manager.CellAttackMaterial);
+            if (Timer <= 0)
+            {
+                onAttack = false;
+                Manager.Pause = false;
+                CleanPreview();
+                Timer = 1f;
+            }
+
+        }
+    }
+
     public void Ability()
 
     {
@@ -22,14 +43,14 @@ public class BigD : MonoBehaviour
 
             if (Physics.Raycast(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt, out hit, 2))
 
-            {
-
+            {               
                 Debug.DrawRay(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.yellow);
 
                 if (hit.transform.tag == "Player" && hit.transform != transform)
 
                 {
 
+                    onAttack = true;
                     Debug.DrawRay(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
 					//FindObjectOfType<PointerSpritePosition>().GetComponentInChildren<AbilityIcon>().OnAbility(1);
 					hit.transform.GetComponent<LifeManager>().Damage(4);
@@ -48,6 +69,7 @@ public class BigD : MonoBehaviour
 
                 {
 
+                    onAttack = true;
                     Debug.DrawRay(GetComponent<Agent>().RayLeft + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
 					//FindObjectOfType<PointerSpritePosition>().GetComponentInChildren<AbilityIcon>().OnAbility(1);
 					hit.transform.GetComponent<LifeManager>().Damage(4);
@@ -65,6 +87,7 @@ public class BigD : MonoBehaviour
 
                 {
 
+                    onAttack = true;
                     Debug.DrawRay(GetComponent<Agent>().RayRight + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
 					//FindObjectOfType<PointerSpritePosition>().GetComponentInChildren<AbilityIcon>().OnAbility(1);
 					hit.transform.GetComponent<LifeManager>().Damage(4);
@@ -92,7 +115,13 @@ public class BigD : MonoBehaviour
 
     public void Preview()
     {
-       
+        Material PrevMaterial = FindObjectOfType<CellPrefScript>().Materials[3];
+        NewPreview(PrevMaterial);
+    }
+
+    void NewPreview(Material _material)
+    {
+        
         if (GetComponent<Agent>().MyTurn && GetComponent<Agent>().PlayerType == 1 && GetComponent<Agent>().ImStunned == false && Manager.CanAttack == true && Manager.Pause == false)
 
         {
@@ -110,201 +139,202 @@ public class BigD : MonoBehaviour
             if (Physics.Raycast(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt, out hit, 2))
             {
                 Debug.DrawRay(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.black);
-                CellsGreenInRay(hit, cells, playerPosition);
+                CellsGreenInRay(hit, cells, playerPosition, _material);
             }
             else
             {
 
                 if (_lookX != 0)
-            {
-                if (_lookX > 0)
                 {
-                    foreach (CellPrefScript cell in cells)
+                    if (_lookX > 0)
                     {
-                        if ((((cell.transform.position.x == (transform.position.x + 1) ||
-                            cell.transform.position.x == (transform.position.x + 2)))) &&
-                            ((cell.transform.position.z == (transform.position.z))))
+                        foreach (CellPrefScript cell in cells)
                         {
-                            cell.GetComponent<MeshRenderer>().material = cell.Materials[3];
+                            if ((((cell.transform.position.x == (transform.position.x + 1) ||
+                                cell.transform.position.x == (transform.position.x + 2)))) &&
+                                ((cell.transform.position.z == (transform.position.z))))
+                            {
+                                cell.GetComponent<MeshRenderer>().material = _material;
 
+                            }
+                        }
+                    }
+                    else if (_lookX < 0)
+                    {
+                        foreach (CellPrefScript cell in cells)
+                        {
+                            if (((cell.transform.position.x == (transform.position.x - 1) || cell.transform.position.x == (transform.position.x - 2))) &&
+                                ((cell.transform.position.z == (transform.position.z))))
+                            {
+                                cell.GetComponent<MeshRenderer>().material = _material;
+
+                            }
+                        }
+                    }
+
+                }
+                else if (_lookY != 0)
+                {
+
+                    if (_lookY < 0)
+                    {
+                        foreach (CellPrefScript cell in cells)
+                        {
+                            if ((cell.transform.position.z == (transform.position.z - 1) || cell.transform.position.z == (transform.position.z - 2)) &&
+                                ((cell.transform.position.x == (transform.position.x))))
+                            {
+                                cell.GetComponent<MeshRenderer>().material = _material;
+
+                            }
+                        }
+                    }
+                    else if (_lookY > 0)
+                    {
+                        foreach (CellPrefScript cell in cells)
+                        {
+                            if ((cell.transform.position.z == (transform.position.z + 1) || cell.transform.position.z == (transform.position.z + 2)) &&
+                                ((cell.transform.position.x == (transform.position.x))))
+                            {
+                                cell.GetComponent<MeshRenderer>().material = _material;
+
+                            }
+                        }
+                    }
+
+                }
+            }
+
+            if (Physics.Raycast(GetComponent<Agent>().RayLeft + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt, out hit, 2))
+            {
+                CellsGreenInRay(hit, cells, playerPosition, _material);
+            }
+            else
+            {
+
+                if (_lookX != 0)
+                {
+                    if (_lookX < 0)
+                    {
+                        foreach (CellPrefScript cell in cells)
+                        {
+                            if ((cell.transform.position.x == (transform.position.x - 1) || cell.transform.position.x == (transform.position.x - 2)) &&
+                                ((cell.transform.position.z == (transform.position.z - 1))))
+                            {
+                                cell.GetComponent<MeshRenderer>().material = _material;
+
+                            }
+                        }
+                    }
+                    else if (_lookX > 0)
+                    {
+                        foreach (CellPrefScript cell in cells)
+                        {
+                            if ((cell.transform.position.x == (transform.position.x + 1) || cell.transform.position.x == (transform.position.x + 2)) &&
+                                ((cell.transform.position.z == (transform.position.z + 1))))
+                            {
+                                cell.GetComponent<MeshRenderer>().material = _material;
+
+                            }
                         }
                     }
                 }
-                else if (_lookX < 0)
+                else if (_lookY != 0)
                 {
-                    foreach (CellPrefScript cell in cells)
+                    if (_lookY < 0)
                     {
-                        if (((cell.transform.position.x == (transform.position.x - 1) || cell.transform.position.x == (transform.position.x - 2))) &&
-                            ((cell.transform.position.z == (transform.position.z))))
+                        foreach (CellPrefScript cell in cells)
                         {
-                                cell.GetComponent<MeshRenderer>().material = cell.Materials[3];
+                            if ((cell.transform.position.z == (transform.position.z - 1) || cell.transform.position.z == (transform.position.z - 2)) &&
+                                ((cell.transform.position.x == (transform.position.x + 1))))
+                            {
+                                cell.GetComponent<MeshRenderer>().material = _material;
 
+                            }
+                        }
+                    }
+                    else if (_lookY > 0)
+                    {
+                        foreach (CellPrefScript cell in cells)
+                        {
+                            if ((cell.transform.position.z == (transform.position.z + 1) || cell.transform.position.z == (transform.position.z + 2)) &&
+                                ((cell.transform.position.x == (transform.position.x - 1))))
+                            {
+                                cell.GetComponent<MeshRenderer>().material = _material;
+
+                            }
                         }
                     }
                 }
-
             }
-            else if (_lookY != 0)
-            {
-
-                if (_lookY < 0)
-                {
-                    foreach (CellPrefScript cell in cells)
-                    {
-                        if ((cell.transform.position.z == (transform.position.z - 1) || cell.transform.position.z == (transform.position.z - 2)) &&
-                            ((cell.transform.position.x == (transform.position.x))))
-                        {
-                                cell.GetComponent<MeshRenderer>().material = cell.Materials[3];
-
-                            }
-                    }
-                }
-                else if (_lookY > 0)
-                {
-                    foreach (CellPrefScript cell in cells)
-                    {
-                        if ((cell.transform.position.z == (transform.position.z + 1) || cell.transform.position.z == (transform.position.z + 2)) &&
-                            ((cell.transform.position.x == (transform.position.x))))
-                        {
-                                cell.GetComponent<MeshRenderer>().material = cell.Materials[3];
-
-                            }
-                    }
-                }
-
-            }
-        }
-
-        if (Physics.Raycast(GetComponent<Agent>().RayLeft + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt, out hit, 2))
-        {
-            CellsGreenInRay(hit, cells, playerPosition);
-        }
-        else
-        {
-
-            if (_lookX != 0)
-            {
-                if (_lookX < 0)
-                {
-                    foreach (CellPrefScript cell in cells)
-                    {
-                        if ((cell.transform.position.x == (transform.position.x - 1) || cell.transform.position.x == (transform.position.x - 2)) &&
-                            ((cell.transform.position.z == (transform.position.z - 1))))
-                        {
-                                cell.GetComponent<MeshRenderer>().material = cell.Materials[3];
-
-                            }
-                    }
-                }
-                else if (_lookX > 0)
-                {
-                    foreach (CellPrefScript cell in cells)
-                    {
-                        if ((cell.transform.position.x == (transform.position.x + 1) || cell.transform.position.x == (transform.position.x + 2)) &&
-                            ((cell.transform.position.z == (transform.position.z + 1))))
-                        {
-                                cell.GetComponent<MeshRenderer>().material = cell.Materials[3];
-
-                            }
-                    }
-                }
-            }
-            else if (_lookY != 0)
-            {
-                if (_lookY < 0)
-                {
-                    foreach (CellPrefScript cell in cells)
-                    {
-                        if ((cell.transform.position.z == (transform.position.z - 1) || cell.transform.position.z == (transform.position.z - 2)) &&
-                            ((cell.transform.position.x == (transform.position.x + 1))))
-                        {
-                                cell.GetComponent<MeshRenderer>().material = cell.Materials[3];
-
-                            }
-                    }
-                }
-                else if (_lookY > 0)
-                {
-                    foreach (CellPrefScript cell in cells)
-                    {
-                        if ((cell.transform.position.z == (transform.position.z + 1) || cell.transform.position.z == (transform.position.z + 2)) &&
-                            ((cell.transform.position.x == (transform.position.x - 1))))
-                        {
-                                cell.GetComponent<MeshRenderer>().material = cell.Materials[3];
-
-                            }
-                    }
-                }
-            }
-        }
 
             if (Physics.Raycast(GetComponent<Agent>().RayRight + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt, out hit, 2))
             {
-                CellsGreenInRay(hit, cells, playerPosition);
+                CellsGreenInRay(hit, cells, playerPosition, _material);
             }
             else
             {
 
                 if (_lookX != 0)
-            {
-                if (_lookX < 0)
                 {
-                    foreach (CellPrefScript cell in cells)
+                    if (_lookX < 0)
                     {
-                        if ((cell.transform.position.x == (transform.position.x - 1) || cell.transform.position.x == (transform.position.x - 2)) &&
-                            ((cell.transform.position.z == (transform.position.z + 1))))
+                        foreach (CellPrefScript cell in cells)
                         {
-                                cell.GetComponent<MeshRenderer>().material = cell.Materials[3];
+                            if ((cell.transform.position.x == (transform.position.x - 1) || cell.transform.position.x == (transform.position.x - 2)) &&
+                                ((cell.transform.position.z == (transform.position.z + 1))))
+                            {
+                                cell.GetComponent<MeshRenderer>().material = _material;
 
                             }
+                        }
+                    }
+                    else if (_lookX > 0)
+                    {
+                        foreach (CellPrefScript cell in cells)
+                        {
+                            if ((cell.transform.position.x == (transform.position.x + 1) || cell.transform.position.x == (transform.position.x + 2)) &&
+                                ((cell.transform.position.z == (transform.position.z - 1))))
+                            {
+                                cell.GetComponent<MeshRenderer>().material = _material;
+
+                            }
+                        }
                     }
                 }
-                else if (_lookX > 0)
+                else if (_lookY != 0)
                 {
-                    foreach (CellPrefScript cell in cells)
+                    if (_lookY < 0)
                     {
-                        if ((cell.transform.position.x == (transform.position.x + 1) || cell.transform.position.x == (transform.position.x + 2)) &&
-                            ((cell.transform.position.z == (transform.position.z - 1))))
+                        foreach (CellPrefScript cell in cells)
                         {
-                                cell.GetComponent<MeshRenderer>().material = cell.Materials[3];
+                            if ((cell.transform.position.z == (transform.position.z - 1) || cell.transform.position.z == (transform.position.z - 2)) &&
+                                ((cell.transform.position.x == (transform.position.x - 1))))
+                            {
+                                cell.GetComponent<MeshRenderer>().material = _material;
 
                             }
+                        }
                     }
-                }
-            }
-            else if (_lookY != 0)
-            {
-                if (_lookY < 0)
-                {
-                    foreach (CellPrefScript cell in cells)
+                    else if (_lookY > 0)
                     {
-                        if ((cell.transform.position.z == (transform.position.z - 1) || cell.transform.position.z == (transform.position.z - 2)) &&
-                            ((cell.transform.position.x == (transform.position.x - 1))))
+                        foreach (CellPrefScript cell in cells)
                         {
-                                cell.GetComponent<MeshRenderer>().material = cell.Materials[3];
+                            if ((cell.transform.position.z == (transform.position.z + 1) || cell.transform.position.z == (transform.position.z + 2)) &&
+                                ((cell.transform.position.x == (transform.position.x + 1))))
+                            {
+                                cell.GetComponent<MeshRenderer>().material = _material;
 
                             }
-                    }
-                }
-                else if (_lookY > 0)
-                {
-                    foreach (CellPrefScript cell in cells)
-                    {
-                        if ((cell.transform.position.z == (transform.position.z + 1) || cell.transform.position.z == (transform.position.z + 2)) &&
-                            ((cell.transform.position.x == (transform.position.x + 1))))
-                        {
-                                cell.GetComponent<MeshRenderer>().material = cell.Materials[3];
-
-                            }
+                        }
                     }
                 }
             }
         }
-    }
     }
 
     public void CleanPreview()
     {
+        
         List<CellPrefScript> cells = new List<CellPrefScript>();
 
         cells = FindObjectsOfType<CellPrefScript>().ToList();
@@ -317,7 +347,7 @@ public class BigD : MonoBehaviour
         }
     }
 
-    void CellsGreenInRay(RaycastHit hit, List<CellPrefScript> cells, Vector3 playerPosition)
+    void CellsGreenInRay(RaycastHit hit, List<CellPrefScript> cells, Vector3 playerPosition, Material _material)
     {
         foreach (CellPrefScript cell in cells)
         {
@@ -330,7 +360,7 @@ public class BigD : MonoBehaviour
                  (playerPosition.z > cell.transform.position.z && cell.transform.position.z >= hit.transform.position.z)) &&
                  (cell.transform.position.x == hit.transform.position.x)))
                 {
-                    cell.GetComponent<MeshRenderer>().material = cell.Materials[3];
+                    cell.GetComponent<MeshRenderer>().material = _material;
 
                 }
             }
@@ -341,7 +371,7 @@ public class BigD : MonoBehaviour
                  (playerPosition.z > cell.transform.position.z && cell.transform.position.z > hit.transform.position.z)) &&
                  (cell.transform.position.x == hit.transform.position.x)))
             {
-                cell.GetComponent<MeshRenderer>().material = cell.Materials[3];
+                cell.GetComponent<MeshRenderer>().material = _material;
 
             }
         }
