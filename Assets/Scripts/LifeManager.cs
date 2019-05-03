@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using System.Linq;
+using DG.Tweening;
 
 public class LifeManager : MonoBehaviour
 {
@@ -45,6 +46,7 @@ public class LifeManager : MonoBehaviour
         Life -= _amount;
 		GetComponent<XInputTestCS>().Damage = _amount;
 		GetComponent<XInputTestCS>().Timer = (_amount * 0.2f);
+        transform.DOShakePosition(0.5f, 0.6f, 10, 45);
     }
 
 }
