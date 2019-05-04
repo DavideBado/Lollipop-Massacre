@@ -18,7 +18,7 @@ public class BigD : MonoBehaviour
     {
         if (onAttack == true)
         {
-            Timer -= Time.deltaTime;
+            Timer -= Time.deltaTime;           
             Manager.Pause = true;
             NewPreview(Manager.CellAttackMaterial);
             if (Timer <= 0)
@@ -115,17 +115,20 @@ public class BigD : MonoBehaviour
 
     public void Preview()
     {
+        if (GetComponent<Agent>().MyTurn && GetComponent<Agent>().PlayerType == 1 && GetComponent<Agent>().ImStunned == false && Manager.CanAttack == true && Manager.Pause == false)
+
+        {
+            CleanPreview();
         Material PrevMaterial = FindObjectOfType<CellPrefScript>().Materials[3];
         NewPreview(PrevMaterial);
+        }
     }
 
     void NewPreview(Material _material)
     {
         
-        if (GetComponent<Agent>().MyTurn && GetComponent<Agent>().PlayerType == 1 && GetComponent<Agent>().ImStunned == false && Manager.CanAttack == true && Manager.Pause == false)
-
-        {
-            CleanPreview();
+        
+           
             float _lookX = GetComponent<Agent>().SavedlookAt.x;
             float _lookY = GetComponent<Agent>().SavedlookAt.z;
             Vector3 playerPosition = transform.position;
@@ -329,7 +332,6 @@ public class BigD : MonoBehaviour
                     }
                 }
             }
-        }
     }
 
     public void CleanPreview()
