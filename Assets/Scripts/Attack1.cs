@@ -17,7 +17,7 @@ public class Attack1 : MonoBehaviour
     {
         if (other.tag == "Player"/* && Manager.CanAttack == true*/) // Se è in collisione con un player e può attaccare
         {
-			other.transform.DOShakePosition(0.5f, 0.4f, 10, 45);
+			//other.transform.DOShakePosition(0.5f, 0.6f, 10, 45);
 			other.GetComponent<LifeManager>().Damage(2); // Togli vita al player in collisione
            
             this.GetComponent<Collider>().enabled = false; // Spegni il collider di attacco

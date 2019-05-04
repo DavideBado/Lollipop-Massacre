@@ -7,6 +7,7 @@ using System.Linq;
 
 public class GameManager : MonoBehaviour
 {
+    public Material CellAttackMaterial;
     List<Agent> m_Agents = new List<Agent>();
     public GameObject EventSBase, EventSPOne, EventSTwo;
     public GameObject PausePanel, EndGamePanel, POneWins, PTwoWins;
@@ -25,7 +26,14 @@ public class GameManager : MonoBehaviour
     public bool Spawn1 = true;
     public RespawnController RespawnController;
     public bool TimerOn = true;
-    // Update is called once per frame
+
+    /// <summary>
+    /// Roba temporanea per morte pg
+    /// </summary>
+    float timerDeath = 1f;
+    bool needdeathcheck = false;
+    GameObject _ActiveChara;
+    int _playerID;
 
     private void Start()
     {
@@ -48,6 +56,30 @@ public class GameManager : MonoBehaviour
         //Debug.Log(POneParty[0].name + " è attivo:" + POneParty[0].gameObject.activeInHierarchy + "  " + POneParty[0].gameObject.activeSelf);
         //Debug.Log("primo:" + POneParty[0].name + " secondo:" + POneParty[1].name + " ultimo:" + POneParty[2].name + " count:" + POneParty.Count);
         InUpdate();
+
+        // Temporaneo per morte pg
+        if(needdeathcheck == true)
+        {
+            Pause = true;
+            timerDeath -= Time.deltaTime;
+
+            _ActiveChara.transform.localScale = _ActiveChara.transform.localScale -( new Vector3(Time.deltaTime, Time.deltaTime, Time.deltaTime));
+            if(timerDeath <= 0)
+            {
+                if (_playerID == 1)
+                {
+                    ChangePg(POneParty, _playerID);
+                }
+                else if (_playerID == 2)
+                {
+                    ChangePg(PTwoParty, _playerID);
+                }
+                _ActiveChara.SetActive(false);
+                needdeathcheck = false;
+                Pause = false;
+                timerDeath = 1f;
+            }
+        }
     }
 
     void InUpdate()
@@ -262,6 +294,9 @@ public class GameManager : MonoBehaviour
 
     public void EndGameCheck(int _PlayerID, GameObject _ActiveCharacter)
     {
+        _ActiveChara = _ActiveCharacter;
+        _playerID = _PlayerID;        
+        needdeathcheck = true;
         if(POneKO())
         {
             EventSBase.SetActive(false);
@@ -284,15 +319,15 @@ public class GameManager : MonoBehaviour
         }
        else
         {
-            if (_PlayerID == 1)
-            {
-                ChangePg(POneParty, _PlayerID);
-            }
-            else if(_PlayerID == 2)
-            {
-                ChangePg(PTwoParty, _PlayerID);
-            }
-            _ActiveCharacter.SetActive(false);
+            //if (_PlayerID == 1)
+            //{
+            //    ChangePg(POneParty, _PlayerID);
+            //}
+            //else if(_PlayerID == 2)
+            //{
+            //    ChangePg(PTwoParty, _PlayerID);
+            //}
+            //_ActiveCharacter.SetActive(false);
         }
     }
 

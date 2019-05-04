@@ -5,15 +5,37 @@ using System.Linq;
 
 public class Drain : MonoBehaviour
 {
+    float Timer;
+    bool onAttack;
     GameManager Manager;
     public Agent agent;
     
 
     private void Start()
     {
+        Timer = 1f;
         Manager = FindObjectOfType<GameManager>();
         agent = GetComponent<Agent>();
     }
+
+    private void Update()
+    {
+        if (onAttack == true)
+        {
+            Timer -= Time.deltaTime;
+            Manager.Pause = true;
+            NewPreview(Manager.CellAttackMaterial);
+            if (Timer <= 0)
+            {
+                onAttack = false;
+                Manager.Pause = false;
+                CleanPreview();
+                Timer = 1f;
+            }
+
+        }
+    }
+
     public void Ability()
     {
         if (GetComponent<Agent>().Mana > 0 && GetComponent<Agent>().MyTurn && GetComponent<Agent>().PlayerType == 2 && GetComponent<Agent>().ImStunned == false && Manager.CanAttack == true && Manager.Pause == false)
@@ -47,6 +69,7 @@ public class Drain : MonoBehaviour
             Debug.DrawRay(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.yellow);
             if (hit.transform.tag == "Player" && hit.transform != transform)
             {
+                onAttack = true;
                 Debug.DrawRay(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
                 hit.transform.GetComponent<LifeManager>().Damage(2);
                 hit.transform.GetComponent<Agent>().imDrained = true;
@@ -63,6 +86,7 @@ public class Drain : MonoBehaviour
             Debug.DrawRay(transform.position + new Vector3(0, 0.5f), Vector3.back * hit.distance, Color.yellow);
             if (hit.transform.tag == "Player" && hit.transform != transform)
             {
+                onAttack = true;
                 Debug.DrawRay(transform.position + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
                 if (GetComponent<LifeManager>().Life == 5)
                 {
@@ -82,6 +106,7 @@ public class Drain : MonoBehaviour
             Debug.DrawRay(transform.position + new Vector3(0, 0.5f), Vector3.forward * hit.distance, Color.yellow);
             if (hit.transform.tag == "Player" && hit.transform != transform)
             {
+                onAttack = true;
                 Debug.DrawRay(GetComponent<Agent>().RayLeft + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
                 GetComponent<LifeManager>().Life += 2;
                 hit.transform.GetComponent<LifeManager>().Damage(2);
@@ -94,6 +119,7 @@ public class Drain : MonoBehaviour
             Debug.DrawRay(transform.position + new Vector3(0, 0.5f), Vector3.left * hit.distance, Color.yellow);
             if (hit.transform.tag == "Player" && hit.transform != transform)
             {
+                onAttack = true;
                 Debug.DrawRay(GetComponent<Agent>().RayRight + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
                 GetComponent<LifeManager>().Life += 2;
                 hit.transform.GetComponent<LifeManager>().Damage(2);
@@ -106,6 +132,7 @@ public class Drain : MonoBehaviour
             Debug.DrawRay(transform.position + new Vector3(0, 0.5f), Vector3.right * hit.distance, Color.yellow);
             if (hit.transform.tag == "Player" && hit.transform != transform)
             {
+                onAttack = true;
                 Debug.DrawRay(GetComponent<Agent>().RayRight + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
                 GetComponent<LifeManager>().Life += 2;
                 hit.transform.GetComponent<LifeManager>().Damage(2);
@@ -118,11 +145,17 @@ public class Drain : MonoBehaviour
 
     public void Preview()
     {
-
-        if (GetComponent<Agent>().MyTurn && GetComponent<Agent>().PlayerType == 2 && GetComponent<Agent>().ImStunned == false && Manager.CanAttack == true && Manager.Pause == false)
+        if (GetComponent<Agent>().MyTurn && GetComponent<Agent>().PlayerType == 1 && GetComponent<Agent>().ImStunned == false && Manager.CanAttack == true && Manager.Pause == false)
 
         {
             CleanPreview();
+            Material PrevMaterial = FindObjectOfType<CellPrefScript>().Materials[3];
+            NewPreview(PrevMaterial);
+        }
+    }
+
+    void NewPreview(Material _material)
+    {
             float _lookX = GetComponent<Agent>().SavedlookAt.x;
             float _lookY = GetComponent<Agent>().SavedlookAt.z;
             Vector3 playerPosition = transform.position;
@@ -140,11 +173,11 @@ public class Drain : MonoBehaviour
                     Debug.DrawRay(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.black);
                     if (_lookX != 0)
                     {
-                        CellsGreenInRay(hit.transform.position, cells, playerPosition, hit.transform.GetComponent<Agent>());
+                        CellsGreenInRay(hit.transform.position, cells, playerPosition, hit.transform.GetComponent<Agent>(), _material);
                     }
                     else if (_lookY != 0)
                     {
-                        CellsGreenInRay(hit.transform.position, cells, playerPosition, hit.transform.GetComponent<Agent>());
+                        CellsGreenInRay(hit.transform.position, cells, playerPosition, hit.transform.GetComponent<Agent>(), _material);
 
                     }
 
@@ -156,11 +189,11 @@ public class Drain : MonoBehaviour
                     {
                         if (_lookX > 0)
                         {
-                            CellsGreenInRay(new Vector3(GetComponent<Agent>().configGrid.DimX, 0, transform.position.z), cells, playerPosition, null);
+                            CellsGreenInRay(new Vector3(GetComponent<Agent>().configGrid.DimX, 0, transform.position.z), cells, playerPosition, null, _material);
                         }
                         else if (_lookX < 0)
                         {
-                            CellsGreenInRay(new Vector3(-1, 0, transform.position.z), cells, playerPosition, null);
+                            CellsGreenInRay(new Vector3(-1, 0, transform.position.z), cells, playerPosition, null, _material);
                         }
 
                     }
@@ -169,11 +202,11 @@ public class Drain : MonoBehaviour
 
                         if (_lookY < 0)
                         {
-                            CellsGreenInRay(new Vector3(transform.position.x, 0, -1), cells, playerPosition, null);
+                            CellsGreenInRay(new Vector3(transform.position.x, 0, -1), cells, playerPosition, null, _material);
                         }
                         else if (_lookY > 0)
                         {
-                            CellsGreenInRay(new Vector3(transform.position.x, 0, GetComponent<Agent>().configGrid.DimY), cells, playerPosition, null);
+                            CellsGreenInRay(new Vector3(transform.position.x, 0, GetComponent<Agent>().configGrid.DimY), cells, playerPosition, null, _material);
                         }
 
                     }
@@ -184,41 +217,40 @@ public class Drain : MonoBehaviour
             {
                 if (Physics.Raycast(transform.position + new Vector3(0, 0.5f), Vector3.forward, out hit, 4))
                 {
-                    CellsGreenInRay(hit.transform.position, cells, playerPosition, hit.transform.GetComponent<Agent>());
+                    CellsGreenInRay(hit.transform.position, cells, playerPosition, hit.transform.GetComponent<Agent>(), _material);
                 }
                 else
                 {
-                    CellsGreenInRay(new Vector3(transform.position.x, 0, (transform.position.z + 5)), cells, playerPosition, null);
+                    CellsGreenInRay(new Vector3(transform.position.x, 0, (transform.position.z + 5)), cells, playerPosition, null, _material);
                 }
 
                 if (Physics.Raycast(transform.position + new Vector3(0, 0.5f), Vector3.back, out hit, 4))
                 {
-                    CellsGreenInRay(hit.transform.position, cells, playerPosition, hit.transform.GetComponent<Agent>());
+                    CellsGreenInRay(hit.transform.position, cells, playerPosition, hit.transform.GetComponent<Agent>(), _material);
                 }
                 else
                 {
-                    CellsGreenInRay(new Vector3(transform.position.x, 0, (transform.position.z - 5)), cells, playerPosition, null);
+                    CellsGreenInRay(new Vector3(transform.position.x, 0, (transform.position.z - 5)), cells, playerPosition, null, _material);
                 }
 
                 if (Physics.Raycast(transform.position + new Vector3(0, 0.5f), Vector3.right, out hit, 4))
                 {
-                    CellsGreenInRay(hit.transform.position, cells, playerPosition, hit.transform.GetComponent<Agent>());
+                    CellsGreenInRay(hit.transform.position, cells, playerPosition, hit.transform.GetComponent<Agent>(), _material);
                 }
                 else
                 {
-                    CellsGreenInRay(new Vector3((transform.position.x + 5), 0, transform.position.z), cells, playerPosition, null);
+                    CellsGreenInRay(new Vector3((transform.position.x + 5), 0, transform.position.z), cells, playerPosition, null, _material);
                 }
 
                 if (Physics.Raycast(transform.position + new Vector3(0, 0.5f), Vector3.left, out hit, 4))
                 {
-                    CellsGreenInRay(hit.transform.position, cells, playerPosition, hit.transform.GetComponent<Agent>());
+                    CellsGreenInRay(hit.transform.position, cells, playerPosition, hit.transform.GetComponent<Agent>(), _material);
                 }
                 else
                 {
-                    CellsGreenInRay(new Vector3((transform.position.x - 5), 0, transform.position.z), cells, playerPosition, null);
+                    CellsGreenInRay(new Vector3((transform.position.x - 5), 0, transform.position.z), cells, playerPosition, null, _material);
                 }
-            }
-        }
+            }  
     }
 
     public void CleanPreview()
@@ -233,7 +265,7 @@ public class Drain : MonoBehaviour
         }
     }
 
-    void CellsGreenInRay(Vector3 HitPosition, List<CellPrefScript> cells, Vector3 playerPosition, Agent _agent)
+    void CellsGreenInRay(Vector3 HitPosition, List<CellPrefScript> cells, Vector3 playerPosition, Agent _agent, Material _material)
     {
         foreach (CellPrefScript cell in cells)
         {
@@ -254,7 +286,7 @@ public class Drain : MonoBehaviour
                  (playerPosition.z > cell.transform.position.z && cell.transform.position.z >= HitPosition.z)) &&
                  (cell.transform.position.x == HitPosition.x)))
                 {
-                    cell.GetComponent<MeshRenderer>().material = cell.Materials[3];
+                    cell.GetComponent<MeshRenderer>().material = _material;
                 }
             }
             else if ((((playerPosition.x < cell.transform.position.x && cell.transform.position.x < HitPosition.x)
@@ -272,7 +304,7 @@ public class Drain : MonoBehaviour
                  (playerPosition.z > cell.transform.position.z && cell.transform.position.z > HitPosition.z)) &&
                  (cell.transform.position.x == HitPosition.x)))
             {
-                cell.GetComponent<MeshRenderer>().material = cell.Materials[3];
+                cell.GetComponent<MeshRenderer>().material = _material;
             }
         }
     }

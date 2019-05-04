@@ -45,16 +45,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7731c7462ec29a4588c7625f33b618e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CellAttackMaterial: {fileID: 2100000, guid: a85400e326b1a5744876c0bde35eea20, type: 2}
+  EventSBase: {fileID: 0}
+  EventSPOne: {fileID: 0}
+  EventSTwo: {fileID: 0}
+  PausePanel: {fileID: 0}
+  EndGamePanel: {fileID: 0}
+  POneWins: {fileID: 0}
+  PTwoWins: {fileID: 0}
+  POneParty: []
+  PTwoParty: []
+  SpawnPoints: []
+  BenchPOne: {fileID: 0}
+  BenchPTwo: {fileID: 0}
   Timertext: {fileID: 0}
   TimeMaxText: {fileID: 0}
   TurnoText: {fileID: 0}
   TimeMax: 5.5
   Speed: 3
+  TimerSafe: 0
   Turn: 1
   CanAttack: 1
+  Pause: 0
   RoundCount: 0
   PickUpTurnCount: 0
   Spawn1: 1
+  RespawnController: {fileID: 0}
+  TimerOn: 1
 --- !u!114 &996976814
 MonoBehaviour:
   m_ObjectHideFlags: 0
