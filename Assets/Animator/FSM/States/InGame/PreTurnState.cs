@@ -18,6 +18,10 @@ public class PreTurnState : StateMachineBehaviour
         {
             animator.GetComponent<ContextMono>().CurrentPlayerID = 1;
         }
+		else if (CurrentPlayerID == 0)
+        {
+            animator.GetComponent<ContextMono>().CurrentPlayerID = 1;
+        }
         animator.ResetTrigger("StartPreTurn");
         Debug.LogError("Enter_PreTurnState");
         TimerTest = 3f;

@@ -6,6 +6,6 @@ using UnityEngine.UI;
 public class ContextMono : MonoBehaviour
 {
     public Text StateName, Info;
-    public int CurrentPlayerID;
+    public int CurrentPlayerID = 1;
     public float TurnTimer = 5f;
 }
