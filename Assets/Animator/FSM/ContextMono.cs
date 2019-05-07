@@ -7,5 +7,5 @@ public class ContextMono : MonoBehaviour
 {
     public Text StateName, Info;
     public int CurrentPlayerID;
-    public float TurnTimer;
+    public float TurnTimer = 5f;
 }
