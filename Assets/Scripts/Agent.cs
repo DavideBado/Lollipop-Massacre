@@ -177,7 +177,7 @@ public class Agent : MonoBehaviour, ICharacter
                 AgentSpeed * Time.deltaTime);
                 if (transform.position == grid.GetWorldPosition(x, y)) // Se hai raggiunto la tua destinazione
                 {
-                    AgentSpeed = GameObject.Find("GameManager").GetComponent<GameManager>().Speed;
+                    AgentSpeed = FindObjectOfType<GameManager>().Speed;
                     // Salva le coordinate della posizione attuale
                     x2 = x;
                     y2 = y;
