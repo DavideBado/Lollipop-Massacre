@@ -169,7 +169,7 @@ MonoBehaviour:
   PlayerType: 5
   CurrentID: 0
   _Sprites:
-  - {fileID: 2800000, guid: 945c8e40d0be39742995fd2b1ec40f04, type: 3}
+  - {fileID: 2800000, guid: 331a3a2053794504b9f2f1aa3630e76f, type: 3}
   - {fileID: 2800000, guid: a6845f00cef36a049833422cc046c948, type: 3}
   - {fileID: 2800000, guid: 4acaee0ecc9fed2469cad84f13a8f63d, type: 3}
   _Materials: []

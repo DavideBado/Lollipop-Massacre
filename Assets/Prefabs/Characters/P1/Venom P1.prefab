@@ -170,7 +170,7 @@ MonoBehaviour:
   _Sprites:
   - {fileID: 2800000, guid: e5a9316b0b54c044597d00884f1653e1, type: 3}
   - {fileID: 2800000, guid: dded4ccc226023e4894b4fcf0d0cd194, type: 3}
-  - {fileID: 2800000, guid: 927a0212c24d424449323a5b9fa188af, type: 3}
+  - {fileID: 2800000, guid: e6f33d28dd0063841af9b9514cf25133, type: 3}
   - {fileID: 2800000, guid: fe39bd64160adf34d9c97cb2e8004c1e, type: 3}
   - {fileID: 2800000, guid: 60be7483f49e53e43b0cc95049fd319d, type: 3}
   _Materials:
