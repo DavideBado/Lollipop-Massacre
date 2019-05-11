@@ -176,6 +176,9 @@ MonoBehaviour:
   LifeSprites:
   - {fileID: 2800000, guid: d5ceffa33f81a1042a62da06213e4b83, type: 3}
   - {fileID: 2800000, guid: c6fbc6c4a30dc5e4d8cc4d4260425230, type: 3}
+  EnergySprites:
+  - {fileID: 2800000, guid: ba85b15dc68f295429d159a5ce72178f, type: 3}
+  - {fileID: 2800000, guid: b0af283f5f2255247b3605a2d0555c65, type: 3}
   _Materials:
   - {fileID: 2100000, guid: fda81b5bad2464f4faebf2e9ff3b84e8, type: 2}
   - {fileID: 2100000, guid: 7c56ca6d99673fa418f43a54d46454de, type: 2}

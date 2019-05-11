@@ -20,7 +20,8 @@ public class Agent : MonoBehaviour, ICharacter
     public int CurrentID;
     //*************************************************
     public List<Texture> _Sprites = new List<Texture>();
-    public List<Texture> LifeSprites = new List<Texture>();
+    public List<Texture> LifeSprites = new List<Texture>(); 
+    public List<Texture> EnergySprites = new List<Texture>();
     public List<Material> _Materials = new List<Material>();
     public Vector3 SavedlookAt, RayCenter, RayLeft, RayRight;
     public bool MyTurn, OnTheRoad = false;

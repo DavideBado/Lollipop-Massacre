@@ -175,6 +175,9 @@ MonoBehaviour:
   LifeSprites:
   - {fileID: 2800000, guid: d5ceffa33f81a1042a62da06213e4b83, type: 3}
   - {fileID: 2800000, guid: c6fbc6c4a30dc5e4d8cc4d4260425230, type: 3}
+  EnergySprites:
+  - {fileID: 2800000, guid: 0e2c6981a1b556c49b92474927bbcec9, type: 3}
+  - {fileID: 2800000, guid: d03616a03037fe34e91bdbb68b5db373, type: 3}
   _Materials: []
   SavedlookAt: {x: 0, y: 0, z: 0}
   RayCenter: {x: 0, y: 0, z: 0}
