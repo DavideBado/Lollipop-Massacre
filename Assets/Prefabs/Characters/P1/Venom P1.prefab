@@ -318,6 +318,7 @@ GameObject:
   - component: {fileID: 7439875916121219516}
   - component: {fileID: 5033326912490511987}
   - component: {fileID: 6571221944916741904}
+  - component: {fileID: 3235983058338401273}
   m_Layer: 0
   m_Name: pSphere2
   m_TagString: Untagged
@@ -384,6 +385,18 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &3235983058338401273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2739410507414178362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6da994d14e269d84c949e188aa3f9d56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &369101574051564528
 PrefabInstance:
   m_ObjectHideFlags: 0

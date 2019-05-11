@@ -11,10 +11,12 @@ public class LifeManager : MonoBehaviour
     public int Life = 6;
     GameManager GameManager;   
     bool CanRespawn = true;
+    GameObject Graphic;
+  
     // Start is called before the first frame update
     private void Start()
     {
-
+        Graphic = GetComponentInChildren<AnimationController>().gameObject;
         GameManager = FindObjectOfType<GameManager>();
     }
     // Update is called once per frame
@@ -46,7 +48,7 @@ public class LifeManager : MonoBehaviour
         Life -= _amount;
 		GetComponent<XInputTestCS>().Damage = _amount;
 		GetComponent<XInputTestCS>().Timer = (_amount * 0.2f);
-        transform.DOShakePosition(0.5f, 0.6f, 10, 45);
+        Graphic.transform.DOShakePosition(0.5f, 0.6f, 10, 45).SetAutoKill();
     }
 
 }

@@ -9,6 +9,7 @@ using WindowsInput;
 
 public class Agent : MonoBehaviour, ICharacter
 {
+    GameObject Graphic;
     InputSimulator m_InputSimulator = new InputSimulator();
     int m_OnEnableCounter = 0;
     public int SwitchIndex;
@@ -74,6 +75,7 @@ public class Agent : MonoBehaviour, ICharacter
     {
         InStart();
         rg = GetComponent<Rigidbody>();
+        Graphic = GetComponentInChildren<AnimationController>().gameObject;
     }
 
 
@@ -397,6 +399,7 @@ public class Agent : MonoBehaviour, ICharacter
 	{
 		if (MyTurn == true && ImStunned == false && GameManager.CanAttack == true && GameManager.Pause == false) // Se è il mio turno
 		{
+            OnTheRoad = true;
 			GameManager.CanAttack = false;
             //BasicAtt.enabled = true; // Attiva il collider di attacco     
 
@@ -407,14 +410,14 @@ public class Agent : MonoBehaviour, ICharacter
                 if (hit.transform.tag == "Player" && hit.transform != transform)
                 {
                     Debug.DrawRay(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
-                    hit.transform.DOShakePosition(0.5f, 0.4f, 10, 45);
+                    //hit.transform.DOShakePosition(0.5f, 0.4f, 10, 45);
                     hit.transform.GetComponent<LifeManager>().Damage(2); // Togli vita al player in collisione
 
                 }
             }
 
-            rg.transform.DOMove(transform.position + SavedlookAt * 0.2f, 0.3f)
-                .SetAutoKill();            
+            /*Graphic.*/transform.DOMove(transform.position + SavedlookAt * 0.2f, 0.3f)
+                .SetAutoKill();
 
         }
 		else BasicAtt.enabled = false;
