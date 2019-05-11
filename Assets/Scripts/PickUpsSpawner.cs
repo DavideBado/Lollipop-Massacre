@@ -68,7 +68,9 @@ public class PickUpsSpawner : MonoBehaviour
         {
             foreach (GridArea Area in GridAreas)
             {
-                if (Area.AreaID == RandomList && Area.AreaID != P1AreaID && Area.AreaID != P2AreaID)
+                if (Area.AreaID == RandomList && Area.AreaID != 5 &&
+                    Area.AreaID != P1AreaID && Area.AreaID != (P1AreaID - 3) && Area.AreaID != (P1AreaID + 3) && Area.AreaID != (P1AreaID - 1) && Area.AreaID != (P1AreaID + 1) &&
+                    Area.AreaID != P2AreaID && Area.AreaID != (P2AreaID - 3) && Area.AreaID != (P2AreaID + 3) && Area.AreaID != (P2AreaID - 1) && Area.AreaID != (P2AreaID + 1))
                 {
                     //Debug.Log("AreaID" + Area.AreaID.ToString());
                     cellPrefs = Area.GetComponentsInChildren<CellPrefScript>().ToList();
