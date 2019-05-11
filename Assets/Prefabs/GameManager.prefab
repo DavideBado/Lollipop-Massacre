@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 427756179222368939}
   - component: {fileID: 996976814}
   - component: {fileID: 996976815}
+  - component: {fileID: 5383785476955056806}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -55,22 +56,25 @@ MonoBehaviour:
   PTwoWins: {fileID: 0}
   POneParty: []
   PTwoParty: []
-  SpawnPoints: []
+  SpawnPoints:
+  - {fileID: 0}
+  - {fileID: 0}
   BenchPOne: {fileID: 0}
   BenchPTwo: {fileID: 0}
   Timertext: {fileID: 0}
   TimeMaxText: {fileID: 0}
   TurnoText: {fileID: 0}
-  TimeMax: 5.5
+  TimeMax: 5
   Speed: 3
-  TimerSafe: 0
+  TimerSafe: 1
   Turn: 1
   CanAttack: 1
   Pause: 0
   RoundCount: 0
   PickUpTurnCount: 0
+  HealtTurnCount: 0
   Spawn1: 1
-  RespawnController: {fileID: 0}
+  RespawnController: {fileID: 996976815}
   TimerOn: 1
 --- !u!114 &996976814
 MonoBehaviour:
@@ -103,3 +107,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fdd44d24960fbb4eba6191f389aa2be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5383785476955056806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 427756179222368938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d5180edfb3599a4cb2000a19ffce55c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GridAreas: []
+  cellPrefs: []
+  Walls: []
+  P1: {fileID: 0}
+  P2: {fileID: 0}
+  PickUp: {fileID: 6401599724218344512, guid: ef7ee942632a3c34a95d3b331a81ac26, type: 3}
+  AllManaFull: 1

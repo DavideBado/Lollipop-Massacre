@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class PickUpsSpawner : MonoBehaviour
+public class HealtUpsSpawner : MonoBehaviour
 {
-    Healthscript healthPowerUp;
+    GameManager gameManager;
     public List<GridArea> GridAreas = new List<GridArea>();
+    energyscript energy;
     public List<CellPrefScript> cellPrefs = new List<CellPrefScript>();
     public List<Wall> Walls = new List<Wall>();
-    List<energyscript> Pickups = new List<energyscript>();
+    List<Healthscript> Pickups = new List<Healthscript>();
     public GameObject P1, P2;
     int P1AreaID, P2AreaID;
     int RandomList, RandomCell, Counter = 0;
@@ -23,19 +24,20 @@ public class PickUpsSpawner : MonoBehaviour
     void Start()
     {
         InStart();
+        gameManager = GetComponent<GameManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-       if(FindObjectOfType<GameManager>().PickUpTurnCount >= 3 && FindObjectOfType<GameManager>().TimerOn == false)
+       if(FindObjectOfType<GameManager>().HealtTurnCount >= 5 && gameManager.TimerOn == false)
         {
-            Pickups = FindObjectsOfType<energyscript>().ToList();
+            Pickups = FindObjectsOfType<Healthscript>().ToList();
             if (Pickups.Count == 0)
             {
-                SpawnAPickUp();
+                SpawnHealt();
             }
-            else { FindObjectOfType<GameManager>().PickUpTurnCount = 0; }
+            else { FindObjectOfType<GameManager>().HealtTurnCount = 0; }
         }
     }
 
@@ -55,12 +57,12 @@ public class PickUpsSpawner : MonoBehaviour
         Walls = FindObjectsOfType<Wall>().ToList();
     }
 
-    public void SpawnAPickUp()
+    public void SpawnHealt()
     {
-        healthPowerUp = FindObjectOfType<Healthscript>();
-        if(healthPowerUp == null)
+        energy = FindObjectOfType<energyscript>();
+        if(energy == null)
         {
-            healthPowerUp = new Healthscript();
+            energy = new energyscript();
         }
         PlayersPlease();
         //Pickups = FindObjectsOfType<energyscript>().ToList();
@@ -76,8 +78,8 @@ public class PickUpsSpawner : MonoBehaviour
             {
                 if (Area.AreaID == RandomList && Area.AreaID != 5 &&
                     Area.AreaID != P1AreaID && Area.AreaID != (P1AreaID - 3) && Area.AreaID != (P1AreaID + 3) && Area.AreaID != (P1AreaID - 1) && Area.AreaID != (P1AreaID + 1) &&
-                    Area.AreaID != P2AreaID && Area.AreaID != (P2AreaID - 3) && Area.AreaID != (P2AreaID + 3) && Area.AreaID != (P2AreaID - 1) && Area.AreaID != (P2AreaID + 1) &&
-                    (Area.AreaID != healthPowerUp.PickupArea))
+                    Area.AreaID != P2AreaID && Area.AreaID != (P2AreaID - 3) && Area.AreaID != (P2AreaID + 3) && Area.AreaID != (P2AreaID - 1) && Area.AreaID != (P2AreaID + 1) && 
+                    (Area.AreaID != energy.PickupArea))
                 {
                     //Debug.Log("AreaID" + Area.AreaID.ToString());
                     cellPrefs = Area.GetComponentsInChildren<CellPrefScript>().ToList();
@@ -107,11 +109,13 @@ public class PickUpsSpawner : MonoBehaviour
 
                                 //}
                                 GameObject NewPickUp = Instantiate(PickUp, cellPrefs[i].transform.position, Quaternion.identity);
-                                NewPickUp.GetComponent<energyscript>().PickupArea = Area.AreaID;
+                                NewPickUp.GetComponent<Healthscript>().PickupArea = Area.AreaID;
+                                gameManager.HealtTurnCount = 0;                                
                                 return;
                             }
                         }
                     }
+                   
                     //foreach (CellPrefScript Cell in cellPrefs)
                     //{
                     //    /*if (RandomCell == Counter)

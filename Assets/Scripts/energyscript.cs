@@ -5,6 +5,7 @@ using DG.Tweening;
 
 public class energyscript : MonoBehaviour
 {
+    public int PickupArea;
     float endvalue = 1;
     private void Start()
     {

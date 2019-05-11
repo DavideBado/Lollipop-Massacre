@@ -12259,18 +12259,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7731c7462ec29a4588c7625f33b618e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &362814547 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 996976815, guid: ba0c0a689b90c3b4c89806f41e8fdef4,
-    type: 3}
-  m_PrefabInstance: {fileID: 929741350}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8fdd44d24960fbb4eba6191f389aa2be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &363512601
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21750,12 +21738,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6418170069893652636, guid: 317eeab201742c3418a54a5e50f9b31a,
     type: 3}
   m_PrefabInstance: {fileID: 612511959}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &615939816 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1256144805, guid: 732a70763f69f0a458d7a423e26d44fa,
-    type: 3}
-  m_PrefabInstance: {fileID: 2056886472}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &616174545
 PrefabInstance:
@@ -33174,86 +33156,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 427756179222368939, guid: ba0c0a689b90c3b4c89806f41e8fdef4,
         type: 3}
-      propertyPath: SpawnPoints.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 427756179222368939, guid: ba0c0a689b90c3b4c89806f41e8fdef4,
-        type: 3}
-      propertyPath: POneParty.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 427756179222368939, guid: ba0c0a689b90c3b4c89806f41e8fdef4,
-        type: 3}
-      propertyPath: PTwoParty.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 427756179222368939, guid: ba0c0a689b90c3b4c89806f41e8fdef4,
-        type: 3}
-      propertyPath: Timertext
+      propertyPath: EventSBase
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1829942698}
     - target: {fileID: 427756179222368939, guid: ba0c0a689b90c3b4c89806f41e8fdef4,
         type: 3}
-      propertyPath: TimeMaxText
+      propertyPath: EventSPOne
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1554865011}
     - target: {fileID: 427756179222368939, guid: ba0c0a689b90c3b4c89806f41e8fdef4,
         type: 3}
-      propertyPath: Speed
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 427756179222368939, guid: ba0c0a689b90c3b4c89806f41e8fdef4,
-        type: 3}
-      propertyPath: TurnoText
+      propertyPath: EventSTwo
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 427756179222368939, guid: ba0c0a689b90c3b4c89806f41e8fdef4,
-        type: 3}
-      propertyPath: TimerSafe
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 427756179222368939, guid: ba0c0a689b90c3b4c89806f41e8fdef4,
-        type: 3}
-      propertyPath: TimeMax
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 427756179222368939, guid: ba0c0a689b90c3b4c89806f41e8fdef4,
-        type: 3}
-      propertyPath: RespawnController
-      value: 
-      objectReference: {fileID: 362814547}
-    - target: {fileID: 427756179222368939, guid: ba0c0a689b90c3b4c89806f41e8fdef4,
-        type: 3}
-      propertyPath: SpawnPoints.Array.data[0]
-      value: 
-      objectReference: {fileID: 1765812937}
-    - target: {fileID: 427756179222368939, guid: ba0c0a689b90c3b4c89806f41e8fdef4,
-        type: 3}
-      propertyPath: SpawnPoints.Array.data[1]
-      value: 
-      objectReference: {fileID: 1269126485}
-    - target: {fileID: 427756179222368939, guid: ba0c0a689b90c3b4c89806f41e8fdef4,
-        type: 3}
-      propertyPath: BenchPOne
-      value: 
-      objectReference: {fileID: 1388573228}
-    - target: {fileID: 427756179222368939, guid: ba0c0a689b90c3b4c89806f41e8fdef4,
-        type: 3}
-      propertyPath: BenchPTwo
-      value: 
-      objectReference: {fileID: 1070634344}
-    - target: {fileID: 427756179222368939, guid: ba0c0a689b90c3b4c89806f41e8fdef4,
-        type: 3}
-      propertyPath: POneParty.Array.data[0]
-      value: 
-      objectReference: {fileID: 1510294126, guid: 73b5a86f97a5d7c42a5aa47ee7a231eb,
-        type: 3}
-    - target: {fileID: 427756179222368939, guid: ba0c0a689b90c3b4c89806f41e8fdef4,
-        type: 3}
-      propertyPath: PTwoParty.Array.data[0]
-      value: 
-      objectReference: {fileID: 1256144805, guid: 732a70763f69f0a458d7a423e26d44fa,
-        type: 3}
+      objectReference: {fileID: 611475168}
     - target: {fileID: 427756179222368939, guid: ba0c0a689b90c3b4c89806f41e8fdef4,
         type: 3}
       propertyPath: PausePanel
@@ -33276,19 +33191,24 @@ PrefabInstance:
       objectReference: {fileID: 1471205669}
     - target: {fileID: 427756179222368939, guid: ba0c0a689b90c3b4c89806f41e8fdef4,
         type: 3}
-      propertyPath: EventSBase
+      propertyPath: SpawnPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 1829942698}
+      objectReference: {fileID: 1765812937}
     - target: {fileID: 427756179222368939, guid: ba0c0a689b90c3b4c89806f41e8fdef4,
         type: 3}
-      propertyPath: EventSPOne
+      propertyPath: SpawnPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 1554865011}
+      objectReference: {fileID: 1269126485}
     - target: {fileID: 427756179222368939, guid: ba0c0a689b90c3b4c89806f41e8fdef4,
         type: 3}
-      propertyPath: EventSTwo
+      propertyPath: BenchPOne
       value: 
-      objectReference: {fileID: 611475168}
+      objectReference: {fileID: 1388573228}
+    - target: {fileID: 427756179222368939, guid: ba0c0a689b90c3b4c89806f41e8fdef4,
+        type: 3}
+      propertyPath: BenchPTwo
+      value: 
+      objectReference: {fileID: 1070634344}
     - target: {fileID: 427756179222368936, guid: ba0c0a689b90c3b4c89806f41e8fdef4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -33344,14 +33264,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 996976814, guid: ba0c0a689b90c3b4c89806f41e8fdef4, type: 3}
-      propertyPath: P1
-      value: 
-      objectReference: {fileID: 962448603}
-    - target: {fileID: 996976814, guid: ba0c0a689b90c3b4c89806f41e8fdef4, type: 3}
-      propertyPath: P2
-      value: 
-      objectReference: {fileID: 615939816}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba0c0a689b90c3b4c89806f41e8fdef4, type: 3}
 --- !u!1001 &932358767
@@ -34450,12 +34362,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TransparencyMat: {fileID: 2100000, guid: 0f77dc786c0d6b548adc626d6d499a61, type: 2}
   Material: {fileID: 0}
---- !u!1 &962448603 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1510294126, guid: 73b5a86f97a5d7c42a5aa47ee7a231eb,
-    type: 3}
-  m_PrefabInstance: {fileID: 8667556}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &962448604 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1510294127, guid: 73b5a86f97a5d7c42a5aa47ee7a231eb,

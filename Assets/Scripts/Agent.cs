@@ -187,7 +187,8 @@ public class Agent : MonoBehaviour, ICharacter
                     x2 = x;
                     y2 = y;
                     OnTheRoad = false;
-                    GameManager.TimerOn = true;
+                 
+                    //GameManager.TimerOn = true;
                 }
             }
             else // Load the old values of x && y
@@ -195,7 +196,7 @@ public class Agent : MonoBehaviour, ICharacter
                 x = x2;
                 y = y2;
                 OnTheRoad = false;
-                GameManager.TimerOn = true;
+                //GameManager.TimerOn = true;
             }
         }
     }

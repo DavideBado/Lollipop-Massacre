@@ -126,7 +126,7 @@ public class GameManager : MonoBehaviour
             m_TimerSafe -= Time.deltaTime; // Attiva il tempo supplementare
             Pause = true;
             TimerOn = false;
-            m_slider.SetActive(false);
+            //m_slider.SetActive(false);
             if (m_TimerSafe <= 0) // E anche il tempo supplementare è finito
             {
                 TimerOn = true;
