@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Poison : MonoBehaviour
-{   
-    public int MaxRounds = 2;
-    bool RoundCheck, CanAttack;
+{
+    private int MaxRounds = 3;
+    bool RoundCheck, CanAttack, CanUpdate = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,24 +21,37 @@ public class Poison : MonoBehaviour
 
     void poison()
     {
-        if(transform.parent != null)
+        if (transform.parent != null)
         {
-            if(FindObjectOfType<GameManager>().Turn != RoundCheck)
+            if (FindObjectOfType<GameManager>().Turn != RoundCheck && CanUpdate == true)
             {
                 CanAttack = true;
+                if (MaxRounds > 1)
+                {
+                    MaxRounds--;
+                }
+                CanUpdate = false;
+            }
+            else if (FindObjectOfType<GameManager>().Turn == RoundCheck)
+            {
+                CanUpdate = true;
             }
 
-            if (MaxRounds > 0 && CanAttack == true && FindObjectOfType<GameManager>().Turn == RoundCheck)
+
+
+
+            if (MaxRounds == 1 && CanAttack == true && FindObjectOfType<GameManager>().Turn == RoundCheck)
             {
-                transform.parent.GetComponent<LifeManager>().Damage(1);
+                transform.parent.GetComponent<LifeManager>().Damage(2);
                 CanAttack = false;
                 MaxRounds--;
             }
 
-            if(MaxRounds == 0)
+            if (MaxRounds == 0)
             {
                 Destroy(gameObject);
             }
         }
     }
 }
+
