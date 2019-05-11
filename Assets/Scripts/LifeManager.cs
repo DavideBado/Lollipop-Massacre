@@ -46,9 +46,12 @@ public class LifeManager : MonoBehaviour
     public void Damage(int _amount)
     {
         Life -= _amount;
-		GetComponent<XInputTestCS>().Damage = _amount;
-		GetComponent<XInputTestCS>().Timer = (_amount * 0.2f);
-        Graphic.transform.DOShakePosition(0.5f, 0.6f, 10, 45).SetAutoKill();
+        GetComponent<XInputTestCS>().Damage = _amount;
+        GetComponent<XInputTestCS>().Timer = (_amount * 0.2f);
+        if (Graphic != null)
+        {
+            Graphic.transform.DOShakePosition(0.5f, 0.6f, 10, 45).SetAutoKill();
+        }
     }
 
 }
