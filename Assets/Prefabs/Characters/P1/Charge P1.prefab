@@ -174,7 +174,9 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 29de4bbbe38d3674d893dbeadf245efe, type: 3}
   - {fileID: 2800000, guid: 9b1b02808f26d9346ae1cd753eb57c91, type: 3}
   - {fileID: 2800000, guid: fd2b60ed29b1cf2439592a1f12d010c6, type: 3}
-  EnergySprites: []
+  LifeSprites:
+  - {fileID: 2800000, guid: d5ceffa33f81a1042a62da06213e4b83, type: 3}
+  - {fileID: 2800000, guid: c6fbc6c4a30dc5e4d8cc4d4260425230, type: 3}
   _Materials:
   - {fileID: 2100000, guid: fda81b5bad2464f4faebf2e9ff3b84e8, type: 2}
   - {fileID: 2100000, guid: 7c56ca6d99673fa418f43a54d46454de, type: 2}

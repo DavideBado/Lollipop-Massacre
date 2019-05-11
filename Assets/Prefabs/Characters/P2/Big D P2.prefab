@@ -171,6 +171,9 @@ MonoBehaviour:
   - {fileID: 2800000, guid: d6458738601295c45a67086cb55e6d16, type: 3}
   - {fileID: 2800000, guid: 76a0438060acc534bbb1735266ab74c5, type: 3}
   - {fileID: 2800000, guid: ebf7faf27afbd2f4291ac893d2079123, type: 3}
+  LifeSprites:
+  - {fileID: 2800000, guid: d5ceffa33f81a1042a62da06213e4b83, type: 3}
+  - {fileID: 2800000, guid: c6fbc6c4a30dc5e4d8cc4d4260425230, type: 3}
   _Materials: []
   SavedlookAt: {x: 0, y: 0, z: 0}
   RayCenter: {x: 0, y: 0, z: 0}

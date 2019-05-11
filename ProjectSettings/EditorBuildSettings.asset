@@ -17,10 +17,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Torino mod.unity
     guid: 27ae5b28fbe07294ba7bd5635e430d8c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/nuove mappe da testare/new map 4.unity
     guid: 1aaf28b06a8bf7042b2cafd13444ce82
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TORINO save.unity
     guid: 4281683ebc5d7d54aa4dc8e6446ac4f2
   - enabled: 1
