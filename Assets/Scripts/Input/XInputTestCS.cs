@@ -83,24 +83,48 @@ public class XInputTestCS : MonoBehaviour
 		//Debug.Log("dpad" + state.DPad.Down);
 		GamePadDPad m_dPad = state.DPad;
 
-        #region Movimento
-        if (state.ThumbSticks.Left.X > 0/* m_dPad.Right.Equals(ButtonState.Pressed) && m_OnInput == true*/)
+        #region Movimento in game
+        if (state.ThumbSticks.Left.X > 0/* m_dPad.Right.Equals(ButtonState.Pressed) && m_OnInput == true*/ && GetComponent<EventSystemCustom>() == null)
         {
 
             SendMessage("Right");
             m_OnInput = false;
         }
-        if (state.ThumbSticks.Left.X < 0/*m_dPad.Left.Equals(ButtonState.Pressed) && m_OnInput == true*/)
+        if (state.ThumbSticks.Left.X < 0/*m_dPad.Left.Equals(ButtonState.Pressed) && m_OnInput == true*/  && GetComponent<EventSystemCustom>() == null)
         {
             SendMessage("Left");
             m_OnInput = false;
         }
-        if (state.ThumbSticks.Left.Y > 0/*m_dPad.Up.Equals(ButtonState.Pressed) && m_OnInput == true*/)
+        if (state.ThumbSticks.Left.Y > 0/*m_dPad.Up.Equals(ButtonState.Pressed) && m_OnInput == true*/  && GetComponent<EventSystemCustom>() == null)
         {
             SendMessage("Up");
             m_OnInput = false;
         }
-        if (state.ThumbSticks.Left.Y < 0/*m_dPad.Down.Equals(ButtonState.Pressed) && m_OnInput == true*/)
+        if (state.ThumbSticks.Left.Y < 0/*m_dPad.Down.Equals(ButtonState.Pressed) && m_OnInput == true*/  && GetComponent<EventSystemCustom>() == null)
+        {
+            SendMessage("Down");
+            m_OnInput = false;
+        }
+        #endregion
+
+        #region Movimento in menu
+        if (state.ThumbSticks.Left.X > 0/* m_dPad.Right.Equals(ButtonState.Pressed) && m_OnInput == true*/  && GetComponent<EventSystemCustom>() != null && m_OnInput == true)
+        {
+
+            SendMessage("Right");
+            m_OnInput = false;
+        }
+        if (state.ThumbSticks.Left.X < 0/*m_dPad.Left.Equals(ButtonState.Pressed) && m_OnInput == true*/ && GetComponent<EventSystemCustom>() != null && m_OnInput == true)
+        {
+            SendMessage("Left");
+            m_OnInput = false;
+        }
+        if (state.ThumbSticks.Left.Y > 0/*m_dPad.Up.Equals(ButtonState.Pressed) && m_OnInput == true*/  && GetComponent<EventSystemCustom>() != null && m_OnInput == true)
+        {
+            SendMessage("Up");
+            m_OnInput = false;
+        }
+        if (state.ThumbSticks.Left.Y < 0/*m_dPad.Down.Equals(ButtonState.Pressed) && m_OnInput == true*/ && GetComponent<EventSystemCustom>() != null && m_OnInput == true)
         {
             SendMessage("Down");
             m_OnInput = false;
@@ -131,7 +155,7 @@ public class XInputTestCS : MonoBehaviour
             m_OnInput = false;
         } 
         #endregion
-        if (state.ThumbSticks.Right.Y == 0 && state.ThumbSticks.Right.X == 0)
+        if (state.ThumbSticks.Right.Y == 0 && state.ThumbSticks.Right.X == 0 && state.ThumbSticks.Left.Y == 0 && state.ThumbSticks.Left.X == 0)
 		{
 			m_OnInput = true;
 		}
