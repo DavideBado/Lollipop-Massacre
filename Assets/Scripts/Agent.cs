@@ -20,6 +20,7 @@ public class Agent : MonoBehaviour, ICharacter
     public int CurrentID;
     //*************************************************
     public List<Texture> _Sprites = new List<Texture>();
+    public List<Texture> EnergySprites = new List<Texture>();
     public List<Material> _Materials = new List<Material>();
     public Vector3 SavedlookAt, RayCenter, RayLeft, RayRight;
     public bool MyTurn, OnTheRoad = false;
@@ -182,7 +183,7 @@ public class Agent : MonoBehaviour, ICharacter
                     x2 = x;
                     y2 = y;
                     OnTheRoad = false;
-                    FindObjectOfType<GameManager>().TimerOn = true;
+                    GameManager.TimerOn = true;
                 }
             }
             else // Load the old values of x && y
@@ -190,6 +191,7 @@ public class Agent : MonoBehaviour, ICharacter
                 x = x2;
                 y = y2;
                 OnTheRoad = false;
+                GameManager.TimerOn = true;
             }
         }
     }

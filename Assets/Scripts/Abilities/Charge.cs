@@ -34,6 +34,7 @@ public class Charge : MonoBehaviour
             }
 
         }
+        
     }
 
     void InUpdate()
@@ -48,10 +49,16 @@ public class Charge : MonoBehaviour
     {
         RaycastHit hit;
 
-        if ((Physics.Raycast(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt, out hit, 1f)) && (hit.transform.tag == "Player" && hit.transform != transform))
+        if ((Physics.Raycast(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt, out hit, 1f)) && hit.transform != transform)
         {
-            hit.transform.GetComponent<LifeManager>().Life -= power;
+            if (hit.transform.tag == "Player")
+            {
+                hit.transform.GetComponent<LifeManager>().Life -= power;
+            }
             attackCheck = false;
+            Manager.Pause = false;
+            Manager.TimerOn = true;
+
         }            
     }
     public void Ability()
