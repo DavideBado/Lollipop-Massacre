@@ -18,25 +18,25 @@ public class InputManagerCustom : MonoBehaviour {
     #region KeyboardInput
     void InputCall() // This inputcheck can be used in a menu orndocazzovuoi
     { 
-        if(Input.GetKeyDown(Up))
+        if(Input.GetKey(Up))
         {
             SendMessage("Up");
             
         } 
        
-        if (Input.GetKeyDown(Down))
+        if (Input.GetKey(Down))
         {
             SendMessage("Down");
         }
         
     
-        if (Input.GetKeyDown(Left))
+        if (Input.GetKey(Left))
         {
             SendMessage("Left");
         }
         
 
-        if (Input.GetKeyDown(Right))
+        if (Input.GetKey(Right))
         {
             SendMessage("Right");
         }

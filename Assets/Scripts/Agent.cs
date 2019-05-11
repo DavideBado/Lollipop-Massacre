@@ -5,10 +5,11 @@ using GridSystem;
 using UnityEngine.UI;
 using System.Linq;
 using DG.Tweening;
-
+using WindowsInput;
 
 public class Agent : MonoBehaviour, ICharacter
 {
+    InputSimulator m_InputSimulator = new InputSimulator();
     int m_OnEnableCounter = 0;
     public int SwitchIndex;
     [HideInInspector] public Transform AgentParent = null;
@@ -308,7 +309,15 @@ public class Agent : MonoBehaviour, ICharacter
             Rotation();
             if (RotUp == false)
 			{
-				y--;
+                if (PlayerID == 1)
+                {
+                    m_InputSimulator.Keyboard.KeyUp(WindowsInput.Native.VirtualKeyCode.VK_W); 
+                }
+                else if (PlayerID == 2)
+                {
+                    m_InputSimulator.Keyboard.KeyUp(WindowsInput.Native.VirtualKeyCode.UP);
+                }
+                y--;
 				RotUp = true;
 			}
 
@@ -324,7 +333,15 @@ public class Agent : MonoBehaviour, ICharacter
             Rotation();
             if (RotLeft == false)
 			{
-				x++;
+                if (PlayerID == 1)
+                {
+                    m_InputSimulator.Keyboard.KeyUp(WindowsInput.Native.VirtualKeyCode.VK_A);
+                }
+                else if (PlayerID == 2)
+                {
+                    m_InputSimulator.Keyboard.KeyUp(WindowsInput.Native.VirtualKeyCode.LEFT);
+                }
+                x++;
 				RotLeft = true;
 			}
 		}
@@ -339,7 +356,15 @@ public class Agent : MonoBehaviour, ICharacter
             Rotation();
             if (RotDown == false)
 			{
-				y++;
+                if (PlayerID == 1)
+                {
+                    m_InputSimulator.Keyboard.KeyUp(WindowsInput.Native.VirtualKeyCode.VK_S);
+                }
+                else if (PlayerID == 2)
+                {
+                    m_InputSimulator.Keyboard.KeyUp(WindowsInput.Native.VirtualKeyCode.DOWN);
+                }
+                y++;
 				RotDown = true;
 			}
 		}
@@ -354,7 +379,15 @@ public class Agent : MonoBehaviour, ICharacter
             Rotation();
             if (RotRight == false)
 			{
-				x--;
+                if (PlayerID == 1)
+                {
+                    m_InputSimulator.Keyboard.KeyUp(WindowsInput.Native.VirtualKeyCode.VK_D);
+                }
+                else if (PlayerID == 2)
+                {
+                    m_InputSimulator.Keyboard.KeyUp(WindowsInput.Native.VirtualKeyCode.RIGHT);
+                }
+                x--;
 				RotRight = true;
 			}
 		}
