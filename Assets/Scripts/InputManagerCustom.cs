@@ -75,38 +75,38 @@ public class InputManagerCustom : MonoBehaviour {
     }
     #endregion
 
-    #region JoystickInput
-    void GpInputCall()
-    {
-        if (!isAxisInUse)
-        {
-            if (Input.GetAxisRaw("GP_VerticalArrow" + ManagerPlayerID.ToString()) == 1)
-            {
-                SendMessage("Up");
-                isAxisInUse = true;
+    //#region JoystickInput
+    //void GpInputCall()
+    //{
+    //    if (!isAxisInUse)
+    //    {
+    //        if (Input.GetAxisRaw("GP_VerticalArrow" + ManagerPlayerID.ToString()) == 1)
+    //        {
+    //            SendMessage("Up");
+    //            isAxisInUse = true;
                 
-            }
-            else if (Input.GetAxisRaw("GP_VerticalArrow" + ManagerPlayerID.ToString()) == -1)
-            {
-                SendMessage("Down");
-                isAxisInUse = true;
-            }
-            else if (Input.GetAxisRaw("GP_HorizontalArrow" + ManagerPlayerID.ToString()) == 1)
-            {
-                SendMessage("Right");
-                isAxisInUse = true;
-            }
-            else if (Input.GetAxisRaw("GP_HorizontalArrow" + ManagerPlayerID.ToString()) == -1)
-            {
-                SendMessage("Left");
-                isAxisInUse = true;
-            }
-        }
-        else if (Input.GetAxisRaw("GP_HorizontalArrow" + ManagerPlayerID.ToString()) == 0 && Input.GetAxisRaw("GP_VerticalArrow" + ManagerPlayerID.ToString()) == 0)
-        {
-            isAxisInUse = false;
-        }
-    }
-    #endregion
+    //        }
+    //        else if (Input.GetAxisRaw("GP_VerticalArrow" + ManagerPlayerID.ToString()) == -1)
+    //        {
+    //            SendMessage("Down");
+    //            isAxisInUse = true;
+    //        }
+    //        else if (Input.GetAxisRaw("GP_HorizontalArrow" + ManagerPlayerID.ToString()) == 1)
+    //        {
+    //            SendMessage("Right");
+    //            isAxisInUse = true;
+    //        }
+    //        else if (Input.GetAxisRaw("GP_HorizontalArrow" + ManagerPlayerID.ToString()) == -1)
+    //        {
+    //            SendMessage("Left");
+    //            isAxisInUse = true;
+    //        }
+    //    }
+    //    else if (Input.GetAxisRaw("GP_HorizontalArrow" + ManagerPlayerID.ToString()) == 0 && Input.GetAxisRaw("GP_VerticalArrow" + ManagerPlayerID.ToString()) == 0)
+    //    {
+    //        isAxisInUse = false;
+    //    }
+    //}
+    //#endregion
 
 }
