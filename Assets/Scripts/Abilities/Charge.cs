@@ -113,11 +113,11 @@ public class Charge : MonoBehaviour
                 {
                     int dist = (int)Vector3.Distance(transform.position, hit.transform.position);
                     Debug.DrawRay(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
-                    if (dist < 5)
+                    if (dist <= 5)
                     {
                         power = 2;
                     }
-                    else if (dist >= 5)
+                    else if (dist > 5)
                     {
                         power = 4;
                     }
@@ -274,11 +274,11 @@ public class Charge : MonoBehaviour
                  (playerPosition.z > cell.transform.position.z && cell.transform.position.z >= HitPosition.z)) &&
                  (cell.transform.position.x == HitPosition.x)))
                 {
-                    if (dist >= 0 && dist < 5)
+                    if (dist >= 0 && dist <= 5)
                     {
                         cell.GetComponent<MeshRenderer>().material = _material;
                     }
-                    else if (dist >= 5)
+                    else if (dist > 5)
                     {
                         cell.GetComponent<MeshRenderer>().material = cell.Materials[1];
                     }
@@ -300,11 +300,11 @@ public class Charge : MonoBehaviour
                  (playerPosition.z > cell.transform.position.z && cell.transform.position.z > HitPosition.z)) &&
                  (cell.transform.position.x == HitPosition.x)))
             {
-                if (dist >= 0 && dist < 5)
+                if (dist >= 0 && dist <= 5)
                 {
                     cell.GetComponent<MeshRenderer>().material = _material;
                 }
-                else if (dist >= 5)
+                else if (dist > 5)
                 {
                     cell.GetComponent<MeshRenderer>().material = cell.Materials[1];
                 }
