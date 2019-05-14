@@ -7,7 +7,7 @@ public class OnSelectData : MonoBehaviour
 {
     public RectTransform OnSelectDim;
     public Image OnSelectImage;
-    public GameObject ThisCanvas, NextCanvas;
-    public int SceneIndex;
+    //public GameObject ThisCanvas, NextCanvas;
+    //public int SceneIndex;
 
 }

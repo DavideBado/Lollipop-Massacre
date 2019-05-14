@@ -4,10 +4,22 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-    public void Setup()
+    public GridManager Gridmngr;
+    public PlayerManager Playermngr;
+
+    /// <summary>
+    /// setup dei manager
+    /// </summary>
+    public void Init()
     {
-        //setup grid
-        //setup lista statica di CharacterBase con foreach
+        Gridmngr.SetUp();
+        Playermngr.Setup();
+    }
+
+    public void SetUp()
+    {
+        Gridmngr = FindObjectOfType<GridManager>();
+        Playermngr = FindObjectOfType<PlayerManager>();
     }
 
 }

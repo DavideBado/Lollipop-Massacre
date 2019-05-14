@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     public static Action GoToMainMenu;
     public static Action GoToTutorial;
     public static Action GoToOptions;
+    public static Action GoToGamePlay;
 
     #endregion
 
@@ -35,6 +36,8 @@ public class GameManager : MonoBehaviour
             GoToMainMenu += singleton.HandleOnMainMenu;
             GoToTutorial += singleton.HandleOnTutorial;
             GoToOptions += singleton.HandleOnOptions;
+            GoToGamePlay += singleton.HandleOnGamePlay;
+
         }
         
     }
@@ -64,7 +67,6 @@ public class GameManager : MonoBehaviour
         animController = GetComponent<Animator>();
         //setup dei managers
         InputMngr = FindObjectOfType<InputManager>();
-        LevelMngr = FindObjectOfType<LevelManager>();
         UIMngr = FindObjectOfType<UIManager>();
         Context context = new Context()
         {
@@ -100,6 +102,11 @@ public class GameManager : MonoBehaviour
         animController.SetTrigger("GoToOptions");
     }
 
+    private void HandleOnGamePlay()
+    {
+        animController.SetTrigger("GoToGamePlay");
+    }
+
     #endregion
 
 
@@ -112,6 +119,7 @@ public class GameManager : MonoBehaviour
             GoToMainMenu -= singleton.HandleOnMainMenu;
             GoToTutorial -= singleton.HandleOnTutorial;
             GoToOptions -= singleton.HandleOnOptions;
+            GoToGamePlay -= singleton.HandleOnGamePlay;
         }
         
     }
