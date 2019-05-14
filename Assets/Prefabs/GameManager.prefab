@@ -43,7 +43,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 427756179222368938}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7731c7462ec29a4588c7625f33b618e, type: 3}
+  m_Script: {fileID: 11500000, guid: 4bea8d0fe88d25a4bbe1ba14fa306b22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   CellAttackMaterial: {fileID: 2100000, guid: a85400e326b1a5744876c0bde35eea20, type: 2}
@@ -56,17 +56,15 @@ MonoBehaviour:
   PTwoWins: {fileID: 0}
   POneParty: []
   PTwoParty: []
-  SpawnPoints:
-  - {fileID: 0}
-  - {fileID: 0}
+  SpawnPoints: []
   BenchPOne: {fileID: 0}
   BenchPTwo: {fileID: 0}
   Timertext: {fileID: 0}
   TimeMaxText: {fileID: 0}
   TurnoText: {fileID: 0}
-  TimeMax: 5
+  TimeMax: 3
   Speed: 3
-  TimerSafe: 1
+  TimerSafe: 0
   Turn: 1
   CanAttack: 1
   Pause: 0
