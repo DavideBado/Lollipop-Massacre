@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
 
-    public GameObject MainMenu, CharacterSelection, Tutorial, Options;
+    public GameObject MainMenu, CharacterSelection, Tutorial, Options, Loading;
     public GameObject CurrentPanel;
 
     private void Awake()
@@ -47,6 +47,9 @@ public class UIManager : MonoBehaviour
                 case MenuType.Tutorial:
                     CurrentPanel = Tutorial;
                     break;
+                case MenuType.Loading:
+                    CurrentPanel = Loading;
+                    break;
             }
             ActivatePanel(CurrentPanel);
 
@@ -61,6 +64,7 @@ public enum MenuType
     Options,
     CharacterSelection,
     Tutorial,
+    Loading,
   
 
 }

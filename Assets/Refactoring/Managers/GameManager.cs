@@ -63,8 +63,9 @@ public class GameManager : MonoBehaviour
         //Setup della state machine
         animController = GetComponent<Animator>();
         //setup dei managers
-        InputMngr = GetComponent<InputManager>();
-        LevelMngr = GetComponent<LevelManager>();
+        InputMngr = FindObjectOfType<InputManager>();
+        LevelMngr = FindObjectOfType<LevelManager>();
+        UIMngr = FindObjectOfType<UIManager>();
         Context context = new Context()
         {
             timer = 3f,

@@ -1,25 +1,16 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &100100000
-Prefab:
-  m_ObjectHideFlags: 1
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications: []
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1313435064880366}
-  m_IsPrefabAsset: 1
 --- !u!1 &1313435064880366
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4310323117334716}
-  - component: {fileID: 114889855964562402}
+  - component: {fileID: 4066248339723986099}
+  - component: {fileID: 3813717061950482987}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -29,9 +20,10 @@ GameObject:
   m_IsActive: 1
 --- !u!4 &4310323117334716
 Transform:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1313435064880366}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.7213373, y: 2.1456084, z: -9.034211}
@@ -40,16 +32,38 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114889855964562402
-MonoBehaviour:
-  m_ObjectHideFlags: 1
+--- !u!95 &4066248339723986099
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1313435064880366}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 99ad7dba686d6a24392d8306efd50780, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3813717061950482987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1313435064880366}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66ddd32f606f4304387edfde03c26f99, type: 3}
+  m_Script: {fileID: 11500000, guid: d5f813feabd2c6c42815bd7c18db9798, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FlowStateMachine: {fileID: 114391876124304256, guid: ff18285562213ca44aa129de5b8d30c7,
-    type: 2}
+  animController: {fileID: 4066248339723986099}
+  UIMngr: {fileID: 0}
+  InputMngr: {fileID: 0}
+  LevelMngr: {fileID: 0}
