@@ -9,7 +9,7 @@ public class ManaUI : MonoBehaviour
     public Texture sp1, sp2;
     Agent player;
     public bool PanelPos;
-    public GameManager gm;
+    public OldGameManager gm;
     public int ID;
 
 
@@ -18,7 +18,7 @@ public class ManaUI : MonoBehaviour
         //img = GetComponent<RawImage>();
         if (gm == null)
         {
-            gm = FindObjectOfType<GameManager>();
+            gm = FindObjectOfType<OldGameManager>();
         }
         PoolFinder();
         manaSprite();

@@ -8,13 +8,13 @@ public class Charge : MonoBehaviour
     int power = 0;
     bool attackCheck = false;
     float Timer;
-    GameManager Manager;
+    OldGameManager Manager;
     private bool onAttack;
 
     private void Start()
     {
         Timer = 1f;
-        Manager = FindObjectOfType<GameManager>();
+        Manager = FindObjectOfType<OldGameManager>();
     }
 
     private void Update()
@@ -158,7 +158,7 @@ public class Charge : MonoBehaviour
 
             {
 
-                FindObjectOfType<GameManager>().PickUpTurnCount = 0;
+                FindObjectOfType<OldGameManager>().PickUpTurnCount = 0;
 
                 FindObjectOfType<PickUpsSpawner>().AllManaFull = false;
 

@@ -37,7 +37,7 @@ public class Agent : MonoBehaviour, ICharacter
     public RespawnController RespawnController;
     List<PlayerData> Players = new List<PlayerData>();
     List<Wall> Walls = new List<Wall>();
-    GameManager GameManager;
+    OldGameManager GameManager;
     public bool RotUp = false, RotDown = false, RotLeft = false, RotRight = false, ImStunned = false, imDrained = false, StartDrain;
     public int Mana = 1;
     public bool OhStunnedShit;
@@ -112,7 +112,7 @@ public class Agent : MonoBehaviour, ICharacter
     #region Start
     void UpdateReference()
     {
-        GameManager = FindObjectOfType<GameManager>();
+        GameManager = FindObjectOfType<OldGameManager>();
         grid = FindObjectOfType<BaseGrid>();
         configGrid = grid.ConfigData;
     }
@@ -182,7 +182,7 @@ public class Agent : MonoBehaviour, ICharacter
                 AgentSpeed * Time.deltaTime);
                 if (transform.position == grid.GetWorldPosition(x, y)) // Se hai raggiunto la tua destinazione
                 {
-                    AgentSpeed = FindObjectOfType<GameManager>().Speed;
+                    AgentSpeed = FindObjectOfType<OldGameManager>().Speed;
                     // Salva le coordinate della posizione attuale
                     x2 = x;
                     y2 = y;

@@ -10,14 +10,14 @@ public class HeartUI : MonoBehaviour
     Agent player;
     public GameObject h1, h2, h3;
     public bool PanelPos;
-	GameManager manager;
+	OldGameManager manager;
 
 
     private void Update()
     {
 	if(manager == null)
 	{
-			manager = FindObjectOfType<GameManager>();
+			manager = FindObjectOfType<OldGameManager>();
 	}
 		PoolFinder();
 		TexSelector();

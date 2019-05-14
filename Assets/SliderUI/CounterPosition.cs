@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CounterPosition : MonoBehaviour
 {
-    GameManager manager;
+    OldGameManager manager;
     public Player1 P1;
     public Player2 P2;
     public SliderBehaviour _slider;
@@ -12,7 +12,7 @@ public class CounterPosition : MonoBehaviour
    
     void Awake()
     {
-        manager = FindObjectOfType<GameManager>();
+        manager = FindObjectOfType<OldGameManager>();
         FindPlayers();
     }
 

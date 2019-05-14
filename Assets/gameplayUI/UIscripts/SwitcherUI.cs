@@ -9,7 +9,7 @@ public class SwitcherUI : MonoBehaviour
     
     RawImage statusimg;
     public Texture A, B, Y;
-    GameManager manager;
+    OldGameManager manager;
     public int ID;
     public bool PanelPos;
 
@@ -21,7 +21,7 @@ public class SwitcherUI : MonoBehaviour
         statusimg = GetComponent<RawImage>();
         if (manager == null)
         {
-            manager = FindObjectOfType<GameManager>();
+            manager = FindObjectOfType<OldGameManager>();
         }
         PoolFinder();
         statusSprite();

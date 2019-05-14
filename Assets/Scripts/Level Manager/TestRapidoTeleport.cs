@@ -32,7 +32,7 @@ public class TestRapidoTeleport : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.M))
         {
-            FindObjectOfType<GameManager>().Pause = true;
+            FindObjectOfType<OldGameManager>().Pause = true;
             if (ID == 1)
             {
 
@@ -77,7 +77,7 @@ public class TestRapidoTeleport : MonoBehaviour
         }
         else
         {
-            FindObjectOfType<GameManager>().Pause = false;
+            FindObjectOfType<OldGameManager>().Pause = false;
         }
     }
 }

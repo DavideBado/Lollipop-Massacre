@@ -5,13 +5,13 @@ using DG.Tweening;
 
 public class Attack1 : MonoBehaviour
 {
-    public GameManager Manager;
+    public OldGameManager Manager;
     float Timer;
 
     private void Start()
     {
         
-        Manager = FindObjectOfType<GameManager>();
+        Manager = FindObjectOfType<OldGameManager>();
     }
     private void OnTriggerEnter(Collider other)
     {

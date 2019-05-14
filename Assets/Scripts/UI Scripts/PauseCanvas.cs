@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class PauseCanvas : MonoBehaviour
 {
-    GameManager manager;
+    OldGameManager manager;
 
     private void Start()
     {
-        manager = FindObjectOfType<GameManager>();
+        manager = FindObjectOfType<OldGameManager>();
     }
     private void OnDisable()
     {

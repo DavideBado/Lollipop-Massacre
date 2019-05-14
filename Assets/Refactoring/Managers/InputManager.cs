@@ -8,14 +8,14 @@ public class InputManager : MonoBehaviour
     public MenuInput MNInput;
     public InputBase currentInput;
     
-    public void ChangeInput(InputType _input)
+    public void ChangeInput(InputMgrType _input)
     {
         switch (_input)
         {
-            case InputType.MenuInput:
+            case InputMgrType.MenuInput:
                 currentInput = MNInput;
                 break;
-            case InputType.GameplayInput:
+            case InputMgrType.GameplayInput:
                 currentInput = GPInput;
                 break;
             default:
@@ -47,7 +47,7 @@ public class InputManager : MonoBehaviour
     }
 }
 
-public enum InputType
+public enum InputMgrType
 {
     MenuInput,
     GameplayInput

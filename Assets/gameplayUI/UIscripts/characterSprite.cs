@@ -12,7 +12,7 @@ public class characterSprite : MonoBehaviour
 	public int ID;
     
     public RawImage img;
-    public GameManager gm;
+    public OldGameManager gm;
     public bool PanelPos;
     Agent player;
 
@@ -36,7 +36,7 @@ public class characterSprite : MonoBehaviour
 
 		if (gm == null)
 		{
-			gm = FindObjectOfType<GameManager>();
+			gm = FindObjectOfType<OldGameManager>();
 		}
 
 		PoolFinder();

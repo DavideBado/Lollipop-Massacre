@@ -9,7 +9,7 @@ public class CameraTurnColor : MonoBehaviour
     public Color color1 = Color.blue;
     public Color color2 = Color.red;
     public Camera cam;
-    public GameManager gm;
+    public OldGameManager gm;
     // Start is called before the first frame update
     void Start()
     {

@@ -6,12 +6,12 @@ using UnityEngine.UI;
 public class PlayerTurnUI : MonoBehaviour
 {
     public List<Image> images = new List<Image>();
-    GameManager GameManager;
+    OldGameManager GameManager;
     Image image;
 
     private void Start()
     {
-        GameManager = FindObjectOfType<GameManager>();
+        GameManager = FindObjectOfType<OldGameManager>();
         image = GetComponent<Image>();
     }
     // Update is called once per frame

@@ -10,7 +10,7 @@ public class Poison : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        RoundCheck = FindObjectOfType<GameManager>().Turn;
+        RoundCheck = FindObjectOfType<OldGameManager>().Turn;
     }
 
     // Update is called once per frame
@@ -23,7 +23,7 @@ public class Poison : MonoBehaviour
     {
         if (transform.parent != null)
         {
-            if (FindObjectOfType<GameManager>().Turn != RoundCheck && CanUpdate == true)
+            if (FindObjectOfType<OldGameManager>().Turn != RoundCheck && CanUpdate == true)
             {
                 CanAttack = true;
                 if (MaxRounds > 1)
@@ -32,7 +32,7 @@ public class Poison : MonoBehaviour
                 }
                 CanUpdate = false;
             }
-            else if (FindObjectOfType<GameManager>().Turn == RoundCheck)
+            else if (FindObjectOfType<OldGameManager>().Turn == RoundCheck)
             {
                 CanUpdate = true;
             }
@@ -40,7 +40,7 @@ public class Poison : MonoBehaviour
 
 
 
-            if (MaxRounds == 1 && CanAttack == true && FindObjectOfType<GameManager>().Turn == RoundCheck)
+            if (MaxRounds == 1 && CanAttack == true && FindObjectOfType<OldGameManager>().Turn == RoundCheck)
             {
                 transform.parent.GetComponent<LifeManager>().Damage(2);
                 CanAttack = false;

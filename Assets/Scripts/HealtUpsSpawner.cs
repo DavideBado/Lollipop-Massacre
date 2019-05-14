@@ -5,7 +5,7 @@ using System.Linq;
 
 public class HealtUpsSpawner : MonoBehaviour
 {
-    GameManager gameManager;
+    OldGameManager gameManager;
     public List<GridArea> GridAreas = new List<GridArea>();
     energyscript energy;
     public List<CellPrefScript> cellPrefs = new List<CellPrefScript>();
@@ -24,20 +24,20 @@ public class HealtUpsSpawner : MonoBehaviour
     void Start()
     {
         InStart();
-        gameManager = GetComponent<GameManager>();
+        gameManager = GetComponent<OldGameManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-       if(FindObjectOfType<GameManager>().HealtTurnCount >= 5 && gameManager.TimerOn == false)
+       if(FindObjectOfType<OldGameManager>().HealtTurnCount >= 5 && gameManager.TimerOn == false)
         {
             Pickups = FindObjectsOfType<Healthscript>().ToList();
             if (Pickups.Count == 0)
             {
                 SpawnHealt();
             }
-            else { FindObjectOfType<GameManager>().HealtTurnCount = 0; }
+            else { FindObjectOfType<OldGameManager>().HealtTurnCount = 0; }
         }
     }
 

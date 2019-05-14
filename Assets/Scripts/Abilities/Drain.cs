@@ -7,14 +7,14 @@ public class Drain : MonoBehaviour
 {
     float Timer;
     bool onAttack;
-    GameManager Manager;
+    OldGameManager Manager;
     public Agent agent;
     
 
     private void Start()
     {
         Timer = 1f;
-        Manager = FindObjectOfType<GameManager>();
+        Manager = FindObjectOfType<OldGameManager>();
         agent = GetComponent<Agent>();
     }
 
@@ -52,7 +52,7 @@ public class Drain : MonoBehaviour
 
             if (FindObjectOfType<PickUpsSpawner>().AllManaFull == true)
             {
-                FindObjectOfType<GameManager>().PickUpTurnCount = 0;
+                FindObjectOfType<OldGameManager>().PickUpTurnCount = 0;
                 FindObjectOfType<PickUpsSpawner>().AllManaFull = false;
             }
             GetComponent<Agent>().Mana--;

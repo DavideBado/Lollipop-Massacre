@@ -7,11 +7,11 @@ public class Whirlwind : MonoBehaviour
 {
     float Timer;
     bool onAttack;
-    GameManager Manager;
+    OldGameManager Manager;
     private void Start()
     {
         Timer = 1f;
-        Manager = FindObjectOfType<GameManager>();
+        Manager = FindObjectOfType<OldGameManager>();
     }
 
     private void Update()
@@ -78,7 +78,7 @@ public class Whirlwind : MonoBehaviour
 
             {
 
-                FindObjectOfType<GameManager>().PickUpTurnCount = 0;
+                FindObjectOfType<OldGameManager>().PickUpTurnCount = 0;
 
                 FindObjectOfType<PickUpsSpawner>().AllManaFull = false;
 

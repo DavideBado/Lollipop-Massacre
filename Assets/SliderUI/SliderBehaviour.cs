@@ -19,7 +19,7 @@ public class SliderBehaviour : MonoBehaviour
 
     public TimerDelegate StartTimer;
     public TimerDelegate EndTimer;
-    public GameManager manager;
+    public OldGameManager manager;
     public float endValue = 0;
 
 
@@ -32,7 +32,7 @@ public class SliderBehaviour : MonoBehaviour
             StartCounter(countAmount);
 
         fillImage.color = RingColor;
-        manager = FindObjectOfType<GameManager>();
+        manager = FindObjectOfType<OldGameManager>();
     }
 
 

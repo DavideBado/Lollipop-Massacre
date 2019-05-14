@@ -9,7 +9,7 @@ public class LifeManager : MonoBehaviour
 {
     public bool OnShield = false;
     public int Life = 6;
-    GameManager GameManager;   
+    OldGameManager GameManager;   
     bool CanRespawn = true;
     GameObject Graphic;
   
@@ -17,7 +17,7 @@ public class LifeManager : MonoBehaviour
     private void Start()
     {
         Graphic = GetComponentInChildren<AnimationController>().gameObject;
-        GameManager = FindObjectOfType<GameManager>();
+        GameManager = FindObjectOfType<OldGameManager>();
     }
     // Update is called once per frame
     void Update()

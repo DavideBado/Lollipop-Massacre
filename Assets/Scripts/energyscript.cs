@@ -20,7 +20,7 @@ public class energyscript : MonoBehaviour
             {
                 other.GetComponent<Agent>().Mana++;
             }
-            FindObjectOfType<GameManager>().PickUpTurnCount = 0;
+            FindObjectOfType<OldGameManager>().PickUpTurnCount = 0;
             Destroy(gameObject);          
            
         }
