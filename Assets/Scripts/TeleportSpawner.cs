@@ -45,19 +45,20 @@ public class TeleportSpawner : MonoBehaviour
 
     GameObject OrdinarySpawnArea()
     {
+        GameObject _BaseArea = BaseSpawnArea();
         List<GameObject> _SpawnAreas = new List<GameObject>();
-        if(BaseSpawnArea().GetComponent<GridArea>().AreaID + 3 < 10)
+        if(_BaseArea.GetComponent<GridArea>().AreaID + 3 < 10 && _BaseArea.GetComponent<GridArea>().AreaID + 3 != 5)
         {
-            _SpawnAreas.Add(Areas[10 - (teleports[teleports.Count - 1].GetComponent<TestRapidoTeleport>().MyArea.GetComponent<GridArea>().AreaID + 1)]);
+            _SpawnAreas.Add(Areas[(teleports[teleports.Count - 1].GetComponent<TestRapidoTeleport>().MyArea.GetComponent<GridArea>().AreaID - 1) + 3]);
         }
         else
         {
 
         }
 
-        if (BaseSpawnArea().GetComponent<GridArea>().AreaID - 3 < 0)
+        if (_BaseArea.GetComponent<GridArea>().AreaID - 3 > 0 && _BaseArea.GetComponent<GridArea>().AreaID - 3 != 5)
         {
-
+            _SpawnAreas.Add(Areas[(teleports[teleports.Count - 1].GetComponent<TestRapidoTeleport>().MyArea.GetComponent<GridArea>().AreaID - 1) - 3]);
         }
         else
         {
