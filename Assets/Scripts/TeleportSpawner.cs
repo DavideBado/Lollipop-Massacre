@@ -11,13 +11,21 @@ public class TeleportSpawner : MonoBehaviour
 
     private void Update()
     {
-        Telespawn();
+        if (FindObjectOfType<GameManager>().PickUpTurnCount == 3)
+        {
+            Telespawn();
+        }
     }
     void Telespawn()
     {
         if(teleports.Count == 2)
-        {
-
+        { GridArea _Area = OrdinarySpawnArea();
+        
+            teleports[0].transform.position = new Vector3(_Area.TeleportSpawnPoint_X, 0, _Area.TeleportSpawnPoint_Z);
+            teleports[0].GetComponent<TestRapidoTeleport>().MyArea = _Area.gameObject;
+            GameObject _teleport = teleports[0]; 
+            teleports.Remove(_teleport);
+            teleports.Add(_teleport);
         }
         else if(teleports.Count == 0)
         {
@@ -29,9 +37,9 @@ public class TeleportSpawner : MonoBehaviour
         }
         else if (teleports.Count == 1)
         {
-            GameObject _Area = BaseSpawnArea();
-            GameObject _Teleport = Instantiate(Teleport1, new Vector3(_Area.GetComponent<GridArea>().TeleportSpawnPoint_X, 0, _Area.GetComponent<GridArea>().TeleportSpawnPoint_Z), Quaternion.identity);
-            _Teleport.GetComponent<TestRapidoTeleport>().MyArea = _Area;
+            GridArea _Area = OrdinarySpawnArea();
+            GameObject _Teleport = Instantiate(Teleport1, new Vector3(_Area.TeleportSpawnPoint_X, 0, _Area.TeleportSpawnPoint_Z), Quaternion.identity);
+            _Teleport.GetComponent<TestRapidoTeleport>().MyArea = _Area.gameObject;
             teleports.Add(_Teleport);
             _Teleport.SetActive(true);
         }
@@ -43,28 +51,67 @@ public class TeleportSpawner : MonoBehaviour
         return Areas[10 - (teleports[teleports.Count - 1].GetComponent<TestRapidoTeleport>().MyArea.GetComponent<GridArea>().AreaID + 1)];
     }
 
-    GameObject OrdinarySpawnArea()
+    GridArea OrdinarySpawnArea()
     {
         GameObject _BaseArea = BaseSpawnArea();
         List<GameObject> _SpawnAreas = new List<GameObject>();
+        if(_BaseArea != teleports[0].GetComponent<TestRapidoTeleport>().MyArea)
+        {
+            _SpawnAreas.Add(_BaseArea);
+        }
+
         if(_BaseArea.GetComponent<GridArea>().AreaID + 3 < 10 && _BaseArea.GetComponent<GridArea>().AreaID + 3 != 5)
         {
-            _SpawnAreas.Add(Areas[(teleports[teleports.Count - 1].GetComponent<TestRapidoTeleport>().MyArea.GetComponent<GridArea>().AreaID - 1) + 3]);
+            if (Areas[(_BaseArea.GetComponent<GridArea>().AreaID - 1) + 3] != teleports[0].GetComponent<TestRapidoTeleport>().MyArea)
+            {
+                _SpawnAreas.Add(Areas[(_BaseArea.GetComponent<GridArea>().AreaID - 1) + 3]);
+            }
         }
         else
         {
+            if((_BaseArea.GetComponent<GridArea>().AreaID % 3 != 0)  && _BaseArea.GetComponent<GridArea>().AreaID + 1 != 5)
+            {
+                if (Areas[(_BaseArea.GetComponent<GridArea>().AreaID - 1) + 1] != teleports[0].GetComponent<TestRapidoTeleport>().MyArea)
+                {
+                    _SpawnAreas.Add(Areas[(_BaseArea.GetComponent<GridArea>().AreaID - 1) + 1]);
+                }
+            }
 
+            if (((_BaseArea.GetComponent<GridArea>().AreaID) % 3 != 1) && _BaseArea.GetComponent<GridArea>().AreaID - 1 != 5)
+            {
+                if (Areas[(_BaseArea.GetComponent<GridArea>().AreaID - 1) - 1] != teleports[0].GetComponent<TestRapidoTeleport>().MyArea)
+                {
+                    _SpawnAreas.Add(Areas[(_BaseArea.GetComponent<GridArea>().AreaID - 1) - 1]);
+                }
+            }
         }
 
         if (_BaseArea.GetComponent<GridArea>().AreaID - 3 > 0 && _BaseArea.GetComponent<GridArea>().AreaID - 3 != 5)
         {
-            _SpawnAreas.Add(Areas[(teleports[teleports.Count - 1].GetComponent<TestRapidoTeleport>().MyArea.GetComponent<GridArea>().AreaID - 1) - 3]);
+            if (Areas[(_BaseArea.GetComponent<GridArea>().AreaID - 1) - 3] != teleports[0].GetComponent<TestRapidoTeleport>().MyArea)
+            {
+                _SpawnAreas.Add(Areas[(_BaseArea.GetComponent<GridArea>().AreaID - 1) - 3]);
+            }
         }
         else
         {
+            if (((_BaseArea.GetComponent<GridArea>().AreaID) % 3 != 0) && _BaseArea.GetComponent<GridArea>().AreaID + 1 != 5)
+            {
+                if (Areas[(_BaseArea.GetComponent<GridArea>().AreaID - 1) + 1] != teleports[0].GetComponent<TestRapidoTeleport>().MyArea)
+                {
+                    _SpawnAreas.Add(Areas[(_BaseArea.GetComponent<GridArea>().AreaID - 1) + 1]);
+                }
+            }
 
+            if (((_BaseArea.GetComponent<GridArea>().AreaID) % 3 != 1) && _BaseArea.GetComponent<GridArea>().AreaID - 1 != 5)
+            {
+                if (Areas[(_BaseArea.GetComponent<GridArea>().AreaID - 1) - 1] != teleports[0].GetComponent<TestRapidoTeleport>().MyArea)
+                {
+                    _SpawnAreas.Add(Areas[(_BaseArea.GetComponent<GridArea>().AreaID - 1) - 1]);
+                }             
+            }
         }
-
-        return _SpawnAreas[Random.Range(0, _SpawnAreas.Count)];
+        GridArea _SpawnArea = _SpawnAreas[Random.Range(0, _SpawnAreas.Count)].GetComponent<GridArea>();
+        return _SpawnArea;         
     }
 }
