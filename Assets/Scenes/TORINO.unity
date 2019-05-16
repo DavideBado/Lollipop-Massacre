@@ -12253,7 +12253,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 929741350}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 929741351}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c7731c7462ec29a4588c7625f33b618e, type: 3}
@@ -18216,7 +18216,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &525074754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18229,6 +18229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d48a300f7ffebf741b31dde9e769e895, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MyArea: {fileID: 0}
   otherteleport: {fileID: 1050472337}
   ID: 2
 --- !u!136 &525074755
@@ -19271,6 +19272,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AreaID: 3
+  TeleportSpawnPoint_X: 13
+  TeleportSpawnPoint_Z: 1
 --- !u!4 &552651419
 Transform:
   m_ObjectHideFlags: 0
@@ -22223,6 +22226,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AreaID: 6
+  TeleportSpawnPoint_X: 13
+  TeleportSpawnPoint_Z: 6
 --- !u!4 &621698416
 Transform:
   m_ObjectHideFlags: 0
@@ -27006,6 +27011,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AreaID: 1
+  TeleportSpawnPoint_X: 2
+  TeleportSpawnPoint_Z: 1
 --- !u!4 &760665728
 Transform:
   m_ObjectHideFlags: 0
@@ -33266,6 +33273,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba0c0a689b90c3b4c89806f41e8fdef4, type: 3}
+--- !u!1 &929741351 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 427756179222368938, guid: ba0c0a689b90c3b4c89806f41e8fdef4,
+    type: 3}
+  m_PrefabInstance: {fileID: 929741350}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &929741352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 929741351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d32ba33947e2c146855da9e3ae55ac7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Teleport1: {fileID: 1050472336}
+  Teleport2: {fileID: 525074753}
+  Areas:
+  - {fileID: 760665725}
+  - {fileID: 1224509309}
+  - {fileID: 552651416}
+  - {fileID: 1316469484}
+  - {fileID: 2020728625}
+  - {fileID: 621698413}
+  - {fileID: 964292544}
+  - {fileID: 2061669785}
+  - {fileID: 1916555763}
 --- !u!1001 &932358767
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34633,6 +34670,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AreaID: 7
+  TeleportSpawnPoint_X: 3
+  TeleportSpawnPoint_Z: 10
 --- !u!4 &964292547
 Transform:
   m_ObjectHideFlags: 0
@@ -38382,7 +38421,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1050472337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38395,6 +38434,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d48a300f7ffebf741b31dde9e769e895, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MyArea: {fileID: 0}
   otherteleport: {fileID: 525074754}
   ID: 1
 --- !u!136 &1050472338
@@ -44855,6 +44895,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AreaID: 2
+  TeleportSpawnPoint_X: 8
+  TeleportSpawnPoint_Z: 2
 --- !u!4 &1224509312
 Transform:
   m_ObjectHideFlags: 0
@@ -47491,6 +47533,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AreaID: 4
+  TeleportSpawnPoint_X: 2
+  TeleportSpawnPoint_Z: 5
 --- !u!4 &1316469487
 Transform:
   m_ObjectHideFlags: 0
@@ -67540,6 +67584,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AreaID: 9
+  TeleportSpawnPoint_X: 12
+  TeleportSpawnPoint_Z: 10
 --- !u!4 &1916555766
 Transform:
   m_ObjectHideFlags: 0
@@ -70156,6 +70202,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AreaID: 5
+  TeleportSpawnPoint_X: 0
+  TeleportSpawnPoint_Z: 0
 --- !u!4 &2020728628
 Transform:
   m_ObjectHideFlags: 0
@@ -71779,6 +71827,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AreaID: 8
+  TeleportSpawnPoint_X: 7
+  TeleportSpawnPoint_Z: 9
 --- !u!4 &2061669788
 Transform:
   m_ObjectHideFlags: 0

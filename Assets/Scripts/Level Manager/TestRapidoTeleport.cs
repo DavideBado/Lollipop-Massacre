@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TestRapidoTeleport : MonoBehaviour
 {
+    public GameObject MyArea;
     public TestRapidoTeleport otherteleport;
     public int ID;
     private void OnTriggerStay(Collider other)
