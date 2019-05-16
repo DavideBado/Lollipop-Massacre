@@ -18,6 +18,13 @@ public class GameManager : MonoBehaviour
     public static Action GoToTutorial;
     public static Action GoToOptions;
     public static Action GoToGamePlay;
+    public static Action GoToIdle;
+    public static Action GoToBaseAttack;
+    public static Action GoToMovement;
+    public static Action GoToAbility;
+    public static Action GoToPreturn;
+    public static Action GoToEndGame;
+    public static Action GoToPause;
 
     #endregion
 
@@ -37,7 +44,13 @@ public class GameManager : MonoBehaviour
             GoToTutorial += singleton.HandleOnTutorial;
             GoToOptions += singleton.HandleOnOptions;
             GoToGamePlay += singleton.HandleOnGamePlay;
-
+            GoToIdle += singleton.HandleOnIdle;
+            GoToBaseAttack += singleton.HandleOnBaseAttack;
+            GoToMovement += singleton.HandleOnMovement;
+            GoToAbility += singleton.HandleOnAbility;
+            GoToPreturn += singleton.HandleOnPreTurn;
+            GoToEndGame += singleton.HandleOnEndGame;
+            GoToPause += singleton.HandleOnPause;
         }
         
     }
@@ -70,7 +83,7 @@ public class GameManager : MonoBehaviour
         UIMngr = FindObjectOfType<UIManager>();
         Context context = new Context()
         {
-            timer = 3f,
+            timer = 5f,
 
         };
         foreach (StateBehaviourBase state in animController.GetBehaviours<StateBehaviourBase>())
@@ -107,6 +120,40 @@ public class GameManager : MonoBehaviour
         animController.SetTrigger("GoToGamePlay");
     }
 
+    private void HandleOnIdle()
+    {
+        animController.SetTrigger("GoToIdle");
+    }
+
+    private void HandleOnBaseAttack()
+    {
+        animController.SetTrigger("GoToBaseAttack");
+    }
+
+    private void HandleOnMovement()
+    {
+        animController.SetTrigger("GoToMovement");
+    }
+
+    private void HandleOnAbility()
+    {
+        animController.SetTrigger("GoToAbility");
+    }
+
+    private void HandleOnPreTurn()
+    {
+        animController.SetTrigger("GoToPreTurn");
+    }
+
+    private void HandleOnEndGame()
+    {
+        animController.SetTrigger("GoToEndGame");
+    }
+
+    private void HandleOnPause()
+    {
+        animController.SetTrigger("GoToPause");
+    }
     #endregion
 
 
@@ -120,6 +167,13 @@ public class GameManager : MonoBehaviour
             GoToTutorial -= singleton.HandleOnTutorial;
             GoToOptions -= singleton.HandleOnOptions;
             GoToGamePlay -= singleton.HandleOnGamePlay;
+            GoToIdle -= singleton.HandleOnIdle;
+            GoToBaseAttack -= singleton.HandleOnBaseAttack;
+            GoToMovement -= singleton.HandleOnMovement;
+            GoToAbility -= singleton.HandleOnAbility;
+            GoToPreturn -= singleton.HandleOnPreTurn;
+            GoToEndGame -= singleton.HandleOnEndGame;
+            GoToPause -= singleton.HandleOnPause;
         }
         
     }

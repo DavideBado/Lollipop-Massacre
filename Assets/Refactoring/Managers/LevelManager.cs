@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-    public GridManager Gridmngr;
-    public PlayerManager Playermngr;
+     public GridManager Gridmngr;
+     public PlayerManager Playermngr;
 
     /// <summary>
     /// setup dei manager
@@ -21,5 +21,6 @@ public class LevelManager : MonoBehaviour
         Gridmngr = FindObjectOfType<GridManager>();
         Playermngr = FindObjectOfType<PlayerManager>();
     }
+
 
 }

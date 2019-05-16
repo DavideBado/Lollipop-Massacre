@@ -15,7 +15,7 @@ namespace GridSystem {
         List<GameObject> Objects = new List<GameObject>();
        
         void Start() {
-            CreateGrid(ConfigData);
+            //CreateGrid(ConfigData);
 
         }
 
