@@ -9,6 +9,7 @@ using WindowsInput;
 
 public class Agent : MonoBehaviour, ICharacter
 {
+    public string CharacterName;
     GameObject Graphic;
     InputSimulator m_InputSimulator = new InputSimulator();
     int m_OnEnableCounter = 0;
@@ -324,7 +325,7 @@ public class Agent : MonoBehaviour, ICharacter
                 y--;
 				RotUp = true;
 			}
-
+            GameManager.GetComponent<Pointer>().PointerOff();
 		}
 	}
 	public void Left()
@@ -348,7 +349,8 @@ public class Agent : MonoBehaviour, ICharacter
                 x++;
 				RotLeft = true;
 			}
-		}
+            GameManager.GetComponent<Pointer>().PointerOff();
+        }
 	}
 	public void Down()
 	{
@@ -371,7 +373,8 @@ public class Agent : MonoBehaviour, ICharacter
                 y++;
 				RotDown = true;
 			}
-		}
+            GameManager.GetComponent<Pointer>().PointerOff();
+        }
 	}
 	public void Right()
 	{
@@ -394,7 +397,8 @@ public class Agent : MonoBehaviour, ICharacter
                 x--;
 				RotRight = true;
 			}
-		}
+            GameManager.GetComponent<Pointer>().PointerOff();
+        }
 	}
 
 	public void BasicAttack()
