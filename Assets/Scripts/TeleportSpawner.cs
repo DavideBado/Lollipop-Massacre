@@ -11,7 +11,7 @@ public class TeleportSpawner : MonoBehaviour
 
     private void Update()
     {
-        if (FindObjectOfType<GameManager>().PickUpTurnCount == 3)
+        if (Input.GetKeyDown(KeyCode.Y))
         {
             Telespawn();
         }
