@@ -18,7 +18,7 @@ public class Healthscript : MonoBehaviour
         {
             if (other.GetComponent<LifeManager>() != null)
             {
-                other.GetComponent<LifeManager>().Life += 2;
+                other.GetComponent<LifeManager>().Life += 1;
             }
             FindObjectOfType<GameManager>().HealtTurnCount = 0;
             Destroy(gameObject);          

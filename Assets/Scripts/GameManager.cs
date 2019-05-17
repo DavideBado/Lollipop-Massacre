@@ -15,11 +15,12 @@ public class GameManager : MonoBehaviour
     public List<GameObject> POneParty = new List<GameObject>();
     public List<GameObject> PTwoParty = new List<GameObject>();
     public List<Transform> SpawnPoints = new List<Transform>();
-    GameObject m_slider;
+    //GameObject m_slider;
     public GameObject BenchPOne, BenchPTwo;
     bool state;    
     public Text Timertext, TimeMaxText, TurnoText;
-    float Timer, Timer2, m_TimerSafe = 0;
+    public float Timer;
+    float Timer2, m_TimerSafe = 0;
     public float TimeMax = 3f, Speed = 25f, TimerSafe = 0;
     public bool Turn = true, CanAttack = true, Pause = false;
     public int RoundCount = 0, PickUpTurnCount = 0, HealtTurnCount = 0;
@@ -39,7 +40,7 @@ public class GameManager : MonoBehaviour
     {
         m_SwitchPOne = 2;
         m_SwitchPTwo = 2;
-        m_slider = FindObjectOfType<CounterPosition>().gameObject;
+        //m_slider = FindObjectOfType<CounterPosition>().gameObject;
 
         //UpdateBenchTester();
         UpdateBench();
@@ -130,7 +131,7 @@ public class GameManager : MonoBehaviour
             if (m_TimerSafe <= 0) // E anche il tempo supplementare è finito
             {
                 TimerOn = true;
-                m_slider.SetActive(true);
+                //m_slider.SetActive(true);
                 Pause = false;
                 Turn = !Turn; // Change player
                 Timer = TimeMax; //Imposta nuovamente il timer

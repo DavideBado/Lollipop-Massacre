@@ -115,11 +115,11 @@ public class Charge : MonoBehaviour
                     Debug.DrawRay(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
                     if (dist <= 5)
                     {
-                        power = 2;
+                        power = 1;
                     }
                     else if (dist > 5)
                     {
-                        power = 4;
+                        power = 2;
                     }
                     attackCheck = true;
                 }

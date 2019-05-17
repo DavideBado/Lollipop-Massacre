@@ -22,7 +22,8 @@ public class Agent : MonoBehaviour, ICharacter
     public int CurrentID;
     //*************************************************
     public List<Texture> _Sprites = new List<Texture>();
-    public List<Texture> LifeSprites = new List<Texture>(); 
+    public List<Texture> LifeSprites = new List<Texture>();
+    public List<Texture> LifeSpritesBench = new List<Texture>(); 
     public List<Texture> EnergySprites = new List<Texture>();
     public List<Material> _Materials = new List<Material>();
     public Vector3 SavedlookAt, RayCenter, RayLeft, RayRight;
@@ -91,7 +92,7 @@ public class Agent : MonoBehaviour, ICharacter
 
     void InStart()
     {
-        FindObjectOfType<CounterPosition>().FindPlayers();
+        //FindObjectOfType<CounterPosition>().FindPlayers();
         UpdateReference();
         Spawn(); // Posiziona il giocatore
         FirstSaveXY(); // Salvo le coordinate della mia posizione
@@ -412,7 +413,7 @@ public class Agent : MonoBehaviour, ICharacter
                 {
                     Debug.DrawRay(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
                     //hit.transform.DOShakePosition(0.5f, 0.4f, 10, 45);
-                    hit.transform.GetComponent<LifeManager>().Damage(2); // Togli vita al player in collisione
+                    hit.transform.GetComponent<LifeManager>().Damage(1); // Togli vita al player in collisione
 
                 }
             }

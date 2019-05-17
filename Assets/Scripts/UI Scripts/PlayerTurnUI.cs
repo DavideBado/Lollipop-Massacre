@@ -17,7 +17,7 @@ public class PlayerTurnUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.Pause == false)
+        if (GameManager.Timer > 0)
         {
             if (GameManager.Turn == true)
             {

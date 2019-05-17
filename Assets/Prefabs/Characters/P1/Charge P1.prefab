@@ -177,6 +177,9 @@ MonoBehaviour:
   LifeSprites:
   - {fileID: 2800000, guid: d5ceffa33f81a1042a62da06213e4b83, type: 3}
   - {fileID: 2800000, guid: c6fbc6c4a30dc5e4d8cc4d4260425230, type: 3}
+  LifeSpritesBench:
+  - {fileID: 2800000, guid: 81c7efd6da8791c41a39295f716c2280, type: 3}
+  - {fileID: 2800000, guid: c84a4b9d3211f99419fb3651b4f1be14, type: 3}
   EnergySprites:
   - {fileID: 2800000, guid: d22b6a48e0f02e04c8caf7844b03f8eb, type: 3}
   - {fileID: 2800000, guid: cf3903a094078804180bc2826bfc21fb, type: 3}
@@ -248,7 +251,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OnShield: 0
-  Life: 6
+  Life: 3
 --- !u!114 &397459704151230688
 MonoBehaviour:
   m_ObjectHideFlags: 0

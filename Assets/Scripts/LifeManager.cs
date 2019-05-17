@@ -8,7 +8,7 @@ using DG.Tweening;
 public class LifeManager : MonoBehaviour
 {
     public bool OnShield = false;
-    public int Life = 6;
+    public int Life = 3;
     GameManager GameManager;   
     bool CanRespawn = true;
     GameObject Graphic;

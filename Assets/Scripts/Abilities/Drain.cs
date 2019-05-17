@@ -40,12 +40,12 @@ public class Drain : MonoBehaviour
     {
         if (GetComponent<Agent>().Mana > 0 && GetComponent<Agent>().MyTurn && GetComponent<Agent>().PlayerType == 2 && GetComponent<Agent>().ImStunned == false && Manager.CanAttack == true && Manager.Pause == false)
         {
-            if(GetComponent<LifeManager>().Life == 6)
+            if(GetComponent<LifeManager>().Life == 3)
             {
                 ImFullButIWannaDrain();
             }
 
-            if (GetComponent<LifeManager>().Life < 6)
+            if (GetComponent<LifeManager>().Life < 3)
             {
                 INeedLifeDrain();
             }
@@ -71,7 +71,7 @@ public class Drain : MonoBehaviour
             {
                 onAttack = true;
                 Debug.DrawRay(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
-                hit.transform.GetComponent<LifeManager>().Damage(2);
+                hit.transform.GetComponent<LifeManager>().Damage(1);
                 hit.transform.GetComponent<Agent>().imDrained = true;
                 hit.transform.GetComponent<Agent>().StartDrain = Manager.Turn;
             }
@@ -88,15 +88,8 @@ public class Drain : MonoBehaviour
             {
                 onAttack = true;
                 Debug.DrawRay(transform.position + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
-                if (GetComponent<LifeManager>().Life == 5)
-                {
-                    GetComponent<LifeManager>().Life++;
-                }
-                else if (GetComponent<LifeManager>().Life < 5)
-                {
-                    GetComponent<LifeManager>().Life += 2;
-                }
-                hit.transform.GetComponent<LifeManager>().Damage(2);
+                GetComponent<LifeManager>().Life++;
+                hit.transform.GetComponent<LifeManager>().Damage(1);
                 hit.transform.GetComponent<Agent>().imDrained = true;
                 hit.transform.GetComponent<Agent>().StartDrain = Manager.Turn;
             }
@@ -108,8 +101,8 @@ public class Drain : MonoBehaviour
             {
                 onAttack = true;
                 Debug.DrawRay(GetComponent<Agent>().RayLeft + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
-                GetComponent<LifeManager>().Life += 2;
-                hit.transform.GetComponent<LifeManager>().Damage(2);
+                GetComponent<LifeManager>().Life++;
+                hit.transform.GetComponent<LifeManager>().Damage(1);
                 hit.transform.GetComponent<Agent>().imDrained = true;
                 hit.transform.GetComponent<Agent>().StartDrain = Manager.Turn;
             }
@@ -121,8 +114,8 @@ public class Drain : MonoBehaviour
             {
                 onAttack = true;
                 Debug.DrawRay(GetComponent<Agent>().RayRight + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
-                GetComponent<LifeManager>().Life += 2;
-                hit.transform.GetComponent<LifeManager>().Damage(2);
+                GetComponent<LifeManager>().Life++;
+                hit.transform.GetComponent<LifeManager>().Damage(1);
                 hit.transform.GetComponent<Agent>().imDrained = true;
                 hit.transform.GetComponent<Agent>().StartDrain = Manager.Turn;
             }
@@ -134,8 +127,8 @@ public class Drain : MonoBehaviour
             {
                 onAttack = true;
                 Debug.DrawRay(GetComponent<Agent>().RayRight + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
-                GetComponent<LifeManager>().Life += 2;
-                hit.transform.GetComponent<LifeManager>().Damage(2);
+                GetComponent<LifeManager>().Life++;
+                hit.transform.GetComponent<LifeManager>().Damage(1);
                 hit.transform.GetComponent<Agent>().imDrained = true;
                 hit.transform.GetComponent<Agent>().StartDrain = Manager.Turn;
             }
