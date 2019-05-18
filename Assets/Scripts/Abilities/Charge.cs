@@ -23,12 +23,12 @@ public class Charge : MonoBehaviour
         if (onAttack == true)
         {
             Timer -= Time.deltaTime;
-            Manager.Pause = true;
+            Manager.TimerOn = false;
             NewPreview(Manager.CellAttackMaterial);
             if (Timer <= 0)
             {
                 onAttack = false;
-                Manager.Pause = false;
+                Manager.TimerOn = true;
                 CleanPreview();
                 Timer = 1f;
             }

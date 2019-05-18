@@ -10,10 +10,6 @@ public class Timer : MonoBehaviour
     void Update()
     {
         if(GameManager.TimerOn == true)
-            TimerText.text = ((int)GameManager.Timer).ToString();
-        else
-        {
-            TimerText.text = 5.ToString();
-        }
+            TimerText.text = ((int)GameManager.Timer).ToString();       
     }
 }
