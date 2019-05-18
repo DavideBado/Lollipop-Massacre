@@ -155,6 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62a6c9b588170a24a921bc82faf2dc93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CharacterName: NOCTURN
   SwitchIndex: 0
   AgentParent: {fileID: 0}
   AgentSpawnPosition: {x: 12, y: 0, z: 7}
@@ -170,7 +171,16 @@ MonoBehaviour:
   _Sprites:
   - {fileID: 2800000, guid: e5a9316b0b54c044597d00884f1653e1, type: 3}
   - {fileID: 2800000, guid: b7953ca3aa067dc4d81b29d655dd87e1, type: 3}
-  - {fileID: 2800000, guid: 927a0212c24d424449323a5b9fa188af, type: 3}
+  - {fileID: 2800000, guid: cac1eca1744339a40b0d2a9231728fd8, type: 3}
+  LifeSprites:
+  - {fileID: 2800000, guid: d5ceffa33f81a1042a62da06213e4b83, type: 3}
+  - {fileID: 2800000, guid: c6fbc6c4a30dc5e4d8cc4d4260425230, type: 3}
+  LifeSpritesBench:
+  - {fileID: 2800000, guid: 81c7efd6da8791c41a39295f716c2280, type: 3}
+  - {fileID: 2800000, guid: c84a4b9d3211f99419fb3651b4f1be14, type: 3}
+  EnergySprites:
+  - {fileID: 2800000, guid: b168c29f6facc7f43962b52431307092, type: 3}
+  - {fileID: 2800000, guid: cf511ef45fe9fcd4a9af8d87fae78618, type: 3}
   _Materials: []
   SavedlookAt: {x: 0, y: 0, z: 0}
   RayCenter: {x: 0, y: 0, z: 0}
@@ -222,6 +232,7 @@ MonoBehaviour:
   Switch_A: 257
   Switch_B: 258
   Switch_C: 259
+  Teleport: 304
   ManagerPlayerID: 0
 --- !u!114 &1256144809
 MonoBehaviour:
@@ -236,7 +247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OnShield: 0
-  Life: 6
+  Life: 3
 --- !u!114 &1242158603117144819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -277,6 +288,7 @@ GameObject:
   - component: {fileID: 900737078489558077}
   - component: {fileID: 3207165520101750177}
   - component: {fileID: 6159664038656921112}
+  - component: {fileID: 5737689734165881586}
   m_Layer: 0
   m_Name: pSphere2
   m_TagString: Untagged
@@ -343,6 +355,18 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &5737689734165881586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3595088801534984405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6da994d14e269d84c949e188aa3f9d56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6364351882641153106
 GameObject:
   m_ObjectHideFlags: 0

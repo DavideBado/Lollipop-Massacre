@@ -156,6 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62a6c9b588170a24a921bc82faf2dc93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CharacterName: ELVIS
   SwitchIndex: 0
   AgentParent: {fileID: 0}
   AgentSpawnPosition: {x: 0, y: 0, z: 0}
@@ -171,7 +172,16 @@ MonoBehaviour:
   _Sprites:
   - {fileID: 2800000, guid: 945c8e40d0be39742995fd2b1ec40f04, type: 3}
   - {fileID: 2800000, guid: a6845f00cef36a049833422cc046c948, type: 3}
-  - {fileID: 2800000, guid: 4acaee0ecc9fed2469cad84f13a8f63d, type: 3}
+  - {fileID: 2800000, guid: 331a3a2053794504b9f2f1aa3630e76f, type: 3}
+  LifeSprites:
+  - {fileID: 2800000, guid: d5ceffa33f81a1042a62da06213e4b83, type: 3}
+  - {fileID: 2800000, guid: c6fbc6c4a30dc5e4d8cc4d4260425230, type: 3}
+  LifeSpritesBench:
+  - {fileID: 2800000, guid: 81c7efd6da8791c41a39295f716c2280, type: 3}
+  - {fileID: 2800000, guid: c84a4b9d3211f99419fb3651b4f1be14, type: 3}
+  EnergySprites:
+  - {fileID: 2800000, guid: 76f4cdd724396de44b5755f0268c1a07, type: 3}
+  - {fileID: 2800000, guid: 0c3c5670d566d834cb59dacfdd132404, type: 3}
   _Materials: []
   SavedlookAt: {x: 0, y: 0, z: 0}
   RayCenter: {x: 0, y: 0, z: 0}
@@ -223,6 +233,7 @@ MonoBehaviour:
   Switch_A: 257
   Switch_B: 258
   Switch_C: 259
+  Teleport: 304
   ManagerPlayerID: 0
 --- !u!114 &1256144809
 MonoBehaviour:
@@ -237,7 +248,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OnShield: 0
-  Life: 6
+  Life: 3
 --- !u!114 &7152227641638942373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -650,10 +661,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1256144812}
     m_Modifications:
-    - target: {fileID: 100036, guid: 2ede4ac6d3aa84c43b97210b6e8e37b1, type: 3}
-      propertyPath: m_Name
-      value: SM_LolliPop_Unicorn
-      objectReference: {fileID: 0}
     - target: {fileID: 400036, guid: 2ede4ac6d3aa84c43b97210b6e8e37b1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -709,6 +716,10 @@ PrefabInstance:
     - target: {fileID: 400036, guid: 2ede4ac6d3aa84c43b97210b6e8e37b1, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 100036, guid: 2ede4ac6d3aa84c43b97210b6e8e37b1, type: 3}
+      propertyPath: m_Name
+      value: SM_LolliPop_Unicorn
       objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: 2ede4ac6d3aa84c43b97210b6e8e37b1, type: 3}
       propertyPath: m_Controller

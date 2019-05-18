@@ -53,9 +53,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6401599724218344512}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de8fdab7506e4b0409ed7b715ab88ec5, type: 3}
+  m_Script: {fileID: 11500000, guid: 112b6b3afeca37243ad99a248b6fda42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PickupArea: 0
 --- !u!136 &3488169923996037512
 CapsuleCollider:
   m_ObjectHideFlags: 0

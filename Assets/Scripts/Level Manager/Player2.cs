@@ -17,7 +17,7 @@ public class Player2 : Agent
 
 	void TurnUpdate()
 	{
-		MyTurn = !(GameObject.Find("GameManager").GetComponent<GameManager>().Turn);
+		MyTurn = !FindObjectOfType<GameManager>().Turn;
 	}
 
 

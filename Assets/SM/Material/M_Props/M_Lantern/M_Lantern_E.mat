@@ -73,5 +73,10 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
+<<<<<<< HEAD:Assets/SM/Material/M_Props/M_Lantern/M_Lantern_E.mat
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 5.992157, g: 0.6363798, b: 0, a: 1}
+=======
+    - _Color: {r: 1, g: 0.7686721, b: 0.3254717, a: 1}
+    - _EmissionColor: {r: 4.383087, g: 3.0682902, b: 0.5582234, a: 1}
+>>>>>>> master:Assets/SM/Material/M_emissive_test_2.mat

@@ -5,10 +5,14 @@ using GridSystem;
 using UnityEngine.UI;
 using System.Linq;
 using DG.Tweening;
-
+using WindowsInput;
+using System;
 
 public class Agent : MonoBehaviour, ICharacter
 {
+    public string CharacterName;
+    GameObject Graphic;
+    InputSimulator m_InputSimulator = new InputSimulator();
     int m_OnEnableCounter = 0;
     public int SwitchIndex;
     [HideInInspector] public Transform AgentParent = null;
@@ -20,6 +24,9 @@ public class Agent : MonoBehaviour, ICharacter
     public int CurrentID;
     //*************************************************
     public List<Texture> _Sprites = new List<Texture>();
+    public List<Texture> LifeSprites = new List<Texture>();
+    public List<Texture> LifeSpritesBench = new List<Texture>(); 
+    public List<Texture> EnergySprites = new List<Texture>();
     public List<Material> _Materials = new List<Material>();
     public Vector3 SavedlookAt, RayCenter, RayLeft, RayRight;
     public bool MyTurn, OnTheRoad = false;
@@ -40,10 +47,8 @@ public class Agent : MonoBehaviour, ICharacter
     public float AgentSpeed;
     Rigidbody rg;
     public GameObject StunPS, PoisonPS, DrainPS;
-        
-    // ********** Cose per il menu *************
-
    
+    // ********** Cose per il menu *************
     public List<Texture> Sprites
     {
         set
@@ -59,8 +64,6 @@ public class Agent : MonoBehaviour, ICharacter
         }
             
     }
-
-
     //********************************************
     private void OnEnable()
     {
@@ -71,6 +74,7 @@ public class Agent : MonoBehaviour, ICharacter
     {
         InStart();
         rg = GetComponent<Rigidbody>();
+        Graphic = GetComponentInChildren<AnimationController>().gameObject;
     }
 
 
@@ -86,7 +90,7 @@ public class Agent : MonoBehaviour, ICharacter
 
     void InStart()
     {
-        FindObjectOfType<CounterPosition>().FindPlayers();
+        //FindObjectOfType<CounterPosition>().FindPlayers();
         UpdateReference();
         Spawn(); // Posiziona il giocatore
         FirstSaveXY(); // Salvo le coordinate della mia posizione
@@ -177,12 +181,13 @@ public class Agent : MonoBehaviour, ICharacter
                 AgentSpeed * Time.deltaTime);
                 if (transform.position == grid.GetWorldPosition(x, y)) // Se hai raggiunto la tua destinazione
                 {
-                    AgentSpeed = GameObject.Find("GameManager").GetComponent<GameManager>().Speed;
+                    AgentSpeed = FindObjectOfType<GameManager>().Speed;
                     // Salva le coordinate della posizione attuale
                     x2 = x;
                     y2 = y;
                     OnTheRoad = false;
-                    FindObjectOfType<GameManager>().TimerOn = true;
+                 
+                    //GameManager.TimerOn = true;
                 }
             }
             else // Load the old values of x && y
@@ -190,6 +195,7 @@ public class Agent : MonoBehaviour, ICharacter
                 x = x2;
                 y = y2;
                 OnTheRoad = false;
+                //GameManager.TimerOn = true;
             }
         }
     }
@@ -305,10 +311,18 @@ public class Agent : MonoBehaviour, ICharacter
             Rotation();
             if (RotUp == false)
 			{
-				y--;
+                if (PlayerID == 1)
+                {
+                    m_InputSimulator.Keyboard.KeyUp(WindowsInput.Native.VirtualKeyCode.VK_W); 
+                }
+                else if (PlayerID == 2)
+                {
+                    m_InputSimulator.Keyboard.KeyUp(WindowsInput.Native.VirtualKeyCode.UP);
+                }
+                y--;
 				RotUp = true;
 			}
-
+            GameManager.GetComponent<Pointer>().PointerOff();
 		}
 	}
 	public void Left()
@@ -321,10 +335,19 @@ public class Agent : MonoBehaviour, ICharacter
             Rotation();
             if (RotLeft == false)
 			{
-				x++;
+                if (PlayerID == 1)
+                {
+                    m_InputSimulator.Keyboard.KeyUp(WindowsInput.Native.VirtualKeyCode.VK_A);
+                }
+                else if (PlayerID == 2)
+                {
+                    m_InputSimulator.Keyboard.KeyUp(WindowsInput.Native.VirtualKeyCode.LEFT);
+                }
+                x++;
 				RotLeft = true;
 			}
-		}
+            GameManager.GetComponent<Pointer>().PointerOff();
+        }
 	}
 	public void Down()
 	{
@@ -336,10 +359,19 @@ public class Agent : MonoBehaviour, ICharacter
             Rotation();
             if (RotDown == false)
 			{
-				y++;
+                if (PlayerID == 1)
+                {
+                    m_InputSimulator.Keyboard.KeyUp(WindowsInput.Native.VirtualKeyCode.VK_S);
+                }
+                else if (PlayerID == 2)
+                {
+                    m_InputSimulator.Keyboard.KeyUp(WindowsInput.Native.VirtualKeyCode.DOWN);
+                }
+                y++;
 				RotDown = true;
 			}
-		}
+            GameManager.GetComponent<Pointer>().PointerOff();
+        }
 	}
 	public void Right()
 	{
@@ -351,16 +383,26 @@ public class Agent : MonoBehaviour, ICharacter
             Rotation();
             if (RotRight == false)
 			{
-				x--;
+                if (PlayerID == 1)
+                {
+                    m_InputSimulator.Keyboard.KeyUp(WindowsInput.Native.VirtualKeyCode.VK_D);
+                }
+                else if (PlayerID == 2)
+                {
+                    m_InputSimulator.Keyboard.KeyUp(WindowsInput.Native.VirtualKeyCode.RIGHT);
+                }
+                x--;
 				RotRight = true;
 			}
-		}
+            GameManager.GetComponent<Pointer>().PointerOff();
+        }
 	}
 
 	public void BasicAttack()
 	{
 		if (MyTurn == true && ImStunned == false && GameManager.CanAttack == true && GameManager.Pause == false) // Se è il mio turno
 		{
+            OnTheRoad = true;
 			GameManager.CanAttack = false;
             //BasicAtt.enabled = true; // Attiva il collider di attacco     
 
@@ -371,14 +413,14 @@ public class Agent : MonoBehaviour, ICharacter
                 if (hit.transform.tag == "Player" && hit.transform != transform)
                 {
                     Debug.DrawRay(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
-                    hit.transform.DOShakePosition(0.5f, 0.4f, 10, 45);
-                    hit.transform.GetComponent<LifeManager>().Damage(2); // Togli vita al player in collisione
+                    //hit.transform.DOShakePosition(0.5f, 0.4f, 10, 45);
+                    hit.transform.GetComponent<LifeManager>().Damage(1); // Togli vita al player in collisione
 
                 }
             }
 
-            rg.transform.DOMove(transform.position + SavedlookAt * 0.2f, 0.3f)
-                .SetAutoKill();            
+            /*Graphic.*/transform.DOMove(transform.position + SavedlookAt * 0.2f, 0.3f)
+                .SetAutoKill();
 
         }
 		else BasicAtt.enabled = false;
@@ -422,6 +464,10 @@ public class Agent : MonoBehaviour, ICharacter
 
     #endregion
 
+    public void TeleportMe()
+    {
+        GameManager.ActivatePortal();
+    }
     public void ImDrained()
     {        
         if (imDrained == true && StartDrain == GameManager.Turn)

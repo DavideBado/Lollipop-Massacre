@@ -156,6 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5746cf1716c8f841be66393a40050bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CharacterName: SCIMMIA
   SwitchIndex: 0
   AgentParent: {fileID: 0}
   AgentSpawnPosition: {x: 0, y: 0, z: 0}
@@ -171,9 +172,18 @@ MonoBehaviour:
   _Sprites:
   - {fileID: 2800000, guid: 365e81504a4750245835c79ab231ebd3, type: 3}
   - {fileID: 2800000, guid: 0a6f9356da1da434094534d14de3b7d3, type: 3}
-  - {fileID: 2800000, guid: 9b7e32a5e3004a048bddb58b15766cdf, type: 3}
+  - {fileID: 2800000, guid: bbb7958d01ce1794ab58d025a998c981, type: 3}
   - {fileID: 2800000, guid: ff94e89c6165f874090a49f4c6a2d78b, type: 3}
   - {fileID: 2800000, guid: 794bc7950fd1b6248b5ff84d167d0b77, type: 3}
+  LifeSprites:
+  - {fileID: 2800000, guid: d5ceffa33f81a1042a62da06213e4b83, type: 3}
+  - {fileID: 2800000, guid: c6fbc6c4a30dc5e4d8cc4d4260425230, type: 3}
+  LifeSpritesBench:
+  - {fileID: 2800000, guid: 81c7efd6da8791c41a39295f716c2280, type: 3}
+  - {fileID: 2800000, guid: c84a4b9d3211f99419fb3651b4f1be14, type: 3}
+  EnergySprites:
+  - {fileID: 2800000, guid: 27d963b66ee3fa14b8a8877272a4cdeb, type: 3}
+  - {fileID: 2800000, guid: 56b6c02fba3952644917462b58b00c9d, type: 3}
   _Materials:
   - {fileID: 2100000, guid: fda81b5bad2464f4faebf2e9ff3b84e8, type: 2}
   - {fileID: 2100000, guid: 7c56ca6d99673fa418f43a54d46454de, type: 2}
@@ -228,6 +238,7 @@ MonoBehaviour:
   Switch_A: 49
   Switch_B: 50
   Switch_C: 51
+  Teleport: 102
   ManagerPlayerID: 0
 --- !u!114 &1510294132
 MonoBehaviour:
@@ -242,7 +253,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OnShield: 0
-  Life: 6
+  Life: 3
 --- !u!114 &9156285678273493149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -552,10 +563,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1510294127}
     m_Modifications:
-    - target: {fileID: 100042, guid: 6a5d2e1b3840f2d4c956e989dbade66b, type: 3}
-      propertyPath: m_Name
-      value: SM_Lollipop_Sience
-      objectReference: {fileID: 0}
     - target: {fileID: 400042, guid: 6a5d2e1b3840f2d4c956e989dbade66b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -611,6 +618,10 @@ PrefabInstance:
     - target: {fileID: 400042, guid: 6a5d2e1b3840f2d4c956e989dbade66b, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 100042, guid: 6a5d2e1b3840f2d4c956e989dbade66b, type: 3}
+      propertyPath: m_Name
+      value: SM_Lollipop_Sience
       objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: 6a5d2e1b3840f2d4c956e989dbade66b, type: 3}
       propertyPath: m_Controller

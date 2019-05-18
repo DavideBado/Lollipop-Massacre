@@ -3,17 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using System.Linq;
+using DG.Tweening;
 
 public class LifeManager : MonoBehaviour
 {
     public bool OnShield = false;
-    public int Life = 6;
+    public int Life = 3;
     GameManager GameManager;   
     bool CanRespawn = true;
+    GameObject Graphic;
+  
     // Start is called before the first frame update
     private void Start()
     {
-
+        Graphic = GetComponentInChildren<AnimationController>().gameObject;
         GameManager = FindObjectOfType<GameManager>();
     }
     // Update is called once per frame
@@ -43,8 +46,12 @@ public class LifeManager : MonoBehaviour
     public void Damage(int _amount)
     {
         Life -= _amount;
-		GetComponent<XInputTestCS>().Damage = _amount;
-		GetComponent<XInputTestCS>().Timer = (_amount * 0.2f);
+        GetComponent<XInputTestCS>().Damage = _amount;
+        GetComponent<XInputTestCS>().Timer = (_amount * 0.2f);
+        if (Graphic != null)
+        {
+            Graphic.transform.DOShakePosition(0.5f, 0.6f, 10, 45).SetAutoKill();
+        }
     }
 
 }

@@ -155,6 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62a6c9b588170a24a921bc82faf2dc93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CharacterName: LEES
   SwitchIndex: 0
   AgentParent: {fileID: 0}
   AgentSpawnPosition: {x: 0, y: 0, z: 0}
@@ -170,7 +171,16 @@ MonoBehaviour:
   _Sprites:
   - {fileID: 2800000, guid: d6458738601295c45a67086cb55e6d16, type: 3}
   - {fileID: 2800000, guid: 76a0438060acc534bbb1735266ab74c5, type: 3}
-  - {fileID: 2800000, guid: 16aa31615843dfe418924d09f2d2fe76, type: 3}
+  - {fileID: 2800000, guid: ebf7faf27afbd2f4291ac893d2079123, type: 3}
+  LifeSprites:
+  - {fileID: 2800000, guid: d5ceffa33f81a1042a62da06213e4b83, type: 3}
+  - {fileID: 2800000, guid: c6fbc6c4a30dc5e4d8cc4d4260425230, type: 3}
+  LifeSpritesBench:
+  - {fileID: 2800000, guid: 81c7efd6da8791c41a39295f716c2280, type: 3}
+  - {fileID: 2800000, guid: c84a4b9d3211f99419fb3651b4f1be14, type: 3}
+  EnergySprites:
+  - {fileID: 2800000, guid: a890a0566a748f94aa0ebf3d12aa1cd3, type: 3}
+  - {fileID: 2800000, guid: 87b4d6330f25a8c4f9584c1234f78fb9, type: 3}
   _Materials: []
   SavedlookAt: {x: 0, y: 0, z: 0}
   RayCenter: {x: 0, y: 0, z: 0}
@@ -222,6 +232,7 @@ MonoBehaviour:
   Switch_A: 257
   Switch_B: 258
   Switch_C: 259
+  Teleport: 304
   ManagerPlayerID: 0
 --- !u!114 &1256144809
 MonoBehaviour:
@@ -236,7 +247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OnShield: 0
-  Life: 6
+  Life: 3
 --- !u!114 &855088209455006340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -635,14 +646,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1256144812}
     m_Modifications:
-    - target: {fileID: 100018, guid: b27161a71b1c8fc458aabaca2fa4c9bf, type: 3}
-      propertyPath: m_Name
-      value: red panda
-      objectReference: {fileID: 0}
-    - target: {fileID: 100018, guid: b27161a71b1c8fc458aabaca2fa4c9bf, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 400018, guid: b27161a71b1c8fc458aabaca2fa4c9bf, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0
@@ -685,6 +688,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400018, guid: b27161a71b1c8fc458aabaca2fa4c9bf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100018, guid: b27161a71b1c8fc458aabaca2fa4c9bf, type: 3}
+      propertyPath: m_Name
+      value: red panda
+      objectReference: {fileID: 0}
+    - target: {fileID: 100018, guid: b27161a71b1c8fc458aabaca2fa4c9bf, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

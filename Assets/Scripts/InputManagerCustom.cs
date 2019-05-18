@@ -5,7 +5,7 @@ using UnityEngine;
 public class InputManagerCustom : MonoBehaviour {
 
     
-    public KeyCode Up, Down, Left, Right, BasicAttack, Ability, Preview, Switch_A, Switch_B, Switch_C;
+    public KeyCode Up, Down, Left, Right, BasicAttack, Ability, Preview, Switch_A, Switch_B, Switch_C, Teleport;
     private bool isAxisInUse = false;
     public int ManagerPlayerID;
     
@@ -18,25 +18,25 @@ public class InputManagerCustom : MonoBehaviour {
     #region KeyboardInput
     void InputCall() // This inputcheck can be used in a menu orndocazzovuoi
     { 
-        if(Input.GetKeyDown(Up))
+        if(Input.GetKey(Up))
         {
             SendMessage("Up");
             
         } 
        
-        if (Input.GetKeyDown(Down))
+        if (Input.GetKey(Down))
         {
             SendMessage("Down");
         }
         
     
-        if (Input.GetKeyDown(Left))
+        if (Input.GetKey(Left))
         {
             SendMessage("Left");
         }
         
 
-        if (Input.GetKeyDown(Right))
+        if (Input.GetKey(Right))
         {
             SendMessage("Right");
         }
@@ -72,41 +72,45 @@ public class InputManagerCustom : MonoBehaviour {
         {
             SendMessage("Switch_C");
         }
+        if (Input.GetKeyDown(Teleport))
+        {
+            SendMessage("TeleportMe");
+        }        
     }
     #endregion
 
-    #region JoystickInput
-    void GpInputCall()
-    {
-        if (!isAxisInUse)
-        {
-            if (Input.GetAxisRaw("GP_VerticalArrow" + ManagerPlayerID.ToString()) == 1)
-            {
-                SendMessage("Up");
-                isAxisInUse = true;
+    //#region JoystickInput
+    //void GpInputCall()
+    //{
+    //    if (!isAxisInUse)
+    //    {
+    //        if (Input.GetAxisRaw("GP_VerticalArrow" + ManagerPlayerID.ToString()) == 1)
+    //        {
+    //            SendMessage("Up");
+    //            isAxisInUse = true;
                 
-            }
-            else if (Input.GetAxisRaw("GP_VerticalArrow" + ManagerPlayerID.ToString()) == -1)
-            {
-                SendMessage("Down");
-                isAxisInUse = true;
-            }
-            else if (Input.GetAxisRaw("GP_HorizontalArrow" + ManagerPlayerID.ToString()) == 1)
-            {
-                SendMessage("Right");
-                isAxisInUse = true;
-            }
-            else if (Input.GetAxisRaw("GP_HorizontalArrow" + ManagerPlayerID.ToString()) == -1)
-            {
-                SendMessage("Left");
-                isAxisInUse = true;
-            }
-        }
-        else if (Input.GetAxisRaw("GP_HorizontalArrow" + ManagerPlayerID.ToString()) == 0 && Input.GetAxisRaw("GP_VerticalArrow" + ManagerPlayerID.ToString()) == 0)
-        {
-            isAxisInUse = false;
-        }
-    }
-    #endregion
+    //        }
+    //        else if (Input.GetAxisRaw("GP_VerticalArrow" + ManagerPlayerID.ToString()) == -1)
+    //        {
+    //            SendMessage("Down");
+    //            isAxisInUse = true;
+    //        }
+    //        else if (Input.GetAxisRaw("GP_HorizontalArrow" + ManagerPlayerID.ToString()) == 1)
+    //        {
+    //            SendMessage("Right");
+    //            isAxisInUse = true;
+    //        }
+    //        else if (Input.GetAxisRaw("GP_HorizontalArrow" + ManagerPlayerID.ToString()) == -1)
+    //        {
+    //            SendMessage("Left");
+    //            isAxisInUse = true;
+    //        }
+    //    }
+    //    else if (Input.GetAxisRaw("GP_HorizontalArrow" + ManagerPlayerID.ToString()) == 0 && Input.GetAxisRaw("GP_VerticalArrow" + ManagerPlayerID.ToString()) == 0)
+    //    {
+    //        isAxisInUse = false;
+    //    }
+    //}
+    //#endregion
 
 }

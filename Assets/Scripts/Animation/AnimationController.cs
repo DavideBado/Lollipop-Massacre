@@ -16,7 +16,7 @@ public class AnimationController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(animator != null)
         animator.SetBool("OnMove", agent.OnTheRoad);
     }
 }

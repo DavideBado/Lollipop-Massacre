@@ -83,36 +83,86 @@ public class XInputTestCS : MonoBehaviour
 		//Debug.Log("dpad" + state.DPad.Down);
 		GamePadDPad m_dPad = state.DPad;
 
-		if (m_dPad.Right.Equals(ButtonState.Pressed) && m_OnInput == true)
-		{
+        #region Movimento in game
+        if (state.ThumbSticks.Left.X > 0/* m_dPad.Right.Equals(ButtonState.Pressed) && m_OnInput == true*/ && GetComponent<EventSystemCustom>() == null)
+        {
 
-			SendMessage("Right");
+            SendMessage("Right");
+            m_OnInput = false;
+        }
+        if (state.ThumbSticks.Left.X < 0/*m_dPad.Left.Equals(ButtonState.Pressed) && m_OnInput == true*/  && GetComponent<EventSystemCustom>() == null)
+        {
+            SendMessage("Left");
+            m_OnInput = false;
+        }
+        if (state.ThumbSticks.Left.Y > 0/*m_dPad.Up.Equals(ButtonState.Pressed) && m_OnInput == true*/  && GetComponent<EventSystemCustom>() == null)
+        {
+            SendMessage("Up");
+            m_OnInput = false;
+        }
+        if (state.ThumbSticks.Left.Y < 0/*m_dPad.Down.Equals(ButtonState.Pressed) && m_OnInput == true*/  && GetComponent<EventSystemCustom>() == null)
+        {
+            SendMessage("Down");
+            m_OnInput = false;
+        }
+        #endregion
 
-			m_OnInput = false;
-		}
-		if (m_dPad.Left.Equals(ButtonState.Pressed) && m_OnInput == true)
-		{
-			SendMessage("Left");
-			m_OnInput = false;
-		}
-		if (m_dPad.Up.Equals(ButtonState.Pressed) && m_OnInput == true)
-		{
-			SendMessage("Up");
-			m_OnInput = false;
-		}
-		if (m_dPad.Down.Equals(ButtonState.Pressed) && m_OnInput == true)
-		{
-			SendMessage("Down");
-			m_OnInput = false;
-		}
-		if (m_dPad.Down.Equals(ButtonState.Released) && m_dPad.Up.Equals(ButtonState.Released) && m_dPad.Left.Equals(ButtonState.Released) && m_dPad.Right.Equals(ButtonState.Released))
+        #region Movimento in menu
+        if (state.ThumbSticks.Left.X > 0/* m_dPad.Right.Equals(ButtonState.Pressed) && m_OnInput == true*/  && GetComponent<EventSystemCustom>() != null && m_OnInput == true)
+        {
+
+            SendMessage("Right");
+            m_OnInput = false;
+        }
+        if (state.ThumbSticks.Left.X < 0/*m_dPad.Left.Equals(ButtonState.Pressed) && m_OnInput == true*/ && GetComponent<EventSystemCustom>() != null && m_OnInput == true)
+        {
+            SendMessage("Left");
+            m_OnInput = false;
+        }
+        if (state.ThumbSticks.Left.Y > 0/*m_dPad.Up.Equals(ButtonState.Pressed) && m_OnInput == true*/  && GetComponent<EventSystemCustom>() != null && m_OnInput == true)
+        {
+            SendMessage("Up");
+            m_OnInput = false;
+        }
+        if (state.ThumbSticks.Left.Y < 0/*m_dPad.Down.Equals(ButtonState.Pressed) && m_OnInput == true*/ && GetComponent<EventSystemCustom>() != null && m_OnInput == true)
+        {
+            SendMessage("Down");
+            m_OnInput = false;
+        }
+        #endregion
+
+        #region Rotazione
+        if (state.ThumbSticks.Right.X > 0/* m_dPad.Right.Equals(ButtonState.Pressed)*/ && m_OnInput == true)
+        {
+
+            SendMessage("Right");
+
+            m_OnInput = false;
+        }
+        if (state.ThumbSticks.Right.X < 0/*m_dPad.Left.Equals(ButtonState.Pressed)*/ && m_OnInput == true)
+        {
+            SendMessage("Left");
+            m_OnInput = false;
+        }
+        if (state.ThumbSticks.Right.Y > 0/*m_dPad.Up.Equals(ButtonState.Pressed)*/ && m_OnInput == true)
+        {
+            SendMessage("Up");
+            m_OnInput = false;
+        }
+        if (state.ThumbSticks.Right.Y < 0/*m_dPad.Down.Equals(ButtonState.Pressed)*/ && m_OnInput == true)
+        {
+            SendMessage("Down");
+            m_OnInput = false;
+        } 
+        #endregion
+        if (state.ThumbSticks.Right.Y == 0 && state.ThumbSticks.Right.X == 0 && state.ThumbSticks.Left.Y == 0 && state.ThumbSticks.Left.X == 0)
 		{
 			m_OnInput = true;
 		}
 		if (prevState.Buttons.A == ButtonState.Released && state.Buttons.A == ButtonState.Pressed)
 		{
 			SendMessage("Submit");
-			SendMessage("Switch_A");
+			SendMessage("BasicAttack");
 		}
 
 		if (prevState.Buttons.B == ButtonState.Released && state.Buttons.B == ButtonState.Pressed)
@@ -126,12 +176,22 @@ public class XInputTestCS : MonoBehaviour
 			SendMessage("Switch_C");
 		}
 
+        if (prevState.Buttons.X == ButtonState.Released && state.Buttons.X == ButtonState.Pressed)
+		{
+			SendMessage("Ability");
+		}
+
 		if (prevState.Buttons.RightShoulder == ButtonState.Released && state.Buttons.RightShoulder == ButtonState.Pressed)
 		{
 			SendMessage("BasicAttack");
 		}
 
-		if (state.Triggers.Right > 0 && prevState.Triggers.Right == 0)
+        if (prevState.Buttons.LeftShoulder == ButtonState.Released && state.Buttons.LeftShoulder == ButtonState.Pressed)
+		{
+			SendMessage("TeleportMe");
+		}        
+
+        if (state.Triggers.Right > 0 && prevState.Triggers.Right == 0)
 		{
 			SendMessage("Ability");
 		}
