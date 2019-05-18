@@ -9932,7 +9932,7 @@ MonoBehaviour:
   img: {fileID: 4853235811508642023}
   sp1: {fileID: 2800000, guid: 4ee27609689042740ba9180ab2cd9f12, type: 3}
   sp2: {fileID: 2800000, guid: 5c19850215efaf9469e6c7678c1d2f7a, type: 3}
-  PanelPos: 1
+  PanelPos: 0
   gm: {fileID: 0}
   ID: 1
 --- !u!114 &4853235811508642023
@@ -10023,7 +10023,7 @@ MonoBehaviour:
   img: {fileID: 0}
   sp1: {fileID: 2800000, guid: 4ee27609689042740ba9180ab2cd9f12, type: 3}
   sp2: {fileID: 2800000, guid: 5c19850215efaf9469e6c7678c1d2f7a, type: 3}
-  PanelPos: 1
+  PanelPos: 0
   gm: {fileID: 0}
   ID: 0
 --- !u!114 &2849844085734849596
