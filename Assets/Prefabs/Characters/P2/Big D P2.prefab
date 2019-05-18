@@ -229,8 +229,8 @@ MonoBehaviour:
   BasicAttack: 256
   Ability: 271
   Preview: 305
-  Switch_A: 257
-  Switch_B: 258
+  Switch_Up: 257
+  Switch_Down: 258
   Switch_C: 259
   Teleport: 304
   ManagerPlayerID: 0
@@ -646,6 +646,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1256144812}
     m_Modifications:
+    - target: {fileID: 100018, guid: b27161a71b1c8fc458aabaca2fa4c9bf, type: 3}
+      propertyPath: m_Name
+      value: red panda
+      objectReference: {fileID: 0}
+    - target: {fileID: 100018, guid: b27161a71b1c8fc458aabaca2fa4c9bf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 400018, guid: b27161a71b1c8fc458aabaca2fa4c9bf, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0
@@ -688,14 +696,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400018, guid: b27161a71b1c8fc458aabaca2fa4c9bf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 100018, guid: b27161a71b1c8fc458aabaca2fa4c9bf, type: 3}
-      propertyPath: m_Name
-      value: red panda
-      objectReference: {fileID: 0}
-    - target: {fileID: 100018, guid: b27161a71b1c8fc458aabaca2fa4c9bf, type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

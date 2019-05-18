@@ -235,8 +235,8 @@ MonoBehaviour:
   BasicAttack: 32
   Ability: 113
   Preview: 304
-  Switch_A: 49
-  Switch_B: 50
+  Switch_Up: 101
+  Switch_Down: 114
   Switch_C: 51
   Teleport: 102
   ManagerPlayerID: 0
@@ -563,6 +563,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1510294127}
     m_Modifications:
+    - target: {fileID: 100042, guid: 6a5d2e1b3840f2d4c956e989dbade66b, type: 3}
+      propertyPath: m_Name
+      value: SM_Lollipop_Sience
+      objectReference: {fileID: 0}
     - target: {fileID: 400042, guid: 6a5d2e1b3840f2d4c956e989dbade66b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -618,10 +622,6 @@ PrefabInstance:
     - target: {fileID: 400042, guid: 6a5d2e1b3840f2d4c956e989dbade66b, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.37
-      objectReference: {fileID: 0}
-    - target: {fileID: 100042, guid: 6a5d2e1b3840f2d4c956e989dbade66b, type: 3}
-      propertyPath: m_Name
-      value: SM_Lollipop_Sience
       objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: 6a5d2e1b3840f2d4c956e989dbade66b, type: 3}
       propertyPath: m_Controller

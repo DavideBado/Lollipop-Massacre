@@ -47,6 +47,7 @@ public class Agent : MonoBehaviour, ICharacter
     public float AgentSpeed;
     Rigidbody rg;
     public GameObject StunPS, PoisonPS, DrainPS;
+    int switcherIndex;
    
     // ********** Cose per il menu *************
     public List<Texture> Sprites
@@ -438,29 +439,27 @@ public class Agent : MonoBehaviour, ICharacter
         }
     }
 
-    public void Switch_A()
+    public void Switch_Up()
     {
+        SwitchIndex++;
+        if (switcherIndex >= 2)
+            switcherIndex = 0;
         if (MyTurn == true)
         {
-            GameManager.Switcher(PlayerID, 1, gameObject);
+            GameManager.Switcher(PlayerID, switcherIndex, gameObject);
         }
     }
 
-    public void Switch_B()
+    public void Switch_Down()
     {
+        SwitchIndex--;
+        if (switcherIndex < 0)
+            switcherIndex = 1;
         if (MyTurn == true)
         {
-            GameManager.Switcher(PlayerID, 2, gameObject);
+            GameManager.Switcher(PlayerID, switcherIndex, gameObject);
         }
-    }
-
-    public void Switch_C()
-    {
-        if (MyTurn == true)
-        {
-            GameManager.Switcher(PlayerID, 3, gameObject);
-        }
-    }
+    }    
 
     #endregion
 

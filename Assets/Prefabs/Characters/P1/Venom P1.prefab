@@ -234,8 +234,8 @@ MonoBehaviour:
   BasicAttack: 32
   Ability: 113
   Preview: 304
-  Switch_A: 49
-  Switch_B: 50
+  Switch_Up: 101
+  Switch_Down: 114
   Switch_C: 51
   Teleport: 102
   ManagerPlayerID: 0

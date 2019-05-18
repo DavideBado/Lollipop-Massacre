@@ -45,8 +45,8 @@ public class GameManager : MonoBehaviour
     {
         PortalSpawner = GetComponent<TeleportSpawner>();
         portalTimer = 0.5f;
-        m_SwitchPOne = 2;
-        m_SwitchPTwo = 2;
+        //m_SwitchPOne = 2;
+        //m_SwitchPTwo = 2;
         //m_slider = FindObjectOfType<CounterPosition>().gameObject;
 
         //UpdateBenchTester();
@@ -276,44 +276,42 @@ public class GameManager : MonoBehaviour
 
     public void Switcher(int _PlayerID, int _CharacterIndex, GameObject _ActiveCharacter)
     {
-        if(_PlayerID == 1 && m_SwitchPOne > 0)
+        if(_PlayerID == 1/* && m_SwitchPOne > 0*/)
         {
-
-            m_SwitchPOne--;
+            //m_SwitchPOne--;
             // Spegnere il personaggio in scena, attivare quello selezionato e metterlo nella stessa posizione di quello appena  
-            foreach (GameObject _Character in POneParty)
-            {
-                if(_Character.GetComponent<Agent>().SwitchIndex == _CharacterIndex && _Character.GetComponent<LifeManager>().Life > 0 && _Character != _ActiveCharacter)
-                {
+            //foreach (GameObject _Character in POneParty)
+            //{
+            //    if(_Character.GetComponent<Agent>().SwitchIndex == _CharacterIndex && _Character.GetComponent<LifeManager>().Life > 0 && _Character != _ActiveCharacter)
+            //    {
+                    GameObject _Character = POneParty[_CharacterIndex];
                     _Character.transform.position = _ActiveCharacter.transform.position;
                     _Character.GetComponent<Agent>().AgentSpawnPosition = _ActiveCharacter.transform.position;
                     ToggleObject(_Character, POneParty);
 					_Character.transform.rotation = _ActiveCharacter.transform.rotation;
                     _ActiveCharacter.transform.parent = BenchPOne.transform;
                     _ActiveCharacter.SetActive(false);
-                }
-            }
+              //  }
+            //}
           
         }
-        else if(_PlayerID == 2 && m_SwitchPTwo > 0)
+        else if(_PlayerID == 2/* && m_SwitchPTwo > 0*/)
         {
-            m_SwitchPTwo--;
-            foreach (GameObject _Character in PTwoParty)
-            {
-                if (_Character.GetComponent<Agent>().SwitchIndex == _CharacterIndex && _Character.GetComponent<LifeManager>().Life > 0 && _Character != _ActiveCharacter)
-                {
+            //m_SwitchPTwo--;
+            //foreach (GameObject _Character in PTwoParty)
+            //{
+            //    if (_Character.GetComponent<Agent>().SwitchIndex == _CharacterIndex && _Character.GetComponent<LifeManager>().Life > 0 && _Character != _ActiveCharacter)
+            //    {
+                    GameObject _Character = PTwoParty[_CharacterIndex];
                     _Character.transform.position = _ActiveCharacter.transform.position;
                     _Character.GetComponent<Agent>().AgentSpawnPosition = _ActiveCharacter.transform.position;
                     ToggleObject(_Character, PTwoParty);
 					_Character.transform.rotation = _ActiveCharacter.transform.rotation;
 					_ActiveCharacter.transform.parent = BenchPTwo.transform;
                     _ActiveCharacter.SetActive(false);
-                }
-            }
-           
-            
-        }
-       
+            //    }
+            //}             
+        }       
     }
 
 
