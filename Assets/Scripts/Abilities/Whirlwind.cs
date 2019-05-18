@@ -5,33 +5,11 @@ using System.Linq;
 
 public class Whirlwind : MonoBehaviour
 {
-    float Timer;
-    bool onAttack;
     GameManager Manager;
     private void Start()
     {
-        Timer = 1f;
         Manager = FindObjectOfType<GameManager>();
     }
-
-    private void Update()
-    {
-        if (onAttack == true)
-        {
-            Timer -= Time.deltaTime;
-            Manager.Pause = true;
-            NewPreview(Manager.CellAttackMaterial);
-            if (Timer <= 0)
-            {
-                onAttack = false;
-                Manager.Pause = false;
-                CleanPreview();
-                Timer = 1f;
-            }
-
-        }
-    }
-
     public void Ability()
 
     {
@@ -49,9 +27,9 @@ public class Whirlwind : MonoBehaviour
                 if (hit.transform.tag == "Player" && hit.transform != transform)
 
                 {
-                    onAttack = true;
+
                     Debug.DrawRay(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
-                    hit.transform.GetComponent<LifeManager>().Damage(1);
+                    hit.transform.GetComponent<LifeManager>().Damage(2);
                     int EnemyID = hit.transform.GetComponent<Agent>().PlayerID;
 
                     if (EnemyID == 1)
@@ -92,17 +70,11 @@ public class Whirlwind : MonoBehaviour
 
     public void Preview()
     {
-        if (GetComponent<Agent>().MyTurn && GetComponent<Agent>().ImStunned == false && Manager.CanAttack == true && Manager.Pause == false)
+
+        if (GetComponent<Agent>().MyTurn && GetComponent<Agent>().PlayerType == 6 && GetComponent<Agent>().ImStunned == false && Manager.CanAttack == true && Manager.Pause == false)
 
         {
             CleanPreview();
-            Material PrevMaterial = FindObjectOfType<CellPrefScript>().Materials[3];
-            NewPreview(PrevMaterial);
-        }
-    }
-
-    void NewPreview(Material _material)
-    {       
             float _lookX = GetComponent<Agent>().SavedlookAt.x;
             float _lookY = GetComponent<Agent>().SavedlookAt.z;
             Vector3 playerPosition = transform.position;
@@ -115,20 +87,22 @@ public class Whirlwind : MonoBehaviour
 
             if (Physics.Raycast(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt, out hit, 4))
             {
-                CellsGreenInRay(hit.transform.position, cells, playerPosition, hit.transform.GetComponent<Agent>(), _material);
+                CellsGreenInRay(hit.transform.position, cells, playerPosition, hit.transform.GetComponent<Agent>());
             }
             else
             {
                 if (_lookX != 0)
                 {
 
-                    CellsGreenInRay(new Vector3((transform.position.x + (5 * _lookX)), 0, transform.position.z), cells, playerPosition, null, _material);
+                    CellsGreenInRay(new Vector3((transform.position.x + (5 * _lookX)), 0, transform.position.z), cells, playerPosition, null);
                 }
                 else if (_lookY != 0)
                 {
-                    CellsGreenInRay(new Vector3(transform.position.x, 0, (transform.position.z + (5 * _lookY))), cells, playerPosition, null, _material);
+                    CellsGreenInRay(new Vector3(transform.position.x, 0, (transform.position.z + (5 * _lookY))), cells, playerPosition, null);
                 }
-            }       
+
+            }
+        }
     }
     public void CleanPreview()
     {
@@ -142,7 +116,7 @@ public class Whirlwind : MonoBehaviour
         }
     }
 
-    void CellsGreenInRay(Vector3 HitPosition, List<CellPrefScript> cells, Vector3 playerPosition, Agent _agent, Material _material)
+    void CellsGreenInRay(Vector3 HitPosition, List<CellPrefScript> cells, Vector3 playerPosition, Agent _agent)
     {
         foreach (CellPrefScript cell in cells)
         {
@@ -163,7 +137,7 @@ public class Whirlwind : MonoBehaviour
                  (playerPosition.z > cell.transform.position.z && cell.transform.position.z >= HitPosition.z)) &&
                  (cell.transform.position.x == HitPosition.x)))
                 {
-                    cell.GetComponent<MeshRenderer>().material = _material;
+                    cell.GetComponent<MeshRenderer>().material = cell.Materials[3];
                 }
             }
             else if ((((playerPosition.x < cell.transform.position.x && cell.transform.position.x < HitPosition.x)
@@ -181,7 +155,7 @@ public class Whirlwind : MonoBehaviour
                  (playerPosition.z > cell.transform.position.z && cell.transform.position.z > HitPosition.z)) &&
                  (cell.transform.position.x == HitPosition.x)))
             {
-                cell.GetComponent<MeshRenderer>().material = _material;
+                cell.GetComponent<MeshRenderer>().material = cell.Materials[3];
             }
         }
     }
@@ -229,7 +203,7 @@ public class Whirlwind : MonoBehaviour
         //_goBench.GetChild(_go.transform.GetSiblingIndex()).gameObject.SetActive(true);
 
         _go.SetActive(true);
-        _go.GetComponent<LifeManager>().Damage(1);
+        _go.GetComponent<LifeManager>().Damage(2);
         Debug.Log(_go.name);
 
     }

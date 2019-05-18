@@ -7,34 +7,15 @@ public class Charge : MonoBehaviour
 {
     int power = 0;
     bool attackCheck = false;
-    float Timer;
     GameManager Manager;
-    private bool onAttack;
-
     private void Start()
     {
-        Timer = 1f;
         Manager = FindObjectOfType<GameManager>();
     }
 
     private void Update()
     {
         InUpdate();
-        if (onAttack == true)
-        {
-            Timer -= Time.deltaTime;
-            Manager.TimerOn = false;
-            NewPreview(Manager.CellAttackMaterial);
-            if (Timer <= 0)
-            {
-                onAttack = false;
-                Manager.TimerOn = true;
-                CleanPreview();
-                Timer = 1f;
-            }
-
-        }
-        
     }
 
     void InUpdate()
@@ -49,16 +30,10 @@ public class Charge : MonoBehaviour
     {
         RaycastHit hit;
 
-        if ((Physics.Raycast(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt, out hit, 1f)) && hit.transform != transform)
+        if ((Physics.Raycast(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt, out hit, 1f)) && (hit.transform.tag == "Player" && hit.transform != transform))
         {
-            if (hit.transform.tag == "Player")
-            {
-                hit.transform.GetComponent<LifeManager>().Life -= power;
-            }
+            hit.transform.GetComponent<LifeManager>().Life -= power;
             attackCheck = false;
-            Manager.Pause = false;
-            Manager.TimerOn = true;
-
         }            
     }
     public void Ability()
@@ -66,7 +41,7 @@ public class Charge : MonoBehaviour
         if (GetComponent<Agent>().Mana > 0 && GetComponent<Agent>().MyTurn && GetComponent<Agent>().PlayerType == 5 && GetComponent<Agent>().ImStunned == false && Manager.CanAttack == true && Manager.Pause == false)
         {            
             RaycastHit hit;
-            onAttack = true;
+
             if (Physics.Raycast(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt, out hit, Mathf.Infinity))
 
             {
@@ -113,13 +88,13 @@ public class Charge : MonoBehaviour
                 {
                     int dist = (int)Vector3.Distance(transform.position, hit.transform.position);
                     Debug.DrawRay(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
-                    if (dist <= 5)
-                    {
-                        power = 1;
-                    }
-                    else if (dist > 5)
+                    if (dist < 5)
                     {
                         power = 2;
+                    }
+                    else if (dist >= 5)
+                    {
+                        power = 4;
                     }
                     attackCheck = true;
                 }
@@ -172,17 +147,11 @@ public class Charge : MonoBehaviour
 
     public void Preview()
     {
-        if (GetComponent<Agent>().MyTurn && GetComponent<Agent>().ImStunned == false && Manager.CanAttack == true && Manager.Pause == false)
+       
+        if (GetComponent<Agent>().MyTurn && GetComponent<Agent>().PlayerType == 5 && GetComponent<Agent>().ImStunned == false && Manager.CanAttack == true && Manager.Pause == false)
 
         {
             CleanPreview();
-            Material PrevMaterial = FindObjectOfType<CellPrefScript>().Materials[3];
-            NewPreview(PrevMaterial);
-        }
-    }
-
-    void NewPreview(Material _material)
-    {                         
             float _lookX = GetComponent<Agent>().SavedlookAt.x;
             float _lookY = GetComponent<Agent>().SavedlookAt.z;
             Vector3 playerPosition = transform.position;
@@ -198,11 +167,11 @@ public class Charge : MonoBehaviour
                 Debug.DrawRay(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.black);
                 if (_lookX != 0)
                 {
-                    CellsGreenInRay(hit.transform.position, cells, playerPosition, _lookX, hit.transform.GetComponent<Agent>(), _material);
+                    CellsGreenInRay(hit.transform.position, cells, playerPosition, _lookX, hit.transform.GetComponent<Agent>());
                 }
                 else if (_lookY != 0)
                 {
-                    CellsGreenInRay(hit.transform.position, cells, playerPosition, _lookY, hit.transform.GetComponent<Agent>(), _material);
+                    CellsGreenInRay(hit.transform.position, cells, playerPosition, _lookY, hit.transform.GetComponent<Agent>());
 
                 }
                 
@@ -214,11 +183,11 @@ public class Charge : MonoBehaviour
                 {
                     if (_lookX > 0)
                     {
-                        CellsGreenInRay(new Vector3(GetComponent<Agent>().configGrid.DimX, 0,transform.position.z), cells, playerPosition, _lookX, null, _material);
+                        CellsGreenInRay(new Vector3(GetComponent<Agent>().configGrid.DimX, 0,transform.position.z), cells, playerPosition, _lookX, null);
                     }
                     else if (_lookX < 0)
                     {
-                        CellsGreenInRay(new Vector3(-1, 0, transform.position.z), cells, playerPosition, _lookX, null, _material);
+                        CellsGreenInRay(new Vector3(-1, 0, transform.position.z), cells, playerPosition, _lookX, null);
                     }
 
                 }
@@ -227,15 +196,17 @@ public class Charge : MonoBehaviour
 
                     if (_lookY < 0)
                     {
-                        CellsGreenInRay(new Vector3(transform.position.x, 0, -1), cells, playerPosition, _lookY, null, _material);
+                        CellsGreenInRay(new Vector3(transform.position.x, 0, -1), cells, playerPosition, _lookY, null);
                     }
                     else if (_lookY > 0)
                     {
-                        CellsGreenInRay(new Vector3(transform.position.x, 0, GetComponent<Agent>().configGrid.DimY), cells, playerPosition, _lookY, null, _material);
+                        CellsGreenInRay(new Vector3(transform.position.x, 0, GetComponent<Agent>().configGrid.DimY), cells, playerPosition, _lookY, null);
                     }
 
                 }
-            }    
+            }
+            
+        }
     }
 
     public void CleanPreview()
@@ -252,7 +223,7 @@ public class Charge : MonoBehaviour
         }
     }
 
-    void CellsGreenInRay(Vector3 HitPosition, List<CellPrefScript> cells, Vector3 playerPosition, float Look, Agent _agent, Material _material)
+    void CellsGreenInRay(Vector3 HitPosition, List<CellPrefScript> cells, Vector3 playerPosition, float Look, Agent _agent)
     {
         foreach (CellPrefScript cell in cells)
         {
@@ -274,11 +245,11 @@ public class Charge : MonoBehaviour
                  (playerPosition.z > cell.transform.position.z && cell.transform.position.z >= HitPosition.z)) &&
                  (cell.transform.position.x == HitPosition.x)))
                 {
-                    if (dist >= 0 && dist <= 5)
+                    if (dist >= 0 && dist < 5)
                     {
-                        cell.GetComponent<MeshRenderer>().material = _material;
+                        cell.GetComponent<MeshRenderer>().material = cell.Materials[3];
                     }
-                    else if (dist > 5)
+                    else if (dist >= 5)
                     {
                         cell.GetComponent<MeshRenderer>().material = cell.Materials[1];
                     }
@@ -300,11 +271,11 @@ public class Charge : MonoBehaviour
                  (playerPosition.z > cell.transform.position.z && cell.transform.position.z > HitPosition.z)) &&
                  (cell.transform.position.x == HitPosition.x)))
             {
-                if (dist >= 0 && dist <= 5)
+                if (dist >= 0 && dist < 5)
                 {
-                    cell.GetComponent<MeshRenderer>().material = _material;
+                    cell.GetComponent<MeshRenderer>().material = cell.Materials[3];
                 }
-                else if (dist > 5)
+                else if (dist >= 5)
                 {
                     cell.GetComponent<MeshRenderer>().material = cell.Materials[1];
                 }

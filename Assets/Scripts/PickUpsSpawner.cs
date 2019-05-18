@@ -5,7 +5,6 @@ using System.Linq;
 
 public class PickUpsSpawner : MonoBehaviour
 {
-    Healthscript healthPowerUp;
     public List<GridArea> GridAreas = new List<GridArea>();
     public List<CellPrefScript> cellPrefs = new List<CellPrefScript>();
     public List<Wall> Walls = new List<Wall>();
@@ -28,7 +27,7 @@ public class PickUpsSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       if(FindObjectOfType<GameManager>().PickUpTurnCount >= 3 && FindObjectOfType<GameManager>().TimerOn == false)
+       if(FindObjectOfType<GameManager>().PickUpTurnCount == 3)
         {
             Pickups = FindObjectsOfType<energyscript>().ToList();
             if (Pickups.Count == 0)
@@ -57,27 +56,19 @@ public class PickUpsSpawner : MonoBehaviour
 
     public void SpawnAPickUp()
     {
-        healthPowerUp = FindObjectOfType<Healthscript>();
-        if(healthPowerUp == null)
-        {
-            healthPowerUp = new Healthscript();
-        }
         PlayersPlease();
         //Pickups = FindObjectsOfType<energyscript>().ToList();
         P1AreaID = P1.GetComponentInParent<GridArea>().AreaID;
         P2AreaID = P2.GetComponentInParent<GridArea>().AreaID;
         Counter = 0;
-        RandomList = Random.Range(1, 10);
+        RandomList = Random.Range(1, 7);
         //Debug.Log("RandomList" + RandomList.ToString());
         Searching = true;
         if (Pickups.Count == 0 /*&& (P1.GetComponent<Agent>().Mana == 0  || P2.GetComponent<Agent>().Mana == 0)*/)
         {
             foreach (GridArea Area in GridAreas)
             {
-                if (Area.AreaID == RandomList && Area.AreaID != 5 &&
-                    Area.AreaID != P1AreaID && Area.AreaID != (P1AreaID - 3) && Area.AreaID != (P1AreaID + 3) && Area.AreaID != (P1AreaID - 1) && Area.AreaID != (P1AreaID + 1) &&
-                    Area.AreaID != P2AreaID && Area.AreaID != (P2AreaID - 3) && Area.AreaID != (P2AreaID + 3) && Area.AreaID != (P2AreaID - 1) && Area.AreaID != (P2AreaID + 1) &&
-                    (Area.AreaID != healthPowerUp.PickupArea))
+                if (Area.AreaID == RandomList && Area.AreaID != P1AreaID && Area.AreaID != P2AreaID)
                 {
                     //Debug.Log("AreaID" + Area.AreaID.ToString());
                     cellPrefs = Area.GetComponentsInChildren<CellPrefScript>().ToList();
@@ -106,8 +97,7 @@ public class PickUpsSpawner : MonoBehaviour
                                 //    Destroy(Pickup.gameObject);
 
                                 //}
-                                GameObject NewPickUp = Instantiate(PickUp, cellPrefs[i].transform.position, Quaternion.identity);
-                                NewPickUp.GetComponent<energyscript>().PickupArea = Area.AreaID;
+                                Instantiate(PickUp, cellPrefs[i].transform.position, Quaternion.identity);
                                 return;
                             }
                         }

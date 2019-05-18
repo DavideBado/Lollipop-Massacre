@@ -31,13 +31,13 @@ public class ManaUI : MonoBehaviour
         if (player.Mana == 1)
         {
             //img.texture = sp1;
-            GetComponent<RawImage>().texture = player.EnergySprites[0];
+            GetComponent<RawImage>().texture = sp1;
         }
 
         else if (player.Mana == 0)
         {
             //img.texture = sp2;
-            GetComponent<RawImage>().texture = player.EnergySprites[1];
+            GetComponent<RawImage>().texture = sp2;
         }
     }
 

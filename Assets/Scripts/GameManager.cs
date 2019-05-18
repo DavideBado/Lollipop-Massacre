@@ -4,11 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Linq;
-using System;
 
 public class GameManager : MonoBehaviour
 {
-    public Material CellAttackMaterial;
     List<Agent> m_Agents = new List<Agent>();
     public GameObject EventSBase, EventSPOne, EventSTwo;
     public GameObject PausePanel, EndGamePanel, POneWins, PTwoWins;
@@ -16,35 +14,21 @@ public class GameManager : MonoBehaviour
     public List<GameObject> POneParty = new List<GameObject>();
     public List<GameObject> PTwoParty = new List<GameObject>();
     public List<Transform> SpawnPoints = new List<Transform>();
-    //GameObject m_slider;
+    GameObject m_slider;
     public GameObject BenchPOne, BenchPTwo;
     bool state;    
     public Text Timertext, TimeMaxText, TurnoText;
-    public float Timer;
-    float Timer2, m_TimerSafe = 0;
+    float Timer, Timer2, m_TimerSafe = 0;
     public float TimeMax = 3f, Speed = 25f, TimerSafe = 0;
     public bool Turn = true, CanAttack = true, Pause = false;
-    public int RoundCount = 0, PickUpTurnCount = 0, HealtTurnCount = 0;
+    public int RoundCount = 0, PickUpTurnCount = 0;
     public bool Spawn1 = true;
     public RespawnController RespawnController;
     public bool TimerOn = true;
-    float portalTimer;
-    TeleportSpawner PortalSpawner;
-    int PortalRounds = 0;
-    // Roba temporanea per morte pg   
-    float timerDeath = 1f;
-    bool needdeathcheck = false;
-    GameObject _ActiveChara;
-    int _playerID;
-
-    #region Actions
-    public Action ActivatePortal;
-    #endregion
+    // Update is called once per frame
 
     private void Start()
     {
-        PortalSpawner = GetComponent<TeleportSpawner>();
-        portalTimer = 0.5f;
         m_SwitchPOne = 2;
         m_SwitchPTwo = 2;
         //m_slider = FindObjectOfType<CounterPosition>().gameObject;
@@ -64,30 +48,6 @@ public class GameManager : MonoBehaviour
         //Debug.Log(POneParty[0].name + " è attivo:" + POneParty[0].gameObject.activeInHierarchy + "  " + POneParty[0].gameObject.activeSelf);
         //Debug.Log("primo:" + POneParty[0].name + " secondo:" + POneParty[1].name + " ultimo:" + POneParty[2].name + " count:" + POneParty.Count);
         InUpdate();
-
-        // Temporaneo per morte pg
-        if(needdeathcheck == true)
-        {
-            Pause = true;
-            timerDeath -= Time.deltaTime;
-
-            _ActiveChara.transform.localScale = _ActiveChara.transform.localScale -( new Vector3(Time.deltaTime, Time.deltaTime, Time.deltaTime));
-            if(timerDeath <= 0)
-            {
-                if (_playerID == 1)
-                {
-                    ChangePg(POneParty, _playerID);
-                }
-                else if (_playerID == 2)
-                {
-                    ChangePg(PTwoParty, _playerID);
-                }
-                _ActiveChara.SetActive(false);
-                needdeathcheck = false;
-                Pause = false;
-                timerDeath = 1f;
-            }
-        }
     }
 
     void InUpdate()
@@ -123,34 +83,19 @@ public class GameManager : MonoBehaviour
     void TimeForThePlayer() // This check the time && switch the rounds
     {
         Timer2 = Mathf.Round(Timer);
-        if (TimerOn == true)
+        if(TimerOn == true)
         {
             Timer -= Time.deltaTime;
         }
-
+        
 
         if (Timer <= 0) // Se il timer raggiunge lo 0
         {
-            if(PortalRounds >= 5)
-            {
-                PortalSpawner.Telespawn();
-                PortalRounds = 0;
-            }
-            if(PortalSpawner.teleports.Count == 1)
-            {
-                portalTimer -= Time.deltaTime;
-                if(portalTimer <= 0)
-                {
-                    PortalSpawner.Telespawn();
-                }
-            }
             m_TimerSafe -= Time.deltaTime; // Attiva il tempo supplementare
             Pause = true;
-            TimerOn = false;
             //m_slider.SetActive(false);
             if (m_TimerSafe <= 0) // E anche il tempo supplementare è finito
             {
-                TimerOn = true;
                 //m_slider.SetActive(true);
                 Pause = false;
                 Turn = !Turn; // Change player
@@ -158,8 +103,6 @@ public class GameManager : MonoBehaviour
                 m_TimerSafe = TimerSafe; //Imposta nuovamente il tempo supplementare
                 CanAttack = true;// Il giocatore può attaccare
                 PickUpTurnCount++;
-                HealtTurnCount++;
-                PortalRounds++;
                 if (Turn == true)// Se è nuovamente il turno del primo giocatore
                 {
                     RoundCount++; // Aggiorna il contatore dei round                  
@@ -319,9 +262,6 @@ public class GameManager : MonoBehaviour
 
     public void EndGameCheck(int _PlayerID, GameObject _ActiveCharacter)
     {
-        _ActiveChara = _ActiveCharacter;
-        _playerID = _PlayerID;        
-        needdeathcheck = true;
         if(POneKO())
         {
             EventSBase.SetActive(false);
@@ -344,15 +284,15 @@ public class GameManager : MonoBehaviour
         }
        else
         {
-            //if (_PlayerID == 1)
-            //{
-            //    ChangePg(POneParty, _PlayerID);
-            //}
-            //else if(_PlayerID == 2)
-            //{
-            //    ChangePg(PTwoParty, _PlayerID);
-            //}
-            //_ActiveCharacter.SetActive(false);
+            if (_PlayerID == 1)
+            {
+                ChangePg(POneParty, _PlayerID);
+            }
+            else if(_PlayerID == 2)
+            {
+                ChangePg(PTwoParty, _PlayerID);
+            }
+            _ActiveCharacter.SetActive(false);
         }
     }
 

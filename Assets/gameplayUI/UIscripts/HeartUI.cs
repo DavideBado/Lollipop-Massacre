@@ -26,43 +26,58 @@ public class HeartUI : MonoBehaviour
     public void TexSelector()
     {
         //cuore 3
-        if (player.GetComponent<LifeManager>().Life == 3)
+        if (player.GetComponent<LifeManager>().Life == 6)
         {
 			h3.GetComponent<RawImage>().enabled = true;
-			h3.GetComponent<RawImage>().texture = player.GetComponent<Agent>().LifeSprites[0];
+			h3.GetComponent<RawImage>().texture = tex1;
         }
 
-
-        else if(player.GetComponent<LifeManager>().Life <= 2)
+        else if (player.GetComponent<LifeManager>().Life == 5)
         {
-            h3.GetComponent<RawImage>().texture = player.GetComponent<Agent>().LifeSprites[1];
+			h3.GetComponent<RawImage>().enabled = true;
+			h3.GetComponent<RawImage>().texture = tex2;
+        }
 
+        else if(player.GetComponent<LifeManager>().Life <= 4)
+        {
+            h3.GetComponent<RawImage>().enabled = false;
         }
 
         //cuore 2
-        if (player.GetComponent<LifeManager>().Life >= 2)
+        if (player.GetComponent<LifeManager>().Life >= 4)
         {
-			h2.GetComponent<RawImage>().texture = player.GetComponent<Agent>().LifeSprites[0];
-
+			h2.GetComponent<RawImage>().enabled = true;
+			h2.GetComponent<RawImage>().texture = tex1;
         }
-        
 
-        else if (player.GetComponent<LifeManager>().Life <= 1)
+        else if (player.GetComponent<LifeManager>().Life == 3)
         {
-            h2.GetComponent<RawImage>().texture = player.GetComponent<Agent>().LifeSprites[1];
+			h2.GetComponent<RawImage>().enabled = true;
+			h2.GetComponent<RawImage>().texture = tex2;
+        }
 
+        else if (player.GetComponent<LifeManager>().Life <= 2)
+        {
+            h2.GetComponent<RawImage>().enabled = false;
         }
 
         //cuore 1
-        if (player.GetComponent<LifeManager>().Life >= 1)
+        if (player.GetComponent<LifeManager>().Life >= 2)
         {
 			h1.GetComponent<RawImage>().enabled = true;
-            h1.GetComponent<RawImage>().texture = player.GetComponent<Agent>().LifeSprites[0];
+			h1.GetComponent<RawImage>().texture = tex1;
         }
+
+        else if (player.GetComponent<LifeManager>().Life == 1)
+        {
+			h1.GetComponent<RawImage>().enabled = true;
+			h1.GetComponent<RawImage>().texture = tex2;
+			
+		}
 
         else if (player.GetComponent<LifeManager>().Life <= 0)
         {
-            h1.GetComponent<RawImage>().texture = player.GetComponent<Agent>().LifeSprites[1];
+            h1.GetComponent<RawImage>().enabled = false;
         }
     }
 

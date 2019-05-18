@@ -1,14 +1,14 @@
 fileFormatVersion: 2
-guid: e68eaf87ac7a59f4988bf66565ee2ae7
+guid: 0db7db4d3c721dd42ba054297a956edf
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: lambert1
+    2100000: M_MineWall
     2300000: //RootNode
     3300000: //RootNode
-    4300000: skull2
+    4300000: Wall
   externalObjects: {}
   materials:
     importMaterials: 1
