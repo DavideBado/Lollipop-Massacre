@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Linq;
+using System;
 
 public class GameManager : MonoBehaviour
 {
@@ -30,13 +31,15 @@ public class GameManager : MonoBehaviour
     float portalTimer;
     TeleportSpawner PortalSpawner;
     int PortalRounds = 0;
-    bool PortalCanSpawn;
-       
     // Roba temporanea per morte pg   
     float timerDeath = 1f;
     bool needdeathcheck = false;
     GameObject _ActiveChara;
     int _playerID;
+
+    #region Actions
+    public Action ActivatePortal;
+    #endregion
 
     private void Start()
     {
@@ -128,10 +131,10 @@ public class GameManager : MonoBehaviour
 
         if (Timer <= 0) // Se il timer raggiunge lo 0
         {
-            if(PortalRounds >= 5 && PortalCanSpawn == true)
+            if(PortalRounds >= 5)
             {
                 PortalSpawner.Telespawn();
-                PortalCanSpawn = false;
+                PortalRounds = 0;
             }
             if(PortalSpawner.teleports.Count == 1)
             {
@@ -157,7 +160,6 @@ public class GameManager : MonoBehaviour
                 PickUpTurnCount++;
                 HealtTurnCount++;
                 PortalRounds++;
-                PortalCanSpawn = true;
                 if (Turn == true)// Se è nuovamente il turno del primo giocatore
                 {
                     RoundCount++; // Aggiorna il contatore dei round                  

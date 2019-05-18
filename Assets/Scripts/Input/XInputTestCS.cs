@@ -162,7 +162,7 @@ public class XInputTestCS : MonoBehaviour
 		if (prevState.Buttons.A == ButtonState.Released && state.Buttons.A == ButtonState.Pressed)
 		{
 			SendMessage("Submit");
-			SendMessage("Switch_A");
+			SendMessage("BasicAttack");
 		}
 
 		if (prevState.Buttons.B == ButtonState.Released && state.Buttons.B == ButtonState.Pressed)
@@ -176,12 +176,22 @@ public class XInputTestCS : MonoBehaviour
 			SendMessage("Switch_C");
 		}
 
+        if (prevState.Buttons.X == ButtonState.Released && state.Buttons.X == ButtonState.Pressed)
+		{
+			SendMessage("Ability");
+		}
+
 		if (prevState.Buttons.RightShoulder == ButtonState.Released && state.Buttons.RightShoulder == ButtonState.Pressed)
 		{
 			SendMessage("BasicAttack");
 		}
 
-		if (state.Triggers.Right > 0 && prevState.Triggers.Right == 0)
+        if (prevState.Buttons.LeftShoulder == ButtonState.Released && state.Buttons.LeftShoulder == ButtonState.Pressed)
+		{
+			SendMessage("TeleportMe");
+		}        
+
+        if (state.Triggers.Right > 0 && prevState.Triggers.Right == 0)
 		{
 			SendMessage("Ability");
 		}

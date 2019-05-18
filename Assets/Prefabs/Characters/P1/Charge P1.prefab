@@ -238,6 +238,7 @@ MonoBehaviour:
   Switch_A: 49
   Switch_B: 50
   Switch_C: 51
+  Teleport: 102
   ManagerPlayerID: 0
 --- !u!114 &1510294132
 MonoBehaviour:
@@ -637,10 +638,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1510294127}
     m_Modifications:
-    - target: {fileID: 100036, guid: 2ede4ac6d3aa84c43b97210b6e8e37b1, type: 3}
-      propertyPath: m_Name
-      value: SM_LolliPop_Unicorn
-      objectReference: {fileID: 0}
     - target: {fileID: 400036, guid: 2ede4ac6d3aa84c43b97210b6e8e37b1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -696,6 +693,10 @@ PrefabInstance:
     - target: {fileID: 400036, guid: 2ede4ac6d3aa84c43b97210b6e8e37b1, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 100036, guid: 2ede4ac6d3aa84c43b97210b6e8e37b1, type: 3}
+      propertyPath: m_Name
+      value: SM_LolliPop_Unicorn
       objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: 2ede4ac6d3aa84c43b97210b6e8e37b1, type: 3}
       propertyPath: m_Controller

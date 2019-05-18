@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using System.Linq;
 using DG.Tweening;
 using WindowsInput;
+using System;
 
 public class Agent : MonoBehaviour, ICharacter
 {
@@ -46,10 +47,8 @@ public class Agent : MonoBehaviour, ICharacter
     public float AgentSpeed;
     Rigidbody rg;
     public GameObject StunPS, PoisonPS, DrainPS;
-        
-    // ********** Cose per il menu *************
-
    
+    // ********** Cose per il menu *************
     public List<Texture> Sprites
     {
         set
@@ -65,8 +64,6 @@ public class Agent : MonoBehaviour, ICharacter
         }
             
     }
-
-
     //********************************************
     private void OnEnable()
     {
@@ -467,6 +464,10 @@ public class Agent : MonoBehaviour, ICharacter
 
     #endregion
 
+    public void TeleportMe()
+    {
+        GameManager.ActivatePortal();
+    }
     public void ImDrained()
     {        
         if (imDrained == true && StartDrain == GameManager.Turn)

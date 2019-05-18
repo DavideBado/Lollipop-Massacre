@@ -232,6 +232,7 @@ MonoBehaviour:
   Switch_A: 257
   Switch_B: 258
   Switch_C: 259
+  Teleport: 304
   ManagerPlayerID: 0
 --- !u!114 &1256144809
 MonoBehaviour:

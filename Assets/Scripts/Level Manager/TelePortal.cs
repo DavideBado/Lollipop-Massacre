@@ -1,34 +1,76 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
-public class TestRapidoTeleport : MonoBehaviour
+public class TelePortal : MonoBehaviour
 {
+    Collider characterCollider;
     public GameObject MyArea;
-    public TestRapidoTeleport otherteleport;
+    TelePortal otherteleport;
     public int ID;
+    bool canTeleport;
+    GameManager gameManager;
+
+    private void OnEnable()
+    {
+        gameManager = FindObjectOfType<GameManager>();
+        gameManager.ActivatePortal += TeleportCheck;
+    }
+    private void OnDisable()
+    {
+        gameManager.ActivatePortal -= TeleportCheck;
+    }
     private void OnTriggerStay(Collider other)
     {
-        if(other.GetComponent<Agent>() != null && (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Keypad1)))
+        if (other.GetComponent<Agent>() != null)
         {
-
-            if(other.GetComponent<Agent>().MyTurn == true)
-            {               
-                other.GetComponent<Agent>().x = (int)otherteleport.transform.position.x;
-                other.GetComponent<Agent>().x2 = (int)otherteleport.transform.position.x;
-                other.GetComponent<Agent>().y = (int)otherteleport.transform.position.z;
-                other.GetComponent<Agent>().y2 = (int)otherteleport.transform.position.z;
-                other.transform.position = otherteleport.transform.position;
-            }
+            characterCollider = other;
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        Move();
+    private void TeleportNow(Collider other)
+    {       
+        if (other.GetComponent<Agent>().MyTurn == true)
+        {
+            other.GetComponent<Agent>().x = (int)otherteleport.transform.position.x;
+            other.GetComponent<Agent>().x2 = (int)otherteleport.transform.position.x;
+            other.GetComponent<Agent>().y = (int)otherteleport.transform.position.z;
+            other.GetComponent<Agent>().y2 = (int)otherteleport.transform.position.z;
+            other.transform.position = otherteleport.transform.position;            
+        }
     }
 
+    void TeleportCheck()
+    {
+       if(characterCollider != null)
+        {
+            TeleportNow(characterCollider);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        characterCollider = null;
+    }
+
+    //// Update is called once per frame
+    void Update()
+    {
+        FindPortal();
+    }
+
+    void FindPortal()
+    {
+        if(otherteleport == null)
+        {
+            TelePortal _portal = FindObjectOfType<TelePortal>();
+            if(_portal != this)
+            {
+                otherteleport = _portal;
+            }
+        }
+    }
     void Move()
     {
         if (Input.GetKey(KeyCode.M))
