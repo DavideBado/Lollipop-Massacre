@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.Linq;
 
 public class TelePortal : MonoBehaviour
 {
@@ -64,10 +65,13 @@ public class TelePortal : MonoBehaviour
     {
         if(otherteleport == null)
         {
-            TelePortal _portal = FindObjectOfType<TelePortal>();
-            if(_portal != this)
+            List<TelePortal> _portalList = FindObjectsOfType<TelePortal>().ToList();
+            foreach (TelePortal _portal in _portalList)
             {
-                otherteleport = _portal;
+                if (_portal != this)
+                {
+                    otherteleport = _portal;
+                } 
             }
         }
     }
