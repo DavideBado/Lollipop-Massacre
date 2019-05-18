@@ -6,17 +6,18 @@ using System.Linq;
 public class TeleportSpawner : MonoBehaviour
 {
     public GameObject Teleport1, Teleport2;
-    List<GameObject> teleports = new List<GameObject>();
+    public List<GameObject> teleports = new List<GameObject>();
     public List<GameObject> Areas;
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Y))
-        {
-            Telespawn();
-        }
-    }
-    void Telespawn()
+    //private void Update()
+    //{
+    //    if (Input.GetKeyDown(KeyCode.Y))
+    //    {
+    //        Telespawn();
+    //    }
+    //}
+
+    public void Telespawn()
     {
         if(teleports.Count == 2)
         { GridArea _Area = OrdinarySpawnArea();
@@ -38,7 +39,7 @@ public class TeleportSpawner : MonoBehaviour
         else if (teleports.Count == 1)
         {
             GridArea _Area = OrdinarySpawnArea();
-            GameObject _Teleport = Instantiate(Teleport1, new Vector3(_Area.TeleportSpawnPoint_X, 0, _Area.TeleportSpawnPoint_Z), Quaternion.identity);
+            GameObject _Teleport = Instantiate(Teleport2, new Vector3(_Area.TeleportSpawnPoint_X, 0, _Area.TeleportSpawnPoint_Z), Quaternion.identity);
             _Teleport.GetComponent<TestRapidoTeleport>().MyArea = _Area.gameObject;
             teleports.Add(_Teleport);
             _Teleport.SetActive(true);

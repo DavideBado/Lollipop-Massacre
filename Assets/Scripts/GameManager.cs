@@ -27,10 +27,12 @@ public class GameManager : MonoBehaviour
     public bool Spawn1 = true;
     public RespawnController RespawnController;
     public bool TimerOn = true;
-
-    /// <summary>
-    /// Roba temporanea per morte pg
-    /// </summary>
+    float portalTimer;
+    TeleportSpawner PortalSpawner;
+    int PortalRounds = 0;
+    bool PortalCanSpawn;
+       
+    // Roba temporanea per morte pg   
     float timerDeath = 1f;
     bool needdeathcheck = false;
     GameObject _ActiveChara;
@@ -38,6 +40,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        PortalSpawner = GetComponent<TeleportSpawner>();
+        portalTimer = 0.5f;
         m_SwitchPOne = 2;
         m_SwitchPTwo = 2;
         //m_slider = FindObjectOfType<CounterPosition>().gameObject;
@@ -124,6 +128,19 @@ public class GameManager : MonoBehaviour
 
         if (Timer <= 0) // Se il timer raggiunge lo 0
         {
+            if(PortalRounds >= 5 && PortalCanSpawn == true)
+            {
+                PortalSpawner.Telespawn();
+                PortalCanSpawn = false;
+            }
+            if(PortalSpawner.teleports.Count == 1)
+            {
+                portalTimer -= Time.deltaTime;
+                if(portalTimer <= 0)
+                {
+                    PortalSpawner.Telespawn();
+                }
+            }
             m_TimerSafe -= Time.deltaTime; // Attiva il tempo supplementare
             Pause = true;
             TimerOn = false;
@@ -139,6 +156,8 @@ public class GameManager : MonoBehaviour
                 CanAttack = true;// Il giocatore può attaccare
                 PickUpTurnCount++;
                 HealtTurnCount++;
+                PortalRounds++;
+                PortalCanSpawn = true;
                 if (Turn == true)// Se è nuovamente il turno del primo giocatore
                 {
                     RoundCount++; // Aggiorna il contatore dei round                  
