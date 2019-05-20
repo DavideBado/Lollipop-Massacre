@@ -465,7 +465,10 @@ public class Agent : MonoBehaviour, ICharacter
 
     public void TeleportMe()
     {
-        GameManager.ActivatePortal();
+        if (GameManager.TimerOn == true)
+        {
+            GameManager.ActivatePortal(); 
+        }
     }
     public void ImDrained()
     {        
