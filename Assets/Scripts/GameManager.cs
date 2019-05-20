@@ -274,7 +274,7 @@ public class GameManager : MonoBehaviour
         PgInStartPosition(PTwoParty, 2);
     }
 
-    public void Switcher(int _PlayerID, int _CharacterIndex, GameObject _ActiveCharacter)
+    public void Switcher(int _PlayerID, int _CharacterIndex, GameObject _ActiveCharacter, bool _RotUp, bool _RotDown, bool _RotRight, bool _RotLeft)
     {
         if(_PlayerID == 1/* && m_SwitchPOne > 0*/)
         {
@@ -283,14 +283,18 @@ public class GameManager : MonoBehaviour
             //foreach (GameObject _Character in POneParty)
             //{
             //    if(_Character.GetComponent<Agent>().SwitchIndex == _CharacterIndex && _Character.GetComponent<LifeManager>().Life > 0 && _Character != _ActiveCharacter)
-            //    {
-                    GameObject _Character = POneParty[_CharacterIndex];
-                    _Character.transform.position = _ActiveCharacter.transform.position;
-                    _Character.GetComponent<Agent>().AgentSpawnPosition = _ActiveCharacter.transform.position;
-                    ToggleObject(_Character, POneParty);
-					_Character.transform.rotation = _ActiveCharacter.transform.rotation;
-                    _ActiveCharacter.transform.parent = BenchPOne.transform;
-                    _ActiveCharacter.SetActive(false);
+        //    {
+            GameObject _Character = POneParty[_CharacterIndex];
+            _Character.transform.position = _ActiveCharacter.transform.position;
+            _Character.GetComponent<Agent>().AgentSpawnPosition = _ActiveCharacter.transform.position;
+            _Character.GetComponent<Agent>().RotUp = _RotUp;
+            _Character.GetComponent<Agent>().RotDown = _RotDown;
+            _Character.GetComponent<Agent>().RotRight = _RotRight;
+            _Character.GetComponent<Agent>().RotLeft = _RotLeft;
+            ToggleObject(_Character, POneParty);
+			_Character.transform.rotation = _ActiveCharacter.transform.rotation;
+            _ActiveCharacter.transform.parent = BenchPOne.transform;
+            _ActiveCharacter.SetActive(false);
               //  }
             //}
           

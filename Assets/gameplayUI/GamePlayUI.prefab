@@ -459,7 +459,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: E
+  m_text: 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b8aad46224a89c94ba6e1a2d8516ceb1, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: f178e6d98f628084d97d25bf0d739367, type: 2}
@@ -6510,7 +6510,7 @@ MonoBehaviour:
   sprite2: {fileID: 2800000, guid: aefb3f15e4826df4bae8cfa0243367a2, type: 3}
   manager: {fileID: 0}
   ID: 2
-  PanelPos: 1
+  PanelPos: 0
 --- !u!114 &3001086935434735108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10237,7 +10237,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 95.2, y: -10.3}
+  m_AnchoredPosition: {x: 96.9, y: -9.6}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7297615783104078224
@@ -10268,7 +10268,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: R
+  m_text: 2
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b8aad46224a89c94ba6e1a2d8516ceb1, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: f178e6d98f628084d97d25bf0d739367, type: 2}

@@ -444,9 +444,9 @@ public class Agent : MonoBehaviour, ICharacter
         SwitchIndex++;
         if (switcherIndex >= 2)
             switcherIndex = 0;
-        if (MyTurn == true)
+        if (MyTurn == true && GameManager.TimerOn == true)
         {
-            GameManager.Switcher(PlayerID, switcherIndex, gameObject);
+            GameManager.Switcher(PlayerID, switcherIndex, gameObject, RotUp, RotDown, RotRight, RotLeft);
         }
     }
 
@@ -455,9 +455,9 @@ public class Agent : MonoBehaviour, ICharacter
         SwitchIndex--;
         if (switcherIndex < 0)
             switcherIndex = 1;
-        if (MyTurn == true)
+        if (MyTurn == true && GameManager.TimerOn == true)
         {
-            GameManager.Switcher(PlayerID, switcherIndex, gameObject);
+            GameManager.Switcher(PlayerID, switcherIndex, gameObject, RotUp, RotDown, RotRight, RotLeft);
         }
     }    
 
