@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     public UIManager UIMngr;
     public InputManager InputMngr;
     public LevelManager LevelMngr;
+    public GridManager GridMngr;
+
 
     #region Delegates
     public static Action GoToCharacterSelection;
@@ -36,7 +38,7 @@ public class GameManager : MonoBehaviour
 
     private void OnEnable()
     {
-        if(singleton == this)
+        if (singleton == this)
         {
             //iscrizioni agli eventi chiamati dagli stati
             GoToCharacterSelection += singleton.HandleOnCharacterSelection;
@@ -52,7 +54,7 @@ public class GameManager : MonoBehaviour
             GoToEndGame += singleton.HandleOnEndGame;
             GoToPause += singleton.HandleOnPause;
         }
-        
+
     }
 
     public void Instance()
@@ -72,6 +74,26 @@ public class GameManager : MonoBehaviour
         //parametri context
         public float timer;
 
+    }
+
+    public GridManager GetGridMngr()
+    {
+        return GridMngr;
+    }
+
+    public UIManager GetUiManager()
+    {
+        return UIMngr;
+    }
+
+    public InputManager GetInputManager()
+    {
+        return InputMngr;
+    }
+
+    public LevelManager GetLevelManager()
+    {
+        return LevelMngr;
     }
 
     void SetUp()
@@ -159,7 +181,7 @@ public class GameManager : MonoBehaviour
 
     private void OnDisable()
     {
-        if(singleton == this)
+        if (singleton == this)
         {
             //disiscrizione dagli eventi
             GoToCharacterSelection -= singleton.HandleOnCharacterSelection;
@@ -175,6 +197,6 @@ public class GameManager : MonoBehaviour
             GoToEndGame -= singleton.HandleOnEndGame;
             GoToPause -= singleton.HandleOnPause;
         }
-        
+
     }
 }

@@ -18,8 +18,15 @@ public class LevelManager : MonoBehaviour
 
     public void SetUp()
     {
-        Gridmngr = FindObjectOfType<GridManager>();
-        Playermngr = FindObjectOfType<PlayerManager>();
+        if (Gridmngr ==null)
+        {
+            Gridmngr = FindObjectOfType<GridManager>(); 
+        }
+
+        if (Playermngr == null)
+        {
+            Playermngr = FindObjectOfType<PlayerManager>(); 
+        }
     }
 
 

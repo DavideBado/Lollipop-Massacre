@@ -7,14 +7,18 @@ public class LoadingState : StateBehaviourBase
 {
     public string SceneNameToLoad;
 
-
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
     public override void OnEnter()
     {
         ChangeScene();
+       
         GameManager.singleton.UIMngr.ChangeMenu(MenuType.Loading);
         //GameManager.singleton.LevelMngr = FindObjectOfType<LevelManager>();
-        GameManager.singleton.LevelMngr.SetUp();
-        GameManager.singleton.LevelMngr.Init();
+        //GameManager.singleton.LevelMngr.SetUp();
+        //GameManager.singleton.LevelMngr.Init();
     }
 
     public override void OnUpdate()
@@ -32,5 +36,20 @@ public class LoadingState : StateBehaviourBase
     public void ChangeScene()
     {
         SceneManager.LoadScene(SceneNameToLoad);
+       
+    }
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if(scene.name == SceneNameToLoad)
+        {
+            GameManager.singleton.LevelMngr.SetUp();
+            GameManager.singleton.LevelMngr.Init();
+        }
+
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 }

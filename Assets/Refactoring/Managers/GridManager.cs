@@ -8,7 +8,10 @@ public class GridManager : MonoBehaviour
     public BaseGrid Grid;
     private void Awake()
     {
-        Grid = GetComponent<BaseGrid>();
+        if (Grid == null)
+        {
+            Grid = GetComponent<BaseGrid>(); 
+        }
     }
     /// <summary>
     /// creazione della griglia
