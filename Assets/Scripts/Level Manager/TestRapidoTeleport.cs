@@ -30,54 +30,54 @@ public class TestRapidoTeleport : MonoBehaviour
 
     void Move()
     {
-        if (Input.GetKey(KeyCode.M))
-        {
-            FindObjectOfType<OldGameManager>().Pause = true;
-            if (ID == 1)
-            {
+        //if (Input.GetKey(KeyCode.M))
+        //{
+        //    FindObjectOfType<OldGameManager>().Pause = true;
+        //    if (ID == 1)
+        //    {
 
-                if (Input.GetKeyDown(KeyCode.W))
-                {
-                    transform.Translate(Vector3.forward);
-                }
-                else if (Input.GetKeyDown(KeyCode.S))
-                {
-                    transform.Translate(Vector3.back);
-                }
-                else if (Input.GetKeyDown(KeyCode.A))
-                {
-                    transform.Translate(Vector3.left);
-                }
-                else if (Input.GetKeyDown(KeyCode.D))
-                {
-                    transform.Translate(Vector3.right);
-                }
-            }
+        //        if (Input.GetKeyDown(KeyCode.W))
+        //        {
+        //            transform.Translate(Vector3.forward);
+        //        }
+        //        else if (Input.GetKeyDown(KeyCode.S))
+        //        {
+        //            transform.Translate(Vector3.back);
+        //        }
+        //        else if (Input.GetKeyDown(KeyCode.A))
+        //        {
+        //            transform.Translate(Vector3.left);
+        //        }
+        //        else if (Input.GetKeyDown(KeyCode.D))
+        //        {
+        //            transform.Translate(Vector3.right);
+        //        }
+        //    }
 
-            if (ID == 2)
-            {
+        //    if (ID == 2)
+        //    {
 
-                if (Input.GetKeyDown(KeyCode.UpArrow))
-                {
-                    transform.Translate(Vector3.forward);
-                }
-                else if (Input.GetKeyDown(KeyCode.DownArrow))
-                {
-                    transform.Translate(Vector3.back);
-                }
-                else if (Input.GetKeyDown(KeyCode.LeftArrow))
-                {
-                    transform.Translate(Vector3.left);
-                }
-                else if (Input.GetKeyDown(KeyCode.RightArrow))
-                {
-                    transform.Translate(Vector3.right);
-                }
-            }
-        }
-        else
-        {
-            FindObjectOfType<OldGameManager>().Pause = false;
-        }
+        //        if (Input.GetKeyDown(KeyCode.UpArrow))
+        //        {
+        //            transform.Translate(Vector3.forward);
+        //        }
+        //        else if (Input.GetKeyDown(KeyCode.DownArrow))
+        //        {
+        //            transform.Translate(Vector3.back);
+        //        }
+        //        else if (Input.GetKeyDown(KeyCode.LeftArrow))
+        //        {
+        //            transform.Translate(Vector3.left);
+        //        }
+        //        else if (Input.GetKeyDown(KeyCode.RightArrow))
+        //        {
+        //            transform.Translate(Vector3.right);
+        //        }
+        //    }
+        //}
+        //else
+        //{
+        //    FindObjectOfType<OldGameManager>().Pause = false;
+        //}
     }
 }

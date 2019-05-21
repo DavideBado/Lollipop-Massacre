@@ -9,7 +9,7 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(GameManager.TimerOn == true)
-            TimerText.text = ((int)(GameManager.Timer + 0.9f)).ToString();       
+        //if(GameManager.TimerOn == true)
+        //    TimerText.text = ((int)(GameManager.Timer + 0.9f)).ToString();       
     }
 }

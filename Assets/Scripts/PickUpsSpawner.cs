@@ -28,15 +28,15 @@ public class PickUpsSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       if(FindObjectOfType<OldGameManager>().PickUpTurnCount >= 3 && FindObjectOfType<OldGameManager>().TimerOn == false)
-        {
-            Pickups = FindObjectsOfType<energyscript>().ToList();
-            if (Pickups.Count == 0)
-            {
-                SpawnAPickUp();
-            }
-            else { FindObjectOfType<OldGameManager>().PickUpTurnCount = 0; }
-        }
+       //if(FindObjectOfType<OldGameManager>().PickUpTurnCount >= 3 && FindObjectOfType<OldGameManager>().TimerOn == false)
+       // {
+       //     Pickups = FindObjectsOfType<energyscript>().ToList();
+       //     if (Pickups.Count == 0)
+       //     {
+       //         SpawnAPickUp();
+       //     }
+       //     else { FindObjectOfType<OldGameManager>().PickUpTurnCount = 0; }
+       // }
     }
 
     void InStart()

@@ -5,13 +5,13 @@ using DG.Tweening;
 
 public class Attack1 : MonoBehaviour
 {
-    public OldGameManager Manager;
+
     float Timer;
 
     private void Start()
     {
         
-        Manager = FindObjectOfType<OldGameManager>();
+   
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -34,7 +34,7 @@ public class Attack1 : MonoBehaviour
             Timer += Time.deltaTime;
             if (Timer >= 0.5f)
             {
-                Manager.CanAttack = false; // Non posso più attaccare
+                //Manager.CanAttack = false; // Non posso più attaccare
             }
         }
     }

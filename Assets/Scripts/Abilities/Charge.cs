@@ -8,32 +8,32 @@ public class Charge : MonoBehaviour
     int power = 0;
     bool attackCheck = false;
     float Timer;
-    OldGameManager Manager;
+
     private bool onAttack;
 
     private void Start()
     {
         Timer = 1f;
-        Manager = FindObjectOfType<OldGameManager>();
+
     }
 
     private void Update()
     {
         InUpdate();
-        if (onAttack == true)
-        {
-            Timer -= Time.deltaTime;
-            Manager.TimerOn = false;
-            NewPreview(Manager.CellAttackMaterial);
-            if (Timer <= 0)
-            {
-                onAttack = false;
-                Manager.TimerOn = true;
-                CleanPreview();
-                Timer = 1f;
-            }
+        //if (onAttack == true)
+        //{
+        //    Timer -= Time.deltaTime;
+        //    Manager.TimerOn = false;
+        //    NewPreview(Manager.CellAttackMaterial);
+        //    if (Timer <= 0)
+        //    {
+        //        onAttack = false;
+        //        Manager.TimerOn = true;
+        //        CleanPreview();
+        //        Timer = 1f;
+        //    }
 
-        }
+        //}
         
     }
 
@@ -41,144 +41,144 @@ public class Charge : MonoBehaviour
     {
         if (attackCheck == true)
         {
-            Attack();
+            //Attack();
         }
     }
 
-    void Attack()
-    {
-        RaycastHit hit;
+    //void Attack()
+    //{
+    //    RaycastHit hit;
 
-        if ((Physics.Raycast(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt, out hit, 1f)) && hit.transform != transform)
-        {
-            if (hit.transform.tag == "Player")
-            {
-                hit.transform.GetComponent<LifeManager>().Life -= power;
-            }
-            attackCheck = false;
-            Manager.Pause = false;
-            Manager.TimerOn = true;
+    //    if ((Physics.Raycast(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt, out hit, 1f)) && hit.transform != transform)
+    //    {
+    //        if (hit.transform.tag == "Player")
+    //        {
+    //            hit.transform.GetComponent<LifeManager>().Life -= power;
+    //        }
+    //        attackCheck = false;
+    //        Manager.Pause = false;
+    //        Manager.TimerOn = true;
 
-        }            
-    }
+    //    }            
+    //}
     public void Ability()
     {
-        if (GetComponent<Agent>().Mana > 0 && GetComponent<Agent>().MyTurn && GetComponent<Agent>().PlayerType == 5 && GetComponent<Agent>().ImStunned == false && Manager.CanAttack == true && Manager.Pause == false)
-        {            
-            RaycastHit hit;
-            onAttack = true;
-            if (Physics.Raycast(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt, out hit, Mathf.Infinity))
+        //if (GetComponent<Agent>().Mana > 0 && GetComponent<Agent>().MyTurn && GetComponent<Agent>().PlayerType == 5 && GetComponent<Agent>().ImStunned == false && Manager.CanAttack == true && Manager.Pause == false)
+        //{            
+        //    RaycastHit hit;
+        //    onAttack = true;
+        //    if (Physics.Raycast(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt, out hit, Mathf.Infinity))
 
-            {
+        //    {
                 
-                if (hit.transform.position.x == transform.position.x)
-                {
-                    int dist = (GetComponent<Agent>().y - (int)hit.transform.position.z);
+        //        if (hit.transform.position.x == transform.position.x)
+        //        {
+        //            int dist = (GetComponent<Agent>().y - (int)hit.transform.position.z);
 
-                    if (dist < 0)
-                    {
-                        GetComponent<Agent>().y = (int)hit.transform.position.z - 1;
-                    }
-                    else if (dist > 0)
-                    {
-                        GetComponent<Agent>().y = (int)hit.transform.position.z + 1;
-                    }
-                    Manager.TimerOn = false;
-                    GetComponent<Agent>().OnTheRoad = true;
-                    GetComponent<Agent>().AgentSpeed = 5;
-                }
+        //            if (dist < 0)
+        //            {
+        //                GetComponent<Agent>().y = (int)hit.transform.position.z - 1;
+        //            }
+        //            else if (dist > 0)
+        //            {
+        //                GetComponent<Agent>().y = (int)hit.transform.position.z + 1;
+        //            }
+        //            Manager.TimerOn = false;
+        //            GetComponent<Agent>().OnTheRoad = true;
+        //            GetComponent<Agent>().AgentSpeed = 5;
+        //        }
 
-                else
-                    if (hit.transform.position.z == transform.position.z)
-                {
-                    int dist = (GetComponent<Agent>().x - (int)hit.transform.position.x);
+        //        else
+        //            if (hit.transform.position.z == transform.position.z)
+        //        {
+        //            int dist = (GetComponent<Agent>().x - (int)hit.transform.position.x);
 
-                    if (dist < 0)
-                    {
-                        GetComponent<Agent>().x = (int)hit.transform.position.x - 1;
-                    }
-                    else if (dist > 0)
-                    {
-                        GetComponent<Agent>().x = (int)hit.transform.position.x + 1;
-                    }
-                    Manager.TimerOn = false;
-                    GetComponent<Agent>().OnTheRoad = true;
-                    GetComponent<Agent>().AgentSpeed = 5;
-                }
+        //            if (dist < 0)
+        //            {
+        //                GetComponent<Agent>().x = (int)hit.transform.position.x - 1;
+        //            }
+        //            else if (dist > 0)
+        //            {
+        //                GetComponent<Agent>().x = (int)hit.transform.position.x + 1;
+        //            }
+        //            Manager.TimerOn = false;
+        //            GetComponent<Agent>().OnTheRoad = true;
+        //            GetComponent<Agent>().AgentSpeed = 5;
+        //        }
 
-                Debug.DrawRay(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.yellow);
+        //        Debug.DrawRay(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.yellow);
 
-                if (hit.transform.tag == "Player" && hit.transform != transform)
+        //        if (hit.transform.tag == "Player" && hit.transform != transform)
 
-                {
-                    int dist = (int)Vector3.Distance(transform.position, hit.transform.position);
-                    Debug.DrawRay(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
-                    if (dist <= 5)
-                    {
-                        power = 1;
-                    }
-                    else if (dist > 5)
-                    {
-                        power = 2;
-                    }
-                    attackCheck = true;
-                }
+        //        {
+        //            int dist = (int)Vector3.Distance(transform.position, hit.transform.position);
+        //            Debug.DrawRay(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
+        //            if (dist <= 5)
+        //            {
+        //                power = 1;
+        //            }
+        //            else if (dist > 5)
+        //            {
+        //                power = 2;
+        //            }
+        //            attackCheck = true;
+        //        }
 
-            }
-            else
-            {
-                float _lookX = GetComponent<Agent>().SavedlookAt.x;
-                float _lookY = GetComponent<Agent>().SavedlookAt.z;
+        //    }
+        //    else
+        //    {
+        //        float _lookX = GetComponent<Agent>().SavedlookAt.x;
+        //        float _lookY = GetComponent<Agent>().SavedlookAt.z;
 
-                if (_lookX != 0)
-                {
-                    if (_lookX < 0)
-                    {
-                        GetComponent<Agent>().x = 0;
-                    }
-                    else if (_lookX > 0)
-                    {
-                        GetComponent<Agent>().x = GetComponent<Agent>().configGrid.DimX;
-                    }
-                }
-                else if (_lookY != 0)
-                {
-                    if (_lookY < 0)
-                    {
-                        GetComponent<Agent>().y = 0;
-                    }
-                    else if (_lookY > 0)
-                    {
-                        GetComponent<Agent>().y = GetComponent<Agent>().configGrid.DimY;
-                    }
-                }
-            }        
+        //        if (_lookX != 0)
+        //        {
+        //            if (_lookX < 0)
+        //            {
+        //                GetComponent<Agent>().x = 0;
+        //            }
+        //            else if (_lookX > 0)
+        //            {
+        //                GetComponent<Agent>().x = GetComponent<Agent>().configGrid.DimX;
+        //            }
+        //        }
+        //        else if (_lookY != 0)
+        //        {
+        //            if (_lookY < 0)
+        //            {
+        //                GetComponent<Agent>().y = 0;
+        //            }
+        //            else if (_lookY > 0)
+        //            {
+        //                GetComponent<Agent>().y = GetComponent<Agent>().configGrid.DimY;
+        //            }
+        //        }
+        //    }        
 
-            if (FindObjectOfType<PickUpsSpawner>().AllManaFull == true)
+        //    if (FindObjectOfType<PickUpsSpawner>().AllManaFull == true)
 
-            {
+        //    {
 
-                FindObjectOfType<OldGameManager>().PickUpTurnCount = 0;
+        //        FindObjectOfType<OldGameManager>().PickUpTurnCount = 0;
 
-                FindObjectOfType<PickUpsSpawner>().AllManaFull = false;
+        //        FindObjectOfType<PickUpsSpawner>().AllManaFull = false;
 
-            }
+        //    }
 
-            GetComponent<Agent>().Mana--;
-            Manager.CanAttack = false;
-        }
+        //    GetComponent<Agent>().Mana--;
+        //    Manager.CanAttack = false;
+        //}
 
     }
 
     public void Preview()
     {
-        if (GetComponent<Agent>().MyTurn && GetComponent<Agent>().ImStunned == false && Manager.CanAttack == true && Manager.Pause == false)
+        //if (GetComponent<Agent>().MyTurn && GetComponent<Agent>().ImStunned == false && Manager.CanAttack == true && Manager.Pause == false)
 
-        {
-            CleanPreview();
-            Material PrevMaterial = FindObjectOfType<CellPrefScript>().Materials[3];
-            NewPreview(PrevMaterial);
-        }
+        //{
+        //    CleanPreview();
+        //    Material PrevMaterial = FindObjectOfType<CellPrefScript>().Materials[3];
+        //    NewPreview(PrevMaterial);
+        //}
     }
 
     void NewPreview(Material _material)

@@ -14,16 +14,16 @@ public class Healthscript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
-        {
-            if (other.GetComponent<LifeManager>() != null && other.GetComponent<LifeManager>().Life < 3)
-            {
-                other.GetComponent<LifeManager>().Life += 1;
-            }
-            FindObjectOfType<OldGameManager>().HealtTurnCount = 0;
-            Destroy(gameObject);          
+        //if (other.tag == "Player")
+        //{
+        //    if (other.GetComponent<LifeManager>() != null && other.GetComponent<LifeManager>().Life < 3)
+        //    {
+        //        other.GetComponent<LifeManager>().Life += 1;
+        //    }
+        //    FindObjectOfType<OldGameManager>().HealtTurnCount = 0;
+        //    Destroy(gameObject);          
            
-        }
+        //}
 
     }
 

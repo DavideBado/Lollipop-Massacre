@@ -12,7 +12,7 @@ public class characterSprite : MonoBehaviour
 	public int ID;
     
     public RawImage img;
-    public OldGameManager gm;
+
     public bool PanelPos;
     Agent player;
 
@@ -34,10 +34,7 @@ public class characterSprite : MonoBehaviour
     {
 		img = GetComponent<RawImage>();
 
-		if (gm == null)
-		{
-			gm = FindObjectOfType<OldGameManager>();
-		}
+		
 
 		PoolFinder();
 		avatarSelection();
@@ -56,12 +53,12 @@ public class characterSprite : MonoBehaviour
     {
 		if (PanelPos == true)
 		{
-			player = gm.POneParty[ID].GetComponent<Agent>();
+			//player = gm.POneParty[ID].GetComponent<Agent>();
 			
 		}
 		else if (PanelPos == false)
 		{
-		player = gm.PTwoParty[ID].GetComponent<Agent>();
+		//player = gm.PTwoParty[ID].GetComponent<Agent>();
 		}
     }
 }

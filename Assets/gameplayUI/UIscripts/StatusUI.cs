@@ -9,7 +9,7 @@ public class StatusUI : MonoBehaviour
     
     public RawImage statusimg;
     public Texture sprite1, sprite2;
-    public OldGameManager manager;
+
     public int ID;
     public bool PanelPos;
 
@@ -19,10 +19,8 @@ public class StatusUI : MonoBehaviour
     private void Update()
     {
         statusimg = GetComponent<RawImage>();
-        if (manager == null)
-        {
-            manager = FindObjectOfType<OldGameManager>();
-        }
+
+        
         PoolFinder();
         statusSprite();
         
@@ -55,12 +53,12 @@ public class StatusUI : MonoBehaviour
     {
         if (PanelPos == true)
         {
-            player = manager.POneParty[ID].GetComponent<Agent>();
+            //player = manager.POneParty[ID].GetComponent<Agent>();
         }
 
         else if (PanelPos == false)
         {
-            player = manager.PTwoParty[ID].GetComponent<Agent>();
+            //player = manager.PTwoParty[ID].GetComponent<Agent>();
         }
     }
 }

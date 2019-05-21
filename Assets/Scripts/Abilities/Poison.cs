@@ -10,7 +10,7 @@ public class Poison : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        RoundCheck = FindObjectOfType<OldGameManager>().Turn;
+        //RoundCheck = FindObjectOfType<OldGameManager>().Turn;
     }
 
     // Update is called once per frame
@@ -21,37 +21,37 @@ public class Poison : MonoBehaviour
 
     void poison()
     {
-        if (transform.parent != null)
-        {
-            if (FindObjectOfType<OldGameManager>().Turn != RoundCheck && CanUpdate == true)
-            {
-                CanAttack = true;
-                if (MaxRounds > 1)
-                {
-                    MaxRounds--;
-                }
-                CanUpdate = false;
-            }
-            else if (FindObjectOfType<OldGameManager>().Turn == RoundCheck)
-            {
-                CanUpdate = true;
-            }
+        //if (transform.parent != null)
+        //{
+        //    if (FindObjectOfType<OldGameManager>().Turn != RoundCheck && CanUpdate == true)
+        //    {
+        //        CanAttack = true;
+        //        if (MaxRounds > 1)
+        //        {
+        //            MaxRounds--;
+        //        }
+        //        CanUpdate = false;
+        //    }
+        //    else if (FindObjectOfType<OldGameManager>().Turn == RoundCheck)
+        //    {
+        //        CanUpdate = true;
+        //    }
 
 
 
 
-            if (MaxRounds == 1 && CanAttack == true && FindObjectOfType<OldGameManager>().Turn == RoundCheck)
-            {
-                transform.parent.GetComponent<LifeManager>().Damage(1);
-                CanAttack = false;
-                MaxRounds--;
-            }
+        //    if (MaxRounds == 1 && CanAttack == true && FindObjectOfType<OldGameManager>().Turn == RoundCheck)
+        //    {
+        //        transform.parent.GetComponent<LifeManager>().Damage(1);
+        //        CanAttack = false;
+        //        MaxRounds--;
+        //    }
 
-            if (MaxRounds == 0)
-            {
-                Destroy(gameObject);
-            }
-        }
+        //    if (MaxRounds == 0)
+        //    {
+        //        Destroy(gameObject);
+        //    }
+        //}
     }
 }
 

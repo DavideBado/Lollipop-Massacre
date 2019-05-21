@@ -40,7 +40,7 @@ public class Agent : MonoBehaviour, ICharacter
     public RespawnController RespawnController;
     List<PlayerData> Players = new List<PlayerData>();
     List<Wall> Walls = new List<Wall>();
-    OldGameManager GameManager;
+
     public bool RotUp = false, RotDown = false, RotLeft = false, RotRight = false, ImStunned = false, imDrained = false, StartDrain;
     public int Mana = 1;
     public bool OhStunnedShit;
@@ -112,7 +112,7 @@ public class Agent : MonoBehaviour, ICharacter
     #region Start
     void UpdateReference()
     {
-        GameManager = FindObjectOfType<OldGameManager>();
+
         grid = FindObjectOfType<BaseGrid>();
         configGrid = grid.ConfigData;
     }
@@ -125,7 +125,7 @@ public class Agent : MonoBehaviour, ICharacter
 
     void Spawn()
     {
-        AgentSpeed = GameManager.Speed;
+        //AgentSpeed = GameManager.Speed;
         //Mana = 1;
         x = (int)(transform.position.x);
         y = (int)(transform.position.z);
@@ -171,34 +171,34 @@ public class Agent : MonoBehaviour, ICharacter
     }
     void Movement() // Muove il giocatore
     {
-        if (grid) // Check if we have a grid
-        {
+        //if (grid) // Check if we have a grid
+        //{
 
-            if (checkIfPosEmpty() && ImStunned == false) // Now if the cell is free
-            { // Move the player && save x && y
-                BasicAtt.enabled = false; // Assicurati di avere le armi nel fodero
-                 // Spostati verso la casella selezionata alla velocità di Speed unità al secondo
-                transform.position = Vector3.MoveTowards(transform.position, grid.GetWorldPosition(x, y),
-                AgentSpeed * Time.deltaTime);
-                if (transform.position == grid.GetWorldPosition(x, y)) // Se hai raggiunto la tua destinazione
-                {
-                    AgentSpeed = FindObjectOfType<OldGameManager>().Speed;
-                    // Salva le coordinate della posizione attuale
-                    x2 = x;
-                    y2 = y;
-                    OnTheRoad = false;
+        //    if (checkIfPosEmpty() && ImStunned == false) // Now if the cell is free
+        //    { // Move the player && save x && y
+        //        BasicAtt.enabled = false; // Assicurati di avere le armi nel fodero
+        //         // Spostati verso la casella selezionata alla velocità di Speed unità al secondo
+        //        transform.position = Vector3.MoveTowards(transform.position, grid.GetWorldPosition(x, y),
+        //        AgentSpeed * Time.deltaTime);
+        //        if (transform.position == grid.GetWorldPosition(x, y)) // Se hai raggiunto la tua destinazione
+        //        {
+        //            AgentSpeed = FindObjectOfType<OldGameManager>().Speed;
+        //            // Salva le coordinate della posizione attuale
+        //            x2 = x;
+        //            y2 = y;
+        //            OnTheRoad = false;
                  
-                    //GameManager.TimerOn = true;
-                }
-            }
-            else // Load the old values of x && y
-            {
-                x = x2;
-                y = y2;
-                OnTheRoad = false;
-                //GameManager.TimerOn = true;
-            }
-        }
+        //            //GameManager.TimerOn = true;
+        //        }
+        //    }
+        //    else // Load the old values of x && y
+        //    {
+        //        x = x2;
+        //        y = y2;
+        //        OnTheRoad = false;
+        //        //GameManager.TimerOn = true;
+        //    }
+        //}
     }
 
     void RayDirections()
@@ -304,184 +304,184 @@ public class Agent : MonoBehaviour, ICharacter
 	public void Up() //Trasforma la chiamata del manager in una richiesta di movimento
 	{
 
-		if (y < (configGrid.DimY - 1) && OnTheRoad == false && MyTurn == true && ImStunned == false && GameManager.Pause == false)
-		{
-			RotDown = false; RotLeft = false; RotRight = false;
-			OnTheRoad = true;
-			y++;						
-            Rotation();
-            if (RotUp == false)
-			{
-                if (PlayerID == 1)
-                {
-                    m_InputSimulator.Keyboard.KeyUp(WindowsInput.Native.VirtualKeyCode.VK_W); 
-                }
-                else if (PlayerID == 2)
-                {
-                    m_InputSimulator.Keyboard.KeyUp(WindowsInput.Native.VirtualKeyCode.UP);
-                }
-                y--;
-				RotUp = true;
-			}
-            GameManager.GetComponent<Pointer>().PointerOff();
-		}
+		//if (y < (configGrid.DimY - 1) && OnTheRoad == false && MyTurn == true && ImStunned == false && GameManager.Pause == false)
+		//{
+		//	RotDown = false; RotLeft = false; RotRight = false;
+		//	OnTheRoad = true;
+		//	y++;						
+  //          Rotation();
+  //          if (RotUp == false)
+		//	{
+  //              if (PlayerID == 1)
+  //              {
+  //                  m_InputSimulator.Keyboard.KeyUp(WindowsInput.Native.VirtualKeyCode.VK_W); 
+  //              }
+  //              else if (PlayerID == 2)
+  //              {
+  //                  m_InputSimulator.Keyboard.KeyUp(WindowsInput.Native.VirtualKeyCode.UP);
+  //              }
+  //              y--;
+		//		RotUp = true;
+		//	}
+  //         // GameManager.GetComponent<Pointer>().PointerOff();
+		//}
 	}
 	public void Left()
 	{
-		if (x > 0 && OnTheRoad == false && MyTurn == true && ImStunned == false && GameManager.Pause == false)
-		{
-			RotUp = false; RotDown = false; RotRight = false;
-			OnTheRoad = true;
-			x--;			
-            Rotation();
-            if (RotLeft == false)
-			{
-                if (PlayerID == 1)
-                {
-                    m_InputSimulator.Keyboard.KeyUp(WindowsInput.Native.VirtualKeyCode.VK_A);
-                }
-                else if (PlayerID == 2)
-                {
-                    m_InputSimulator.Keyboard.KeyUp(WindowsInput.Native.VirtualKeyCode.LEFT);
-                }
-                x++;
-				RotLeft = true;
-			}
-            GameManager.GetComponent<Pointer>().PointerOff();
-        }
+		//if (x > 0 && OnTheRoad == false && MyTurn == true && ImStunned == false && GameManager.Pause == false)
+		//{
+		//	RotUp = false; RotDown = false; RotRight = false;
+		//	OnTheRoad = true;
+		//	x--;			
+  //          Rotation();
+  //          if (RotLeft == false)
+		//	{
+  //              if (PlayerID == 1)
+  //              {
+  //                  m_InputSimulator.Keyboard.KeyUp(WindowsInput.Native.VirtualKeyCode.VK_A);
+  //              }
+  //              else if (PlayerID == 2)
+  //              {
+  //                  m_InputSimulator.Keyboard.KeyUp(WindowsInput.Native.VirtualKeyCode.LEFT);
+  //              }
+  //              x++;
+		//		RotLeft = true;
+		//	}
+  //          //GameManager.GetComponent<Pointer>().PointerOff();
+  //      }
 	}
 	public void Down()
 	{
-		if (y > 0 && OnTheRoad == false && MyTurn == true && ImStunned == false && GameManager.Pause == false)
-		{
-			RotUp = false; RotLeft = false; RotRight = false;
-			OnTheRoad = true;
-			y--;			
-            Rotation();
-            if (RotDown == false)
-			{
-                if (PlayerID == 1)
-                {
-                    m_InputSimulator.Keyboard.KeyUp(WindowsInput.Native.VirtualKeyCode.VK_S);
-                }
-                else if (PlayerID == 2)
-                {
-                    m_InputSimulator.Keyboard.KeyUp(WindowsInput.Native.VirtualKeyCode.DOWN);
-                }
-                y++;
-				RotDown = true;
-			}
-            GameManager.GetComponent<Pointer>().PointerOff();
-        }
+		//if (y > 0 && OnTheRoad == false && MyTurn == true && ImStunned == false && GameManager.Pause == false)
+		//{
+		//	RotUp = false; RotLeft = false; RotRight = false;
+		//	OnTheRoad = true;
+		//	y--;			
+  //          Rotation();
+  //          if (RotDown == false)
+		//	{
+  //              if (PlayerID == 1)
+  //              {
+  //                  m_InputSimulator.Keyboard.KeyUp(WindowsInput.Native.VirtualKeyCode.VK_S);
+  //              }
+  //              else if (PlayerID == 2)
+  //              {
+  //                  m_InputSimulator.Keyboard.KeyUp(WindowsInput.Native.VirtualKeyCode.DOWN);
+  //              }
+  //              y++;
+		//		RotDown = true;
+		//	}
+  //         // GameManager.GetComponent<Pointer>().PointerOff();
+  //      }
 	}
 	public void Right()
 	{
-		if (x < (configGrid.DimX - 1) && OnTheRoad == false && MyTurn == true && ImStunned == false && GameManager.Pause == false)
-		{
-			RotUp = false; RotDown = false; RotLeft = false;
-			OnTheRoad = true;
-			x++;
-            Rotation();
-            if (RotRight == false)
-			{
-                if (PlayerID == 1)
-                {
-                    m_InputSimulator.Keyboard.KeyUp(WindowsInput.Native.VirtualKeyCode.VK_D);
-                }
-                else if (PlayerID == 2)
-                {
-                    m_InputSimulator.Keyboard.KeyUp(WindowsInput.Native.VirtualKeyCode.RIGHT);
-                }
-                x--;
-				RotRight = true;
-			}
-            GameManager.GetComponent<Pointer>().PointerOff();
-        }
+		//if (x < (configGrid.DimX - 1) && OnTheRoad == false && MyTurn == true && ImStunned == false && GameManager.Pause == false)
+		//{
+		//	RotUp = false; RotDown = false; RotLeft = false;
+		//	OnTheRoad = true;
+		//	x++;
+  //          Rotation();
+  //          if (RotRight == false)
+		//	{
+  //              if (PlayerID == 1)
+  //              {
+  //                  m_InputSimulator.Keyboard.KeyUp(WindowsInput.Native.VirtualKeyCode.VK_D);
+  //              }
+  //              else if (PlayerID == 2)
+  //              {
+  //                  m_InputSimulator.Keyboard.KeyUp(WindowsInput.Native.VirtualKeyCode.RIGHT);
+  //              }
+  //              x--;
+		//		RotRight = true;
+		//	}
+  //          //GameManager.GetComponent<Pointer>().PointerOff();
+  //      }
 	}
 
 	public void BasicAttack()
 	{
-		if (MyTurn == true && ImStunned == false && GameManager.CanAttack == true && GameManager.Pause == false) // Se è il mio turno
-		{
-            OnTheRoad = true;
-			GameManager.CanAttack = false;
-            //BasicAtt.enabled = true; // Attiva il collider di attacco     
+        //if (MyTurn == true && ImStunned == false && GameManager.CanAttack == true && GameManager.Pause == false) // Se è il mio turno
+        //{
+        //          OnTheRoad = true;
+        //	GameManager.CanAttack = false;
+        //          //BasicAtt.enabled = true; // Attiva il collider di attacco     
 
-            RaycastHit hit;
-            if (Physics.Raycast(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt, out hit, 1))
+        //          RaycastHit hit;
+        //          if (Physics.Raycast(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt, out hit, 1))
+        //          {
+        //              Debug.DrawRay(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.yellow);
+        //              if (hit.transform.tag == "Player" && hit.transform != transform)
+        //              {
+        //                  Debug.DrawRay(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
+        //                  //hit.transform.DOShakePosition(0.5f, 0.4f, 10, 45);
+        //                  hit.transform.GetComponent<LifeManager>().Damage(1); // Togli vita al player in collisione
+
+        //              }
+        //}
+
+        //           /*Graphic.*/transform.DOMove(transform.position + SavedlookAt * 0.2f, 0.3f)
+        //               .SetAutoKill();
+
+        //       }
+        //	else BasicAtt.enabled = false;
+        }
+
+        public void Poisoned()
+        {
+            if (GetComponentInChildren<Poison>() != null)
             {
-                Debug.DrawRay(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.yellow);
-                if (hit.transform.tag == "Player" && hit.transform != transform)
-                {
-                    Debug.DrawRay(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
-                    //hit.transform.DOShakePosition(0.5f, 0.4f, 10, 45);
-                    hit.transform.GetComponent<LifeManager>().Damage(1); // Togli vita al player in collisione
-
-                }
+                PoisonPS.SetActive(true);
             }
-
-            /*Graphic.*/transform.DOMove(transform.position + SavedlookAt * 0.2f, 0.3f)
-                .SetAutoKill();
-
+            else
+            {
+                PoisonPS.SetActive(false);
+            }
         }
-		else BasicAtt.enabled = false;
-	}
-
-    public void Poisoned()
-    {
-        if(GetComponentInChildren<Poison>() != null)
-        {
-            PoisonPS.SetActive(true);
-        }
-        else
-        {
-            PoisonPS.SetActive(false);
-        }
-    }
 
     public void Switch_Up()
     {
-        SwitchIndex++;
-        if (switcherIndex >= 2)
-            switcherIndex = 0;
-        if (MyTurn == true && GameManager.TimerOn == true)
-        {
-            GameManager.Switcher(PlayerID, switcherIndex, gameObject, RotUp, RotDown, RotRight, RotLeft);
-        }
+        //SwitchIndex++;
+        //if (switcherIndex >= 2)
+        //    switcherIndex = 0;
+        //if (MyTurn == true && GameManager.TimerOn == true)
+        //{
+        //    GameManager.Switcher(PlayerID, switcherIndex, gameObject, RotUp, RotDown, RotRight, RotLeft);
+        //}
     }
 
     public void Switch_Down()
     {
-        SwitchIndex--;
-        if (switcherIndex < 0)
-            switcherIndex = 1;
-        if (MyTurn == true && GameManager.TimerOn == true)
-        {
-            GameManager.Switcher(PlayerID, switcherIndex, gameObject, RotUp, RotDown, RotRight, RotLeft);
-        }
+        //SwitchIndex--;
+        //if (switcherIndex < 0)
+        //    switcherIndex = 1;
+        //if (MyTurn == true && GameManager.TimerOn == true)
+        //{
+        //    GameManager.Switcher(PlayerID, switcherIndex, gameObject, RotUp, RotDown, RotRight, RotLeft);
+        //}
     }    
 
     #endregion
 
     public void TeleportMe()
     {
-        if (GameManager.TimerOn == true)
-        {
-            GameManager.ActivatePortal(); 
-        }
+        //if (GameManager.TimerOn == true)
+        //{
+        //    GameManager.ActivatePortal(); 
+        //}
     }
     public void ImDrained()
     {        
-        if (imDrained == true && StartDrain == GameManager.Turn)
-        {
-            DrainPS.SetActive(true);
-        }
-        else 
-        { if (StartDrain != GameManager.Turn)
-            {
-                imDrained = false;
-                DrainPS.SetActive(false);
-            }
-        }
+    //    if (imDrained == true && StartDrain == GameManager.Turn)
+    //    {
+    //        DrainPS.SetActive(true);
+    //    }
+    //    else 
+    //    { if (StartDrain != GameManager.Turn)
+    //        {
+    //            imDrained = false;
+    //            DrainPS.SetActive(false);
+    //        }
+    //    }
     }
 }

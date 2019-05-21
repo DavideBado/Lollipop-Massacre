@@ -9,85 +9,85 @@ public class Venom : MonoBehaviour
     float Timer;
     bool onAttack;
     public GameObject Poison;
-    OldGameManager Manager;
+
     private void Start()
     {
         Timer = 1f;
-        Manager = FindObjectOfType<OldGameManager>();
+        
     }
 
     private void Update()
     {
-        if (onAttack == true)
-        {
-            Timer -= Time.deltaTime;
-            Manager.Pause = true;
-            NewPreview(Manager.CellAttackMaterial);
-            if (Timer <= 0)
-            {
-                onAttack = false;
-                Manager.Pause = false;
-                CleanPreview();
-                Timer = 1f;
-            }
+        //if (onAttack == true)
+        //{
+        //    Timer -= Time.deltaTime;
+        //    Manager.Pause = true;
+        //    NewPreview(Manager.CellAttackMaterial);
+        //    if (Timer <= 0)
+        //    {
+        //        onAttack = false;
+        //        Manager.Pause = false;
+        //        CleanPreview();
+        //        Timer = 1f;
+        //    }
 
-        }
+        //}
     }
 
     public void Ability()
     {
-        if (GetComponent<Agent>().Mana > 0 && GetComponent<Agent>().MyTurn && GetComponent<Agent>().PlayerType == 4 && GetComponent<Agent>().ImStunned == false && Manager.CanAttack == true && Manager.Pause == false)
-        {
-            RaycastHit hit;
-            if (Physics.Raycast(transform.position + new Vector3(0, 0.5f), Vector3.forward, out hit, Mathf.Infinity))
-            {
-                Debug.DrawRay(transform.position + new Vector3(0, 0.5f), Vector3.forward * hit.distance, Color.yellow);
-                if (hit.transform.tag == "Player" && hit.transform != transform)
-                {
-                    onAttack = true;
-                    Debug.DrawRay(transform.position + new Vector3(0, 0.5f), Vector3.forward * hit.distance, Color.red);
-                    PoisonPower(hit);
-                }
-            }
-            if (Physics.Raycast(transform.position + new Vector3(0, 0.5f), Vector3.back, out hit, Mathf.Infinity))
-            {
-                Debug.DrawRay(transform.position + new Vector3(0, 0.5f), Vector3.back * hit.distance, Color.yellow);
-                if (hit.transform.tag == "Player" && hit.transform != transform)
-                {
-                    onAttack = true;
-                    Debug.DrawRay(transform.position + new Vector3(0, 0.5f), Vector3.back * hit.distance, Color.red);
-                    PoisonPower(hit);
-                }
-            }
-            if (Physics.Raycast(transform.position + new Vector3(0, 0.5f), Vector3.left, out hit, Mathf.Infinity))
-            {
-                Debug.DrawRay(transform.position + new Vector3(0, 0.5f), Vector3.left * hit.distance, Color.yellow);
-                if (hit.transform.tag == "Player" && hit.transform != transform)
-                {
-                    onAttack = true;
-                    Debug.DrawRay(transform.position + new Vector3(0, 0.5f), Vector3.left * hit.distance, Color.red);
-                    PoisonPower(hit);
-                }
-            }
+        //if (GetComponent<Agent>().Mana > 0 && GetComponent<Agent>().MyTurn && GetComponent<Agent>().PlayerType == 4 && GetComponent<Agent>().ImStunned == false && Manager.CanAttack == true && Manager.Pause == false)
+        //{
+        //    RaycastHit hit;
+        //    if (Physics.Raycast(transform.position + new Vector3(0, 0.5f), Vector3.forward, out hit, Mathf.Infinity))
+        //    {
+        //        Debug.DrawRay(transform.position + new Vector3(0, 0.5f), Vector3.forward * hit.distance, Color.yellow);
+        //        if (hit.transform.tag == "Player" && hit.transform != transform)
+        //        {
+        //            onAttack = true;
+        //            Debug.DrawRay(transform.position + new Vector3(0, 0.5f), Vector3.forward * hit.distance, Color.red);
+        //            PoisonPower(hit);
+        //        }
+        //    }
+        //    if (Physics.Raycast(transform.position + new Vector3(0, 0.5f), Vector3.back, out hit, Mathf.Infinity))
+        //    {
+        //        Debug.DrawRay(transform.position + new Vector3(0, 0.5f), Vector3.back * hit.distance, Color.yellow);
+        //        if (hit.transform.tag == "Player" && hit.transform != transform)
+        //        {
+        //            onAttack = true;
+        //            Debug.DrawRay(transform.position + new Vector3(0, 0.5f), Vector3.back * hit.distance, Color.red);
+        //            PoisonPower(hit);
+        //        }
+        //    }
+        //    if (Physics.Raycast(transform.position + new Vector3(0, 0.5f), Vector3.left, out hit, Mathf.Infinity))
+        //    {
+        //        Debug.DrawRay(transform.position + new Vector3(0, 0.5f), Vector3.left * hit.distance, Color.yellow);
+        //        if (hit.transform.tag == "Player" && hit.transform != transform)
+        //        {
+        //            onAttack = true;
+        //            Debug.DrawRay(transform.position + new Vector3(0, 0.5f), Vector3.left * hit.distance, Color.red);
+        //            PoisonPower(hit);
+        //        }
+        //    }
 
-            if (Physics.Raycast(transform.position + new Vector3(0, 0.5f), Vector3.right, out hit, Mathf.Infinity))
-            {
-                Debug.DrawRay(transform.position + new Vector3(0, 0.5f), Vector3.right * hit.distance, Color.yellow);
-                if (hit.transform.tag == "Player" && hit.transform != transform)
-                {
-                    onAttack = true;
-                    Debug.DrawRay(transform.position + new Vector3(0, 0.5f), Vector3.right * hit.distance, Color.red);
-                    PoisonPower(hit);
-                }
-            }
-            if (FindObjectOfType<PickUpsSpawner>().AllManaFull == true)
-            {
-                FindObjectOfType<OldGameManager>().PickUpTurnCount = 0;
-                FindObjectOfType<PickUpsSpawner>().AllManaFull = false;
-            }
-            GetComponent<Agent>().Mana--;
-            Manager.CanAttack = false;
-        }
+        //    if (Physics.Raycast(transform.position + new Vector3(0, 0.5f), Vector3.right, out hit, Mathf.Infinity))
+        //    {
+        //        Debug.DrawRay(transform.position + new Vector3(0, 0.5f), Vector3.right * hit.distance, Color.yellow);
+        //        if (hit.transform.tag == "Player" && hit.transform != transform)
+        //        {
+        //            onAttack = true;
+        //            Debug.DrawRay(transform.position + new Vector3(0, 0.5f), Vector3.right * hit.distance, Color.red);
+        //            PoisonPower(hit);
+        //        }
+        //    }
+        //    if (FindObjectOfType<PickUpsSpawner>().AllManaFull == true)
+        //    {
+        //        //FindObjectOfType<OldGameManager>().PickUpTurnCount = 0;
+        //        FindObjectOfType<PickUpsSpawner>().AllManaFull = false;
+        //    }
+        //    GetComponent<Agent>().Mana--;
+        //    //Manager.CanAttack = false;
+        //}
     }
 
     void PoisonPower(RaycastHit hit)
@@ -99,13 +99,13 @@ public class Venom : MonoBehaviour
 
     public void Preview()
     {
-        if (GetComponent<Agent>().MyTurn  && GetComponent<Agent>().ImStunned == false && Manager.CanAttack == true && Manager.Pause == false)
+        //if (GetComponent<Agent>().MyTurn  && GetComponent<Agent>().ImStunned == false && Manager.CanAttack == true && Manager.Pause == false)
 
-        {
-            CleanPreview();
-            Material PrevMaterial = FindObjectOfType<CellPrefScript>().Materials[3];
-            NewPreview(PrevMaterial);
-        }
+        //{
+        //    CleanPreview();
+        //    Material PrevMaterial = FindObjectOfType<CellPrefScript>().Materials[3];
+        //    NewPreview(PrevMaterial);
+        //}
     }
 
     void NewPreview(Material _material)

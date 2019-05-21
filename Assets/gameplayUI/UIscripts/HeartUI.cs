@@ -10,16 +10,13 @@ public class HeartUI : MonoBehaviour
     Agent player;
     public GameObject h1, h2, h3;
     public bool PanelPos;
-	OldGameManager manager;
+	
 
 
     private void Update()
     {
-	if(manager == null)
-	{
-			manager = FindObjectOfType<OldGameManager>();
-	}
-		PoolFinder();
+	
+		//PoolFinder();
 		TexSelector();
     }
 
@@ -66,16 +63,16 @@ public class HeartUI : MonoBehaviour
         }
     }
 
-    void PoolFinder()
-    {
-        if (PanelPos == true)
-        {
-            player = manager.POneParty[ID].GetComponent<Agent>();
-        }
+    //void PoolFinder()
+    //{
+    //    if (PanelPos == true)
+    //    {
+    //        player = manager.POneParty[ID].GetComponent<Agent>();
+    //    }
 
-        else if (PanelPos == false)
-        {
-            player = manager.PTwoParty[ID].GetComponent<Agent>();
-        }
-    }
+    //    else if (PanelPos == false)
+    //    {
+    //        player = manager.PTwoParty[ID].GetComponent<Agent>();
+    //    }
+    //}
 }

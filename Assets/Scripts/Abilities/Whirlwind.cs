@@ -7,99 +7,99 @@ public class Whirlwind : MonoBehaviour
 {
     float Timer;
     bool onAttack;
-    OldGameManager Manager;
+
     private void Start()
     {
         Timer = 1f;
-        Manager = FindObjectOfType<OldGameManager>();
+
     }
 
     private void Update()
     {
-        if (onAttack == true)
-        {
-            Timer -= Time.deltaTime;
-            Manager.Pause = true;
-            NewPreview(Manager.CellAttackMaterial);
-            if (Timer <= 0)
-            {
-                onAttack = false;
-                Manager.Pause = false;
-                CleanPreview();
-                Timer = 1f;
-            }
+        //if (onAttack == true)
+        //{
+        //    Timer -= Time.deltaTime;
+        //    Manager.Pause = true;
+        //    NewPreview(Manager.CellAttackMaterial);
+        //    if (Timer <= 0)
+        //    {
+        //        onAttack = false;
+        //        Manager.Pause = false;
+        //        CleanPreview();
+        //        Timer = 1f;
+        //    }
 
-        }
+        //}
     }
 
-    public void Ability()
+    //public void Ability()
 
-    {
-        if (GetComponent<Agent>().Mana > 0 && GetComponent<Agent>().MyTurn && GetComponent<Agent>().PlayerType == 6 && GetComponent<Agent>().ImStunned == false && Manager.CanAttack == true && Manager.Pause == false)
+    //{
+    //    if (GetComponent<Agent>().Mana > 0 && GetComponent<Agent>().MyTurn && GetComponent<Agent>().PlayerType == 6 && GetComponent<Agent>().ImStunned == false && Manager.CanAttack == true && Manager.Pause == false)
 
-        {
-            RaycastHit hit;
+    //    {
+    //        RaycastHit hit;
 
-            if (Physics.Raycast(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt, out hit, 4))
+    //        if (Physics.Raycast(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt, out hit, 4))
 
-            {
+    //        {
 
-                Debug.DrawRay(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.yellow);
+    //            Debug.DrawRay(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.yellow);
 
-                if (hit.transform.tag == "Player" && hit.transform != transform)
+    //            if (hit.transform.tag == "Player" && hit.transform != transform)
 
-                {
-                    onAttack = true;
-                    Debug.DrawRay(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
-                    hit.transform.GetComponent<LifeManager>().Damage(1);
-                    int EnemyID = hit.transform.GetComponent<Agent>().PlayerID;
+    //            {
+    //                onAttack = true;
+    //                Debug.DrawRay(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
+    //                hit.transform.GetComponent<LifeManager>().Damage(1);
+    //                int EnemyID = hit.transform.GetComponent<Agent>().PlayerID;
 
-                    if (EnemyID == 1)
-                    {
-                        ChangePg(Manager.POneParty, EnemyID);
-                        hit.transform.position = new Vector3();
-                        hit.transform.parent = Manager.BenchPOne.transform;
-                        hit.transform.gameObject.SetActive(false);
+    //                if (EnemyID == 1)
+    //                {
+    //                    ChangePg(Manager.POneParty, EnemyID);
+    //                    hit.transform.position = new Vector3();
+    //                    hit.transform.parent = Manager.BenchPOne.transform;
+    //                    hit.transform.gameObject.SetActive(false);
 
-                    }
-                    else if (EnemyID == 2)
-                    {
-                        ChangePg(Manager.PTwoParty, EnemyID);
-                        hit.transform.position = new Vector3();
-                        hit.transform.parent = Manager.BenchPTwo.transform;
-                        hit.transform.gameObject.SetActive(false);
-                    }
-                }
+    //                }
+    //                else if (EnemyID == 2)
+    //                {
+    //                    ChangePg(Manager.PTwoParty, EnemyID);
+    //                    hit.transform.position = new Vector3();
+    //                    hit.transform.parent = Manager.BenchPTwo.transform;
+    //                    hit.transform.gameObject.SetActive(false);
+    //                }
+    //            }
 
-            }
+    //        }
 
 
-            if (FindObjectOfType<PickUpsSpawner>().AllManaFull == true)
+    //        if (FindObjectOfType<PickUpsSpawner>().AllManaFull == true)
 
-            {
+    //        {
 
-                FindObjectOfType<OldGameManager>().PickUpTurnCount = 0;
+    //            FindObjectOfType<OldGameManager>().PickUpTurnCount = 0;
 
-                FindObjectOfType<PickUpsSpawner>().AllManaFull = false;
+    //            FindObjectOfType<PickUpsSpawner>().AllManaFull = false;
 
-            }
+    //        }
 
-            GetComponent<Agent>().Mana--;
-            Manager.CanAttack = false;
-        }
+    //        GetComponent<Agent>().Mana--;
+    //        Manager.CanAttack = false;
+    //    }
 
-    }
+    //}
 
-    public void Preview()
-    {
-        if (GetComponent<Agent>().MyTurn && GetComponent<Agent>().ImStunned == false && Manager.CanAttack == true && Manager.Pause == false)
+    //public void Preview()
+    //{
+    //    if (GetComponent<Agent>().MyTurn && GetComponent<Agent>().ImStunned == false && Manager.CanAttack == true && Manager.Pause == false)
 
-        {
-            CleanPreview();
-            Material PrevMaterial = FindObjectOfType<CellPrefScript>().Materials[3];
-            NewPreview(PrevMaterial);
-        }
-    }
+    //    {
+    //        CleanPreview();
+    //        Material PrevMaterial = FindObjectOfType<CellPrefScript>().Materials[3];
+    //        NewPreview(PrevMaterial);
+    //    }
+    //}
 
     void NewPreview(Material _material)
     {       
@@ -188,29 +188,29 @@ public class Whirlwind : MonoBehaviour
 
     void ChangePg(List<GameObject> _m_agents, int _OtherPlayerID)
     {
-        Transform _Bench = null;
-        Vector3 m_SpawnPoint = Manager.RespawnController.FindAGoodPoint(GetComponent<PlayerData>());
-        if (_OtherPlayerID == 1)
-        {
-            _Bench = Manager.BenchPOne.transform;
-        }
-        else if (_OtherPlayerID == 2)
-        {
-            _Bench = Manager.BenchPTwo.transform;
-        }
-        if (_m_agents.Count > 0)
-        {
+        //Transform _Bench = null;
+        //Vector3 m_SpawnPoint = Manager.RespawnController.FindAGoodPoint(GetComponent<PlayerData>());
+        //if (_OtherPlayerID == 1)
+        //{
+        //    _Bench = Manager.BenchPOne.transform;
+        //}
+        //else if (_OtherPlayerID == 2)
+        //{
+        //    _Bench = Manager.BenchPTwo.transform;
+        //}
+        //if (_m_agents.Count > 0)
+        //{
 
-            GameObject _chara = _m_agents[0];
-            _m_agents.Remove(_chara);
-            _m_agents.Add(_chara);
+        //    GameObject _chara = _m_agents[0];
+        //    _m_agents.Remove(_chara);
+        //    _m_agents.Add(_chara);
 
-            SetNewPosition(_chara, m_SpawnPoint);
+        //    SetNewPosition(_chara, m_SpawnPoint);
             
-            ToggleObject(_chara, _Bench);
+        //    ToggleObject(_chara, _Bench);
           
 
-        }
+        //}
     }
 
     void SetNewPosition(GameObject _agent, Vector3 _SpawnPoint)

@@ -9,17 +9,17 @@ public class ManaUI : MonoBehaviour
     public Texture sp1, sp2;
     Agent player;
     public bool PanelPos;
-    public OldGameManager gm;
+
     public int ID;
 
 
     private void Update()
     {
-        //img = GetComponent<RawImage>();
-        if (gm == null)
-        {
-            gm = FindObjectOfType<OldGameManager>();
-        }
+
+        //if (gm == null)
+        //{
+        //    gm = FindObjectOfType<OldGameManager>();
+        //}
         PoolFinder();
         manaSprite();
         
@@ -45,12 +45,12 @@ public class ManaUI : MonoBehaviour
     {
         if (PanelPos == true)
         {
-            player = gm.POneParty[ID].GetComponent<Agent>();
+            //player = gm.POneParty[ID].GetComponent<Agent>();
             
         }
         else if (PanelPos == false)
         {
-            player = gm.PTwoParty[ID].GetComponent<Agent>();
+           // player = gm.PTwoParty[ID].GetComponent<Agent>();
         }
     }
 }

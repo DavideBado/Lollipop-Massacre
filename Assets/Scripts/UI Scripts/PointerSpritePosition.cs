@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PointerSpritePosition : MonoBehaviour
 {
-    OldGameManager manager;
+
     public Player1 P1;
     public Player2 P2;
     public SliderBehaviour _slider;
@@ -13,7 +13,7 @@ public class PointerSpritePosition : MonoBehaviour
 
     void Awake()
     {
-        manager = FindObjectOfType<OldGameManager>();
+
         FindPlayers();
     }
 

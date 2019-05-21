@@ -24,27 +24,27 @@ public class Pointer : MonoBehaviour
 
     public void FindPosition()
     {
-        if (manager.TimerOn == true && pointerOn == true)
-        {
-            PointerImage.GetComponent<Image>().enabled = true;
-            if (P1.MyTurn == true)
-            {
-                PointerImage.transform.position = (P1.transform.position + new Vector3(0, 2.5f + Mathf.PingPong(Time.time, 0.5f)));
-                PointerImage.GetComponent<Image>().sprite = sprites[0];
-            }
+        //if (manager.TimerOn == true && pointerOn == true)
+        //{
+        //    PointerImage.GetComponent<Image>().enabled = true;
+        //    if (P1.MyTurn == true)
+        //    {
+        //        PointerImage.transform.position = (P1.transform.position + new Vector3(0, 2.5f + Mathf.PingPong(Time.time, 0.5f)));
+        //        PointerImage.GetComponent<Image>().sprite = sprites[0];
+        //    }
 
-            else if (P2.MyTurn == true)
-            {
-                PointerImage.transform.position = (P2.transform.position + new Vector3(0, 2.5f + Mathf.PingPong(Time.time, 0.5f)));
-                PointerImage.GetComponent<Image>().sprite = sprites[1];
-            }
-        }
-        else
-        {
-            if (manager.TimerOn == false)
-                pointerOn = true;
-            PointerImage.GetComponent<Image>().enabled = false;
-        }
+        //    else if (P2.MyTurn == true)
+        //    {
+        //        PointerImage.transform.position = (P2.transform.position + new Vector3(0, 2.5f + Mathf.PingPong(Time.time, 0.5f)));
+        //        PointerImage.GetComponent<Image>().sprite = sprites[1];
+        //    }
+        //}
+        //else
+        //{
+        //    if (manager.TimerOn == false)
+        //        pointerOn = true;
+        //    PointerImage.GetComponent<Image>().enabled = false;
+        //}
     }
 
     public void PointerOff()

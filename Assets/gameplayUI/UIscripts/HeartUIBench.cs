@@ -40,13 +40,13 @@ public class HeartUIBench : MonoBehaviour
 
     void PoolFinder()
     {
-        if (PanelPos == true)
-        {
-            player = manager.POneParty[ID].GetComponent<Agent>();
-        }
-        else if (PanelPos == false)
-        {
-            player = manager.PTwoParty[ID].GetComponent<Agent>();
-        }
+        //if (PanelPos == true)
+        //{
+        //    player = manager.POneParty[ID].GetComponent<Agent>();
+        //}
+        //else if (PanelPos == false)
+        //{
+        //    player = manager.PTwoParty[ID].GetComponent<Agent>();
+        //}
     }
 }

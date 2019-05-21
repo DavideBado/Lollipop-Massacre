@@ -19,7 +19,7 @@ public class SliderBehaviour : MonoBehaviour
 
     public TimerDelegate StartTimer;
     public TimerDelegate EndTimer;
-    public OldGameManager manager;
+
     public float endValue = 0;
 
 
@@ -32,7 +32,7 @@ public class SliderBehaviour : MonoBehaviour
             StartCounter(countAmount);
 
         fillImage.color = RingColor;
-        manager = FindObjectOfType<OldGameManager>();
+
     }
 
 
@@ -44,15 +44,15 @@ public class SliderBehaviour : MonoBehaviour
         //    StartCounter(countAmount);
         //}
 
-        counterText.text = ((int)countAmount + 1).ToString();
-        if (manager.TimerOn == false)
-        {
-            sequenceTimer.Pause();
-        }
-        else
-        {
-            sequenceTimer.Play();
-        }
+        //counterText.text = ((int)countAmount + 1).ToString();
+        //if (manager.TimerOn == false)
+        //{
+        //    sequenceTimer.Pause();
+        //}
+        //else
+        //{
+        //    sequenceTimer.Play();
+        //}
     }
 
     public float initialCountAmount;

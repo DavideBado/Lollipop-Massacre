@@ -17,7 +17,7 @@ public class Player2 : Agent
 
 	void TurnUpdate()
 	{
-		MyTurn = !FindObjectOfType<OldGameManager>().Turn;
+		//MyTurn = !FindObjectOfType<OldGameManager>().Turn;
 	}
 
 

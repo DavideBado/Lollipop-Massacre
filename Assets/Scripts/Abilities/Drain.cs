@@ -7,144 +7,144 @@ public class Drain : MonoBehaviour
 {
     float Timer;
     bool onAttack;
-    OldGameManager Manager;
+
     public Agent agent;
     
 
     private void Start()
     {
         Timer = 1f;
-        Manager = FindObjectOfType<OldGameManager>();
+
         agent = GetComponent<Agent>();
     }
 
     private void Update()
     {
-        if (onAttack == true)
-        {
-            Timer -= Time.deltaTime;
-            Manager.Pause = true;
-            NewPreview(Manager.CellAttackMaterial);
-            if (Timer <= 0)
-            {
-                onAttack = false;
-                Manager.Pause = false;
-                CleanPreview();
-                Timer = 1f;
-            }
+        //if (onAttack == true)
+        //{
+        //    Timer -= Time.deltaTime;
+        //    Manager.Pause = true;
+        //    NewPreview(Manager.CellAttackMaterial);
+        //    if (Timer <= 0)
+        //    {
+        //        onAttack = false;
+        //        Manager.Pause = false;
+        //        CleanPreview();
+        //        Timer = 1f;
+        //    }
 
-        }
+        //}
     }
 
-    public void Ability()
-    {
-        if (GetComponent<Agent>().Mana > 0 && GetComponent<Agent>().MyTurn && GetComponent<Agent>().PlayerType == 2 && GetComponent<Agent>().ImStunned == false && Manager.CanAttack == true && Manager.Pause == false)
-        {
-            if(GetComponent<LifeManager>().Life == 3)
-            {
-                ImFullButIWannaDrain();
-            }
+    //public void Ability()
+    //{
+    //    if (GetComponent<Agent>().Mana > 0 && GetComponent<Agent>().MyTurn && GetComponent<Agent>().PlayerType == 2 && GetComponent<Agent>().ImStunned == false && Manager.CanAttack == true && Manager.Pause == false)
+    //    {
+    //        if(GetComponent<LifeManager>().Life == 3)
+    //        {
+    //            ImFullButIWannaDrain();
+    //        }
 
-            if (GetComponent<LifeManager>().Life < 3)
-            {
-                INeedLifeDrain();
-            }
+    //        if (GetComponent<LifeManager>().Life < 3)
+    //        {
+    //            INeedLifeDrain();
+    //        }
 
-            if (FindObjectOfType<PickUpsSpawner>().AllManaFull == true)
-            {
-                FindObjectOfType<OldGameManager>().PickUpTurnCount = 0;
-                FindObjectOfType<PickUpsSpawner>().AllManaFull = false;
-            }
-            GetComponent<Agent>().Mana--;
-            Manager.CanAttack = false;
-            agent.DrainPS.SetActive(true);
-            agent.StartDrain = Manager.Turn;
-        }        
-    }
+    //        if (FindObjectOfType<PickUpsSpawner>().AllManaFull == true)
+    //        {
+    //            FindObjectOfType<OldGameManager>().PickUpTurnCount = 0;
+    //            FindObjectOfType<PickUpsSpawner>().AllManaFull = false;
+    //        }
+    //        GetComponent<Agent>().Mana--;
+    //        Manager.CanAttack = false;
+    //        agent.DrainPS.SetActive(true);
+    //        agent.StartDrain = Manager.Turn;
+    //    }        
+    //}
     void ImFullButIWannaDrain()
     {
-        RaycastHit hit;
-        if (Physics.Raycast(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt, out hit, Mathf.Infinity))
-        {
-            Debug.DrawRay(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.yellow);
-            if (hit.transform.tag == "Player" && hit.transform != transform)
-            {
-                onAttack = true;
-                Debug.DrawRay(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
-                hit.transform.GetComponent<LifeManager>().Damage(1);
-                hit.transform.GetComponent<Agent>().imDrained = true;
-                hit.transform.GetComponent<Agent>().StartDrain = Manager.Turn;
-            }
-        }
+        //RaycastHit hit;
+        //if (Physics.Raycast(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt, out hit, Mathf.Infinity))
+        //{
+        //    Debug.DrawRay(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.yellow);
+        //    if (hit.transform.tag == "Player" && hit.transform != transform)
+        //    {
+        //        onAttack = true;
+        //        Debug.DrawRay(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
+        //        hit.transform.GetComponent<LifeManager>().Damage(1);
+        //        hit.transform.GetComponent<Agent>().imDrained = true;
+        //        hit.transform.GetComponent<Agent>().StartDrain = Manager.Turn;
+        //    }
+        //}
     }
 
-    void INeedLifeDrain()
-    {
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position + new Vector3(0, 0.5f), Vector3.back, out hit, 4))
-        {
-            Debug.DrawRay(transform.position + new Vector3(0, 0.5f), Vector3.back * hit.distance, Color.yellow);
-            if (hit.transform.tag == "Player" && hit.transform != transform)
-            {
-                onAttack = true;
-                Debug.DrawRay(transform.position + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
-                GetComponent<LifeManager>().Life++;
-                hit.transform.GetComponent<LifeManager>().Damage(1);
-                hit.transform.GetComponent<Agent>().imDrained = true;
-                hit.transform.GetComponent<Agent>().StartDrain = Manager.Turn;
-            }
-        }
-        if (Physics.Raycast(transform.position + new Vector3(0, 0.5f), Vector3.forward, out hit, 4))
-        {
-            Debug.DrawRay(transform.position + new Vector3(0, 0.5f), Vector3.forward * hit.distance, Color.yellow);
-            if (hit.transform.tag == "Player" && hit.transform != transform)
-            {
-                onAttack = true;
-                Debug.DrawRay(GetComponent<Agent>().RayLeft + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
-                GetComponent<LifeManager>().Life++;
-                hit.transform.GetComponent<LifeManager>().Damage(1);
-                hit.transform.GetComponent<Agent>().imDrained = true;
-                hit.transform.GetComponent<Agent>().StartDrain = Manager.Turn;
-            }
-        }
-        if (Physics.Raycast(transform.position + new Vector3(0, 0.5f), Vector3.left, out hit, 4))
-        {
-            Debug.DrawRay(transform.position + new Vector3(0, 0.5f), Vector3.left * hit.distance, Color.yellow);
-            if (hit.transform.tag == "Player" && hit.transform != transform)
-            {
-                onAttack = true;
-                Debug.DrawRay(GetComponent<Agent>().RayRight + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
-                GetComponent<LifeManager>().Life++;
-                hit.transform.GetComponent<LifeManager>().Damage(1);
-                hit.transform.GetComponent<Agent>().imDrained = true;
-                hit.transform.GetComponent<Agent>().StartDrain = Manager.Turn;
-            }
-        }
-        if (Physics.Raycast(transform.position + new Vector3(0, 0.5f), Vector3.right, out hit, 4))
-        {
-            Debug.DrawRay(transform.position + new Vector3(0, 0.5f), Vector3.right * hit.distance, Color.yellow);
-            if (hit.transform.tag == "Player" && hit.transform != transform)
-            {
-                onAttack = true;
-                Debug.DrawRay(GetComponent<Agent>().RayRight + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
-                GetComponent<LifeManager>().Life++;
-                hit.transform.GetComponent<LifeManager>().Damage(1);
-                hit.transform.GetComponent<Agent>().imDrained = true;
-                hit.transform.GetComponent<Agent>().StartDrain = Manager.Turn;
-            }
-        }
+    //void INeedLifeDrain()
+    //{
+    //    RaycastHit hit;
+    //    if (Physics.Raycast(transform.position + new Vector3(0, 0.5f), Vector3.back, out hit, 4))
+    //    {
+    //        Debug.DrawRay(transform.position + new Vector3(0, 0.5f), Vector3.back * hit.distance, Color.yellow);
+    //        if (hit.transform.tag == "Player" && hit.transform != transform)
+    //        {
+    //            onAttack = true;
+    //            Debug.DrawRay(transform.position + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
+    //            GetComponent<LifeManager>().Life++;
+    //            hit.transform.GetComponent<LifeManager>().Damage(1);
+    //            hit.transform.GetComponent<Agent>().imDrained = true;
+    //            hit.transform.GetComponent<Agent>().StartDrain = Manager.Turn;
+    //        }
+    //    }
+    //    if (Physics.Raycast(transform.position + new Vector3(0, 0.5f), Vector3.forward, out hit, 4))
+    //    {
+    //        Debug.DrawRay(transform.position + new Vector3(0, 0.5f), Vector3.forward * hit.distance, Color.yellow);
+    //        if (hit.transform.tag == "Player" && hit.transform != transform)
+    //        {
+    //            onAttack = true;
+    //            Debug.DrawRay(GetComponent<Agent>().RayLeft + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
+    //            GetComponent<LifeManager>().Life++;
+    //            hit.transform.GetComponent<LifeManager>().Damage(1);
+    //            hit.transform.GetComponent<Agent>().imDrained = true;
+    //            hit.transform.GetComponent<Agent>().StartDrain = Manager.Turn;
+    //        }
+    //    }
+    //    if (Physics.Raycast(transform.position + new Vector3(0, 0.5f), Vector3.left, out hit, 4))
+    //    {
+    //        Debug.DrawRay(transform.position + new Vector3(0, 0.5f), Vector3.left * hit.distance, Color.yellow);
+    //        if (hit.transform.tag == "Player" && hit.transform != transform)
+    //        {
+    //            onAttack = true;
+    //            Debug.DrawRay(GetComponent<Agent>().RayRight + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
+    //            GetComponent<LifeManager>().Life++;
+    //            hit.transform.GetComponent<LifeManager>().Damage(1);
+    //            hit.transform.GetComponent<Agent>().imDrained = true;
+    //            hit.transform.GetComponent<Agent>().StartDrain = Manager.Turn;
+    //        }
+    //    }
+    //    if (Physics.Raycast(transform.position + new Vector3(0, 0.5f), Vector3.right, out hit, 4))
+    //    {
+    //        Debug.DrawRay(transform.position + new Vector3(0, 0.5f), Vector3.right * hit.distance, Color.yellow);
+    //        if (hit.transform.tag == "Player" && hit.transform != transform)
+    //        {
+    //            onAttack = true;
+    //            Debug.DrawRay(GetComponent<Agent>().RayRight + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
+    //            GetComponent<LifeManager>().Life++;
+    //            hit.transform.GetComponent<LifeManager>().Damage(1);
+    //            hit.transform.GetComponent<Agent>().imDrained = true;
+    //            hit.transform.GetComponent<Agent>().StartDrain = Manager.Turn;
+    //        }
+    //    }
 
-    }
+    //}
 
     public void Preview()
     {
-        if (GetComponent<Agent>().MyTurn && GetComponent<Agent>().ImStunned == false && Manager.CanAttack == true && Manager.Pause == false)
+        //if (GetComponent<Agent>().MyTurn && GetComponent<Agent>().ImStunned == false && Manager.CanAttack == true && Manager.Pause == false)
 
-        {
-            CleanPreview();
-            Material PrevMaterial = FindObjectOfType<CellPrefScript>().Materials[3];
-            NewPreview(PrevMaterial);
-        }
+        //{
+        //    CleanPreview();
+        //    Material PrevMaterial = FindObjectOfType<CellPrefScript>().Materials[3];
+        //    NewPreview(PrevMaterial);
+        //}
     }
 
     void NewPreview(Material _material)
