@@ -100,6 +100,7 @@ Transform:
   - {fileID: 2470151824924220810}
   - {fileID: 9161324033327906350}
   - {fileID: 4961913167135898990}
+  - {fileID: 2340468298961778956}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -156,6 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62a6c9b588170a24a921bc82faf2dc93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CharacterName: SCIMMIA
   SwitchIndex: 0
   AgentParent: {fileID: 0}
   AgentSpawnPosition: {x: 0, y: 0, z: 0}
@@ -175,6 +177,9 @@ MonoBehaviour:
   LifeSprites:
   - {fileID: 2800000, guid: d5ceffa33f81a1042a62da06213e4b83, type: 3}
   - {fileID: 2800000, guid: c6fbc6c4a30dc5e4d8cc4d4260425230, type: 3}
+  LifeSpritesBench:
+  - {fileID: 2800000, guid: 81c7efd6da8791c41a39295f716c2280, type: 3}
+  - {fileID: 2800000, guid: c84a4b9d3211f99419fb3651b4f1be14, type: 3}
   EnergySprites:
   - {fileID: 2800000, guid: 0e2c6981a1b556c49b92474927bbcec9, type: 3}
   - {fileID: 2800000, guid: d03616a03037fe34e91bdbb68b5db373, type: 3}
@@ -226,9 +231,9 @@ MonoBehaviour:
   BasicAttack: 256
   Ability: 271
   Preview: 305
-  Switch_A: 257
-  Switch_B: 258
-  Switch_C: 259
+  Switch_Up: 258
+  Switch_Down: 257
+  Teleport: 304
   ManagerPlayerID: 0
 --- !u!114 &1256144809
 MonoBehaviour:
@@ -243,7 +248,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OnShield: 0
-  Life: 6
+  Life: 3
 --- !u!114 &1256144818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,6 +277,18 @@ MonoBehaviour:
   Timer: 0
   ID: 0
   playerIndex: 1
+--- !u!114 &3021459629504972893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2340468298961544492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6da994d14e269d84c949e188aa3f9d56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3595088801534984405
 GameObject:
   m_ObjectHideFlags: 0
@@ -649,6 +666,91 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1658229349}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2340468298961642380
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1256144812}
+    m_Modifications:
+    - target: {fileID: 100000, guid: aa38338f0e161484ab91c6736aef6ec8, type: 3}
+      propertyPath: m_Name
+      value: camminata scimmia
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: aa38338f0e161484ab91c6736aef6ec8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: aa38338f0e161484ab91c6736aef6ec8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: aa38338f0e161484ab91c6736aef6ec8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: aa38338f0e161484ab91c6736aef6ec8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: aa38338f0e161484ab91c6736aef6ec8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: aa38338f0e161484ab91c6736aef6ec8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: aa38338f0e161484ab91c6736aef6ec8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: aa38338f0e161484ab91c6736aef6ec8, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: aa38338f0e161484ab91c6736aef6ec8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: aa38338f0e161484ab91c6736aef6ec8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: aa38338f0e161484ab91c6736aef6ec8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: aa38338f0e161484ab91c6736aef6ec8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: aa38338f0e161484ab91c6736aef6ec8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: aa38338f0e161484ab91c6736aef6ec8, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: aa38338f0e161484ab91c6736aef6ec8, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 10ac445edc15fd9478c426da22c76242, type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: aa38338f0e161484ab91c6736aef6ec8, type: 3}
+--- !u!1 &2340468298961544492 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: aa38338f0e161484ab91c6736aef6ec8,
+    type: 3}
+  m_PrefabInstance: {fileID: 2340468298961642380}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2340468298961778956 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400000, guid: aa38338f0e161484ab91c6736aef6ec8,
+    type: 3}
+  m_PrefabInstance: {fileID: 2340468298961642380}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4961913167135500228
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -659,6 +761,10 @@ PrefabInstance:
     - target: {fileID: 100042, guid: 6a5d2e1b3840f2d4c956e989dbade66b, type: 3}
       propertyPath: m_Name
       value: SM_Lollipop_Sience
+      objectReference: {fileID: 0}
+    - target: {fileID: 100042, guid: 6a5d2e1b3840f2d4c956e989dbade66b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400042, guid: 6a5d2e1b3840f2d4c956e989dbade66b, type: 3}
       propertyPath: m_LocalPosition.x

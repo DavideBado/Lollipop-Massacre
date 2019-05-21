@@ -84,23 +84,22 @@ public class XInputTestCS : MonoBehaviour
 		GamePadDPad m_dPad = state.DPad;
 
         #region Movimento in game
-        if (state.ThumbSticks.Left.X > 0/* m_dPad.Right.Equals(ButtonState.Pressed) && m_OnInput == true*/ && GetComponent<EventSystemCustom>() == null)
+        if (state.ThumbSticks.Left.X > 0 && (-0.3f < state.ThumbSticks.Left.Y && state.ThumbSticks.Left.Y < 0.3f)/* m_dPad.Right.Equals(ButtonState.Pressed) && m_OnInput == true*/ && GetComponent<EventSystemCustom>() == null)
         {
-
             SendMessage("Right");
             m_OnInput = false;
         }
-        if (state.ThumbSticks.Left.X < 0/*m_dPad.Left.Equals(ButtonState.Pressed) && m_OnInput == true*/  && GetComponent<EventSystemCustom>() == null)
+        if (state.ThumbSticks.Left.X < 0 && (-0.3f < state.ThumbSticks.Left.Y && state.ThumbSticks.Left.Y < 0.3f)/*m_dPad.Left.Equals(ButtonState.Pressed) && m_OnInput == true*/  && GetComponent<EventSystemCustom>() == null)
         {
             SendMessage("Left");
             m_OnInput = false;
         }
-        if (state.ThumbSticks.Left.Y > 0/*m_dPad.Up.Equals(ButtonState.Pressed) && m_OnInput == true*/  && GetComponent<EventSystemCustom>() == null)
+        if (state.ThumbSticks.Left.Y > 0 && (-0.3f < state.ThumbSticks.Left.X && state.ThumbSticks.Left.X < 0.3f)/*m_dPad.Up.Equals(ButtonState.Pressed) && m_OnInput == true*/  && GetComponent<EventSystemCustom>() == null)
         {
             SendMessage("Up");
             m_OnInput = false;
         }
-        if (state.ThumbSticks.Left.Y < 0/*m_dPad.Down.Equals(ButtonState.Pressed) && m_OnInput == true*/  && GetComponent<EventSystemCustom>() == null)
+        if (state.ThumbSticks.Left.Y < 0 && (-0.3f < state.ThumbSticks.Left.X && state.ThumbSticks.Left.X < 0.3f)/*m_dPad.Down.Equals(ButtonState.Pressed) && m_OnInput == true*/  && GetComponent<EventSystemCustom>() == null)
         {
             SendMessage("Down");
             m_OnInput = false;
@@ -162,18 +161,24 @@ public class XInputTestCS : MonoBehaviour
 		if (prevState.Buttons.A == ButtonState.Released && state.Buttons.A == ButtonState.Pressed)
 		{
 			SendMessage("Submit");
-			SendMessage("Switch_A");
+			SendMessage("BasicAttack");
 		}
 
 		if (prevState.Buttons.B == ButtonState.Released && state.Buttons.B == ButtonState.Pressed)
 		{
 			SendMessage("Canc");
-			SendMessage("Switch_B");
-		}
+            SendMessage("Switch_Down");
+
+        }
 
 		if (prevState.Buttons.Y == ButtonState.Released && state.Buttons.Y == ButtonState.Pressed)
 		{
-			SendMessage("Switch_C");
+			SendMessage("Switch_Up");
+		}
+
+        if (prevState.Buttons.X == ButtonState.Released && state.Buttons.X == ButtonState.Pressed)
+		{
+			SendMessage("Ability");
 		}
 
 		if (prevState.Buttons.RightShoulder == ButtonState.Released && state.Buttons.RightShoulder == ButtonState.Pressed)
@@ -181,7 +186,12 @@ public class XInputTestCS : MonoBehaviour
 			SendMessage("BasicAttack");
 		}
 
-		if (state.Triggers.Right > 0 && prevState.Triggers.Right == 0)
+        if (prevState.Buttons.LeftShoulder == ButtonState.Released && state.Buttons.LeftShoulder == ButtonState.Pressed)
+		{
+			SendMessage("TeleportMe");
+		}        
+
+        if (state.Triggers.Right > 0 && prevState.Triggers.Right == 0)
 		{
 			SendMessage("Ability");
 		}

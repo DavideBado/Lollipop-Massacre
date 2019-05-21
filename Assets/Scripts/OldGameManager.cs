@@ -4,8 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Linq;
+using System;
 
-public class OldGameManager : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
     public Material CellAttackMaterial;
     List<Agent> m_Agents = new List<Agent>();
@@ -15,31 +16,38 @@ public class OldGameManager : MonoBehaviour
     public List<GameObject> POneParty = new List<GameObject>();
     public List<GameObject> PTwoParty = new List<GameObject>();
     public List<Transform> SpawnPoints = new List<Transform>();
-    GameObject m_slider;
+    //GameObject m_slider;
     public GameObject BenchPOne, BenchPTwo;
     bool state;    
     public Text Timertext, TimeMaxText, TurnoText;
-    float Timer, Timer2, m_TimerSafe = 0;
+    public float Timer;
+    float Timer2, m_TimerSafe = 0;
     public float TimeMax = 3f, Speed = 25f, TimerSafe = 0;
     public bool Turn = true, CanAttack = true, Pause = false;
     public int RoundCount = 0, PickUpTurnCount = 0, HealtTurnCount = 0;
     public bool Spawn1 = true;
     public RespawnController RespawnController;
     public bool TimerOn = true;
-
-    /// <summary>
-    /// Roba temporanea per morte pg
-    /// </summary>
+    float portalTimer;
+    TeleportSpawner PortalSpawner;
+    int PortalRounds = 0;
+    // Roba temporanea per morte pg   
     float timerDeath = 1f;
     bool needdeathcheck = false;
     GameObject _ActiveChara;
     int _playerID;
 
+    #region Actions
+    public Action ActivatePortal;
+    #endregion
+
     private void Start()
     {
-        m_SwitchPOne = 2;
-        m_SwitchPTwo = 2;
-        m_slider = FindObjectOfType<CounterPosition>().gameObject;
+        PortalSpawner = GetComponent<TeleportSpawner>();
+        portalTimer = 0.5f;
+        //m_SwitchPOne = 2;
+        //m_SwitchPTwo = 2;
+        //m_slider = FindObjectOfType<CounterPosition>().gameObject;
 
         //UpdateBenchTester();
         UpdateBench();
@@ -123,6 +131,19 @@ public class OldGameManager : MonoBehaviour
 
         if (Timer <= 0) // Se il timer raggiunge lo 0
         {
+            if(PortalRounds >= 5)
+            {
+                PortalSpawner.Telespawn();
+                PortalRounds = 0;
+            }
+            if(PortalSpawner.teleports.Count == 1)
+            {
+                portalTimer -= Time.deltaTime;
+                if(portalTimer <= 0)
+                {
+                    PortalSpawner.Telespawn();
+                }
+            }
             m_TimerSafe -= Time.deltaTime; // Attiva il tempo supplementare
             Pause = true;
             TimerOn = false;
@@ -130,7 +151,7 @@ public class OldGameManager : MonoBehaviour
             if (m_TimerSafe <= 0) // E anche il tempo supplementare è finito
             {
                 TimerOn = true;
-                m_slider.SetActive(true);
+                //m_slider.SetActive(true);
                 Pause = false;
                 Turn = !Turn; // Change player
                 Timer = TimeMax; //Imposta nuovamente il timer
@@ -138,6 +159,7 @@ public class OldGameManager : MonoBehaviour
                 CanAttack = true;// Il giocatore può attaccare
                 PickUpTurnCount++;
                 HealtTurnCount++;
+                PortalRounds++;
                 if (Turn == true)// Se è nuovamente il turno del primo giocatore
                 {
                     RoundCount++; // Aggiorna il contatore dei round                  
@@ -252,46 +274,48 @@ public class OldGameManager : MonoBehaviour
         PgInStartPosition(PTwoParty, 2);
     }
 
-    public void Switcher(int _PlayerID, int _CharacterIndex, GameObject _ActiveCharacter)
+    public void Switcher(int _PlayerID, int _CharacterIndex, GameObject _ActiveCharacter, bool _RotUp, bool _RotDown, bool _RotRight, bool _RotLeft)
     {
-        if(_PlayerID == 1 && m_SwitchPOne > 0)
+        if(_PlayerID == 1/* && m_SwitchPOne > 0*/)
         {
-
-            m_SwitchPOne--;
+            //m_SwitchPOne--;
             // Spegnere il personaggio in scena, attivare quello selezionato e metterlo nella stessa posizione di quello appena  
-            foreach (GameObject _Character in POneParty)
-            {
-                if(_Character.GetComponent<Agent>().SwitchIndex == _CharacterIndex && _Character.GetComponent<LifeManager>().Life > 0 && _Character != _ActiveCharacter)
-                {
-                    _Character.transform.position = _ActiveCharacter.transform.position;
-                    _Character.GetComponent<Agent>().AgentSpawnPosition = _ActiveCharacter.transform.position;
-                    ToggleObject(_Character, POneParty);
-					_Character.transform.rotation = _ActiveCharacter.transform.rotation;
-                    _ActiveCharacter.transform.parent = BenchPOne.transform;
-                    _ActiveCharacter.SetActive(false);
-                }
-            }
+            //foreach (GameObject _Character in POneParty)
+            //{
+            //    if(_Character.GetComponent<Agent>().SwitchIndex == _CharacterIndex && _Character.GetComponent<LifeManager>().Life > 0 && _Character != _ActiveCharacter)
+        //    {
+            GameObject _Character = POneParty[_CharacterIndex];
+            _Character.transform.position = _ActiveCharacter.transform.position;
+            _Character.GetComponent<Agent>().AgentSpawnPosition = _ActiveCharacter.transform.position;
+            _Character.GetComponent<Agent>().RotUp = _RotUp;
+            _Character.GetComponent<Agent>().RotDown = _RotDown;
+            _Character.GetComponent<Agent>().RotRight = _RotRight;
+            _Character.GetComponent<Agent>().RotLeft = _RotLeft;
+            ToggleObject(_Character, POneParty);
+			_Character.transform.rotation = _ActiveCharacter.transform.rotation;
+            _ActiveCharacter.transform.parent = BenchPOne.transform;
+            _ActiveCharacter.SetActive(false);
+              //  }
+            //}
           
         }
-        else if(_PlayerID == 2 && m_SwitchPTwo > 0)
+        else if(_PlayerID == 2/* && m_SwitchPTwo > 0*/)
         {
-            m_SwitchPTwo--;
-            foreach (GameObject _Character in PTwoParty)
-            {
-                if (_Character.GetComponent<Agent>().SwitchIndex == _CharacterIndex && _Character.GetComponent<LifeManager>().Life > 0 && _Character != _ActiveCharacter)
-                {
+            //m_SwitchPTwo--;
+            //foreach (GameObject _Character in PTwoParty)
+            //{
+            //    if (_Character.GetComponent<Agent>().SwitchIndex == _CharacterIndex && _Character.GetComponent<LifeManager>().Life > 0 && _Character != _ActiveCharacter)
+            //    {
+                    GameObject _Character = PTwoParty[_CharacterIndex];
                     _Character.transform.position = _ActiveCharacter.transform.position;
                     _Character.GetComponent<Agent>().AgentSpawnPosition = _ActiveCharacter.transform.position;
                     ToggleObject(_Character, PTwoParty);
 					_Character.transform.rotation = _ActiveCharacter.transform.rotation;
 					_ActiveCharacter.transform.parent = BenchPTwo.transform;
                     _ActiveCharacter.SetActive(false);
-                }
-            }
-           
-            
-        }
-       
+            //    }
+            //}             
+        }       
     }
 
 

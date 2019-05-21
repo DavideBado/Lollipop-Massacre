@@ -156,6 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62a6c9b588170a24a921bc82faf2dc93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CharacterName: ELVIS
   SwitchIndex: 0
   AgentParent: {fileID: 0}
   AgentSpawnPosition: {x: 0, y: 0, z: 0}
@@ -175,6 +176,9 @@ MonoBehaviour:
   LifeSprites:
   - {fileID: 2800000, guid: d5ceffa33f81a1042a62da06213e4b83, type: 3}
   - {fileID: 2800000, guid: c6fbc6c4a30dc5e4d8cc4d4260425230, type: 3}
+  LifeSpritesBench:
+  - {fileID: 2800000, guid: 81c7efd6da8791c41a39295f716c2280, type: 3}
+  - {fileID: 2800000, guid: c84a4b9d3211f99419fb3651b4f1be14, type: 3}
   EnergySprites:
   - {fileID: 2800000, guid: 76f4cdd724396de44b5755f0268c1a07, type: 3}
   - {fileID: 2800000, guid: 0c3c5670d566d834cb59dacfdd132404, type: 3}
@@ -226,9 +230,9 @@ MonoBehaviour:
   BasicAttack: 256
   Ability: 271
   Preview: 305
-  Switch_A: 257
-  Switch_B: 258
-  Switch_C: 259
+  Switch_Up: 258
+  Switch_Down: 257
+  Teleport: 304
   ManagerPlayerID: 0
 --- !u!114 &1256144809
 MonoBehaviour:
@@ -243,7 +247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OnShield: 0
-  Life: 6
+  Life: 3
 --- !u!114 &7152227641638942373
 MonoBehaviour:
   m_ObjectHideFlags: 0

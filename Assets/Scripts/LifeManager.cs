@@ -8,8 +8,8 @@ using DG.Tweening;
 public class LifeManager : MonoBehaviour
 {
     public bool OnShield = false;
-    public int Life = 6;
-    OldGameManager GameManager;   
+    public int Life = 3;
+    GameManager GameManager;   
     bool CanRespawn = true;
     GameObject Graphic;
   
@@ -17,7 +17,7 @@ public class LifeManager : MonoBehaviour
     private void Start()
     {
         Graphic = GetComponentInChildren<AnimationController>().gameObject;
-        GameManager = FindObjectOfType<OldGameManager>();
+        GameManager = FindObjectOfType<GameManager>();
     }
     // Update is called once per frame
     void Update()

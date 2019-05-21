@@ -6,9 +6,11 @@ using UnityEngine.UI;
 using System.Linq;
 using DG.Tweening;
 using WindowsInput;
+using System;
 
 public class Agent : MonoBehaviour, ICharacter
 {
+    public string CharacterName;
     GameObject Graphic;
     InputSimulator m_InputSimulator = new InputSimulator();
     int m_OnEnableCounter = 0;
@@ -22,7 +24,8 @@ public class Agent : MonoBehaviour, ICharacter
     public int CurrentID;
     //*************************************************
     public List<Texture> _Sprites = new List<Texture>();
-    public List<Texture> LifeSprites = new List<Texture>(); 
+    public List<Texture> LifeSprites = new List<Texture>();
+    public List<Texture> LifeSpritesBench = new List<Texture>(); 
     public List<Texture> EnergySprites = new List<Texture>();
     public List<Material> _Materials = new List<Material>();
     public Vector3 SavedlookAt, RayCenter, RayLeft, RayRight;
@@ -44,10 +47,9 @@ public class Agent : MonoBehaviour, ICharacter
     public float AgentSpeed;
     Rigidbody rg;
     public GameObject StunPS, PoisonPS, DrainPS;
-        
-    // ********** Cose per il menu *************
-
+    int switcherIndex;
    
+    // ********** Cose per il menu *************
     public List<Texture> Sprites
     {
         set
@@ -63,8 +65,6 @@ public class Agent : MonoBehaviour, ICharacter
         }
             
     }
-
-
     //********************************************
     private void OnEnable()
     {
@@ -91,7 +91,7 @@ public class Agent : MonoBehaviour, ICharacter
 
     void InStart()
     {
-        FindObjectOfType<CounterPosition>().FindPlayers();
+        //FindObjectOfType<CounterPosition>().FindPlayers();
         UpdateReference();
         Spawn(); // Posiziona il giocatore
         FirstSaveXY(); // Salvo le coordinate della mia posizione
@@ -323,7 +323,7 @@ public class Agent : MonoBehaviour, ICharacter
                 y--;
 				RotUp = true;
 			}
-
+            GameManager.GetComponent<Pointer>().PointerOff();
 		}
 	}
 	public void Left()
@@ -347,7 +347,8 @@ public class Agent : MonoBehaviour, ICharacter
                 x++;
 				RotLeft = true;
 			}
-		}
+            GameManager.GetComponent<Pointer>().PointerOff();
+        }
 	}
 	public void Down()
 	{
@@ -370,7 +371,8 @@ public class Agent : MonoBehaviour, ICharacter
                 y++;
 				RotDown = true;
 			}
-		}
+            GameManager.GetComponent<Pointer>().PointerOff();
+        }
 	}
 	public void Right()
 	{
@@ -393,7 +395,8 @@ public class Agent : MonoBehaviour, ICharacter
                 x--;
 				RotRight = true;
 			}
-		}
+            GameManager.GetComponent<Pointer>().PointerOff();
+        }
 	}
 
 	public void BasicAttack()
@@ -412,7 +415,7 @@ public class Agent : MonoBehaviour, ICharacter
                 {
                     Debug.DrawRay(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
                     //hit.transform.DOShakePosition(0.5f, 0.4f, 10, 45);
-                    hit.transform.GetComponent<LifeManager>().Damage(2); // Togli vita al player in collisione
+                    hit.transform.GetComponent<LifeManager>().Damage(1); // Togli vita al player in collisione
 
                 }
             }
@@ -436,32 +439,37 @@ public class Agent : MonoBehaviour, ICharacter
         }
     }
 
-    public void Switch_A()
+    public void Switch_Up()
     {
-        if (MyTurn == true)
+        SwitchIndex++;
+        if (switcherIndex >= 2)
+            switcherIndex = 0;
+        if (MyTurn == true && GameManager.TimerOn == true)
         {
-            GameManager.Switcher(PlayerID, 1, gameObject);
+            GameManager.Switcher(PlayerID, switcherIndex, gameObject, RotUp, RotDown, RotRight, RotLeft);
         }
     }
 
-    public void Switch_B()
+    public void Switch_Down()
     {
-        if (MyTurn == true)
+        SwitchIndex--;
+        if (switcherIndex < 0)
+            switcherIndex = 1;
+        if (MyTurn == true && GameManager.TimerOn == true)
         {
-            GameManager.Switcher(PlayerID, 2, gameObject);
+            GameManager.Switcher(PlayerID, switcherIndex, gameObject, RotUp, RotDown, RotRight, RotLeft);
         }
-    }
-
-    public void Switch_C()
-    {
-        if (MyTurn == true)
-        {
-            GameManager.Switcher(PlayerID, 3, gameObject);
-        }
-    }
+    }    
 
     #endregion
 
+    public void TeleportMe()
+    {
+        if (GameManager.TimerOn == true)
+        {
+            GameManager.ActivatePortal(); 
+        }
+    }
     public void ImDrained()
     {        
         if (imDrained == true && StartDrain == GameManager.Turn)

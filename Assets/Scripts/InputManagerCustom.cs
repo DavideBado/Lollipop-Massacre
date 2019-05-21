@@ -5,7 +5,7 @@ using UnityEngine;
 public class InputManagerCustom : MonoBehaviour {
 
     
-    public KeyCode Up, Down, Left, Right, BasicAttack, Ability, Preview, Switch_A, Switch_B, Switch_C;
+    public KeyCode Up, Down, Left, Right, BasicAttack, Ability, Preview, Switch_Up, Switch_Down, Teleport;
     private bool isAxisInUse = false;
     public int ManagerPlayerID;
     
@@ -60,18 +60,18 @@ public class InputManagerCustom : MonoBehaviour {
             SendMessage("CleanPreview");
         }
 
-        if(Input.GetKeyDown(Switch_A))
+        if(Input.GetKeyDown(Switch_Up))
         {
-            SendMessage("Switch_A");
+            SendMessage("Switch_Up");
         }
-        if (Input.GetKeyDown(Switch_B))
+        if (Input.GetKeyDown(Switch_Down))
         {
-            SendMessage("Switch_B");
-        }
-        if (Input.GetKeyDown(Switch_C))
+            SendMessage("Switch_Down");
+        }        
+        if (Input.GetKeyDown(Teleport))
         {
-            SendMessage("Switch_C");
-        }
+            SendMessage("TeleportMe");
+        }        
     }
     #endregion
 
