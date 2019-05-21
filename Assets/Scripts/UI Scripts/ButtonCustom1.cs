@@ -10,12 +10,14 @@ public class ButtonCustom1 : Button
     BaseEventData m_BaseEvent;
     Sprite m_StandardTexture;
     Vector2 m_StandardRect;
+    Vector3 m_StandardPos;
     public delegate void OnSpriteChange();
     public OnSpriteChange OnChangeCharacter;
 
 
     protected override void Start()
     {
+        m_StandardPos = transform.position;
         m_StandardTexture = GetComponent<Image>().sprite;
         m_StandardRect = GetComponent<RectTransform>().rect.size;
     }
@@ -83,13 +85,26 @@ public class ButtonCustom1 : Button
         //Debug.Log(eventSystem);
         if (IsHighlighted(m_BaseEvent))
         {
-            GetComponent<Image>().sprite = GetComponent<OnSelectData>().OnSelectImage.sprite;
-            GetComponent<RectTransform>().sizeDelta = GetComponent<OnSelectData>().OnSelectDim.rect.size;
+            if(GetComponent<OnSelectData>().OnSelectImage.sprite != null)
+
+    {
+                GetComponent<Image>().sprite = GetComponent<OnSelectData>().OnSelectImage.sprite; 
+            }
+            if (GetComponent<OnSelectData>().OnSelectDim != null)
+            {
+                GetComponent<RectTransform>().sizeDelta = GetComponent<OnSelectData>().OnSelectDim.rect.size; 
+            }
+            if (GetComponent<OnSelectData>().Data_Transform != null)
+            {
+                transform.position = GetComponent<OnSelectData>().Data_Transform.position; 
+            }
         }
         else
-        {
+        { 
+            transform.position = m_StandardPos;
             GetComponent<Image>().sprite = m_StandardTexture;
             GetComponent<RectTransform>().sizeDelta = m_StandardRect;
         }
     }
 }
+
