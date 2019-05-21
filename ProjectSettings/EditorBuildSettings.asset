@@ -12,8 +12,8 @@ EditorBuildSettings:
     path: Assets/Refactoring/Scenes/RefactoringScenes/MenuIniziale.unity
     guid: eee7184a8053f1d47a578509d60ba3c3
   - enabled: 1
-    path: Assets/Refactoring/Scenes/RefactoringScenes/GamePlayScene.unity
-    guid: c4d64b52d4f3cb84bbdd2ae69ad8bd3f
+    path: Assets/Refactoring/Scenes/RefactoringScenes/MinieraRefactoring.unity
+    guid: a96dd49fca81727418ccc93bf7a5a71b
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 4c4f89cb47a3fc948a4722437feb727d,
       type: 2}
