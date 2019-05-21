@@ -31,7 +31,7 @@ public class StatusUI : MonoBehaviour
     void statusSprite()
     {
         
-        if(player.ImStunned == true)
+        if(player.ImStunned == true || player.OhStunnedShit == true)
         {
 			statusimg.enabled = true;
 			statusimg.texture = sprite1;

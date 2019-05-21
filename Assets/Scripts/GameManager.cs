@@ -154,7 +154,8 @@ public class GameManager : MonoBehaviour
                 //m_slider.SetActive(true);
                 Pause = false;
                 Turn = !Turn; // Change player
-                Timer = TimeMax; //Imposta nuovamente il timer
+                Timer = TimeMax;
+                TimeMax = 5f; //Imposta nuovamente il timer
                 m_TimerSafe = TimerSafe; //Imposta nuovamente il tempo supplementare
                 CanAttack = true;// Il giocatore può attaccare
                 PickUpTurnCount++;

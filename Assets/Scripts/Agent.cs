@@ -243,14 +243,20 @@ public class Agent : MonoBehaviour, ICharacter
         {
             StunPS.SetActive(false);
         }
-        if (ImStunned == true && MyTurn == true)
+
+        if (ImStunned == true && MyTurn == false)
+        {
+            GameManager.TimeMax = 1f;
+        }
+        else if (ImStunned == true && MyTurn == true)
         {
             OhStunnedShit = true;
+            GameManager.TimeMax = 5f;
+            ImStunned = false;
         }
         if (OhStunnedShit == true && MyTurn == false)
         {
             OhStunnedShit = false;
-            ImStunned = false;
         }
     }
 
@@ -444,7 +450,7 @@ public class Agent : MonoBehaviour, ICharacter
         //SwitchIndex++;
         //if (switcherIndex >= 2)
         //    switcherIndex = 0;
-        if (MyTurn == true && GameManager.TimerOn == true)
+        if (MyTurn == true && GameManager.TimerOn == true && ImStunned == false && OhStunnedShit == false)
         {
             GameManager.Switcher(PlayerID, 0, gameObject, RotUp, RotDown, RotRight, RotLeft);
         }
@@ -455,7 +461,7 @@ public class Agent : MonoBehaviour, ICharacter
         //SwitchIndex--;
         //if (switcherIndex < 0)
         //    switcherIndex = 1;
-        if (MyTurn == true && GameManager.TimerOn == true)
+        if (MyTurn == true && GameManager.TimerOn == true && ImStunned == false && OhStunnedShit == false)
         {
             GameManager.Switcher(PlayerID, 1, gameObject, RotUp, RotDown, RotRight, RotLeft);
         }
