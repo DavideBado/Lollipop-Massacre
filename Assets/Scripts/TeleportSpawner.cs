@@ -56,7 +56,7 @@ public class TeleportSpawner : MonoBehaviour
     {
         GameObject _BaseArea = BaseSpawnArea();
         List<GameObject> _SpawnAreas = new List<GameObject>();
-        if(_BaseArea != teleports[0].GetComponent<TelePortal>().MyArea)
+        if(_BaseArea != teleports[0].GetComponent<TelePortal>().MyArea && _BaseArea.GetComponent<GridArea>().AreaID != 5)
         {
             _SpawnAreas.Add(_BaseArea);
         }

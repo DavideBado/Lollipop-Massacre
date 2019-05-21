@@ -231,7 +231,7 @@ MonoBehaviour:
   Preview: 305
   Switch_Up: 258
   Switch_Down: 257
-  Teleport: 304
+  Teleport: 303
   ManagerPlayerID: 0
 --- !u!114 &1256144809
 MonoBehaviour:
