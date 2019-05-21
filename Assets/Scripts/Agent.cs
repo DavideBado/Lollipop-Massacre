@@ -441,23 +441,23 @@ public class Agent : MonoBehaviour, ICharacter
 
     public void Switch_Up()
     {
-        SwitchIndex++;
-        if (switcherIndex >= 2)
-            switcherIndex = 0;
+        //SwitchIndex++;
+        //if (switcherIndex >= 2)
+        //    switcherIndex = 0;
         if (MyTurn == true && GameManager.TimerOn == true)
         {
-            GameManager.Switcher(PlayerID, switcherIndex, gameObject, RotUp, RotDown, RotRight, RotLeft);
+            GameManager.Switcher(PlayerID, 0, gameObject, RotUp, RotDown, RotRight, RotLeft);
         }
     }
 
     public void Switch_Down()
     {
-        SwitchIndex--;
-        if (switcherIndex < 0)
-            switcherIndex = 1;
+        //SwitchIndex--;
+        //if (switcherIndex < 0)
+        //    switcherIndex = 1;
         if (MyTurn == true && GameManager.TimerOn == true)
         {
-            GameManager.Switcher(PlayerID, switcherIndex, gameObject, RotUp, RotDown, RotRight, RotLeft);
+            GameManager.Switcher(PlayerID, 1, gameObject, RotUp, RotDown, RotRight, RotLeft);
         }
     }    
 
