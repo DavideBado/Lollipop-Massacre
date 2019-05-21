@@ -20,15 +20,15 @@ public class Wall : MonoBehaviour
     }
 
 
-    private void OnCollisionStay(Collision other)
-    {
-        if(other.gameObject.GetComponent<wallModelReference>() != null)
-        {
-            Models.Add(other.gameObject);
-            other.collider.enabled = false;
+    //private void OnCollisionStay(Collision other)
+    //{
+    //    if(other.gameObject.GetComponent<wallModelReference>() != null)
+    //    {
+    //        Models.Add(other.gameObject);
+    //        other.collider.enabled = false;
           
-        }
-    }
+    //    }
+    //}
     
 }
 

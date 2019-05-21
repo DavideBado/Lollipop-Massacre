@@ -49,12 +49,12 @@ public class CellPrefScript : MonoBehaviour
     //    }
     //}
 
-    private void Update()
-    {
-        CleanTile();
-    }
+    //private void Update()
+    //{
+    //    CleanTile();
+    //}
 
-    void CleanTile()
+    public void CleanTile()
     {
         FindPlayers();
 
