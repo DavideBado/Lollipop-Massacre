@@ -11,7 +11,7 @@ public class characterSprite : MonoBehaviour
 
 	public int ID;
     
-    public RawImage img;
+    public Image img;
     public GameManager gm;
     public bool PanelPos;
     Agent player;
@@ -32,7 +32,7 @@ public class characterSprite : MonoBehaviour
 
     private void Update()
     {
-		img = GetComponent<RawImage>();
+		img = GetComponent<Image>();
 
 		if (gm == null)
 		{
@@ -46,7 +46,7 @@ public class characterSprite : MonoBehaviour
 
     void avatarSelection()
     {
-		img.texture = player._Sprites[2];
+		img.sprite = player._Sprites[2];
         
     }
 

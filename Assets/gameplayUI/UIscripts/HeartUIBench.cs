@@ -30,11 +30,11 @@ public class HeartUIBench : MonoBehaviour
         
         if (player.GetComponent<LifeManager>().Life > 0)
         {
-            Heart.GetComponent<RawImage>().texture = player.GetComponent<Agent>().LifeSpritesBench[0];
+            Heart.GetComponent<Image>().sprite = player.GetComponent<Agent>().LifeSpritesBench[0];
         }
         else
         {
-            Heart.GetComponent<RawImage>().texture = player.GetComponent<Agent>().LifeSpritesBench[1];
+            Heart.GetComponent<Image>().sprite = player.GetComponent<Agent>().LifeSpritesBench[1];
         }
     }
 

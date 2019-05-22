@@ -29,14 +29,14 @@ public class PointerSpritePosition : MonoBehaviour
         if (P1.MyTurn == false)
         {
             transform.position = (P1.transform.position + new Vector3(0, 2.5f, 0));
-            GetComponent<RawImage>().texture = P1.GetComponent<Agent>()._Sprites[2];
+            GetComponent<Image>().sprite = P1.GetComponent<Agent>()._Sprites[2];
 
         }
 
         else if (P2.MyTurn == false)
         {
             transform.position = (P2.transform.position + new Vector3(0, 2.5f, 0));
-            GetComponent<RawImage>().texture = P2.GetComponent<Agent>()._Sprites[2];
+            GetComponent<Image>().sprite = P2.GetComponent<Agent>()._Sprites[2];
 
         }
     }

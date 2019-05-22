@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class ManaUI : MonoBehaviour
 {
-    public RawImage img;
-    public Texture sp1, sp2;
+    public Image img;
+    public Sprite sp1, sp2;
     Agent player;
     public bool PanelPos;
     public GameManager gm;
@@ -31,13 +31,13 @@ public class ManaUI : MonoBehaviour
         if (player.Mana == 1)
         {
             //img.texture = sp1;
-            GetComponent<RawImage>().texture = player.EnergySprites[0];
+            GetComponent<Image>().sprite = player.EnergySprites[0];
         }
 
         else if (player.Mana == 0)
         {
             //img.texture = sp2;
-            GetComponent<RawImage>().texture = player.EnergySprites[1];
+            GetComponent<Image>().sprite = player.EnergySprites[1];
         }
     }
 

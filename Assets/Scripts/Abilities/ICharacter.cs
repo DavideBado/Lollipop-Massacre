@@ -5,6 +5,6 @@ using UnityEngine.UI;
 
 public interface ICharacter
 {
-  List<Texture> Sprites { set;}
+  List<Sprite> Sprites { set;}
   List<Material> Materials { set;}
 }

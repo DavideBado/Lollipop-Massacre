@@ -170,18 +170,18 @@ MonoBehaviour:
   PlayerType: 5
   CurrentID: 0
   _Sprites:
-  - {fileID: 2800000, guid: 945c8e40d0be39742995fd2b1ec40f04, type: 3}
-  - {fileID: 2800000, guid: a6845f00cef36a049833422cc046c948, type: 3}
-  - {fileID: 2800000, guid: 331a3a2053794504b9f2f1aa3630e76f, type: 3}
+  - {fileID: 21300000, guid: 945c8e40d0be39742995fd2b1ec40f04, type: 3}
+  - {fileID: 21300000, guid: 3752fc34263b6fb4193fc9470b36ace0, type: 3}
+  - {fileID: 21300000, guid: 331a3a2053794504b9f2f1aa3630e76f, type: 3}
   LifeSprites:
-  - {fileID: 2800000, guid: d5ceffa33f81a1042a62da06213e4b83, type: 3}
-  - {fileID: 2800000, guid: c6fbc6c4a30dc5e4d8cc4d4260425230, type: 3}
+  - {fileID: 21300000, guid: d5ceffa33f81a1042a62da06213e4b83, type: 3}
+  - {fileID: 21300000, guid: c6fbc6c4a30dc5e4d8cc4d4260425230, type: 3}
   LifeSpritesBench:
-  - {fileID: 2800000, guid: 81c7efd6da8791c41a39295f716c2280, type: 3}
-  - {fileID: 2800000, guid: c84a4b9d3211f99419fb3651b4f1be14, type: 3}
+  - {fileID: 21300000, guid: 81c7efd6da8791c41a39295f716c2280, type: 3}
+  - {fileID: 21300000, guid: c84a4b9d3211f99419fb3651b4f1be14, type: 3}
   EnergySprites:
-  - {fileID: 2800000, guid: 76f4cdd724396de44b5755f0268c1a07, type: 3}
-  - {fileID: 2800000, guid: 0c3c5670d566d834cb59dacfdd132404, type: 3}
+  - {fileID: 21300000, guid: 76f4cdd724396de44b5755f0268c1a07, type: 3}
+  - {fileID: 21300000, guid: 0c3c5670d566d834cb59dacfdd132404, type: 3}
   _Materials: []
   SavedlookAt: {x: 0, y: 0, z: 0}
   RayCenter: {x: 0, y: 0, z: 0}

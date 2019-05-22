@@ -23,10 +23,10 @@ public class Agent : MonoBehaviour, ICharacter
     public int PlayerType = 0;
     public int CurrentID;
     //*************************************************
-    public List<Texture> _Sprites = new List<Texture>();
-    public List<Texture> LifeSprites = new List<Texture>();
-    public List<Texture> LifeSpritesBench = new List<Texture>(); 
-    public List<Texture> EnergySprites = new List<Texture>();
+    public List<Sprite> _Sprites = new List<Sprite>();
+    public List<Sprite> LifeSprites = new List<Sprite>();
+    public List<Sprite> LifeSpritesBench = new List<Sprite>(); 
+    public List<Sprite> EnergySprites = new List<Sprite>();
     public List<Material> _Materials = new List<Material>();
     public Vector3 SavedlookAt, RayCenter, RayLeft, RayRight;
     public bool MyTurn, OnTheRoad = false;
@@ -50,7 +50,7 @@ public class Agent : MonoBehaviour, ICharacter
     int switcherIndex;
    
     // ********** Cose per il menu *************
-    public List<Texture> Sprites
+    public List<Sprite> Sprites
     {
         set
         {

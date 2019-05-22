@@ -7,10 +7,10 @@ using System.Linq;
 public class CharaSprites : MonoBehaviour
 {
     public GameObject ArrowPOne, ArrowPTwo;
-    public RawImage CharacterImage;
+    public Image CharacterImage;
     List<PlayerInMenu> Players = new List<PlayerInMenu>();
     bool PlayerOneOn, PlayerTwoOn, AllPlayersOn;
-    public RawImage RedImage;
+    public Image RedImage;
     public List<GameObject> Character = new List<GameObject>();
     Texture ThisImage;
     [SerializeField] public List<Texture> OnSelectSprites = new List<Texture>();
@@ -19,7 +19,7 @@ public class CharaSprites : MonoBehaviour
     private void Start()
     {
         // ChildImage.sprite = Character[1].GetComponent<Agent>()._Sprites[0];
-        CharacterImage.texture = Character[0].GetComponent<Agent>()._Sprites[0];
+        CharacterImage.sprite = Character[0].GetComponent<Agent>()._Sprites[0];
         //FindPlayer();
         
     }

@@ -10,7 +10,7 @@ public class EventSystemCustom : EventSystem
     List<ButtonCustom1> m_Buttons = new List<ButtonCustom1>();
     public Sprite PlayTexture, BackTexture;
     CharaSprites currentCharaSprite;
-    public RawImage Preview;
+    public Image Preview;
     public int ID;
     protected override void OnEnable()
     {
@@ -52,7 +52,7 @@ public class EventSystemCustom : EventSystem
             {
                 currentCharaSprite = currentSelectedGameObject.GetComponent<CharaSprites>();
                 currentCharaSprite.ArrowPOne.SetActive(true);
-                Preview.texture = currentCharaSprite.Character[0].GetComponent<Agent>()._Sprites[3];
+                Preview.sprite = currentCharaSprite.Character[0].GetComponent<Agent>()._Sprites[3];
             }
         }
         else if (ID == 2)
@@ -61,7 +61,7 @@ public class EventSystemCustom : EventSystem
             {
                 currentCharaSprite = currentSelectedGameObject.GetComponent<CharaSprites>();
                 currentCharaSprite.ArrowPTwo.SetActive(true);
-                Preview.texture = currentCharaSprite.Character[0].GetComponent<Agent>()._Sprites[4];
+                Preview.sprite = currentCharaSprite.Character[0].GetComponent<Agent>()._Sprites[4];
             }
             //else if(currentSelectedGameObject.name == "Play")
             //{

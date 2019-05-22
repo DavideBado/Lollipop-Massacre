@@ -6,9 +6,8 @@ using UnityEngine.UI;
 public class StatusUI : MonoBehaviour
 {
     Agent player;
-    
-    public RawImage statusimg;
-    public Texture sprite1, sprite2;
+    Image statusimg;
+    public Sprite Stunned, Poisoned;
     public GameManager manager;
     public int ID;
     public bool PanelPos;
@@ -18,7 +17,7 @@ public class StatusUI : MonoBehaviour
 
     private void Update()
     {
-        statusimg = GetComponent<RawImage>();
+        statusimg = GetComponent<Image>();
         if (manager == null)
         {
             manager = FindObjectOfType<GameManager>();
@@ -34,13 +33,13 @@ public class StatusUI : MonoBehaviour
         if(player.ImStunned == true || player.OhStunnedShit == true)
         {
 			statusimg.enabled = true;
-			statusimg.texture = sprite1;
+			statusimg.sprite = Stunned;
         }
 
         else if (player.GetComponentInChildren<Poison>() != null)
         {
 			statusimg.enabled = true;
-			statusimg.texture = sprite2;
+			statusimg.sprite = Poisoned;
         }
 
         else

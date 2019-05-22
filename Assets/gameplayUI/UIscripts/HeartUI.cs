@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class HeartUI : MonoBehaviour
 {
 	public int ID;
-    public Texture tex1, tex2;
+    public Sprite tex1, tex2;
     Agent player;
     public GameObject h1, h2, h3;
     public bool PanelPos;
@@ -28,41 +28,41 @@ public class HeartUI : MonoBehaviour
         //cuore 3
         if (player.GetComponent<LifeManager>().Life == 3)
         {
-			h3.GetComponent<RawImage>().enabled = true;
-			h3.GetComponent<RawImage>().texture = player.GetComponent<Agent>().LifeSprites[0];
+			h3.GetComponent<Image>().enabled = true;
+			h3.GetComponent<Image>().sprite = player.GetComponent<Agent>().LifeSprites[0];
         }
 
 
         else if(player.GetComponent<LifeManager>().Life <= 2)
         {
-            h3.GetComponent<RawImage>().texture = player.GetComponent<Agent>().LifeSprites[1];
+            h3.GetComponent<Image>().sprite = player.GetComponent<Agent>().LifeSprites[1];
 
         }
 
         //cuore 2
         if (player.GetComponent<LifeManager>().Life >= 2)
         {
-			h2.GetComponent<RawImage>().texture = player.GetComponent<Agent>().LifeSprites[0];
+			h2.GetComponent<Image>().sprite = player.GetComponent<Agent>().LifeSprites[0];
 
         }
         
 
         else if (player.GetComponent<LifeManager>().Life <= 1)
         {
-            h2.GetComponent<RawImage>().texture = player.GetComponent<Agent>().LifeSprites[1];
+            h2.GetComponent<Image>().sprite = player.GetComponent<Agent>().LifeSprites[1];
 
         }
 
         //cuore 1
         if (player.GetComponent<LifeManager>().Life >= 1)
         {
-			h1.GetComponent<RawImage>().enabled = true;
-            h1.GetComponent<RawImage>().texture = player.GetComponent<Agent>().LifeSprites[0];
+			h1.GetComponent<Image>().enabled = true;
+            h1.GetComponent<Image>().sprite = player.GetComponent<Agent>().LifeSprites[0];
         }
 
         else if (player.GetComponent<LifeManager>().Life <= 0)
         {
-            h1.GetComponent<RawImage>().texture = player.GetComponent<Agent>().LifeSprites[1];
+            h1.GetComponent<Image>().sprite = player.GetComponent<Agent>().LifeSprites[1];
         }
     }
 
