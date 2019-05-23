@@ -83,6 +83,7 @@ public class Stun : MonoBehaviour
 
     public void Preview()
     {
+        Manager.UpdateTilesMat();
         if (GetComponent<Agent>().MyTurn && GetComponent<Agent>().ImStunned == false && Manager.CanAttack == true && Manager.Pause == false)
 
         {
@@ -320,9 +321,8 @@ public class Stun : MonoBehaviour
         foreach (CellPrefScript cell in cells)
         {
             cell.GetComponent<MeshRenderer>().material = cell.Materials[0];
-
-
         }
+        Manager.UpdateTilesMat();
     }
 
     void CellsGreenInRay(RaycastHit hit, List<CellPrefScript> cells, Vector3 playerPosition, Material _material)

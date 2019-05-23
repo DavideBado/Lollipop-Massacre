@@ -99,6 +99,7 @@ public class Whirlwind : MonoBehaviour
             Material PrevMaterial = FindObjectOfType<CellPrefScript>().Materials[3];
             NewPreview(PrevMaterial);
         }
+        Manager.UpdateTilesMat();
     }
 
     void NewPreview(Material _material)

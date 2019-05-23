@@ -172,6 +172,7 @@ public class Charge : MonoBehaviour
 
     public void Preview()
     {
+        Manager.UpdateTilesMat();
         if (GetComponent<Agent>().MyTurn && GetComponent<Agent>().ImStunned == false && Manager.CanAttack == true && Manager.Pause == false)
 
         {
@@ -247,9 +248,8 @@ public class Charge : MonoBehaviour
         foreach (CellPrefScript cell in cells)
         {
             cell.GetComponent<MeshRenderer>().material = cell.Materials[0];
-
-
         }
+        Manager.UpdateTilesMat();
     }
 
     void CellsGreenInRay(Vector3 HitPosition, List<CellPrefScript> cells, Vector3 playerPosition, float Look, Agent _agent, Material _material)

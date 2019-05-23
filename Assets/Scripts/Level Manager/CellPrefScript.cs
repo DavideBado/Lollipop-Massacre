@@ -8,6 +8,7 @@ public class CellPrefScript : MonoBehaviour
     public List<Material> Materials;
     List<Agent> agents = new List<Agent>();
     int area;
+    GameManager m_GameManager;
    
     public ItemData GetData()
     {
@@ -20,6 +21,11 @@ public class CellPrefScript : MonoBehaviour
         return itemData;
     }
 
+    private void OnEnable()
+    {
+        m_GameManager = FindObjectOfType<GameManager>();
+        m_GameManager.CleanTiles += CleanTile;
+    }
     //private void OnTriggerStay(Collider other)
     //{
     //    if (other.GetComponent<PlayerData>() != null)
@@ -47,11 +53,6 @@ public class CellPrefScript : MonoBehaviour
     //        GetComponent<MeshRenderer>().material = Materials[0];
 
     //    }
-    //}
-
-    //private void Update()
-    //{
-    //    CleanTile();
     //}
 
     public void CleanTile()

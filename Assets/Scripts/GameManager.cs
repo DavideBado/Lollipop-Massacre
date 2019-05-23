@@ -39,6 +39,8 @@ public class GameManager : MonoBehaviour
 
     #region Actions
     public Action ActivatePortal;
+    public Action CleanTiles;
+    public Action UpdateTilesMat;
     #endregion
 
     private void Start()

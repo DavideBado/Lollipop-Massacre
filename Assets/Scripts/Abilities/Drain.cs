@@ -138,6 +138,7 @@ public class Drain : MonoBehaviour
 
     public void Preview()
     {
+        Manager.UpdateTilesMat();
         if (GetComponent<Agent>().MyTurn && GetComponent<Agent>().ImStunned == false && Manager.CanAttack == true && Manager.Pause == false)
 
         {
@@ -249,13 +250,13 @@ public class Drain : MonoBehaviour
     public void CleanPreview()
     {
         List<CellPrefScript> cells = new List<CellPrefScript>();
-
         cells = FindObjectsOfType<CellPrefScript>().ToList();
 
         foreach (CellPrefScript cell in cells)
         {
             cell.GetComponent<MeshRenderer>().material = cell.Materials[0];
         }
+        Manager.UpdateTilesMat();
     }
 
     void CellsGreenInRay(Vector3 HitPosition, List<CellPrefScript> cells, Vector3 playerPosition, Agent _agent, Material _material)

@@ -169,8 +169,8 @@ MonoBehaviour:
   PlayerType: 4
   CurrentID: 0
   _Sprites:
-  - {fileID: 21300000, guid: e5a9316b0b54c044597d00884f1653e1, type: 3}
-  - {fileID: 21300000, guid: dded4ccc226023e4894b4fcf0d0cd194, type: 3}
+  - {fileID: 21300000, guid: 4a57774bf14825e4e8fb619dce8a9b70, type: 3}
+  - {fileID: 21300000, guid: 65b03811ba86ce748a42b7d06e1d9930, type: 3}
   - {fileID: 21300000, guid: e6f33d28dd0063841af9b9514cf25133, type: 3}
   - {fileID: 21300000, guid: fe39bd64160adf34d9c97cb2e8004c1e, type: 3}
   - {fileID: 21300000, guid: 60be7483f49e53e43b0cc95049fd319d, type: 3}

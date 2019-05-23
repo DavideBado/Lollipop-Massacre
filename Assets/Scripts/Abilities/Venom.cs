@@ -99,6 +99,7 @@ public class Venom : MonoBehaviour
 
     public void Preview()
     {
+        Manager.UpdateTilesMat();
         if (GetComponent<Agent>().MyTurn  && GetComponent<Agent>().ImStunned == false && Manager.CanAttack == true && Manager.Pause == false)
 
         {
@@ -167,6 +168,7 @@ public class Venom : MonoBehaviour
         {
             cell.GetComponent<MeshRenderer>().material = cell.Materials[0];
         }
+        Manager.UpdateTilesMat();
     }
 
     void CellsGreenInRay(Vector3 _HitPosition, List<CellPrefScript> _cells, Vector3 _playerPosition, Agent _agent, Material _material)

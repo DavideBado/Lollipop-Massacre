@@ -119,9 +119,10 @@ public class BigD : MonoBehaviour
 
         {
             CleanPreview();
-        Material PrevMaterial = FindObjectOfType<CellPrefScript>().Materials[3];
-        NewPreview(PrevMaterial);
+            Material PrevMaterial = FindObjectOfType<CellPrefScript>().Materials[3];
+            NewPreview(PrevMaterial);
         }
+        Manager.UpdateTilesMat();
     }
 
     void NewPreview(Material _material)
@@ -336,17 +337,14 @@ public class BigD : MonoBehaviour
 
     public void CleanPreview()
     {
-        
         List<CellPrefScript> cells = new List<CellPrefScript>();
-
         cells = FindObjectsOfType<CellPrefScript>().ToList();
 
         foreach (CellPrefScript cell in cells)
         {
             cell.GetComponent<MeshRenderer>().material = cell.Materials[0];
-
-
         }
+        Manager.UpdateTilesMat();
     }
 
     void CellsGreenInRay(RaycastHit hit, List<CellPrefScript> cells, Vector3 playerPosition, Material _material)
