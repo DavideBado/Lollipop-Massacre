@@ -170,7 +170,7 @@ MonoBehaviour:
   CurrentID: 0
   _Sprites:
   - {fileID: 21300000, guid: 4a57774bf14825e4e8fb619dce8a9b70, type: 3}
-  - {fileID: 21300000, guid: b01c7825ff43a5b459e8a9cf260d3dfd, type: 3}
+  - {fileID: 21300000, guid: ca8d59dd0031c254299ace697f0c0e9e, type: 3}
   - {fileID: 21300000, guid: cac1eca1744339a40b0d2a9231728fd8, type: 3}
   LifeSprites:
   - {fileID: 21300000, guid: d5ceffa33f81a1042a62da06213e4b83, type: 3}
