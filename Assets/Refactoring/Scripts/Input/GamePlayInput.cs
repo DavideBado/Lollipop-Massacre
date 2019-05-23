@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class GamePlayInput : InputBase
 {
-    public void CheckInput() { }
+    public int InputID;
+    public override void CheckInput()
+    {
+        base.CheckInput();
+        //robe
+    }
 
 }

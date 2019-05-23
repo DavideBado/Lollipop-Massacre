@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3665612630628254090}
   - component: {fileID: 5671594322254365823}
   - component: {fileID: 6699329601628410563}
+  - component: {fileID: 7564643551078201397}
   m_Layer: 0
   m_Name: InputManager
   m_TagString: Untagged
@@ -60,6 +61,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebb7a2c0b29227c49ae6570a29a9ac73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Up: 48
+  Down: 0
+  Left: 0
+  Right: 0
+  BasicAttack: 0
+  Ability: 0
+  Preview: 0
+  Switch_Up: 0
+  Switch_Down: 0
+  Teleport: 0
+  InputID: 1
 --- !u!114 &6699329601628410563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,3 +84,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1095a526a388aef47af1b3c4b28f843d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Up: 0
+  Down: 0
+  Left: 0
+  Right: 0
+  BasicAttack: 0
+  Ability: 0
+  Preview: 0
+  Switch_Up: 0
+  Switch_Down: 0
+  Teleport: 0
+--- !u!114 &7564643551078201397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7569198571552552965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebb7a2c0b29227c49ae6570a29a9ac73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Up: 0
+  Down: 0
+  Left: 0
+  Right: 0
+  BasicAttack: 0
+  Ability: 0
+  Preview: 0
+  Switch_Up: 0
+  Switch_Down: 0
+  Teleport: 0
+  InputID: 2

@@ -100,10 +100,68 @@ public class PlayerManager : MonoBehaviour
 
     public void VectorFill()
     {
-         Vector3 spawn1 = new Vector3(0, 0, 0);
-         Vector3 spawn2 = new Vector3(15, 0, 11);
+        Vector3 spawn1 = new Vector3(0, 0, 0);
+        Vector3 spawn2 = new Vector3(15, 0, 11);
         CharaPosition.Add(spawn1);
         CharaPosition.Add(spawn2);
+    }
+
+    public void Switcher(int _PlayerID, int _CharacterIndex, GameObject _ActiveCharacter, bool _RotUp, bool _RotDown, bool _RotRight, bool _RotLeft)
+    {
+        if (_PlayerID == 1 /*&& m_SwitchPOne > 0*/)
+        {
+
+            //m_SwitchPOne--;
+            //// Spegnere il personaggio in scena, attivare quello selezionato e metterlo nella stessa posizione di quello appena  
+            //foreach (GameObject _Character in POneParty)
+            //{
+            if (POneParty[_CharacterIndex].GetComponent<LifeManager>().Life > 0)
+            {
+                GameObject _Character = POneParty[_CharacterIndex];
+                _Character.transform.position = _ActiveCharacter.transform.position;
+                _Character.GetComponent<Agent>().AgentSpawnPosition = _ActiveCharacter.transform.position;
+                _Character.GetComponent<Agent>().RotUp = _RotUp;
+                _Character.GetComponent<Agent>().RotDown = _RotDown;
+                _Character.GetComponent<Agent>().RotRight = _RotRight;
+                _Character.GetComponent<Agent>().RotLeft = _RotLeft;
+                POneParty.Remove(_ActiveCharacter);
+                POneParty.Insert(_CharacterIndex, _ActiveCharacter);
+                ToggleObject(_Character, POneParty);
+                _Character.transform.rotation = _ActiveCharacter.transform.rotation;
+                _ActiveCharacter.transform.parent = BenchPOne.transform;
+                _ActiveCharacter.SetActive(false);
+            }
+            //}
+
+        }
+        else if (_PlayerID == 2 /*&& m_SwitchPTwo > 0*/)
+        {
+            //m_SwitchPTwo--;
+            //foreach (GameObject _Character in PTwoParty)
+            //{
+            if (PTwoParty[_CharacterIndex].GetComponent<LifeManager>().Life > 0)
+            {
+                GameObject _Character = PTwoParty[_CharacterIndex];
+                _Character.transform.position = _ActiveCharacter.transform.position;
+                _Character.GetComponent<Agent>().AgentSpawnPosition = _ActiveCharacter.transform.position;
+                _Character.GetComponent<Agent>().RotUp = _RotUp;
+                _Character.GetComponent<Agent>().RotDown = _RotDown;
+                _Character.GetComponent<Agent>().RotRight = _RotRight;
+                _Character.GetComponent<Agent>().RotLeft = _RotLeft;
+                PTwoParty.Remove(_ActiveCharacter);
+                PTwoParty.Insert(_CharacterIndex, _ActiveCharacter);
+                ToggleObject(_Character, PTwoParty);
+                _Character.transform.rotation = _ActiveCharacter.transform.rotation;
+                _ActiveCharacter.transform.parent = BenchPTwo.transform;
+                _ActiveCharacter.SetActive(false);
+
+            }
+            //    }
+
+
+            //}
+
+        }
     }
 }
 

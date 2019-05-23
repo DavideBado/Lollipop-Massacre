@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
+    public List<GamePlayInput> GPInputs = new List<GamePlayInput>();
     public GamePlayInput GPInput;
     public MenuInput MNInput;
     public InputBase currentInput;
-    
+
     public void ChangeInput(InputMgrType _input)
     {
         switch (_input)
@@ -21,26 +22,33 @@ public class InputManager : MonoBehaviour
             default:
                 break;
         }
-
         ActiveInput(currentInput);
     }
+
+ 
 
     public void Setup()
     {
         MNInput = GetComponent<MenuInput>();
-        GPInput = GetComponent<GamePlayInput>();
+        foreach (GamePlayInput _gpinput in GPInputs)
+        {
+            if(_gpinput.InputID == 1)
+            {
+                GPInput = _gpinput;
+            }
+        }
     }
 
     public void ActiveInput(InputBase _input)
     {
         _input.enabled = true;
         currentInput = _input;
-        
+
     }
 
     public void DeactiveInput(InputBase _input)
     {
-        if(_input != null)
+        if (_input != null)
         {
             _input.enabled = false;
         }
