@@ -205,5 +205,41 @@ public class GameManager : MonoBehaviour
     public  List<GameObject> POnePart = new List<GameObject>();
     public  List<GameObject> PTwoPart = new List<GameObject>();
 
+    public void AddToParty(int m_PlayerID, GameObject m_Character)
+    {
+        if (m_PlayerID == 1)
+        {
+            singleton.POnePart.Add(m_Character);
+            m_Character.GetComponent<Agent>().SwitchIndex = singleton.POnePart.Count;
+        }
+        else if (m_PlayerID == 2)
+        {
+            singleton.PTwoPart.Add(m_Character);
+            m_Character.GetComponent<Agent>().SwitchIndex = singleton.PTwoPart.Count;
+        }
+    }
+
+    public int PartyCount(int m_PlayerID)
+    {
+        if (m_PlayerID == 1)
+        {
+            return singleton.POnePart.Count;
+        }
+        else if (m_PlayerID == 2)
+        {
+            return singleton.PTwoPart.Count;
+        }
+        else
+        {
+            return -1;
+        }
+    }
+
+    public void ClearData()
+    {
+        singleton.POnePart.Clear();
+        singleton.PTwoPart.Clear();
+    }
+
     #endregion
 }

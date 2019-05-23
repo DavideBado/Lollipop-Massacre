@@ -9,7 +9,7 @@ public class SelectMenu : MonoBehaviour
     public GameObject PlayButton;
     private void OnEnable()
     {
-        PartyData.ClearData();
+        GameManager.singleton.ClearData();
     }
    
 
@@ -22,7 +22,7 @@ public class SelectMenu : MonoBehaviour
 
     void BenchCheck()
     {
-        if (PartyData.PartyCount(1) == 3 && PartyData.PartyCount(2) == 3)
+        if (GameManager.singleton.PartyCount(1) == 3 && GameManager.singleton.PartyCount(2) == 3)
         {
             PlayButton.SetActive(true);
         }
@@ -31,51 +31,51 @@ public class SelectMenu : MonoBehaviour
 
     void UpdateSelected()
     {
-        if (PartyData.PartyCount(1) == 0)
+        if (GameManager.singleton.PartyCount(1) == 0)
         {
             POnePaty.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
             POnePaty.transform.GetChild(1).GetChild(0).gameObject.SetActive(false);
             POnePaty.transform.GetChild(2).GetChild(0).gameObject.SetActive(false);
         }
-            if (PartyData.PartyCount(1) == 1)
+            if (GameManager.singleton.PartyCount(1) == 1)
         {
             POnePaty.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
             POnePaty.transform.GetChild(1).GetChild(0).gameObject.SetActive(false);
             POnePaty.transform.GetChild(2).GetChild(0).gameObject.SetActive(false);
             POnePaty.transform.GetChild(0).GetChild(0).GetComponent<RawImage>().texture = GameManager.singleton.POnePart[0].GetComponent<Agent>()._Sprites[1];
         }
-        if (PartyData.PartyCount(1) == 2)
+        if (GameManager.singleton.PartyCount(1) == 2)
         {
             POnePaty.transform.GetChild(1).GetChild(0).gameObject.SetActive(true);
             POnePaty.transform.GetChild(2).GetChild(0).gameObject.SetActive(false);
             POnePaty.transform.GetChild(1).GetChild(0).GetComponent<RawImage>().texture = GameManager.singleton.POnePart[1].GetComponent<Agent>()._Sprites[1];
         }
-        if (PartyData.PartyCount(1) == 3)
+        if (GameManager.singleton.PartyCount(1) == 3)
         {
             POnePaty.transform.GetChild(2).GetChild(0).gameObject.SetActive(true);
             POnePaty.transform.GetChild(2).GetChild(0).GetComponent<RawImage>().texture = GameManager.singleton.POnePart[2].GetComponent<Agent>()._Sprites[1];
         }
 
-        if (PartyData.PartyCount(2) == 0)
+        if (GameManager.singleton.PartyCount(2) == 0)
         {
             PTwoParty.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
             PTwoParty.transform.GetChild(1).GetChild(0).gameObject.SetActive(false);
             PTwoParty.transform.GetChild(2).GetChild(0).gameObject.SetActive(false);            
         }
-        if (PartyData.PartyCount(2) == 1)
+        if (GameManager.singleton.PartyCount(2) == 1)
         {
             PTwoParty.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
             PTwoParty.transform.GetChild(1).GetChild(0).gameObject.SetActive(false);
             PTwoParty.transform.GetChild(2).GetChild(0).gameObject.SetActive(false);
             PTwoParty.transform.GetChild(0).GetChild(0).GetComponent<RawImage>().texture = GameManager.singleton.PTwoPart[0].GetComponent<Agent>()._Sprites[1];
         }
-        if (PartyData.PartyCount(2) == 2)
+        if (GameManager.singleton.PartyCount(2) == 2)
         {
             PTwoParty.transform.GetChild(1).GetChild(0).gameObject.SetActive(true);
             PTwoParty.transform.GetChild(2).GetChild(0).gameObject.SetActive(false);
             PTwoParty.transform.GetChild(1).GetChild(0).GetComponent<RawImage>().texture = GameManager.singleton.PTwoPart[1].GetComponent<Agent>()._Sprites[1];
         }
-        if (PartyData.PartyCount(2) == 3)
+        if (GameManager.singleton.PartyCount(2) == 3)
         {
             PTwoParty.transform.GetChild(2).GetChild(0).gameObject.SetActive(true);
             PTwoParty.transform.GetChild(2).GetChild(0).GetComponent<RawImage>().texture = GameManager.singleton.PTwoPart[2].GetComponent<Agent>()._Sprites[1];

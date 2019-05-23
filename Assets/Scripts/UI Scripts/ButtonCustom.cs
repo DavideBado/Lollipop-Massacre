@@ -51,11 +51,11 @@ public class ButtonCustom : Button
         
         // Aggiungi alla lista e visualizza sprite grande nella preview del party --------> prima bisogna risolvere il bug del setactive con la lista in game
 
-        if (PartyData.PartyCount(eventData.currentInputModule.GetComponent<EventSystemCustom>().ID) < 3)
+        if (GameManager.singleton.PartyCount(eventData.currentInputModule.GetComponent<EventSystemCustom>().ID) < 3)
         {
             if (PartyCheck(eventData.currentInputModule.GetComponent<EventSystemCustom>().ID))
             {
-                PartyData.AddToParty(eventData.currentInputModule.GetComponent<EventSystemCustom>().ID, GetComponent<CharaSprites>().Character[m_CharacterIndex]);
+                GameManager.singleton.AddToParty(eventData.currentInputModule.GetComponent<EventSystemCustom>().ID, GetComponent<CharaSprites>().Character[m_CharacterIndex]);
             }
         }
 

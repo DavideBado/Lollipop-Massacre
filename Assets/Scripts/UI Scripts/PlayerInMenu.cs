@@ -60,11 +60,11 @@ public class PlayerInMenu : MonoBehaviour
         // Aggiungi alla lista e visualizza sprite grande nella preview del party --------> prima bisogna risolvere il bug del setactive con la lista in game
         foreach(CharaSprites charaSprite in CharaSprites)
         {
-            if (PartyData.PartyCount(PlayerID) != -1 && PartyData.PartyCount(PlayerID) < 3)
+            if (GameManager.singleton.PartyCount(PlayerID) != -1 && GameManager.singleton.PartyCount(PlayerID) < 3)
             {
                 if (charaSprite.SpriteID == SpriteID)
                 {
-                    PartyData.AddToParty(PlayerID, charaSprite.Character[m_CharacterIndex]);
+                    GameManager.singleton.AddToParty(PlayerID, charaSprite.Character[m_CharacterIndex]);
                 }
             }
         }

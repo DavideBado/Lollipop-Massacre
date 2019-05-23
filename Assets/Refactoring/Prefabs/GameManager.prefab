@@ -225,6 +225,23 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7565431602715209647, guid: 99e7c894ded8a514092521b5227f4e9a,
+        type: 3}
+      propertyPath: SpawnPoints.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7565431602715209647, guid: 99e7c894ded8a514092521b5227f4e9a,
+        type: 3}
+      propertyPath: BenchPOne
+      value: 
+      objectReference: {fileID: 2084534405777445156, guid: c555f2820562df241b45e524847d2a1e,
+        type: 3}
+    - target: {fileID: 7565431602715209647, guid: 99e7c894ded8a514092521b5227f4e9a,
+        type: 3}
+      propertyPath: BenchPTwo
+      value: 
+      objectReference: {fileID: 557974483789777724, guid: 35633953f2ca02d4f9cc437d8fcde89d,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99e7c894ded8a514092521b5227f4e9a, type: 3}
 --- !u!4 &5316940675966441269 stripped
