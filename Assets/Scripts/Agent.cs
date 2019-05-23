@@ -42,7 +42,7 @@ public class Agent : MonoBehaviour, ICharacter
     public RespawnController RespawnController;
     List<PlayerData> Players = new List<PlayerData>();
     List<Wall> Walls = new List<Wall>();
-
+    public InputManager inputmngr;
     public bool RotUp = false, RotDown = false, RotLeft = false, RotRight = false, ImStunned = false, imDrained = false, StartDrain;
     public int Mana = 1;
     public bool OhStunnedShit;
@@ -68,9 +68,23 @@ public class Agent : MonoBehaviour, ICharacter
             
     }
     //********************************************
+    private void Awake()
+    {
+        inputmngr = FindObjectOfType<InputManager>();
+    }
     private void OnEnable()
     {
         AgentOnEnable(AgentParent, AgentSpawnPosition);
+        inputmngr.GoToUp += HandleOnUp;
+        inputmngr.GoToDown += HandleOnDown;
+        inputmngr.GoToLeft += HandleOnLeft;
+        inputmngr.GoToRight += HandleOnRight;
+        inputmngr.GoToAttaccoBase += HandleOnAttaccoBase;
+        inputmngr.GoToAbilita += HandleOnAbilita;
+        inputmngr.GoToSwitchUp += HandleOnSwitchUp;
+        inputmngr.GoToSwitchDown += HandleOnSwitchDown;
+        inputmngr.GoToTeleport += HandleOnTeleport;
+        
     }
 
     private void Start()
@@ -303,7 +317,7 @@ public class Agent : MonoBehaviour, ICharacter
 	
     #region Input
 
-	public void Up() //Trasforma la chiamata del manager in una richiesta di movimento
+	private void HandleOnUp() //Trasforma la chiamata del manager in una richiesta di movimento
 	{
 
         if (y < (configGrid.DimY - 1))//&& OnTheRoad == false && MyTurn == true && ImStunned == false//
@@ -328,7 +342,7 @@ public class Agent : MonoBehaviour, ICharacter
             // GameManager.GetComponent<Pointer>().PointerOff();
         }
     }
-	public void Left()
+	private void HandleOnLeft()
 	{
         if (x > 0) //&& OnTheRoad == false && MyTurn == true && ImStunned == false && GameManager.Pause == false//
         {
@@ -352,7 +366,7 @@ public class Agent : MonoBehaviour, ICharacter
             //GameManager.GetComponent<Pointer>().PointerOff();
         }
     }
-	public void Down()
+	private void HandleOnDown()
 	{
         if (y > 0)// && OnTheRoad == false && MyTurn == true && ImStunned == false && GameManager.Pause == false)
         {
@@ -376,7 +390,7 @@ public class Agent : MonoBehaviour, ICharacter
             // GameManager.GetComponent<Pointer>().PointerOff();
         }
     }
-	public void Right()
+	private void HandleOnRight()
 	{
         if (x < (configGrid.DimX - 1)) //&& OnTheRoad == false && MyTurn == true && ImStunned == false && GameManager.Pause == false)
         {
@@ -401,7 +415,7 @@ public class Agent : MonoBehaviour, ICharacter
         }
     }
 
-	public void BasicAttack()
+	private void HandleOnAttaccoBase()
 	{
          //(MyTurn == true && ImStunned == false && GameManager.CanAttack == true && GameManager.Pause == false) // Se è il mio turno
         
@@ -442,14 +456,14 @@ public class Agent : MonoBehaviour, ICharacter
             }
         }
 
-    public void Switch_Up()
+    private void HandleOnSwitchUp()
     {
         
           pm.Switcher(PlayerID, 0, gameObject, RotUp, RotDown, RotRight, RotLeft);
         
     }
 
-    public void Switch_Down()
+    private void HandleOnSwitchDown()
     {
 
             pm.Switcher(PlayerID, switcherIndex, gameObject, RotUp, RotDown, RotRight, RotLeft);
@@ -458,7 +472,7 @@ public class Agent : MonoBehaviour, ICharacter
 
     #endregion
 
-    public void TeleportMe()
+    private void HandleOnTeleport()
     {
         //if (GameManager.TimerOn == true)
         //{
@@ -478,5 +492,21 @@ public class Agent : MonoBehaviour, ICharacter
     //            DrainPS.SetActive(false);
     //        }
     //    }
+    }
+
+    private void HandleOnAbilita() { }
+
+    private void OnDisable()
+    {
+        
+        inputmngr.GoToUp -= HandleOnUp;
+        inputmngr.GoToDown -= HandleOnDown;
+        inputmngr.GoToLeft -= HandleOnLeft;
+        inputmngr.GoToRight -= HandleOnRight;
+        inputmngr.GoToAttaccoBase -= HandleOnAttaccoBase;
+        inputmngr.GoToAbilita -= HandleOnAbilita;
+        inputmngr.GoToSwitchUp -= HandleOnSwitchUp;
+        inputmngr.GoToSwitchDown -= HandleOnSwitchDown;
+        inputmngr.GoToTeleport -= HandleOnTeleport;
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class InputManager : MonoBehaviour
 {
@@ -8,6 +9,20 @@ public class InputManager : MonoBehaviour
     public GamePlayInput GPInput;
     public MenuInput MNInput;
     public InputBase currentInput;
+
+    #region Actions
+    public Action GoToUp;
+    public Action GoToDown;
+    public Action GoToLeft;
+    public Action GoToRight;
+    public Action GoToAttaccoBase;
+    public Action GoToAbilita;
+   // public Action GoToPreview;
+    public Action GoToSwitchUp;
+    public Action GoToSwitchDown;
+    public Action GoToTeleport;
+    
+    #endregion
 
     public void ChangeInput(InputMgrType _input)
     {
