@@ -199,4 +199,11 @@ public class GameManager : MonoBehaviour
         }
 
     }
+
+    #region Static Bench
+
+    public  List<GameObject> POnePart = new List<GameObject>();
+    public  List<GameObject> PTwoPart = new List<GameObject>();
+
+    #endregion
 }

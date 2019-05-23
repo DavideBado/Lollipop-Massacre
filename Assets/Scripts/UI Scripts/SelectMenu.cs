@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class SelectMenu : MonoBehaviour
 {
     public GameObject POnePaty, PTwoParty;
-    //public GameObject PlayButton;
+    public GameObject PlayButton;
     private void OnEnable()
     {
         PartyData.ClearData();
@@ -20,14 +20,14 @@ public class SelectMenu : MonoBehaviour
         UpdateSelected();
     }
 
-    //void BenchCheck()
-    //{
-    //    if (PartyData.PartyCount(1) == 3 && PartyData.PartyCount(2) == 3)
-    //    {
-    //        PlayButton.SetActive(true);
-    //    }
-    //    else PlayButton.SetActive(false);
-    //}
+    void BenchCheck()
+    {
+        if (PartyData.PartyCount(1) == 3 && PartyData.PartyCount(2) == 3)
+        {
+            PlayButton.SetActive(true);
+        }
+        else PlayButton.SetActive(false);
+    }
 
     void UpdateSelected()
     {
@@ -42,18 +42,18 @@ public class SelectMenu : MonoBehaviour
             POnePaty.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
             POnePaty.transform.GetChild(1).GetChild(0).gameObject.SetActive(false);
             POnePaty.transform.GetChild(2).GetChild(0).gameObject.SetActive(false);
-            POnePaty.transform.GetChild(0).GetChild(0).GetComponent<RawImage>().texture = PartyData.POnePart[0].GetComponent<Agent>()._Sprites[1];
+            POnePaty.transform.GetChild(0).GetChild(0).GetComponent<RawImage>().texture = GameManager.singleton.POnePart[0].GetComponent<Agent>()._Sprites[1];
         }
         if (PartyData.PartyCount(1) == 2)
         {
             POnePaty.transform.GetChild(1).GetChild(0).gameObject.SetActive(true);
             POnePaty.transform.GetChild(2).GetChild(0).gameObject.SetActive(false);
-            POnePaty.transform.GetChild(1).GetChild(0).GetComponent<RawImage>().texture = PartyData.POnePart[1].GetComponent<Agent>()._Sprites[1];
+            POnePaty.transform.GetChild(1).GetChild(0).GetComponent<RawImage>().texture = GameManager.singleton.POnePart[1].GetComponent<Agent>()._Sprites[1];
         }
         if (PartyData.PartyCount(1) == 3)
         {
             POnePaty.transform.GetChild(2).GetChild(0).gameObject.SetActive(true);
-            POnePaty.transform.GetChild(2).GetChild(0).GetComponent<RawImage>().texture = PartyData.POnePart[2].GetComponent<Agent>()._Sprites[1];
+            POnePaty.transform.GetChild(2).GetChild(0).GetComponent<RawImage>().texture = GameManager.singleton.POnePart[2].GetComponent<Agent>()._Sprites[1];
         }
 
         if (PartyData.PartyCount(2) == 0)
@@ -67,18 +67,18 @@ public class SelectMenu : MonoBehaviour
             PTwoParty.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
             PTwoParty.transform.GetChild(1).GetChild(0).gameObject.SetActive(false);
             PTwoParty.transform.GetChild(2).GetChild(0).gameObject.SetActive(false);
-            PTwoParty.transform.GetChild(0).GetChild(0).GetComponent<RawImage>().texture = PartyData.PTwoPart[0].GetComponent<Agent>()._Sprites[1];
+            PTwoParty.transform.GetChild(0).GetChild(0).GetComponent<RawImage>().texture = GameManager.singleton.PTwoPart[0].GetComponent<Agent>()._Sprites[1];
         }
         if (PartyData.PartyCount(2) == 2)
         {
             PTwoParty.transform.GetChild(1).GetChild(0).gameObject.SetActive(true);
             PTwoParty.transform.GetChild(2).GetChild(0).gameObject.SetActive(false);
-            PTwoParty.transform.GetChild(1).GetChild(0).GetComponent<RawImage>().texture = PartyData.PTwoPart[1].GetComponent<Agent>()._Sprites[1];
+            PTwoParty.transform.GetChild(1).GetChild(0).GetComponent<RawImage>().texture = GameManager.singleton.PTwoPart[1].GetComponent<Agent>()._Sprites[1];
         }
         if (PartyData.PartyCount(2) == 3)
         {
             PTwoParty.transform.GetChild(2).GetChild(0).gameObject.SetActive(true);
-            PTwoParty.transform.GetChild(2).GetChild(0).GetComponent<RawImage>().texture = PartyData.PTwoPart[2].GetComponent<Agent>()._Sprites[1];
+            PTwoParty.transform.GetChild(2).GetChild(0).GetComponent<RawImage>().texture = GameManager.singleton.PTwoPart[2].GetComponent<Agent>()._Sprites[1];
         }
     }
 
@@ -86,11 +86,11 @@ public class SelectMenu : MonoBehaviour
     {
         if(_PlayerID == 1)
         {
-            PartyData.POnePart.Remove(PartyData.POnePart[(PartyData.POnePart.Count -1)]);
+            GameManager.singleton.POnePart.Remove(GameManager.singleton.POnePart[(GameManager.singleton.POnePart.Count -1)]);
         }
         else if (_PlayerID == 2)
         {
-            PartyData.PTwoPart.Remove(PartyData.PTwoPart[(PartyData.PTwoPart.Count - 1)]);
+            GameManager.singleton.PTwoPart.Remove(GameManager.singleton.PTwoPart[(GameManager.singleton.PTwoPart.Count - 1)]);
         }
     }
 }

@@ -6,7 +6,7 @@ public class PlayerManager : MonoBehaviour
 {
     public int PlayerID;
     /// <summary>
-    /// istanzia i cloni delle bench
+    /// clona lista e istanzia giocatori
     /// </summary>
     public void Setup()
     {

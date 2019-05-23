@@ -72,7 +72,7 @@ public class ButtonCustom : Button
     {
         if(_PlayerID == 1)
         {
-            foreach (GameObject _Object in PartyData.POnePart)
+            foreach (GameObject _Object in GameManager.singleton.POnePart)
             {
                 if (_Object == GetComponent<CharaSprites>().Character[(_PlayerID - 1)])
                 {
@@ -83,7 +83,7 @@ public class ButtonCustom : Button
         }
         else if (_PlayerID == 2)
         {
-            foreach (GameObject _Object in PartyData.PTwoPart)
+            foreach (GameObject _Object in GameManager.singleton.PTwoPart)
             {
                 if (_Object == GetComponent<CharaSprites>().Character[(_PlayerID - 1)])
                 {
