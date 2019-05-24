@@ -361,17 +361,24 @@ public class BigD : MonoBehaviour
                  (cell.transform.position.x == hit.transform.position.x)))
                 {
                     cell.GetComponent<MeshRenderer>().material = _material;
-
                 }
             }
-            else if ((((playerPosition.x < cell.transform.position.x && cell.transform.position.x < hit.transform.position.x) ||
-                 (playerPosition.x > cell.transform.position.x && cell.transform.position.x > hit.transform.position.x)) &&
-                 (cell.transform.position.z == hit.transform.position.z)) ||
-                 (((playerPosition.z < cell.transform.position.z && cell.transform.position.z < hit.transform.position.z) ||
-                 (playerPosition.z > cell.transform.position.z && cell.transform.position.z > hit.transform.position.z)) &&
-                 (cell.transform.position.x == hit.transform.position.x)))
+            else if (hit.transform.GetComponent<Wall>() != null)
+
             {
-                cell.GetComponent<MeshRenderer>().material = _material;
+
+                if ((((playerPosition.x < cell.transform.position.x && cell.transform.position.x < hit.transform.position.x) ||
+            (playerPosition.x > cell.transform.position.x && cell.transform.position.x > hit.transform.position.x)) &&
+            ((int)cell.transform.position.z == (int)hit.transform.position.z))
+            ||
+            (((playerPosition.z < cell.transform.position.z && cell.transform.position.z < hit.transform.position.z) ||
+            (playerPosition.z > cell.transform.position.z && cell.transform.position.z > hit.transform.position.z)) &&
+            (cell.transform.position.x == hit.transform.position.x))
+            )
+                {
+                    cell.GetComponent<MeshRenderer>().material = _material;
+
+                }
 
             }
         }
