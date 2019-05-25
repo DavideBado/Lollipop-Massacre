@@ -4,9 +4,12 @@ using UnityEngine;
 using UnityEditor;
 using System.Linq;
 using DG.Tweening;
+using UnityEngine.UI;
 
 public class LifeManager : MonoBehaviour
 {
+    DamageFeed DamageImage;
+    float FeedbackTImer;
     public bool OnShield = false;
     public int Life = 3;
     GameManager GameManager;   
@@ -18,11 +21,23 @@ public class LifeManager : MonoBehaviour
     {
         Graphic = GetComponentInChildren<AnimationController>().gameObject;
         GameManager = FindObjectOfType<GameManager>();
+        DamageImage = FindObjectOfType<DamageFeed>();
     }
     // Update is called once per frame
     void Update()
     {
         DieNow();
+        if (DamageImage.GetComponent<Image>().enabled)
+        {
+            if (FeedbackTImer > 0)
+            {
+                FeedbackTImer -= Time.deltaTime;
+                if (FeedbackTImer <= 0)
+                {
+                    DamageImage.GetComponent<Image>().enabled = false;
+                }
+            } 
+        }
     }
 
     void DieNow()
@@ -46,6 +61,7 @@ public class LifeManager : MonoBehaviour
     public void Damage(int _amount)
     {
         Life -= _amount;
+        DamageFeedback(_amount - 1);
         GetComponent<XInputTestCS>().Damage = _amount;
         GetComponent<XInputTestCS>().Timer = (_amount * 0.2f);
         if (Graphic != null)
@@ -54,4 +70,11 @@ public class LifeManager : MonoBehaviour
         }
     }
 
+    void DamageFeedback(int _amount)
+    {
+        FeedbackTImer = 1f;
+        DamageImage.transform.position = (transform.position + new Vector3(0, 2.5f));
+        DamageImage.GetComponent<Image>().enabled = true;
+        DamageImage.GetComponent<Image>().sprite = DamageImage.DamageSprites[_amount];
+    }
 }

@@ -79,32 +79,32 @@ public class ButtonCustom1 : Button
         //OnChangeCharacter();
     }
 
-    private void Update()
-    {
-        eventSystem = GetComponent<MyEventSystemProvider>().eventSystem;
-        //Debug.Log(eventSystem);
-        if (IsHighlighted(m_BaseEvent))
-        {
-            if(GetComponent<OnSelectData>().OnSelectImage.sprite != null)
+    //private void Update()
+    //{
+    //    eventSystem = GetComponent<MyEventSystemProvider>().eventSystem;
+    //    //Debug.Log(eventSystem);
+    //    if (IsHighlighted(m_BaseEvent))
+    //    {
+    //        if(GetComponent<OnSelectData>().OnSelectImage.sprite != null)
 
-    {
-                GetComponent<Image>().sprite = GetComponent<OnSelectData>().OnSelectImage.sprite; 
-            }
-            if (GetComponent<OnSelectData>().OnSelectDim != null)
-            {
-                GetComponent<RectTransform>().sizeDelta = GetComponent<OnSelectData>().OnSelectDim.rect.size; 
-            }
-            if (GetComponent<OnSelectData>().Data_Transform != null)
-            {
-                transform.position = GetComponent<OnSelectData>().Data_Transform.position; 
-            }
-        }
-        else
-        { 
-            transform.position = m_StandardPos;
-            GetComponent<Image>().sprite = m_StandardTexture;
-            GetComponent<RectTransform>().sizeDelta = m_StandardRect;
-        }
-    }
+    //{
+    //            GetComponent<Image>().sprite = GetComponent<OnSelectData>().OnSelectImage.sprite; 
+    //        }
+    //        if (GetComponent<OnSelectData>().OnSelectDim != null)
+    //        {
+    //            GetComponent<RectTransform>().sizeDelta = GetComponent<OnSelectData>().OnSelectDim.rect.size; 
+    //        }
+    //        if (GetComponent<OnSelectData>().Data_Transform != null)
+    //        {
+    //            transform.position = GetComponent<OnSelectData>().Data_Transform.position; 
+    //        }
+    //    }
+    //    else
+    //    { 
+    //        transform.position = m_StandardPos;
+    //        GetComponent<Image>().sprite = m_StandardTexture;
+    //        GetComponent<RectTransform>().sizeDelta = m_StandardRect;
+    //    }
+    //}
 }
 

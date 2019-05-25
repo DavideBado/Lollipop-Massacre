@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.UI;
 
 public class Drain : MonoBehaviour
 {
+    DrainFeed DrainImage;
+    float FeedbackTImer;
     float Timer;
     bool onAttack;
     GameManager Manager;
@@ -16,6 +19,7 @@ public class Drain : MonoBehaviour
         Timer = 1f;
         Manager = FindObjectOfType<GameManager>();
         agent = GetComponent<Agent>();
+        DrainImage = FindObjectOfType<DrainFeed>();
     }
 
     private void Update()
@@ -32,7 +36,19 @@ public class Drain : MonoBehaviour
                 CleanPreview();
                 Timer = 1f;
             }
+        }
 
+        if (DrainImage.GetComponent<Image>().enabled)
+        {
+            DrainImage.transform.position = (transform.position + new Vector3(0, 2.5f));
+            if (FeedbackTImer > 0)
+            {
+                FeedbackTImer -= Time.deltaTime;
+                if (FeedbackTImer <= 0)
+                {
+                    DrainImage.GetComponent<Image>().enabled = false;
+                }
+            }
         }
     }
 
@@ -89,6 +105,8 @@ public class Drain : MonoBehaviour
                 onAttack = true;
                 Debug.DrawRay(transform.position + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
                 GetComponent<LifeManager>().Life++;
+                FeedbackTImer = 1f;
+                DrainImage.GetComponent<Image>().enabled = true;
                 hit.transform.GetComponent<LifeManager>().Damage(1);
                 hit.transform.GetComponent<Agent>().imDrained = true;
                 hit.transform.GetComponent<Agent>().StartDrain = Manager.Turn;
@@ -102,6 +120,8 @@ public class Drain : MonoBehaviour
                 onAttack = true;
                 Debug.DrawRay(GetComponent<Agent>().RayLeft + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
                 GetComponent<LifeManager>().Life++;
+                FeedbackTImer = 1f;
+                DrainImage.GetComponent<Image>().enabled = true;
                 hit.transform.GetComponent<LifeManager>().Damage(1);
                 hit.transform.GetComponent<Agent>().imDrained = true;
                 hit.transform.GetComponent<Agent>().StartDrain = Manager.Turn;
@@ -115,6 +135,8 @@ public class Drain : MonoBehaviour
                 onAttack = true;
                 Debug.DrawRay(GetComponent<Agent>().RayRight + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
                 GetComponent<LifeManager>().Life++;
+                FeedbackTImer = 1f;
+                DrainImage.GetComponent<Image>().enabled = true;
                 hit.transform.GetComponent<LifeManager>().Damage(1);
                 hit.transform.GetComponent<Agent>().imDrained = true;
                 hit.transform.GetComponent<Agent>().StartDrain = Manager.Turn;
@@ -128,6 +150,8 @@ public class Drain : MonoBehaviour
                 onAttack = true;
                 Debug.DrawRay(GetComponent<Agent>().RayRight + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
                 GetComponent<LifeManager>().Life++;
+                FeedbackTImer = 1f;
+                DrainImage.GetComponent<Image>().enabled = true;
                 hit.transform.GetComponent<LifeManager>().Damage(1);
                 hit.transform.GetComponent<Agent>().imDrained = true;
                 hit.transform.GetComponent<Agent>().StartDrain = Manager.Turn;

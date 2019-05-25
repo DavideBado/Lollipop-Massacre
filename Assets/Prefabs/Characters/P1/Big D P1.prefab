@@ -236,6 +236,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 552aaae03a90def42bf4491959c43a40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DamageSprites:
+  - {fileID: 21300000, guid: c2384b36e490c514e868c84b1db5ecd5, type: 3}
+  - {fileID: 21300000, guid: aeb07072e5f93064788eda4465933424, type: 3}
+  DamageImage: {fileID: 0}
   OnShield: 0
   Life: 3
 --- !u!114 &4941934340564905669

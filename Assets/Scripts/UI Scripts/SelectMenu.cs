@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class SelectMenu : MonoBehaviour
 {
@@ -44,17 +45,20 @@ public class SelectMenu : MonoBehaviour
             POnePaty.transform.GetChild(1).GetChild(0).gameObject.SetActive(false);
             POnePaty.transform.GetChild(2).GetChild(0).gameObject.SetActive(false);
             POnePaty.transform.GetChild(0).GetChild(0).GetComponent<Image>().sprite = PartyData.POnePart[0].GetComponent<Agent>()._Sprites[1];
+            POnePaty.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<TMP_Text>().text = PartyData.POnePart[0].GetComponent<Agent>().CharacterName;
         }
         if (PartyData.PartyCount(1) == 2)
         {
             POnePaty.transform.GetChild(1).GetChild(0).gameObject.SetActive(true);
             POnePaty.transform.GetChild(2).GetChild(0).gameObject.SetActive(false);
             POnePaty.transform.GetChild(1).GetChild(0).GetComponent<Image>().sprite = PartyData.POnePart[1].GetComponent<Agent>()._Sprites[1];
+            POnePaty.transform.GetChild(1).GetChild(0).GetChild(0).GetComponent<TMP_Text>().text = PartyData.POnePart[1].GetComponent<Agent>().CharacterName;
         }
         if (PartyData.PartyCount(1) == 3)
         {
             POnePaty.transform.GetChild(2).GetChild(0).gameObject.SetActive(true);
             POnePaty.transform.GetChild(2).GetChild(0).GetComponent<Image>().sprite = PartyData.POnePart[2].GetComponent<Agent>()._Sprites[1];
+            POnePaty.transform.GetChild(2).GetChild(0).GetChild(0).GetComponent<TMP_Text>().text = PartyData.POnePart[2].GetComponent<Agent>().CharacterName;
         }
 
         if (PartyData.PartyCount(2) == 0)
@@ -69,17 +73,20 @@ public class SelectMenu : MonoBehaviour
             PTwoParty.transform.GetChild(1).GetChild(0).gameObject.SetActive(false);
             PTwoParty.transform.GetChild(2).GetChild(0).gameObject.SetActive(false);
             PTwoParty.transform.GetChild(0).GetChild(0).GetComponent<Image>().sprite = PartyData.PTwoPart[0].GetComponent<Agent>()._Sprites[1];
+            PTwoParty.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<TMP_Text>().text = PartyData.PTwoPart[0].GetComponent<Agent>().CharacterName;
         }
         if (PartyData.PartyCount(2) == 2)
         {
             PTwoParty.transform.GetChild(1).GetChild(0).gameObject.SetActive(true);
             PTwoParty.transform.GetChild(2).GetChild(0).gameObject.SetActive(false);
             PTwoParty.transform.GetChild(1).GetChild(0).GetComponent<Image>().sprite = PartyData.PTwoPart[1].GetComponent<Agent>()._Sprites[1];
+            PTwoParty.transform.GetChild(1).GetChild(0).GetChild(0).GetComponent<TMP_Text>().text = PartyData.PTwoPart[1].GetComponent<Agent>().CharacterName;
         }
         if (PartyData.PartyCount(2) == 3)
         {
             PTwoParty.transform.GetChild(2).GetChild(0).gameObject.SetActive(true);
             PTwoParty.transform.GetChild(2).GetChild(0).GetComponent<Image>().sprite = PartyData.PTwoPart[2].GetComponent<Agent>()._Sprites[1];
+            PTwoParty.transform.GetChild(2).GetChild(0).GetChild(0).GetComponent<TMP_Text>().text = PartyData.PTwoPart[1].GetComponent<Agent>().CharacterName;
         }
 
         if ((PartyData.PartyCount(2) == 3) && (PartyData.PartyCount(1) == 3))

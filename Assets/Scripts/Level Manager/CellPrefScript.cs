@@ -9,6 +9,7 @@ public class CellPrefScript : MonoBehaviour
     List<Agent> agents = new List<Agent>();
     int area;
     GameManager m_GameManager;
+    GridArea m_Area;
    
     public ItemData GetData()
     {
@@ -55,6 +56,13 @@ public class CellPrefScript : MonoBehaviour
     //    }
     //}
 
+    private void Update()
+    {
+        if(m_Area == null)
+        {
+            m_Area = GetComponentInParent<GridArea>();
+        }
+    }
     public void CleanTile()
     {
         FindPlayers();
@@ -65,7 +73,7 @@ public class CellPrefScript : MonoBehaviour
         {
             if(_agent.transform.position == transform.position)
             {
-				_agent.transform.parent = transform.parent;
+				_agent.transform.parent = m_Area.transform;
 				m_agentHere = true;
                 if(_agent.PlayerID == 1)
                 {
