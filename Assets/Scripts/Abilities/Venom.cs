@@ -100,10 +100,10 @@ public class Venom : MonoBehaviour
     public void Preview()
     {
         Manager.UpdateTilesMat();
-        if (GetComponent<Agent>().MyTurn  && GetComponent<Agent>().ImStunned == false && Manager.CanAttack == true && Manager.Pause == false)
+        if (GetComponent<Agent>().MyTurn && GetComponent<Agent>().ImStunned == false && Manager.CanAttack == true && Manager.Pause == false)
 
         {
-            CleanPreview();
+            //CleanPreview();
             Material PrevMaterial = FindObjectOfType<CellPrefScript>().Materials[3];
             NewPreview(PrevMaterial);
         }
@@ -184,13 +184,13 @@ public class Venom : MonoBehaviour
                  (_playerPosition.x > cell.transform.position.x && cell.transform.position.x >= _HitPosition.x)) &&
 
 
-                 (cell.transform.position.z == _HitPosition.z)) ||
+                 (Mathf.Round(cell.transform.position.z) == Mathf.Round(_HitPosition.z))) ||
 
 
 
                  (((_playerPosition.z < cell.transform.position.z && cell.transform.position.z <= _HitPosition.z) ||
                  (_playerPosition.z > cell.transform.position.z && cell.transform.position.z >= _HitPosition.z)) &&
-                 (cell.transform.position.x == _HitPosition.x)))
+                 (Mathf.Round(cell.transform.position.x) == Mathf.Round(_HitPosition.x))))
                 {
                     cell.GetComponent<MeshRenderer>().material = _material;
                 }
@@ -202,13 +202,13 @@ public class Venom : MonoBehaviour
  (_playerPosition.x > cell.transform.position.x && cell.transform.position.x > _HitPosition.x)) &&
 
 
- (cell.transform.position.z == _HitPosition.z)) ||
+ (Mathf.Round(cell.transform.position.z) == Mathf.Round(_HitPosition.z))) ||
 
 
 
  (((_playerPosition.z < cell.transform.position.z && cell.transform.position.z < _HitPosition.z) ||
  (_playerPosition.z > cell.transform.position.z && cell.transform.position.z > _HitPosition.z)) &&
- (cell.transform.position.x == _HitPosition.x)))
+ (Mathf.Round(cell.transform.position.x) == Mathf.Round(_HitPosition.x))))
             {
                 cell.GetComponent<MeshRenderer>().material = _material;
             }

@@ -92,10 +92,11 @@ public class Whirlwind : MonoBehaviour
 
     public void Preview()
     {
+        Manager.UpdateTilesMat();
         if (GetComponent<Agent>().MyTurn && GetComponent<Agent>().ImStunned == false && Manager.CanAttack == true && Manager.Pause == false)
 
         {
-            CleanPreview();
+            //CleanPreview();
             Material PrevMaterial = FindObjectOfType<CellPrefScript>().Materials[3];
             NewPreview(PrevMaterial);
         }

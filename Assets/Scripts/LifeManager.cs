@@ -19,7 +19,10 @@ public class LifeManager : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        Graphic = GetComponentInChildren<AnimationController>().gameObject;
+        if (GetComponentInChildren<AnimationController>() != null)
+        {
+            Graphic = GetComponentInChildren<AnimationController>().gameObject; 
+        }
         GameManager = FindObjectOfType<GameManager>();
         DamageImage = FindObjectOfType<DamageFeed>();
     }

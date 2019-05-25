@@ -75,7 +75,10 @@ public class Agent : MonoBehaviour, ICharacter
     {
         InStart();
         rg = GetComponent<Rigidbody>();
-        Graphic = GetComponentInChildren<AnimationController>().gameObject;
+        if (GetComponentInChildren<AnimationController>() != null)
+        {
+            Graphic = GetComponentInChildren<AnimationController>().gameObject; 
+        }
     }
 
 
