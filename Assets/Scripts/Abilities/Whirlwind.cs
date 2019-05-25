@@ -56,18 +56,18 @@ public class Whirlwind : MonoBehaviour
 
                     if (EnemyID == 1)
                     {
+                        hit.transform.gameObject.SetActive(false);
                         ChangePg(Manager.POneParty, EnemyID);
                         hit.transform.position = new Vector3();
                         hit.transform.parent = Manager.BenchPOne.transform;
-                        hit.transform.gameObject.SetActive(false);
 
                     }
                     else if (EnemyID == 2)
                     {
+                        hit.transform.gameObject.SetActive(false);
                         ChangePg(Manager.PTwoParty, EnemyID);
                         hit.transform.position = new Vector3();
                         hit.transform.parent = Manager.BenchPTwo.transform;
-                        hit.transform.gameObject.SetActive(false);
                     }
                 }
 

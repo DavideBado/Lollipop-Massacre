@@ -20,7 +20,7 @@ public class NewTilesPreview : MonoBehaviour
         m_GameManager = FindObjectOfType<GameManager>();
         m_GameManager.UpdateTilesMat += UpdateMaterial;
     }
-
+  
     private void UpdateMaterial()
     {
         if (_Cell != null)

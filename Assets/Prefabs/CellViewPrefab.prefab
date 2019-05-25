@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 65108163791946052}
   - component: {fileID: 23749995406009080}
   - component: {fileID: 1281031198614463732}
-  - component: {fileID: 4564258092619106258}
+  - component: {fileID: 4143296490236164682}
   m_Layer: 0
   m_Name: CellViewPrefab
   m_TagString: Cell
@@ -110,7 +110,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: b24691a342c629a47bb11fbffc4390d1, type: 2}
   - {fileID: 2100000, guid: 7c95f173f3734af42afc8c3e253ef364, type: 2}
   - {fileID: 2100000, guid: e0ec99b525214a44f9972bc22b4f47e6, type: 2}
---- !u!54 &4564258092619106258
+--- !u!54 &4143296490236164682
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
