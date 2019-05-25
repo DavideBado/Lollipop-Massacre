@@ -12,10 +12,13 @@ ModelImporter:
     2100000: blinn7
     2300000: ciliegia_big_mp
     2300002: pistillo_mp
+    2300004: //RootNode
     3300000: ciliegia_big_mp
     3300002: pistillo_mp
+    3300004: //RootNode
     4300000: ciliegia_big_mp
     4300002: pistillo_mp
+    4300004: Cherry_LP
   externalObjects: {}
   materials:
     importMaterials: 0

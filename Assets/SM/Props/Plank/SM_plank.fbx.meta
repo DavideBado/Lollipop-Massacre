@@ -4,11 +4,16 @@ ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
+    100002: polySurface2
     400000: //RootNode
+    400002: polySurface2
     2100000: lambert4
     2300000: //RootNode
+    2300002: polySurface2
     3300000: //RootNode
+    3300002: polySurface2
     4300000: wood_axes_02_LP
+    4300002: polySurface2
   externalObjects: {}
   materials:
     importMaterials: 0
