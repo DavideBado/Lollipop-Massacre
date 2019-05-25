@@ -19,14 +19,17 @@ ModelImporter:
     2300002: glassa_mp
     2300004: pirottino_mp
     2300006: pirulo_ciliegia_mp
+    2300008: //RootNode
     3300000: ciliegia_mp
     3300002: glassa_mp
     3300004: pirottino_mp
     3300006: pirulo_ciliegia_mp
+    3300008: //RootNode
     4300000: pirottino_mp
     4300002: pirulo_ciliegia_mp
     4300004: ciliegia_mp
     4300006: glassa_mp
+    4300008: SM_Cupcake
   externalObjects: {}
   materials:
     importMaterials: 0
