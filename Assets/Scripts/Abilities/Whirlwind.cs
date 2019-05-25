@@ -156,13 +156,13 @@ public class Whirlwind : MonoBehaviour
                  (playerPosition.x > cell.transform.position.x && cell.transform.position.x >= HitPosition.x)) &&
 
 
-                 (cell.transform.position.z == HitPosition.z)) ||
+                 (Mathf.Round(cell.transform.position.z) == Mathf.Round(HitPosition.z))) ||
 
 
 
                  (((playerPosition.z < cell.transform.position.z && cell.transform.position.z <= HitPosition.z) ||
                  (playerPosition.z > cell.transform.position.z && cell.transform.position.z >= HitPosition.z)) &&
-                 (cell.transform.position.x == HitPosition.x)))
+                 (Mathf.Round(cell.transform.position.x) == Mathf.Round(HitPosition.x))))
                 {
                     cell.GetComponent<MeshRenderer>().material = _material;
                 }
@@ -174,13 +174,13 @@ public class Whirlwind : MonoBehaviour
                  (playerPosition.x > cell.transform.position.x && cell.transform.position.x > HitPosition.x)) &&
 
 
-                 (cell.transform.position.z == HitPosition.z)) ||
+                 (Mathf.Round(cell.transform.position.z) == Mathf.Round(HitPosition.z))) ||
 
 
 
                  (((playerPosition.z < cell.transform.position.z && cell.transform.position.z < HitPosition.z) ||
                  (playerPosition.z > cell.transform.position.z && cell.transform.position.z > HitPosition.z)) &&
-                 (cell.transform.position.x == HitPosition.x)))
+                 (Mathf.Round(cell.transform.position.x) == Mathf.Round(HitPosition.x))))
             {
                 cell.GetComponent<MeshRenderer>().material = _material;
             }
