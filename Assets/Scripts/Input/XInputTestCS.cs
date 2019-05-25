@@ -133,7 +133,6 @@ public class XInputTestCS : MonoBehaviour
         #region Rotazione
         if (state.ThumbSticks.Right.X > 0/* m_dPad.Right.Equals(ButtonState.Pressed)*/ && m_OnInput == true)
         {
-
             SendMessage("Right");
 
             m_OnInput = false;
@@ -168,7 +167,6 @@ public class XInputTestCS : MonoBehaviour
 		{
 			SendMessage("Canc");
             SendMessage("Switch_Down");
-
         }
 
 		if (prevState.Buttons.Y == ButtonState.Released && state.Buttons.Y == ButtonState.Pressed)

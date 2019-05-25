@@ -56,15 +56,15 @@ public class Drain : MonoBehaviour
     {
         if (GetComponent<Agent>().Mana > 0 && GetComponent<Agent>().MyTurn && GetComponent<Agent>().PlayerType == 2 && GetComponent<Agent>().ImStunned == false && Manager.CanAttack == true && Manager.Pause == false)
         {
-            if(GetComponent<LifeManager>().Life == 3)
-            {
-                ImFullButIWannaDrain();
-            }
+            //if(GetComponent<LifeManager>().Life == 3)
+            //{
+            //    ImFullButIWannaDrain();
+            //}
 
-            if (GetComponent<LifeManager>().Life < 3)
-            {
+            //if (GetComponent<LifeManager>().Life < 3)
+            //{
                 INeedLifeDrain();
-            }
+            //}
 
             if (FindObjectOfType<PickUpsSpawner>().AllManaFull == true)
             {
@@ -104,9 +104,12 @@ public class Drain : MonoBehaviour
             {
                 onAttack = true;
                 Debug.DrawRay(transform.position + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
-                GetComponent<LifeManager>().Life++;
-                FeedbackTImer = 1f;
+                if (GetComponent<LifeManager>().Life < 3)
+                {
+                    GetComponent<LifeManager>().Life++;
+                    FeedbackTImer = 1f;
                 DrainImage.GetComponent<Image>().enabled = true;
+                }
                 hit.transform.GetComponent<LifeManager>().Damage(1);
                 hit.transform.GetComponent<Agent>().imDrained = true;
                 hit.transform.GetComponent<Agent>().StartDrain = Manager.Turn;
@@ -119,9 +122,12 @@ public class Drain : MonoBehaviour
             {
                 onAttack = true;
                 Debug.DrawRay(GetComponent<Agent>().RayLeft + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
-                GetComponent<LifeManager>().Life++;
-                FeedbackTImer = 1f;
+                if (GetComponent<LifeManager>().Life < 3)
+                {
+                    GetComponent<LifeManager>().Life++;
+                    FeedbackTImer = 1f;
                 DrainImage.GetComponent<Image>().enabled = true;
+                }
                 hit.transform.GetComponent<LifeManager>().Damage(1);
                 hit.transform.GetComponent<Agent>().imDrained = true;
                 hit.transform.GetComponent<Agent>().StartDrain = Manager.Turn;
@@ -134,9 +140,12 @@ public class Drain : MonoBehaviour
             {
                 onAttack = true;
                 Debug.DrawRay(GetComponent<Agent>().RayRight + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
-                GetComponent<LifeManager>().Life++;
-                FeedbackTImer = 1f;
+                if (GetComponent<LifeManager>().Life < 3)
+                {
+                    GetComponent<LifeManager>().Life++;
+                    FeedbackTImer = 1f;
                 DrainImage.GetComponent<Image>().enabled = true;
+                }
                 hit.transform.GetComponent<LifeManager>().Damage(1);
                 hit.transform.GetComponent<Agent>().imDrained = true;
                 hit.transform.GetComponent<Agent>().StartDrain = Manager.Turn;
@@ -149,9 +158,12 @@ public class Drain : MonoBehaviour
             {
                 onAttack = true;
                 Debug.DrawRay(GetComponent<Agent>().RayRight + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
-                GetComponent<LifeManager>().Life++;
-                FeedbackTImer = 1f;
+                if (GetComponent<LifeManager>().Life < 3)
+                {
+                    GetComponent<LifeManager>().Life++;
+                    FeedbackTImer = 1f;
                 DrainImage.GetComponent<Image>().enabled = true;
+                }
                 hit.transform.GetComponent<LifeManager>().Damage(1);
                 hit.transform.GetComponent<Agent>().imDrained = true;
                 hit.transform.GetComponent<Agent>().StartDrain = Manager.Turn;
@@ -166,7 +178,7 @@ public class Drain : MonoBehaviour
         if (GetComponent<Agent>().MyTurn && GetComponent<Agent>().ImStunned == false && Manager.CanAttack == true && Manager.Pause == false)
 
         {
-            CleanPreview();
+            //CleanPreview();
             Material PrevMaterial = FindObjectOfType<CellPrefScript>().Materials[3];
             NewPreview(PrevMaterial);
         }
@@ -196,13 +208,11 @@ public class Drain : MonoBehaviour
                     else if (_lookY != 0)
                     {
                         CellsGreenInRay(hit.transform.position, cells, playerPosition, hit.transform.GetComponent<Agent>(), _material);
-
                     }
 
                 }
                 else
                 {
-
                     if (_lookX != 0)
                     {
                         if (_lookX > 0)
@@ -233,7 +243,7 @@ public class Drain : MonoBehaviour
 
             if (GetComponent<LifeManager>().Life < 6)
             {
-                if (Physics.Raycast(transform.position + new Vector3(0, 0.5f), Vector3.forward, out hit, 4))
+                if (Physics.Raycast(transform.position + new Vector3(0, 0.5f), Vector3.forward, out hit, 3))
                 {
                     CellsGreenInRay(hit.transform.position, cells, playerPosition, hit.transform.GetComponent<Agent>(), _material);
                 }
@@ -242,7 +252,7 @@ public class Drain : MonoBehaviour
                     CellsGreenInRay(new Vector3(transform.position.x, 0, (transform.position.z + 5)), cells, playerPosition, null, _material);
                 }
 
-                if (Physics.Raycast(transform.position + new Vector3(0, 0.5f), Vector3.back, out hit, 4))
+                if (Physics.Raycast(transform.position + new Vector3(0, 0.5f), Vector3.back, out hit, 3))
                 {
                     CellsGreenInRay(hit.transform.position, cells, playerPosition, hit.transform.GetComponent<Agent>(), _material);
                 }
@@ -251,7 +261,7 @@ public class Drain : MonoBehaviour
                     CellsGreenInRay(new Vector3(transform.position.x, 0, (transform.position.z - 5)), cells, playerPosition, null, _material);
                 }
 
-                if (Physics.Raycast(transform.position + new Vector3(0, 0.5f), Vector3.right, out hit, 4))
+                if (Physics.Raycast(transform.position + new Vector3(0, 0.5f), Vector3.right, out hit, 3))
                 {
                     CellsGreenInRay(hit.transform.position, cells, playerPosition, hit.transform.GetComponent<Agent>(), _material);
                 }
@@ -260,7 +270,7 @@ public class Drain : MonoBehaviour
                     CellsGreenInRay(new Vector3((transform.position.x + 5), 0, transform.position.z), cells, playerPosition, null, _material);
                 }
 
-                if (Physics.Raycast(transform.position + new Vector3(0, 0.5f), Vector3.left, out hit, 4))
+                if (Physics.Raycast(transform.position + new Vector3(0, 0.5f), Vector3.left, out hit, 3))
                 {
                     CellsGreenInRay(hit.transform.position, cells, playerPosition, hit.transform.GetComponent<Agent>(), _material);
                 }
@@ -307,20 +317,20 @@ public class Drain : MonoBehaviour
                     cell.GetComponent<MeshRenderer>().material = _material;
                 }
             }
-            else if ((((playerPosition.x < cell.transform.position.x && cell.transform.position.x < HitPosition.x)
+            else if (((playerPosition.x < cell.transform.position.x && cell.transform.position.x < HitPosition.x)
 
                   ||
 
                  (playerPosition.x > cell.transform.position.x && cell.transform.position.x > HitPosition.x)) &&
 
 
-                 (cell.transform.position.z == HitPosition.z)) ||
+                 (Mathf.Round(cell.transform.position.z) == Mathf.Round((HitPosition.z))) ||
 
 
 
                  (((playerPosition.z < cell.transform.position.z && cell.transform.position.z < HitPosition.z) ||
                  (playerPosition.z > cell.transform.position.z && cell.transform.position.z > HitPosition.z)) &&
-                 (cell.transform.position.x == HitPosition.x)))
+                 (Mathf.Round(cell.transform.position.x) == Mathf.Round(HitPosition.x))))
             {
                 cell.GetComponent<MeshRenderer>().material = _material;
             }
