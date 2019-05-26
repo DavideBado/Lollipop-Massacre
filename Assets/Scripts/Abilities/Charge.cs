@@ -176,7 +176,7 @@ public class Charge : MonoBehaviour
         if (GetComponent<Agent>().MyTurn && GetComponent<Agent>().ImStunned == false && Manager.CanAttack == true && Manager.Pause == false)
 
         {
-            CleanPreview();
+            //CleanPreview();
             Material PrevMaterial = FindObjectOfType<CellPrefScript>().Materials[3];
             NewPreview(PrevMaterial);
         }
@@ -221,7 +221,6 @@ public class Charge : MonoBehaviour
                     {
                         CellsGreenInRay(new Vector3(-1, 0, transform.position.z), cells, playerPosition, _lookX, null, _material);
                     }
-
                 }
                 else if (_lookY != 0)
                 {
@@ -234,7 +233,6 @@ public class Charge : MonoBehaviour
                     {
                         CellsGreenInRay(new Vector3(transform.position.x, 0, GetComponent<Agent>().configGrid.DimY), cells, playerPosition, _lookY, null, _material);
                     }
-
                 }
             }    
     }
@@ -266,13 +264,13 @@ public class Charge : MonoBehaviour
                  (playerPosition.x > cell.transform.position.x && cell.transform.position.x >= HitPosition.x)) &&
 
 
-                 (cell.transform.position.z == HitPosition.z)) ||
+                 (Mathf.Round(cell.transform.position.z) == Mathf.Round(HitPosition.z))) ||
 
 
 
                  (((playerPosition.z < cell.transform.position.z && cell.transform.position.z <= HitPosition.z) ||
                  (playerPosition.z > cell.transform.position.z && cell.transform.position.z >= HitPosition.z)) &&
-                 (cell.transform.position.x == HitPosition.x)))
+                 (Mathf.Round(cell.transform.position.x) == Mathf.Round(HitPosition.x))))
                 {
                     if (dist >= 0 && dist <= 5)
                     {
@@ -292,13 +290,13 @@ public class Charge : MonoBehaviour
                  (playerPosition.x > cell.transform.position.x && cell.transform.position.x > HitPosition.x)) &&
 
 
-                 (cell.transform.position.z == HitPosition.z)) ||
+                 (Mathf.Round(cell.transform.position.z) == Mathf.Round(HitPosition.z))) ||
 
 
 
                  (((playerPosition.z < cell.transform.position.z && cell.transform.position.z < HitPosition.z) ||
                  (playerPosition.z > cell.transform.position.z && cell.transform.position.z > HitPosition.z)) &&
-                 (cell.transform.position.x == HitPosition.x)))
+                 (Mathf.Round(cell.transform.position.x) == Mathf.Round(HitPosition.x))))
             {
                 if (dist >= 0 && dist <= 5)
                 {

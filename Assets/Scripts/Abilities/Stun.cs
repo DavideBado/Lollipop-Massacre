@@ -87,7 +87,7 @@ public class Stun : MonoBehaviour
         if (GetComponent<Agent>().MyTurn && GetComponent<Agent>().ImStunned == false && Manager.CanAttack == true && Manager.Pause == false)
 
         {
-            CleanPreview();
+            //CleanPreview();
             Material PrevMaterial = FindObjectOfType<CellPrefScript>().Materials[3];
             NewPreview(PrevMaterial);
         }
@@ -122,7 +122,7 @@ public class Stun : MonoBehaviour
                         {
                             if ((cell.transform.position.x > transform.position.x &&
                                 cell.transform.position.x <= (transform.position.x + 3)) &&
-                                ((cell.transform.position.z == (transform.position.z))))
+                                ((Mathf.Round(cell.transform.position.z) == Mathf.Round(transform.position.z))))
                             {
                                 cell.GetComponent<MeshRenderer>().material = _material;
 
@@ -135,7 +135,7 @@ public class Stun : MonoBehaviour
                         {
                             if ((cell.transform.position.x < transform.position.x &&
                                 cell.transform.position.x >= (transform.position.x - 3)) &&
-                                ((cell.transform.position.z == (transform.position.z))))
+                                ((Mathf.Round(cell.transform.position.z) == Mathf.Round(transform.position.z))))
                             {
                                 cell.GetComponent<MeshRenderer>().material = _material;
 
@@ -153,7 +153,7 @@ public class Stun : MonoBehaviour
                         {
                             if ((cell.transform.position.z < transform.position.z &&
                                 cell.transform.position.z >= (transform.position.z - 3)) &&
-                                ((cell.transform.position.x == (transform.position.x))))
+                                ((Mathf.Round(cell.transform.position.x) == Mathf.Round(transform.position.x))))
                             {
                                 cell.GetComponent<MeshRenderer>().material = _material;
 
@@ -166,7 +166,7 @@ public class Stun : MonoBehaviour
                         {
                             if ((cell.transform.position.z > transform.position.z &&
                                 cell.transform.position.z <= (transform.position.z + 3)) &&
-                                ((cell.transform.position.x == (transform.position.x))))
+                                ((Mathf.Round(cell.transform.position.x) == Mathf.Round(transform.position.x))))
                             {
                                 cell.GetComponent<MeshRenderer>().material = _material;
 
@@ -192,7 +192,7 @@ public class Stun : MonoBehaviour
                         {
                             if ((cell.transform.position.x < transform.position.x &&
                                 cell.transform.position.x >= (transform.position.x - 3)) &&
-                                ((cell.transform.position.z == (transform.position.z - 1))))
+                                ((Mathf.Round(cell.transform.position.z) == Mathf.Round(transform.position.z - 1))))
                             {
                                 cell.GetComponent<MeshRenderer>().material = _material;
 
@@ -205,7 +205,7 @@ public class Stun : MonoBehaviour
                         {
                             if ((cell.transform.position.x > transform.position.x &&
                                 cell.transform.position.x <= (transform.position.x + 3)) &&
-                                ((cell.transform.position.z == (transform.position.z + 1))))
+                                ((Mathf.Round(cell.transform.position.z) == Mathf.Round(transform.position.z + 1))))
                             {
                                 cell.GetComponent<MeshRenderer>().material = _material;
 
@@ -221,7 +221,7 @@ public class Stun : MonoBehaviour
                         {
                             if ((cell.transform.position.z < transform.position.z &&
                                 cell.transform.position.z >= (transform.position.z - 3)) &&
-                                ((cell.transform.position.x == (transform.position.x + 1))))
+                                ((Mathf.Round(cell.transform.position.x) == Mathf.Round(transform.position.x + 1))))
                             {
                                 cell.GetComponent<MeshRenderer>().material = _material;
 
@@ -234,7 +234,7 @@ public class Stun : MonoBehaviour
                         {
                             if ((cell.transform.position.z > transform.position.z &&
                                 cell.transform.position.z <= (transform.position.z + 3)) &&
-                                ((cell.transform.position.x == (transform.position.x - 1))))
+                                ((Mathf.Round(cell.transform.position.x) == Mathf.Round(transform.position.x - 1))))
                             {
                                 cell.GetComponent<MeshRenderer>().material = _material;
 
@@ -259,7 +259,7 @@ public class Stun : MonoBehaviour
                         {
                             if ((cell.transform.position.x < transform.position.x &&
                                 cell.transform.position.x >= (transform.position.x - 3)) &&
-                                ((cell.transform.position.z == (transform.position.z + 1))))
+                                ((Mathf.Round(cell.transform.position.z) == Mathf.Round(transform.position.z + 1))))
                             {
                                 cell.GetComponent<MeshRenderer>().material = _material;
 
@@ -272,7 +272,7 @@ public class Stun : MonoBehaviour
                         {
                             if ((cell.transform.position.x > transform.position.x &&
                                 cell.transform.position.x <= (transform.position.x + 3)) &&
-                                ((cell.transform.position.z == (transform.position.z - 1))))
+                                ((Mathf.Round(cell.transform.position.z) == Mathf.Round(transform.position.z - 1))))
                             {
                                 cell.GetComponent<MeshRenderer>().material = _material;
 
@@ -288,7 +288,7 @@ public class Stun : MonoBehaviour
                         {
                             if ((cell.transform.position.z < transform.position.z &&
                                 cell.transform.position.z >= (transform.position.z - 3)) &&
-                                ((cell.transform.position.x == (transform.position.x - 1))))
+                                ((Mathf.Round(cell.transform.position.x) == Mathf.Round(transform.position.x - 1))))
                             {
                                 cell.GetComponent<MeshRenderer>().material = _material;
 
@@ -301,7 +301,7 @@ public class Stun : MonoBehaviour
                         {
                             if ((cell.transform.position.z > transform.position.z &&
                                 cell.transform.position.z <= (transform.position.z + 3)) &&
-                                ((cell.transform.position.x == (transform.position.x + 1))))
+                                ((Mathf.Round(cell.transform.position.x) == Mathf.Round(transform.position.x + 1))))
                             {
                                 cell.GetComponent<MeshRenderer>().material = _material;
 
@@ -335,7 +335,7 @@ public class Stun : MonoBehaviour
                  (cell.transform.position.z == hit.transform.position.z)) ||
                  (((playerPosition.z < cell.transform.position.z && cell.transform.position.z <= hit.transform.position.z) ||
                  (playerPosition.z > cell.transform.position.z && cell.transform.position.z >= hit.transform.position.z)) &&
-                 (cell.transform.position.x == hit.transform.position.x)))
+                 (Mathf.Round(cell.transform.position.x) == Mathf.Round(hit.transform.position.x))))
                 {
                     cell.GetComponent<MeshRenderer>().material = _material;
 
@@ -346,7 +346,7 @@ public class Stun : MonoBehaviour
                  (cell.transform.position.z == hit.transform.position.z)) ||
                  (((playerPosition.z < cell.transform.position.z && cell.transform.position.z < hit.transform.position.z) ||
                  (playerPosition.z > cell.transform.position.z && cell.transform.position.z > hit.transform.position.z)) &&
-                 (cell.transform.position.x == hit.transform.position.x)))
+                 (Mathf.Round(cell.transform.position.x) == Mathf.Round(hit.transform.position.x))))
             {
                 cell.GetComponent<MeshRenderer>().material = _material;
 
