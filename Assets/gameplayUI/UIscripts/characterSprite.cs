@@ -6,11 +6,7 @@ using UnityEngine.UI;
 
 public class characterSprite : MonoBehaviour
 {
-
-	
-
 	public int ID;
-    
     public Image img;
     public GameManager gm;
     public bool PanelPos;
@@ -46,11 +42,15 @@ public class characterSprite : MonoBehaviour
 
     void avatarSelection()
     {
-		img.sprite = player._Sprites[2];
-        
+        if(player.GetComponent<LifeManager>().Life > 0)
+        {
+		    img.sprite = player._Sprites[2];
+        }
+        else
+        {
+            img.sprite = player.LifeSprites[2];
+        }        
     }
-
-
 
     void PoolFinder()
     {
