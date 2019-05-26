@@ -22,6 +22,7 @@ public class Venom : MonoBehaviour
         {
             Timer -= Time.deltaTime;
             Manager.Pause = true;
+            Manager.UpdateTilesMat();
             NewPreview(Manager.CellAttackMaterial);
             if (Timer <= 0)
             {

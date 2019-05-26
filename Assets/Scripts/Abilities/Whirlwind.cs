@@ -20,6 +20,7 @@ public class Whirlwind : MonoBehaviour
         {
             Timer -= Time.deltaTime;
             Manager.Pause = true;
+            Manager.UpdateTilesMat();
             NewPreview(Manager.CellAttackMaterial);
             if (Timer <= 0)
             {
@@ -77,11 +78,9 @@ public class Whirlwind : MonoBehaviour
             if (FindObjectOfType<PickUpsSpawner>().AllManaFull == true)
 
             {
-
                 FindObjectOfType<GameManager>().PickUpTurnCount = 0;
 
                 FindObjectOfType<PickUpsSpawner>().AllManaFull = false;
-
             }
 
             GetComponent<Agent>().Mana--;

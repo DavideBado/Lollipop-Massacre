@@ -38,8 +38,9 @@ public class TelePortal : MonoBehaviour
             other.GetComponent<Agent>().x2 = (int)otherteleport.transform.position.x;
             other.GetComponent<Agent>().y = (int)otherteleport.transform.position.z;
             other.GetComponent<Agent>().y2 = (int)otherteleport.transform.position.z;
-            other.transform.position = otherteleport.transform.position;            
+            other.transform.position = otherteleport.transform.position;
         }
+        gameManager.CleanTiles();
     }
 
     void TeleportCheck()
@@ -52,7 +53,7 @@ public class TelePortal : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        characterCollider = null;
+        characterCollider = null;        
     }
 
     //// Update is called once per frame
@@ -82,7 +83,6 @@ public class TelePortal : MonoBehaviour
             FindObjectOfType<GameManager>().Pause = true;
             if (ID == 1)
             {
-
                 if (Input.GetKeyDown(KeyCode.W))
                 {
                     transform.Translate(Vector3.forward);
@@ -103,7 +103,6 @@ public class TelePortal : MonoBehaviour
 
             if (ID == 2)
             {
-
                 if (Input.GetKeyDown(KeyCode.UpArrow))
                 {
                     transform.Translate(Vector3.forward);

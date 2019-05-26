@@ -24,6 +24,7 @@ public class Charge : MonoBehaviour
         {
             Timer -= Time.deltaTime;
             Manager.TimerOn = false;
+            Manager.UpdateTilesMat();
             NewPreview(Manager.CellAttackMaterial);
             if (Timer <= 0)
             {

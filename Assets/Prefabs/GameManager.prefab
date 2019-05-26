@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7731c7462ec29a4588c7625f33b618e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CellAttackMaterial: {fileID: 2100000, guid: a85400e326b1a5744876c0bde35eea20, type: 2}
+  CellAttackMaterial: {fileID: 2100000, guid: d845307da25d19a42a7517e11cf67548, type: 2}
   EventSBase: {fileID: 0}
   EventSPOne: {fileID: 0}
   EventSTwo: {fileID: 0}
@@ -64,6 +64,7 @@ MonoBehaviour:
   Timertext: {fileID: 0}
   TimeMaxText: {fileID: 0}
   TurnoText: {fileID: 0}
+  Timer: 0
   TimeMax: 5
   Speed: 3
   TimerSafe: 1

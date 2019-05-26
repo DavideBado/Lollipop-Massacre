@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
 using System.Collections.Generic;
+using TMPro;
 
 public class EventSystemCustom : EventSystem
 {
@@ -10,11 +11,12 @@ public class EventSystemCustom : EventSystem
     List<ButtonCustom1> m_Buttons = new List<ButtonCustom1>();
     public Sprite PlayTexture, BackTexture;
     CharaSprites currentCharaSprite;
+    public TMP_Text _Text;
     public Image Preview;
+    public string ChargeString, WhirlwindString;
     public int ID;
     protected override void OnEnable()
-    {
-        
+    {        
         base.OnEnable();
     }
 
@@ -53,7 +55,21 @@ public class EventSystemCustom : EventSystem
                 currentCharaSprite = currentSelectedGameObject.GetComponent<CharaSprites>();
                 currentCharaSprite.ArrowPOne.SetActive(true);
                 Preview.sprite = currentCharaSprite.Character[0].GetComponent<Agent>()._Sprites[3];
+                if(currentCharaSprite.Character[0].GetComponent<Charge>() != null)
+                {
+                    _Text.text = ChargeString.ToUpper();
+                }
+                else if (currentCharaSprite.Character[0].GetComponent<Whirlwind>() != null)
+                {
+
+                    _Text.text = WhirlwindString.ToUpper();
+                }
+                else
+                {
+                    _Text.text = "";
+                }
             }
+                    
         }
         else if (ID == 2)
         {
@@ -62,6 +78,18 @@ public class EventSystemCustom : EventSystem
                 currentCharaSprite = currentSelectedGameObject.GetComponent<CharaSprites>();
                 currentCharaSprite.ArrowPTwo.SetActive(true);
                 Preview.sprite = currentCharaSprite.Character[0].GetComponent<Agent>()._Sprites[4];
+                if (currentCharaSprite.Character[0].GetComponent<Charge>() != null)
+                {
+                    _Text.text = ChargeString.ToUpper();
+                }
+                else if (currentCharaSprite.Character[0].GetComponent<Whirlwind>() != null)
+                {
+                    _Text.text = WhirlwindString.ToUpper();
+                }
+                else
+                {
+                    _Text.text = "";
+                }
             }
             //else if(currentSelectedGameObject.name == "Play")
             //{

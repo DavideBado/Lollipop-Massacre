@@ -54,6 +54,8 @@ public class GameManager : MonoBehaviour
         //UpdateBenchTester();
         UpdateBench();
         RespawnController = GetComponent<RespawnController>();
+        CleanTiles();
+        UpdateTilesMat();
     }
 
     void Update()
@@ -133,7 +135,9 @@ public class GameManager : MonoBehaviour
 
         if (Timer <= 0) // Se il timer raggiunge lo 0
         {
-            if(PortalRounds >= 5)
+            CleanTiles();
+            UpdateTilesMat();
+            if (PortalRounds >= 5)
             {
                 PortalSpawner.Telespawn();
                 PortalRounds = 0;
@@ -289,7 +293,6 @@ public class GameManager : MonoBehaviour
             //    {
             if (POneParty[_CharacterIndex].GetComponent<LifeManager>().Life > 0)
             {
-
                 GameObject _Character = POneParty[_CharacterIndex];
                 _Character.transform.position = _ActiveCharacter.transform.position;
                 _Character.GetComponent<Agent>().AgentSpawnPosition = _ActiveCharacter.transform.position;
