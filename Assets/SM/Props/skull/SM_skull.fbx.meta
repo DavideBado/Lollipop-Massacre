@@ -4,11 +4,42 @@ ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
+    100002: hiro_LP
+    100004: hiro_LP_ALL_IN
+    100006: horns_LP
+    100008: jaw_LP
+    100010: ribs_LP
+    100012: skull_LP
+    100014: teeth_jaw_LP
+    100016: teeth_LP
+    100018: transform1
+    100020: transform2
+    100022: transform3
+    100024: transform4
+    100026: transform5
+    100028: transform6
     400000: //RootNode
+    400002: hiro_LP
+    400004: hiro_LP_ALL_IN
+    400006: horns_LP
+    400008: jaw_LP
+    400010: ribs_LP
+    400012: skull_LP
+    400014: teeth_jaw_LP
+    400016: teeth_LP
+    400018: transform1
+    400020: transform2
+    400022: transform3
+    400024: transform4
+    400026: transform5
+    400028: transform6
     2100000: lambert1
     2300000: //RootNode
+    2300002: hiro_LP_ALL_IN
     3300000: //RootNode
+    3300002: hiro_LP_ALL_IN
     4300000: skull2
+    4300002: hiro_LP_ALL_IN
   externalObjects: {}
   materials:
     importMaterials: 0
