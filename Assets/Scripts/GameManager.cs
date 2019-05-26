@@ -53,9 +53,8 @@ public class GameManager : MonoBehaviour
 
         //UpdateBenchTester();
         UpdateBench();
-        RespawnController = GetComponent<RespawnController>();
-        CleanTiles();
-        UpdateTilesMat();
+        RespawnController = GetComponent<RespawnController>();    
+
     }
 
     void Update()

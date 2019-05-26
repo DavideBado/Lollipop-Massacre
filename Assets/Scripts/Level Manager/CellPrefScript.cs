@@ -24,8 +24,16 @@ public class CellPrefScript : MonoBehaviour
 
     private void OnEnable()
     {
+        Time.timeScale = 1;
         m_GameManager = FindObjectOfType<GameManager>();
         m_GameManager.CleanTiles += CleanTile;
+        CleanTile();
+    }
+
+    private void OnDisable()
+    {
+        m_GameManager.CleanTiles -= CleanTile;
+
     }
     //private void OnTriggerStay(Collider other)
     //{
@@ -56,15 +64,12 @@ public class CellPrefScript : MonoBehaviour
     //    }
     //}
 
-    private void Update()
+    public void CleanTile()
     {
-        if(m_Area == null)
+        if (m_Area == null)
         {
             m_Area = GetComponentInParent<GridArea>();
         }
-    }
-    public void CleanTile()
-    {
         FindPlayers();
 
         bool m_agentHere = false;
