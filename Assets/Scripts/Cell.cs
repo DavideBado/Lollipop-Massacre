@@ -7,7 +7,7 @@ using UnityEngine;
 namespace GridSystem
 {
 
-    public class Cell
+    public class Cell : MonoBehaviour
     {
         public bool Free;
         internal int x;
@@ -19,8 +19,9 @@ namespace GridSystem
 
         }
         
-        public Cell(int _x, int _y, Vector3 _worldPosition)
+        public Cell(int _x, int _y, Vector3 _worldPosition, bool _free)
         {
+            Free = _free;
             x = _x;
             y = _y;
             worldPosition = _worldPosition;

@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using GridSystem;
 
-public class CellPrefScript : MonoBehaviour
+public class CellPrefScript : Cell
 {
     public List<Material> Materials;
     List<Agent> agents = new List<Agent>();
@@ -20,6 +21,14 @@ public class CellPrefScript : MonoBehaviour
         };
 
         return itemData;
+    }
+
+    public CellPrefScript(int _x, int _y, Vector3 _worldPosition, bool _free)
+    {
+        Free = _free;
+        x = _x;
+        y = _y;
+        worldPosition = _worldPosition;
     }
 
     private void OnEnable()
