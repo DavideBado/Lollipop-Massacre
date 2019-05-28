@@ -50,6 +50,7 @@ public class Agent : MonoBehaviour, ICharacter
     Rigidbody rg;
     public GameObject StunPS, PoisonPS, DrainPS;
     int switcherIndex;
+    
    
     // ********** Cose per il menu *************
     public List<Texture> Sprites

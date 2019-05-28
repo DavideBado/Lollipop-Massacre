@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public InputManager InputMngr;
     public LevelManager LevelMngr;
     public GridManager GridMngr;
+    
 
 
     #region Delegates
@@ -211,11 +212,13 @@ public class GameManager : MonoBehaviour
         {
             singleton.POnePart.Add(m_Character);
             m_Character.GetComponent<Agent>().SwitchIndex = singleton.POnePart.Count;
+            m_Character.GetComponent<Agent>().PlayerID = 1;
         }
         else if (m_PlayerID == 2)
         {
             singleton.PTwoPart.Add(m_Character);
             m_Character.GetComponent<Agent>().SwitchIndex = singleton.PTwoPart.Count;
+            m_Character.GetComponent<Agent>().PlayerID = 2;
         }
     }
 

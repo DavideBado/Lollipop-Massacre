@@ -4,5 +4,20 @@ using UnityEngine;
 
 public class IdleState : StateBehaviourBase
 {
+    public override void OnEnter()
+    {
+        
+    }
+
+    public override void OnUpdate()
+    {
+        
+    }
+
+    public override void OnExit()
+    {
+        
+    }
+
 
 }

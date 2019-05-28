@@ -34,6 +34,10 @@ public class InputManager : MonoBehaviour
             case InputMgrType.GameplayInput:
                 currentInput = GPInput;
                 break;
+            case InputMgrType.nullo:
+                currentInput = null;
+                Debug.Log(currentInput);
+                break;
             default:
                 break;
         }
@@ -73,5 +77,6 @@ public class InputManager : MonoBehaviour
 public enum InputMgrType
 {
     MenuInput,
-    GameplayInput
+    GameplayInput, 
+    nullo
 }

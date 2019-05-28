@@ -7,6 +7,7 @@ public class CharacterSelectionState : StateBehaviourBase {
     public override void OnEnter()
     {
         GameManager.singleton.UIMngr.ChangeMenu(MenuType.CharacterSelection);
+        GameManager.singleton.InputMngr.ChangeInput(InputMgrType.nullo);
     }
 
     public override void OnUpdate()

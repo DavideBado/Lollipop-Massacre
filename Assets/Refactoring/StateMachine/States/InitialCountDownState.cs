@@ -12,7 +12,7 @@ public class InitialCountDownState : StateBehaviourBase
     public override void OnEnter()
     {
         timerIniziale = ctx.timer;
-
+        GameManager.singleton.InputMngr.ChangeInput(InputMgrType.nullo);
     }
     /// <summary>
     /// funzione del counter

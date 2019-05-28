@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 5785784847900377915}
   - component: {fileID: 4452132985986214293}
   - component: {fileID: 2072053130}
+  - component: {fileID: 3249385794186699686}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -90,6 +91,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1095a526a388aef47af1b3c4b28f843d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Up: 0
+  Down: 0
+  Left: 0
+  Right: 0
+  BasicAttack: 0
+  Ability: 0
+  Preview: 0
+  Switch_Up: 0
+  Switch_Down: 0
+  Teleport: 0
+  InputMngr: {fileID: 0}
 --- !u!114 &8283650427737761573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,6 +114,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5cef6d73fe6b544684fd8a4e18cd917, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GPInputs:
+  - {fileID: 4826378436869025747}
+  - {fileID: 3249385794186699686}
   GPInput: {fileID: 4826378436869025747}
   MNInput: {fileID: 8086259759395136122}
   currentInput: {fileID: 0}
@@ -117,6 +132,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebb7a2c0b29227c49ae6570a29a9ac73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Up: 119
+  Down: 115
+  Left: 97
+  Right: 100
+  BasicAttack: 32
+  Ability: 113
+  Preview: 304
+  Switch_Up: 114
+  Switch_Down: 101
+  Teleport: 102
+  InputMngr: {fileID: 8283650427737761573}
+  InputID: 1
 --- !u!114 &5785784847900377915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,6 +185,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Gridmngr: {fileID: 5785784847900377915}
   Playermngr: {fileID: 4597179724060019596}
+--- !u!114 &3249385794186699686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1313435064880366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebb7a2c0b29227c49ae6570a29a9ac73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Up: 273
+  Down: 274
+  Left: 276
+  Right: 275
+  BasicAttack: 256
+  Ability: 271
+  Preview: 305
+  Switch_Up: 258
+  Switch_Down: 257
+  Teleport: 303
+  InputMngr: {fileID: 8283650427737761573}
+  InputID: 2
 --- !u!1001 &6283006844527141923
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -165,11 +216,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4310323117334716}
     m_Modifications:
-    - target: {fileID: 90145061637500531, guid: 99e7c894ded8a514092521b5227f4e9a,
+    - target: {fileID: 7565431602715209647, guid: 99e7c894ded8a514092521b5227f4e9a,
         type: 3}
-      propertyPath: m_Name
-      value: PlayerManager
-      objectReference: {fileID: 0}
+      propertyPath: BenchPOne
+      value: 
+      objectReference: {fileID: 2084534405777445156, guid: c555f2820562df241b45e524847d2a1e,
+        type: 3}
+    - target: {fileID: 7565431602715209647, guid: 99e7c894ded8a514092521b5227f4e9a,
+        type: 3}
+      propertyPath: BenchPTwo
+      value: 
+      objectReference: {fileID: 557974483789777724, guid: 35633953f2ca02d4f9cc437d8fcde89d,
+        type: 3}
     - target: {fileID: 2231577803792151318, guid: 99e7c894ded8a514092521b5227f4e9a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -225,23 +283,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7565431602715209647, guid: 99e7c894ded8a514092521b5227f4e9a,
+    - target: {fileID: 90145061637500531, guid: 99e7c894ded8a514092521b5227f4e9a,
         type: 3}
-      propertyPath: SpawnPoints.Array.size
-      value: 2
+      propertyPath: m_Name
+      value: PlayerManager
       objectReference: {fileID: 0}
-    - target: {fileID: 7565431602715209647, guid: 99e7c894ded8a514092521b5227f4e9a,
-        type: 3}
-      propertyPath: BenchPOne
-      value: 
-      objectReference: {fileID: 2084534405777445156, guid: c555f2820562df241b45e524847d2a1e,
-        type: 3}
-    - target: {fileID: 7565431602715209647, guid: 99e7c894ded8a514092521b5227f4e9a,
-        type: 3}
-      propertyPath: BenchPTwo
-      value: 
-      objectReference: {fileID: 557974483789777724, guid: 35633953f2ca02d4f9cc437d8fcde89d,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99e7c894ded8a514092521b5227f4e9a, type: 3}
 --- !u!4 &5316940675966441269 stripped

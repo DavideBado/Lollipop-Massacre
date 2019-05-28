@@ -50,6 +50,7 @@ public class PlayerManager : MonoBehaviour
                 i++;
                 m_Character.transform.parent = BenchPTwo.transform;
                 m_Character.SetActive(false);
+                
             }
         }
         ActiveStarters();
