@@ -198,11 +198,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8465559380083324534, guid: eeee4d8060e139b4b80208d09ec3b8c4,
+    - target: {fileID: 8465559380083324528, guid: eeee4d8060e139b4b80208d09ec3b8c4,
         type: 3}
-      propertyPath: m_Name
-      value: EventSystem P2
-      objectReference: {fileID: 0}
+      propertyPath: m_FirstSelected
+      value: 
+      objectReference: {fileID: 918299059}
+    - target: {fileID: 8465559380083324528, guid: eeee4d8060e139b4b80208d09ec3b8c4,
+        type: 3}
+      propertyPath: Preview
+      value: 
+      objectReference: {fileID: 478534607}
     - target: {fileID: 8465559380083324531, guid: eeee4d8060e139b4b80208d09ec3b8c4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -258,16 +263,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8465559380083324528, guid: eeee4d8060e139b4b80208d09ec3b8c4,
+    - target: {fileID: 8465559380083324534, guid: eeee4d8060e139b4b80208d09ec3b8c4,
         type: 3}
-      propertyPath: m_FirstSelected
-      value: 
-      objectReference: {fileID: 918299059}
-    - target: {fileID: 8465559380083324528, guid: eeee4d8060e139b4b80208d09ec3b8c4,
-        type: 3}
-      propertyPath: Preview
-      value: 
-      objectReference: {fileID: 478534607}
+      propertyPath: m_Name
+      value: EventSystem P2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eeee4d8060e139b4b80208d09ec3b8c4, type: 3}
 --- !u!114 &478534607 stripped
@@ -513,13 +513,43 @@ PrefabInstance:
       objectReference: {fileID: 8283650427737761573}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: adac2330e1be23647ae26547319b2d35, type: 3}
+--- !u!1 &4596361660948775572 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1313435064880366, guid: adac2330e1be23647ae26547319b2d35,
+    type: 3}
+  m_PrefabInstance: {fileID: 4596361660948775571}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4596361660948775573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4596361660948775572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a0cec8abd17adc449f73b26e02e8739, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Timer: 0
+  TimeMax: 3
+  TimerSafe: 0
+  Turn: 1
+  CanAttack: 1
+  Pause: 0
+  RoundCount: 0
+  PickUpTurnCount: 0
+  HealtTurnCount: 0
+  Spawn1: 1
+  RespawnController: {fileID: 0}
+  TimerOn: 1
 --- !u!114 &8283650427737761573 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8283650427737761573, guid: adac2330e1be23647ae26547319b2d35,
     type: 3}
   m_PrefabInstance: {fileID: 4596361660948775571}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 4596361660948775572}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5cef6d73fe6b544684fd8a4e18cd917, type: 3}

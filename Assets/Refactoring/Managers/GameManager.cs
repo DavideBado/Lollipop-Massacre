@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     public InputManager InputMngr;
     public LevelManager LevelMngr;
     public GridManager GridMngr;
-    
+    public TurnManager TurnMngr;
 
 
     #region Delegates
@@ -95,6 +95,11 @@ public class GameManager : MonoBehaviour
     public LevelManager GetLevelManager()
     {
         return LevelMngr;
+    }
+
+    public TurnManager GetTurnManager()
+    {
+        return TurnMngr;
     }
 
     void SetUp()

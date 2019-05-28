@@ -6,6 +6,7 @@ public class LevelManager : MonoBehaviour
 {
      public GridManager Gridmngr;
      public PlayerManager Playermngr;
+     public TurnManager TurnMngr;
 
     /// <summary>
     /// setup dei manager
@@ -26,6 +27,11 @@ public class LevelManager : MonoBehaviour
         if (Playermngr == null)
         {
             Playermngr = FindObjectOfType<PlayerManager>(); 
+        }
+
+        if (TurnMngr == null)
+        {
+            TurnMngr = FindObjectOfType<TurnManager>();
         }
     }
 
