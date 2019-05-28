@@ -22,7 +22,7 @@ namespace GridSystem {
         }
 
         #region API
-
+     
         public void CreateGrid(GridConfigData _configData) {
             // iterazione per la dimensione X della griglia
             for (int x = 0; x < _configData.DimX; x++) {
