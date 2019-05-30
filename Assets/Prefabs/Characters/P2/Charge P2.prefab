@@ -661,10 +661,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1256144812}
     m_Modifications:
-    - target: {fileID: 100036, guid: 2ede4ac6d3aa84c43b97210b6e8e37b1, type: 3}
-      propertyPath: m_Name
-      value: SM_LolliPop_Unicorn
-      objectReference: {fileID: 0}
     - target: {fileID: 400036, guid: 2ede4ac6d3aa84c43b97210b6e8e37b1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -721,10 +717,18 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.35
       objectReference: {fileID: 0}
+    - target: {fileID: 100036, guid: 2ede4ac6d3aa84c43b97210b6e8e37b1, type: 3}
+      propertyPath: m_Name
+      value: SM_LolliPop_Unicorn
+      objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: 2ede4ac6d3aa84c43b97210b6e8e37b1, type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: d9262e80be348fe4f883bd1892dcd13a, type: 2}
+    - target: {fileID: 9500000, guid: 2ede4ac6d3aa84c43b97210b6e8e37b1, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: e184f203b9ab07c4aa2bcbf347218892, type: 3}
     - target: {fileID: 13700000, guid: 2ede4ac6d3aa84c43b97210b6e8e37b1, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
