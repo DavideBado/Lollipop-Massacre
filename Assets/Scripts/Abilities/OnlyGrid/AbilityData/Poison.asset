@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84443e4fbd5f2e641949a13d083df498, type: 3}
+  m_Script: {fileID: 11500000, guid: aef065300cec58f47863d76538179f36, type: 3}
   m_Name: Poison
   m_EditorClassIdentifier: 
   CurrentAbility:
     directions: 00000000010000000200000003000000
-    Range: -1
+    Range: 4
     ExtRange: 0
     Lateral: 0

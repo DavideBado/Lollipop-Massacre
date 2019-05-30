@@ -2,15 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using GridSystem;
 
 [Serializable]
 public class BaseAbility
 {
-    private Vector3 lookUp = new Vector3(0, 0, 1);
-    private Vector3 lookDown = new Vector3(0, 0, -1);
-    private Vector3 lookLeft = new Vector3(-1, 0, 0);
-    private Vector3 lookRight = new Vector3(1, 0, 0);
+    private Vector3 lookForward;
+    private Vector3 lookBackward;
+    private Vector3 lookLeft;
+    private Vector3 lookRight;
 
+    [NonSerialized]
+    public List<List<CellPrefScript>> CellsList = new List<List<CellPrefScript>>();
+
+    [NonSerialized]
+    public BaseGrid grid;
     [NonSerialized]
     public int PlayerPosX, PlayerPosZ;
     [NonSerialized]
@@ -23,31 +29,171 @@ public class BaseAbility
 
     private DirectionType direction;
 
-    public void PlayerDirection(DirectionType _direction)
+    /// <summary>
+    /// Funzione che imposta i vettori della preview in base alla direzione del player
+    /// </summary>   
+    public void PlayerDirection(PlayerDirectionType _direction)
     {
         switch (_direction)
         {
-            case DirectionType.Up:
-                CurrentDirection = lookUp;
+            case PlayerDirectionType.Up:
+                lookForward = Vector3.forward;
+                lookBackward = Vector3.back;
+                lookLeft = Vector3.left;
+                lookRight = Vector3.right;
                 break;
-            case DirectionType.Down:
-                CurrentDirection = lookDown;
+            case PlayerDirectionType.Down:
+                lookForward = Vector3.back;
+                lookBackward = Vector3.forward;
+                lookLeft = Vector3.right;
+                lookRight = Vector3.left;
                 break;
-            case DirectionType.Left:
-                CurrentDirection = lookLeft;
+            case PlayerDirectionType.Left:
+                lookForward = Vector3.left;
+                lookBackward = Vector3.right;
+                lookLeft = Vector3.back;
+                lookRight = Vector3.forward;
                 break;
-            case DirectionType.Right:
-                CurrentDirection = lookRight;
+            case PlayerDirectionType.Right:
+                lookForward = Vector3.right;
+                lookBackward = Vector3.left;
+                lookLeft = Vector3.forward;
+                lookRight = Vector3.back;
                 break;
             default:
                 break;
         }
     }
+
+    /// <summary>
+    /// Direziona l'abilità in base al pattern
+    /// </summary>
+    public void PatternDirection(DirectionType _direction)
+    {
+        switch (_direction)
+        {
+            case DirectionType.Forward:
+                FindCells(lookForward);
+                break;
+            case DirectionType.Backward:
+                FindCells(lookBackward);
+                break;
+            case DirectionType.Left:
+                FindCells(lookLeft);
+                break;
+            case DirectionType.Right:
+                FindCells(lookRight);
+                break;
+            default:
+                break;
+        }
+    }
+
+    /// <summary>
+    /// Funzione che controlla le celle in base alla direzione e al range del pattern
+    /// </summary>    
+    private void FindCells(Vector3 _direction)
+    {   
+        if(_direction.x != 0)
+        {
+            if(_direction.x > 0)
+            {
+                List<CellPrefScript> _cells = new List<CellPrefScript>();
+                foreach (CellPrefScript _cell in grid.PrefScripts)
+                {
+                    if (_cell.x > PlayerPosX && (_cell.x <= (PlayerPosX + Range)))
+                    {
+                        _cells.Add(_cell);
+                    }
+                }
+                _cells.Sort((a, b) => a.x.CompareTo(b.x));
+                CellsList.Add(_cells);
+            }
+            else if (_direction.x < 0)
+            {
+                List<CellPrefScript> _cells = new List<CellPrefScript>();
+                foreach (CellPrefScript _cell in grid.PrefScripts)
+                {
+                    if (_cell.x < PlayerPosX && (_cell.x >= (PlayerPosX + Range)))
+                    {
+                        _cells.Add(_cell);
+                    }
+                }
+                _cells.Sort((a, b) => b.x.CompareTo(a.x));
+                CellsList.Add(_cells);
+            }
+        }
+        else if(_direction.z != 0)
+        {
+            if (_direction.z > 0)
+            {
+                List<CellPrefScript> _cells = new List<CellPrefScript>();
+                foreach (CellPrefScript _cell in grid.PrefScripts)
+                {
+                    if (_cell.y > PlayerPosZ && (_cell.y <= (PlayerPosZ + Range)))
+                    {
+                        _cells.Add(_cell);
+                    }
+                }
+                _cells.Sort((a, b) => a.y.CompareTo(b.y));
+                CellsList.Add(_cells);
+            }
+            else if (_direction.z < 0)
+            {
+                List<CellPrefScript> _cells = new List<CellPrefScript>();
+                foreach (CellPrefScript _cell in grid.PrefScripts)
+                {
+                    if (_cell.y < PlayerPosZ && (_cell.y >= (PlayerPosZ + Range)))
+                    {
+                        _cells.Add(_cell);
+                    }
+                }                
+                _cells.Sort((a, b) => b.y.CompareTo(a.y));
+                CellsList.Add(_cells);
+            }
+        }
+    }
+
+    /// <summary>
+    /// Controlla le celle partendo dalla posizione del player e colorale se sono comprese tra il player e un ostacolo
+    /// </summary>
+    public void ColorPreview()
+    {
+        for (int i = 0; i < CellsList.Count; i++)
+        {
+            for (int j = 0; j < CellsList[i].Count; j++)
+            {
+                if (CellsList[i][j].Free == true)
+                {
+                    CellsList[i][j].gameObject.GetComponent<MeshRenderer>().material.color = Color.red;
+                }
+                else
+                {
+                    j = CellsList[i].Count;
+                }
+            }
+
+        }
+    }
+
+    public void ClearList()
+    {
+        CellsList.Clear();
+    }
 }
-public enum DirectionType
+
+public enum PlayerDirectionType
 {
     Up,
     Down,
+    Left,
+    Right
+}
+
+public enum DirectionType
+{
+    Forward,
+    Backward,
     Left,
     Right
 }

@@ -75,6 +75,7 @@ GameObject:
   - component: {fileID: 1510294132}
   - component: {fileID: 2873265479648818374}
   - component: {fileID: 4648906390191759279}
+  - component: {fileID: 4156613615085112171}
   m_Layer: 0
   m_Name: Venom P1
   m_TagString: Player
@@ -261,7 +262,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1510294126}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a2ce0d5fd39c5443a7417126a1b40bd, type: 3}
   m_Name: 
@@ -283,6 +284,19 @@ MonoBehaviour:
   Timer: 0
   ID: 0
   playerIndex: 0
+--- !u!114 &4156613615085112171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1510294126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9514662eec97de84bb40809bf73b60cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PatternData: {fileID: 11400000, guid: 81407392a0656314ba5129b001f2b4b3, type: 2}
 --- !u!1 &1980843689978317343
 GameObject:
   m_ObjectHideFlags: 0

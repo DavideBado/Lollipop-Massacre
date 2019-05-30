@@ -98,17 +98,17 @@ public class Venom : MonoBehaviour
         Debug.Log("{0}", hit.transform);
     }
 
-    public void Preview()
-    {
-        Manager.UpdateTilesMat();
-        if (GetComponent<Agent>().MyTurn && GetComponent<Agent>().ImStunned == false && Manager.CanAttack == true && Manager.Pause == false)
+    //public void Preview()
+    //{
+    //    //Manager.UpdateTilesMat();
+    //    if (GetComponent<Agent>().MyTurn && GetComponent<Agent>().ImStunned == false && Manager.CanAttack == true && Manager.Pause == false)
 
-        {
-            //CleanPreview();
-            Material PrevMaterial = FindObjectOfType<CellPrefScript>().Materials[3];
-            NewPreview(PrevMaterial);
-        }
-    }
+    //    {
+    //        //CleanPreview();
+    //        Material PrevMaterial = FindObjectOfType<CellPrefScript>().Materials[3];
+    //        NewPreview(PrevMaterial);
+    //    }
+    //}
 
     void NewPreview(Material _material)
     {
@@ -169,7 +169,7 @@ public class Venom : MonoBehaviour
         {
             cell.GetComponent<MeshRenderer>().material = cell.Materials[0];
         }
-        Manager.UpdateTilesMat();
+        //Manager.UpdateTilesMat();
     }
 
     void CellsGreenInRay(Vector3 _HitPosition, List<CellPrefScript> _cells, Vector3 _playerPosition, Agent _agent, Material _material)
