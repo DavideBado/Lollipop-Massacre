@@ -37,7 +37,7 @@ namespace GridSystem {
                         transform.position.x + (x * _configData.CellDim),
                         0,
                         transform.position.z + (y * _configData.CellDim)
-                        ), true);
+                        ));
                     PrefScripts.Add(cellToAdd);
                     GameObject _Cell = Instantiate(CellPrefab, cellToAdd.worldPosition, Quaternion.identity);
                     //_Cell.GetComponent<CellPrefScript>().x = cellToAdd.x;
@@ -73,6 +73,7 @@ namespace GridSystem {
 
         public void ManagerCell(WallsConfigData _WallsData)
         {
+            List<CellPrefScript> _cells = new List<CellPrefScript>();
             foreach (Vector3 _wall in _WallsData.WallsPosition)
             {
                 foreach (CellPrefScript _cell in PrefScripts)
@@ -85,9 +86,11 @@ namespace GridSystem {
                     {
                         _cell.Free = true;
                     }
-                    Debug.Log("X:" + _cell.x + " Y" + _cell.z + " Free:" + _cell.Free);
+                    _cells.Add(_cell);
                 }
             }
+            PrefScripts.Clear();
+            PrefScripts = _cells;
             SaveInSceneCells();
         }
 
@@ -108,6 +111,19 @@ namespace GridSystem {
         public List<CellPrefScript> SendCells()
         {
             return PrefScripts;
+        }
+
+        public bool CellFree(CellPrefScript _cell)
+        {
+            bool _isFree = true;
+            foreach (Vector3 _wall in ConfigWalls.WallsPosition)
+            {
+                if ((int)_cell.x == _wall.x && (int)_cell.z == _wall.z)
+                {
+                    _isFree = false;
+                }                
+            }
+            return _isFree;
         }
     }
 }

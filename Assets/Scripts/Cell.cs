@@ -26,11 +26,7 @@ namespace GridSystem
         //    y = _y;
         //    worldPosition = _worldPosition;
         //}
-        public bool CellFree()
-        {
 
-            return Free;
-        }
     }
 }
     

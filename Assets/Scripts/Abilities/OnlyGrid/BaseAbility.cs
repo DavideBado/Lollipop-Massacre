@@ -165,7 +165,7 @@ public class BaseAbility
         {
             for (int j = 0; j < CellsList[i].Count; j++)
             {
-                if (CellsList[i][j].Free == true)
+                if (grid.CellFree(CellsList[i][j]))
                 {
                     CellsList[i][j].MyCell.GetComponent<MeshRenderer>().material.color = Color.red;
                 }

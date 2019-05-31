@@ -26,9 +26,8 @@ public class CellPrefScript : Cell
         return itemData;
     }
 
-    public CellPrefScript(int _x, int _y, Vector3 _worldPosition, bool _free)
-    {
-        Free = _free;
+    public CellPrefScript(int _x, int _y, Vector3 _worldPosition)
+    {      
         x = _x;
         z = _y;
         worldPosition = _worldPosition;
