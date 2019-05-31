@@ -99,9 +99,9 @@ public class BaseAbility
             if(_direction.x > 0)
             {
                 List<CellPrefScript> _cells = new List<CellPrefScript>();
-                foreach (CellPrefScript _cell in grid.PrefScripts)
+                foreach (CellPrefScript _cell in grid.SendCells())
                 {
-                    if (_cell.x > PlayerPosX && (_cell.x <= (PlayerPosX + Range)))
+                    if (_cell.transform.position.z == PlayerPosZ && _cell.transform.position.x > PlayerPosX && (_cell.transform.position.x <= (PlayerPosX + Range)))
                     {
                         _cells.Add(_cell);
                     }
@@ -112,14 +112,14 @@ public class BaseAbility
             else if (_direction.x < 0)
             {
                 List<CellPrefScript> _cells = new List<CellPrefScript>();
-                foreach (CellPrefScript _cell in grid.PrefScripts)
+                foreach (CellPrefScript _cell in grid.SendCells())
                 {
-                    if (_cell.x < PlayerPosX && (_cell.x >= (PlayerPosX + Range)))
+                    if (_cell.transform.position.z == PlayerPosZ && _cell.transform.position.x < PlayerPosX && (_cell.transform.position.x >= (PlayerPosX - Range)))
                     {
                         _cells.Add(_cell);
                     }
                 }
-                _cells.Sort((a, b) => b.x.CompareTo(a.x));
+                _cells.Sort((a, b) => b.transform.position.x.CompareTo(a.transform.position.x));
                 CellsList.Add(_cells);
             }
         }
@@ -128,27 +128,27 @@ public class BaseAbility
             if (_direction.z > 0)
             {
                 List<CellPrefScript> _cells = new List<CellPrefScript>();
-                foreach (CellPrefScript _cell in grid.PrefScripts)
+                foreach (CellPrefScript _cell in grid.SendCells())
                 {
-                    if (_cell.y > PlayerPosZ && (_cell.y <= (PlayerPosZ + Range)))
+                    if (_cell.transform.position.x == PlayerPosX && _cell.transform.position.z > PlayerPosZ && (_cell.transform.position.z <= (PlayerPosZ + Range)))
                     {
                         _cells.Add(_cell);
                     }
                 }
-                _cells.Sort((a, b) => a.y.CompareTo(b.y));
+                _cells.Sort((a, b) => a.transform.position.z.CompareTo(b.transform.position.z));
                 CellsList.Add(_cells);
             }
             else if (_direction.z < 0)
             {
                 List<CellPrefScript> _cells = new List<CellPrefScript>();
-                foreach (CellPrefScript _cell in grid.PrefScripts)
+                foreach (CellPrefScript _cell in grid.SendCells())
                 {
-                    if (_cell.y < PlayerPosZ && (_cell.y >= (PlayerPosZ + Range)))
+                    if (_cell.transform.position.x == PlayerPosX && _cell.transform.position.z < PlayerPosZ && (_cell.transform.position.z >= (PlayerPosZ - Range)))
                     {
                         _cells.Add(_cell);
                     }
                 }                
-                _cells.Sort((a, b) => b.y.CompareTo(a.y));
+                _cells.Sort((a, b) => b.transform.position.z.CompareTo(a.transform.position.z));
                 CellsList.Add(_cells);
             }
         }
@@ -172,7 +172,6 @@ public class BaseAbility
                     j = CellsList[i].Count;
                 }
             }
-
         }
     }
 

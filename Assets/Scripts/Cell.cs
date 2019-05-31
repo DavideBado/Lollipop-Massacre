@@ -14,18 +14,18 @@ namespace GridSystem
         internal int y;
         internal Vector3 worldPosition;
 
-        public Cell()
-        {
+        //public Cell()
+        //{
 
-        }
+        //}
         
-        public Cell(int _x, int _y, Vector3 _worldPosition, bool _free)
-        {
-            Free = _free;
-            x = _x;
-            y = _y;
-            worldPosition = _worldPosition;
-        }
+        //public Cell(int _x, int _y, Vector3 _worldPosition, bool _free)
+        //{
+        //    Free = _free;
+        //    x = _x;
+        //    y = _y;
+        //    worldPosition = _worldPosition;
+        //}
         public bool CellFree()
         {
 

@@ -6,16 +6,12 @@ using GridSystem;
 public class Ability : MonoBehaviour
 {
     public AbilityPatternData PatternData;
-
-    private void Awake()
-    {
-        PatternData.CurrentAbility.grid = FindObjectOfType<BaseGrid>();
-    }
     /// <summary>
     /// Preview abilità senza raycast, comune a tutte le abilità, con data in ingresso 
     /// </summary>
     public void Preview()
     {
+        PatternData.CurrentAbility.grid = GetComponent<Agent>().grid;
         PatternData.CurrentAbility.ClearList();
         PatternData.CurrentAbility.PlayerPosX = GetComponent<Agent>().x;
         PatternData.CurrentAbility.PlayerPosZ = GetComponent<Agent>().y;

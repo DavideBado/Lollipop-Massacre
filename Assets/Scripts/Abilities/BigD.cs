@@ -192,7 +192,6 @@ public class BigD : MonoBehaviour
                             (Mathf.Round(cell.transform.position.x) == Mathf.Round(transform.position.x)))
                         {
                             cell.GetComponent<MeshRenderer>().material = _material;
-
                         }
                     }
                 }

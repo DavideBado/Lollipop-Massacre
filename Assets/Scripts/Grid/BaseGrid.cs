@@ -6,9 +6,10 @@ using UnityEngine;
 namespace GridSystem {
 
     public class BaseGrid : MonoBehaviour {
-        public List<CellPrefScript> PrefScripts = new List<CellPrefScript>();
+        protected List<CellPrefScript> PrefScripts = new List<CellPrefScript>();
         List<Wall> walls = new List<Wall>();
         public GridConfigData ConfigData;
+        public WallsConfigData ConfigWalls;
         [SerializeField]
         protected GameObject CellPrefab;
         private bool wallscheck = false;
@@ -16,9 +17,9 @@ namespace GridSystem {
         protected List<CellPrefScript> Cells = new List<CellPrefScript>();
         List<GameObject> Objects = new List<GameObject>();
        
-        void Start() {
+        void Start()
+        {
             CreateGrid(ConfigData);
-
         }
 
         #region API
@@ -34,24 +35,12 @@ namespace GridSystem {
                         transform.position.z + (y * _configData.CellDim)
                         ), true);                 
                     Cells.Add(cellToAdd);
-                    GameObject _Cell = Instantiate(CellPrefab, cellToAdd.worldPosition, Quaternion.identity);
-                    PrefScripts.Add(_Cell.GetComponent<CellPrefScript>());
+                    //GameObject _Cell = Instantiate(CellPrefab, cellToAdd.worldPosition, Quaternion.identity);
+                    PrefScripts.Add(Instantiate(CellPrefab, cellToAdd.worldPosition, Quaternion.identity).GetComponent<CellPrefScript>());
                 }
-            }
-            
-        }
-
-        private void Update()
-        {
-            if (wallscheck == false && walls.Count != 0)
-            {
-                ManagerCell(); 
-            }
-            else
-            {
-                 walls = FindObjectsOfType<Wall>().ToList();
-            }
-        }
+            }            
+                    ManagerCell(ConfigWalls);
+        }       
 
         public Vector3 GetWorldPosition(int _x, int _y) {
             foreach (CellPrefScript cell in Cells) {
@@ -76,20 +65,33 @@ namespace GridSystem {
 
         #endregion
 
-        public void ManagerCell()
-        {           
-            foreach (Wall _wall in walls)
+        public void ManagerCell(WallsConfigData _WallsData)
+        {
+            List<CellPrefScript> _CellsPref = new List<CellPrefScript>(); 
+            foreach (Vector3 _wall in _WallsData.WallsPosition)
             {
                 foreach (CellPrefScript _cell in PrefScripts)
                 {
-                    if (_cell.transform.position == _wall.transform.position)
+                    if ((int)_cell.transform.position.x == _wall.x && (int)_cell.transform.position.z == _wall.z)
                     {
                         _cell.Free = false;
                     }
-                    else _cell.Free = true;
-                    Debug.Log("X:" + _cell.x + " Y" + _cell.y + " Free:" + _cell.Free);
+                    else
+                    {
+                        _cell.Free = true;
+                    }
+
+                    _CellsPref.Add(_cell);
+                    Debug.Log("X:" + _cell.transform.position.x + " Y" + _cell.transform.position.z + " Free:" + _cell.Free);
                 }
+                PrefScripts = _CellsPref;
             }
             wallscheck = true;
         }
-    }}
+
+        public List<CellPrefScript> SendCells()
+        {
+            return PrefScripts;
+        }
+    }
+}
