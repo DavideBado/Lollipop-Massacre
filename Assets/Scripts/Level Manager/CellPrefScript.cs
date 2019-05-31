@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using GridSystem;
+using System;
 
 public class CellPrefScript : Cell
 {
+    [NonSerialized]
+    public GameObject MyCell;
     public List<Material> Materials;
     List<Agent> agents = new List<Agent>();
     int area;
@@ -27,7 +30,7 @@ public class CellPrefScript : Cell
     {
         Free = _free;
         x = _x;
-        y = _y;
+        z = _y;
         worldPosition = _worldPosition;
     }
 

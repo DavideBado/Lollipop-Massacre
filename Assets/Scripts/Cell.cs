@@ -11,7 +11,7 @@ namespace GridSystem
     {
         public bool Free;
         internal int x;
-        internal int y;
+        internal int z;
         internal Vector3 worldPosition;
 
         //public Cell()

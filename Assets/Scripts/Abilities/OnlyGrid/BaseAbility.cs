@@ -101,7 +101,7 @@ public class BaseAbility
                 List<CellPrefScript> _cells = new List<CellPrefScript>();
                 foreach (CellPrefScript _cell in grid.SendCells())
                 {
-                    if (_cell.transform.position.z == PlayerPosZ && _cell.transform.position.x > PlayerPosX && (_cell.transform.position.x <= (PlayerPosX + Range)))
+                    if (_cell.z == PlayerPosZ && _cell.x > PlayerPosX && (_cell.x <= (PlayerPosX + Range)))
                     {
                         _cells.Add(_cell);
                     }
@@ -114,12 +114,13 @@ public class BaseAbility
                 List<CellPrefScript> _cells = new List<CellPrefScript>();
                 foreach (CellPrefScript _cell in grid.SendCells())
                 {
-                    if (_cell.transform.position.z == PlayerPosZ && _cell.transform.position.x < PlayerPosX && (_cell.transform.position.x >= (PlayerPosX - Range)))
+                    if (_cell.z == PlayerPosZ && _cell.x < PlayerPosX && (_cell.x >= (PlayerPosX - Range)))
                     {
                         _cells.Add(_cell);
                     }
                 }
-                _cells.Sort((a, b) => b.transform.position.x.CompareTo(a.transform.position.x));
+                _cells.Sort((a, b) => a.x.CompareTo(b.x));
+                _cells.Reverse();
                 CellsList.Add(_cells);
             }
         }
@@ -130,12 +131,12 @@ public class BaseAbility
                 List<CellPrefScript> _cells = new List<CellPrefScript>();
                 foreach (CellPrefScript _cell in grid.SendCells())
                 {
-                    if (_cell.transform.position.x == PlayerPosX && _cell.transform.position.z > PlayerPosZ && (_cell.transform.position.z <= (PlayerPosZ + Range)))
+                    if (_cell.x == PlayerPosX && _cell.z > PlayerPosZ && (_cell.z <= (PlayerPosZ + Range)))
                     {
                         _cells.Add(_cell);
                     }
                 }
-                _cells.Sort((a, b) => a.transform.position.z.CompareTo(b.transform.position.z));
+                _cells.Sort((a, b) => a.z.CompareTo(b.z));
                 CellsList.Add(_cells);
             }
             else if (_direction.z < 0)
@@ -143,12 +144,13 @@ public class BaseAbility
                 List<CellPrefScript> _cells = new List<CellPrefScript>();
                 foreach (CellPrefScript _cell in grid.SendCells())
                 {
-                    if (_cell.transform.position.x == PlayerPosX && _cell.transform.position.z < PlayerPosZ && (_cell.transform.position.z >= (PlayerPosZ - Range)))
+                    if (_cell.x == PlayerPosX && _cell.z < PlayerPosZ && (_cell.z >= (PlayerPosZ - Range)))
                     {
                         _cells.Add(_cell);
                     }
                 }                
-                _cells.Sort((a, b) => b.transform.position.z.CompareTo(a.transform.position.z));
+                _cells.Sort((a, b) => a.z.CompareTo(b.z));
+                _cells.Reverse();
                 CellsList.Add(_cells);
             }
         }
@@ -165,7 +167,7 @@ public class BaseAbility
             {
                 if (CellsList[i][j].Free == true)
                 {
-                    CellsList[i][j].gameObject.GetComponent<MeshRenderer>().material.color = Color.red;
+                    CellsList[i][j].MyCell.GetComponent<MeshRenderer>().material.color = Color.red;
                 }
                 else
                 {
