@@ -71,12 +71,7 @@ public class Stun : MonoBehaviour
                     hit.transform.GetComponent<LifeManager>().Damage(GetComponent<Agent>(), 1, false);
                 }
             }
-
-            if (FindObjectOfType<PickUpsSpawner>().AllManaFull == true)
-            {
-                FindObjectOfType<GameManager>().PickUpTurnCount = 0;
-                FindObjectOfType<PickUpsSpawner>().AllManaFull = false;
-            }
+            
             GetComponent<Agent>().Mana--;
             Manager.CanAttack = false;
         }

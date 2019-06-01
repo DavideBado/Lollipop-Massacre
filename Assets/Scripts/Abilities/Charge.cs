@@ -153,17 +153,7 @@ public class Charge : MonoBehaviour
                         GetComponent<Agent>().y = GetComponent<Agent>().configGrid.DimY;
                     }
                 }
-            }        
-
-            if (FindObjectOfType<PickUpsSpawner>().AllManaFull == true)
-
-            {
-
-                FindObjectOfType<GameManager>().PickUpTurnCount = 0;
-
-                FindObjectOfType<PickUpsSpawner>().AllManaFull = false;
-
-            }
+            }                   
 
             GetComponent<Agent>().Mana--;
             Manager.CanAttack = false;

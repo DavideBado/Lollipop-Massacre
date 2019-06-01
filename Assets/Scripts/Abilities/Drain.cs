@@ -67,11 +67,6 @@ public class Drain : MonoBehaviour
                 INeedLifeDrain();
             //}
 
-            if (FindObjectOfType<PickUpsSpawner>().AllManaFull == true)
-            {
-                FindObjectOfType<GameManager>().PickUpTurnCount = 0;
-                FindObjectOfType<PickUpsSpawner>().AllManaFull = false;
-            }
             GetComponent<Agent>().Mana--;
             Manager.CanAttack = false;
             agent.DrainPS.SetActive(true);

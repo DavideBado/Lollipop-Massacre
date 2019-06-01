@@ -87,19 +87,7 @@ public class BigD : MonoBehaviour
                     hit.transform.GetComponent<LifeManager>().Damage(GetComponent<Agent>(), 2, false);
 
                 }
-
-            }
-
-
-            if (FindObjectOfType<PickUpsSpawner>().AllManaFull == true)
-
-            {
-
-                FindObjectOfType<GameManager>().PickUpTurnCount = 0;
-
-                FindObjectOfType<PickUpsSpawner>().AllManaFull = false;
-
-            }
+            }          
 
             GetComponent<Agent>().Mana--;
             Manager.CanAttack = false;
@@ -161,7 +149,6 @@ public class BigD : MonoBehaviour
                             (Mathf.Round(cell.transform.position.z) == Mathf.Round(transform.position.z)))
                         {
                             cell.GetComponent<MeshRenderer>().material = _material;
-
                         }
                     }
                 }
