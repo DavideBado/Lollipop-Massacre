@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aef065300cec58f47863d76538179f36, type: 3}
-  m_Name: Poison
+  m_Name: BigD
   m_EditorClassIdentifier: 
   CurrentAbility:
-    directions: 00000000010000000200000003000000
-    Range: -1
+    directions: 00000000
+    Range: 2
     ExtRange: 0
-    Lateral: 0
+    Lateral: 1

@@ -73,16 +73,16 @@ public class BaseAbility
         switch (_direction)
         {
             case DirectionType.Forward:
-                FindCells(lookForward);
+                FindCells(lookForward, Lateral);
                 break;
             case DirectionType.Backward:
-                FindCells(lookBackward);
+                FindCells(lookBackward, Lateral);
                 break;
             case DirectionType.Left:
-                FindCells(lookLeft);
+                FindCells(lookLeft, Lateral);
                 break;
             case DirectionType.Right:
-                FindCells(lookRight);
+                FindCells(lookRight, Lateral);
                 break;
             default:
                 break;
@@ -92,16 +92,35 @@ public class BaseAbility
     /// <summary>
     /// Funzione che controlla le celle in base alla direzione e al range del pattern
     /// </summary>    
-    private void FindCells(Vector3 _direction)
-    {   
-        if(_direction.x != 0)
+    private void FindCells(Vector3 _direction, int _lateral)
+    {
+        if (_lateral == 0)
         {
-            if(_direction.x > 0)
+            OneLine(_direction, Range); 
+        }
+        else if(_lateral == 1)
+        {
+            MultiLines(_direction, Range);
+        }
+    }
+
+    /// <summary>
+    /// Funzione che trova le celle in una colonna unica
+    /// </summary>
+    private void OneLine(Vector3 _direction, int _range)
+    {
+        if (_direction.x != 0)
+        {
+            if (_direction.x > 0)
             {
+                if(_range == -1)
+                {
+                    _range = (grid.ConfigData.DimX - 1);
+                }
                 List<CellPrefScript> _cells = new List<CellPrefScript>();
                 foreach (CellPrefScript _cell in grid.SendCells())
                 {
-                    if (_cell.z == PlayerPosZ && _cell.x > PlayerPosX && (_cell.x <= (PlayerPosX + Range)))
+                    if (_cell.z == PlayerPosZ && _cell.x > PlayerPosX && (_cell.x <= (PlayerPosX + _range)))
                     {
                         _cells.Add(_cell);
                     }
@@ -111,10 +130,14 @@ public class BaseAbility
             }
             else if (_direction.x < 0)
             {
+                if (_range == -1)
+                {
+                    _range = PlayerPosX;
+                }
                 List<CellPrefScript> _cells = new List<CellPrefScript>();
                 foreach (CellPrefScript _cell in grid.SendCells())
                 {
-                    if (_cell.z == PlayerPosZ && _cell.x < PlayerPosX && (_cell.x >= (PlayerPosX - Range)))
+                    if (_cell.z == PlayerPosZ && _cell.x < PlayerPosX && (_cell.x >= (PlayerPosX - _range)))
                     {
                         _cells.Add(_cell);
                     }
@@ -124,14 +147,18 @@ public class BaseAbility
                 CellsList.Add(_cells);
             }
         }
-        else if(_direction.z != 0)
+        else if (_direction.z != 0)
         {
             if (_direction.z > 0)
             {
+                if (_range == -1)
+                {
+                    _range = (grid.ConfigData.DimY - 1);
+                }
                 List<CellPrefScript> _cells = new List<CellPrefScript>();
                 foreach (CellPrefScript _cell in grid.SendCells())
                 {
-                    if (_cell.x == PlayerPosX && _cell.z > PlayerPosZ && (_cell.z <= (PlayerPosZ + Range)))
+                    if (_cell.x == PlayerPosX && _cell.z > PlayerPosZ && (_cell.z <= (PlayerPosZ + _range)))
                     {
                         _cells.Add(_cell);
                     }
@@ -141,17 +168,164 @@ public class BaseAbility
             }
             else if (_direction.z < 0)
             {
+                if (_range == -1)
+                {
+                    _range = PlayerPosZ;
+                }
                 List<CellPrefScript> _cells = new List<CellPrefScript>();
                 foreach (CellPrefScript _cell in grid.SendCells())
                 {
-                    if (_cell.x == PlayerPosX && _cell.z < PlayerPosZ && (_cell.z >= (PlayerPosZ - Range)))
+                    if (_cell.x == PlayerPosX && _cell.z < PlayerPosZ && (_cell.z >= (PlayerPosZ - _range)))
                     {
                         _cells.Add(_cell);
                     }
-                }                
+                }
                 _cells.Sort((a, b) => a.z.CompareTo(b.z));
                 _cells.Reverse();
                 CellsList.Add(_cells);
+            }
+        }
+    }
+
+    /// <summary>
+    /// Funzione che trova le celle in tre colonne parallele
+    /// </summary>
+    private void MultiLines(Vector3 _direction, int _range)
+    {
+        if (_direction.x != 0)
+        {
+            if (_direction.x > 0)
+            {
+                if (_range == -1)
+                {
+                    _range = (grid.ConfigData.DimX - 1);
+                }
+                List<CellPrefScript> _cellsC = new List<CellPrefScript>();
+                List<CellPrefScript> _cellsL = new List<CellPrefScript>();
+                List<CellPrefScript> _cellsR = new List<CellPrefScript>();
+                foreach (CellPrefScript _cell in grid.SendCells())
+                {
+                    if (_cell.z == PlayerPosZ && _cell.x > PlayerPosX && (_cell.x <= (PlayerPosX + _range)))
+                    {
+                        _cellsC.Add(_cell);
+                    }
+                    else if (_cell.z == (PlayerPosZ + 1) && _cell.x > PlayerPosX && (_cell.x <= (PlayerPosX + _range)))
+                    {
+                        _cellsL.Add(_cell);
+                    }
+                    else if (_cell.z == (PlayerPosZ - 1) && _cell.x > PlayerPosX && (_cell.x <= (PlayerPosX + _range)))
+                    {
+                        _cellsR.Add(_cell);
+                    }
+                }
+                _cellsC.Sort((a, b) => a.x.CompareTo(b.x));
+                CellsList.Add(_cellsC);
+                _cellsL.Sort((a, b) => a.x.CompareTo(b.x));
+                CellsList.Add(_cellsL);
+                _cellsR.Sort((a, b) => a.x.CompareTo(b.x));
+                CellsList.Add(_cellsR);
+            }
+            else if (_direction.x < 0)
+            {
+                if (_range == -1)
+                {
+                    _range = PlayerPosX;
+                }
+                List<CellPrefScript> _cellsC = new List<CellPrefScript>();
+                List<CellPrefScript> _cellsL = new List<CellPrefScript>();
+                List<CellPrefScript> _cellsR = new List<CellPrefScript>();
+                foreach (CellPrefScript _cell in grid.SendCells())
+                {
+                    if (_cell.z == PlayerPosZ && _cell.x < PlayerPosX && (_cell.x >= (PlayerPosX - _range)))
+                    {
+                        _cellsC.Add(_cell);
+                    }
+                    else if (_cell.z == (PlayerPosZ + 1) && _cell.x < PlayerPosX && (_cell.x >= (PlayerPosX - _range)))
+                    {
+                        _cellsR.Add(_cell);
+                    }
+                    else if (_cell.z == (PlayerPosZ - 1) && _cell.x < PlayerPosX && (_cell.x >= (PlayerPosX - _range)))
+                    {
+                        _cellsL.Add(_cell);
+                    }
+                }
+                _cellsC.Sort((a, b) => a.x.CompareTo(b.x));
+                _cellsC.Reverse();
+                CellsList.Add(_cellsC);
+                _cellsL.Sort((a, b) => a.x.CompareTo(b.x));
+                _cellsL.Reverse();
+                CellsList.Add(_cellsL);
+                _cellsR.Sort((a, b) => a.x.CompareTo(b.x));
+                _cellsR.Reverse();
+                CellsList.Add(_cellsR);
+            }
+        }
+        else if (_direction.z != 0)
+        {
+            if (_direction.z > 0)
+            {
+                if (_range == -1)
+                {
+                    _range = (grid.ConfigData.DimY - 1);
+                }
+                List<CellPrefScript> _cellsC = new List<CellPrefScript>();
+                List<CellPrefScript> _cellsL = new List<CellPrefScript>();
+                List<CellPrefScript> _cellsR = new List<CellPrefScript>();
+                foreach (CellPrefScript _cell in grid.SendCells())
+                {
+                    if (_cell.x == PlayerPosX && _cell.z > PlayerPosZ && (_cell.z <= (PlayerPosZ + _range)))
+                    {
+                        _cellsC.Add(_cell);
+                    }
+                    else if (_cell.x == (PlayerPosX + 1) && _cell.z > PlayerPosZ && (_cell.z <= (PlayerPosZ + _range)))
+                    {
+                        _cellsR.Add(_cell);
+                    }
+                    else if (_cell.x == (PlayerPosX - 1) && _cell.z > PlayerPosZ && (_cell.z <= (PlayerPosZ + _range)))
+                    {
+                        _cellsL.Add(_cell);
+                    }
+                }
+                _cellsC.Sort((a, b) => a.x.CompareTo(b.x));
+                _cellsC.Reverse();
+                CellsList.Add(_cellsC);
+                _cellsL.Sort((a, b) => a.x.CompareTo(b.x));
+                _cellsL.Reverse();
+                CellsList.Add(_cellsL);
+                _cellsR.Sort((a, b) => a.x.CompareTo(b.x));
+                _cellsR.Reverse();
+                CellsList.Add(_cellsR);
+            }
+            else if (_direction.z < 0)
+            {
+                if (_range == -1)
+                {
+                    _range = PlayerPosZ;
+                }
+                List<CellPrefScript> _cellsC = new List<CellPrefScript>();
+                List<CellPrefScript> _cellsL = new List<CellPrefScript>();
+                List<CellPrefScript> _cellsR = new List<CellPrefScript>();
+                foreach (CellPrefScript _cell in grid.SendCells())
+                {
+                    if (_cell.x == PlayerPosX && _cell.z < PlayerPosZ && (_cell.z >= (PlayerPosZ - _range)))
+                    {
+                        _cellsC.Add(_cell);
+                    }
+                    else if (_cell.x == (PlayerPosX + 1) && _cell.z < PlayerPosZ && (_cell.z >= (PlayerPosZ - _range)))
+                    {
+                        _cellsL.Add(_cell);
+                    }
+                    else if (_cell.x == (PlayerPosX - 1) && _cell.z < PlayerPosZ && (_cell.z >= (PlayerPosZ - _range)))
+                    {
+                        _cellsR.Add(_cell);
+                    }
+                }
+                _cellsC.Sort((a, b) => a.x.CompareTo(b.x));
+                CellsList.Add(_cellsC);
+                _cellsL.Sort((a, b) => a.x.CompareTo(b.x));
+                CellsList.Add(_cellsL);
+                _cellsR.Sort((a, b) => a.x.CompareTo(b.x));
+                CellsList.Add(_cellsR);
             }
         }
     }
