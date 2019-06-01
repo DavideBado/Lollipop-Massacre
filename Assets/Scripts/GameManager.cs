@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.P))
+        if(Input.GetKeyDown(KeyCode.Escape))
         {
             MyPause();
         }
@@ -98,7 +98,7 @@ public class GameManager : MonoBehaviour
         TimeForThePlayer(); // Controlla il tempo e gestisce i round
         //TextUpdate(); // Aggiorna i testi a schermo
         SpawnUpdate();// Controlla quando attivare lo spawn dinamico
-        QuitNow(); // Chuide il gioco
+        //QuitNow(); // Chuide il gioco
         //PickUpSpawn();
     }
 
