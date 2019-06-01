@@ -107,17 +107,17 @@ public class BigD : MonoBehaviour
 
     }
 
-    public void Preview()
-    {
-        Manager.UpdateTilesMat();
-        if (GetComponent<Agent>().MyTurn && GetComponent<Agent>().PlayerType == 1 && GetComponent<Agent>().ImStunned == false && Manager.CanAttack == true && Manager.Pause == false)
+    //public void Preview()
+    //{
+    //    Manager.UpdateTilesMat();
+    //    if (GetComponent<Agent>().MyTurn && GetComponent<Agent>().PlayerType == 1 && GetComponent<Agent>().ImStunned == false && Manager.CanAttack == true && Manager.Pause == false)
 
-        {
-            CleanPreview();
-            Material PrevMaterial = FindObjectOfType<CellPrefScript>().Materials[3];
-            NewPreview(PrevMaterial);
-        }
-    }
+    //    {
+    //        CleanPreview();
+    //        Material PrevMaterial = FindObjectOfType<CellPrefScript>().Materials[3];
+    //        NewPreview(PrevMaterial);
+    //    }
+    //}
 
     void NewPreview(Material _material)
     {

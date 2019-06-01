@@ -75,6 +75,7 @@ GameObject:
   - component: {fileID: 1256144809}
   - component: {fileID: 855088209455006340}
   - component: {fileID: 5391256858689799690}
+  - component: {fileID: 3389997160912609704}
   m_Layer: 0
   m_Name: Big D P2
   m_TagString: Player
@@ -276,6 +277,19 @@ MonoBehaviour:
   Timer: 0
   ID: 0
   playerIndex: 1
+--- !u!114 &3389997160912609704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1256144805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9514662eec97de84bb40809bf73b60cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PatternData: {fileID: 11400000, guid: 7d7498ecc29626449a68a83fd7a29b58, type: 2}
 --- !u!1001 &182770311
 PrefabInstance:
   m_ObjectHideFlags: 0

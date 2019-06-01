@@ -75,6 +75,7 @@ GameObject:
   - component: {fileID: 1510294132}
   - component: {fileID: 397459704151230688}
   - component: {fileID: 3685064713405395317}
+  - component: {fileID: 1739974034754723610}
   m_Layer: 0
   m_Name: Charge P1
   m_TagString: Player
@@ -282,6 +283,19 @@ MonoBehaviour:
   Timer: 0
   ID: 0
   playerIndex: 0
+--- !u!114 &1739974034754723610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1510294126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9514662eec97de84bb40809bf73b60cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PatternData: {fileID: 11400000, guid: dc05fe2c8af62424ebeefa6c6581d0c6, type: 2}
 --- !u!1 &1980843689978317343
 GameObject:
   m_ObjectHideFlags: 0
@@ -638,6 +652,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1510294127}
     m_Modifications:
+    - target: {fileID: 100036, guid: 2ede4ac6d3aa84c43b97210b6e8e37b1, type: 3}
+      propertyPath: m_Name
+      value: SM_LolliPop_Unicorn
+      objectReference: {fileID: 0}
     - target: {fileID: 400036, guid: 2ede4ac6d3aa84c43b97210b6e8e37b1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -693,10 +711,6 @@ PrefabInstance:
     - target: {fileID: 400036, guid: 2ede4ac6d3aa84c43b97210b6e8e37b1, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.35
-      objectReference: {fileID: 0}
-    - target: {fileID: 100036, guid: 2ede4ac6d3aa84c43b97210b6e8e37b1, type: 3}
-      propertyPath: m_Name
-      value: SM_LolliPop_Unicorn
       objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: 2ede4ac6d3aa84c43b97210b6e8e37b1, type: 3}
       propertyPath: m_Controller

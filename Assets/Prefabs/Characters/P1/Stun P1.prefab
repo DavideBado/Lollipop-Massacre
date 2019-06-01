@@ -75,6 +75,7 @@ GameObject:
   - component: {fileID: 1510294132}
   - component: {fileID: 1293814292230231335}
   - component: {fileID: 5281244296664187768}
+  - component: {fileID: 5079299453306975608}
   m_Layer: 0
   m_Name: Stun P1
   m_TagString: Player
@@ -282,6 +283,19 @@ MonoBehaviour:
   Timer: 0
   ID: 0
   playerIndex: 0
+--- !u!114 &5079299453306975608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1510294126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9514662eec97de84bb40809bf73b60cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PatternData: {fileID: 11400000, guid: ee59b4a510ee9ef4aacec084d1b66967, type: 2}
 --- !u!1 &1980843689978317343
 GameObject:
   m_ObjectHideFlags: 0

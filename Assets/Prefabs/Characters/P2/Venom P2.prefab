@@ -75,6 +75,7 @@ GameObject:
   - component: {fileID: 1256144809}
   - component: {fileID: 1242158603117144819}
   - component: {fileID: 1901763957514412656}
+  - component: {fileID: 5031902518772025546}
   m_Layer: 0
   m_Name: Venom P2
   m_TagString: Player
@@ -278,6 +279,19 @@ MonoBehaviour:
   Timer: 0
   ID: 0
   playerIndex: 1
+--- !u!114 &5031902518772025546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1256144805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9514662eec97de84bb40809bf73b60cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PatternData: {fileID: 11400000, guid: 81407392a0656314ba5129b001f2b4b3, type: 2}
 --- !u!1 &3595088801534984405
 GameObject:
   m_ObjectHideFlags: 0

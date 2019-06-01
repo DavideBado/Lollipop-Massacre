@@ -75,6 +75,7 @@ GameObject:
   - component: {fileID: 1510294132}
   - component: {fileID: 9156285678273493149}
   - component: {fileID: 3950680150190513579}
+  - component: {fileID: 8855852241532152791}
   m_Layer: 0
   m_Name: Whirlwind P1
   m_TagString: Player
@@ -283,6 +284,19 @@ MonoBehaviour:
   Timer: 0
   ID: 0
   playerIndex: 0
+--- !u!114 &8855852241532152791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1510294126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9514662eec97de84bb40809bf73b60cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PatternData: {fileID: 11400000, guid: 726934d873d98fc4d848ca1cf354d252, type: 2}
 --- !u!1 &1980843689978317343
 GameObject:
   m_ObjectHideFlags: 0

@@ -75,6 +75,7 @@ GameObject:
   - component: {fileID: 1256144809}
   - component: {fileID: 1256144814}
   - component: {fileID: 3645693220512716311}
+  - component: {fileID: 134069364951985374}
   m_Layer: 0
   m_Name: Drain P2
   m_TagString: Player
@@ -279,6 +280,19 @@ MonoBehaviour:
   Timer: 0
   ID: 0
   playerIndex: 1
+--- !u!114 &134069364951985374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1256144805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9514662eec97de84bb40809bf73b60cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PatternData: {fileID: 11400000, guid: 766d61bd2444e754780cdc6aa652377e, type: 2}
 --- !u!1 &3595088801534984405
 GameObject:
   m_ObjectHideFlags: 0

@@ -75,6 +75,7 @@ GameObject:
   - component: {fileID: 1256144809}
   - component: {fileID: 1256144818}
   - component: {fileID: 1402939504158483061}
+  - component: {fileID: 3623341617422765574}
   m_Layer: 0
   m_Name: Whirlwind P2
   m_TagString: Player
@@ -278,6 +279,19 @@ MonoBehaviour:
   Timer: 0
   ID: 0
   playerIndex: 1
+--- !u!114 &3623341617422765574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1256144805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9514662eec97de84bb40809bf73b60cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PatternData: {fileID: 11400000, guid: 726934d873d98fc4d848ca1cf354d252, type: 2}
 --- !u!114 &3021459629504972893
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -483,15 +497,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eace5e65e5c21784ea828194d0daffb6, type: 3}
---- !u!1 &4266508302952437199 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4266508303113703240, guid: eace5e65e5c21784ea828194d0daffb6,
-    type: 3}
-  m_PrefabInstance: {fileID: 182770311}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &122086711143144792 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 122086711044818911, guid: eace5e65e5c21784ea828194d0daffb6,
+    type: 3}
+  m_PrefabInstance: {fileID: 182770311}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4266508302952437199 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4266508303113703240, guid: eace5e65e5c21784ea828194d0daffb6,
     type: 3}
   m_PrefabInstance: {fileID: 182770311}
   m_PrefabAsset: {fileID: 0}
@@ -569,15 +583,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2d7d5452ee40b74abd6b290fdd7c3f3, type: 3}
---- !u!1 &3546577234016537918 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3546577233330127496, guid: b2d7d5452ee40b74abd6b290fdd7c3f3,
-    type: 3}
-  m_PrefabInstance: {fileID: 724193206}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9161324033327906350 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9161324032910979480, guid: b2d7d5452ee40b74abd6b290fdd7c3f3,
+    type: 3}
+  m_PrefabInstance: {fileID: 724193206}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3546577234016537918 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3546577233330127496, guid: b2d7d5452ee40b74abd6b290fdd7c3f3,
     type: 3}
   m_PrefabInstance: {fileID: 724193206}
   m_PrefabAsset: {fileID: 0}
