@@ -13,8 +13,8 @@ public class Ability : MonoBehaviour
     {
         PatternData.CurrentAbility.grid = GetComponent<Agent>().grid;
         PatternData.CurrentAbility.ClearList();
-        PatternData.CurrentAbility.PlayerPosX = GetComponent<Agent>().x;
-        PatternData.CurrentAbility.PlayerPosZ = GetComponent<Agent>().y;
+        PatternData.CurrentAbility.PlayerPosX = GetComponent<Agent>().x2;
+        PatternData.CurrentAbility.PlayerPosZ = GetComponent<Agent>().y2;
         PatternData.CurrentAbility.CurrentDirection = GetComponent<Agent>().SavedlookAt;
 
         if(PatternData.CurrentAbility.CurrentDirection.z > 0)
