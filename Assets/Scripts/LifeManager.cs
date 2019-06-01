@@ -86,7 +86,6 @@ public class LifeManager : MonoBehaviour
     {
         for (int i = 0; i < _damage; i++)
         {
-            GetComponent<Agent>().OnKnockback = true;
             GetComponent<Agent>().x += (int)_enemyrotation.x;
             GetComponent<Agent>().y += (int)_enemyrotation.z;
             GetComponent<Agent>().Movement();

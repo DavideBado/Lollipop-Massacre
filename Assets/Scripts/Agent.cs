@@ -45,7 +45,6 @@ public class Agent : MonoBehaviour, ICharacter
     public int Mana = 1;
     public bool OhStunnedShit;
     public float AgentSpeed;
-    public bool OnKnockback = false;
     Rigidbody rg;
     public GameObject StunPS, PoisonPS, DrainPS;
     int switcherIndex;
@@ -193,11 +192,10 @@ public class Agent : MonoBehaviour, ICharacter
                     x2 = x;
                     y2 = y;
                     OnTheRoad = false;
-                    OnKnockback = false;
                     //GameManager.TimerOn = true;
                 }
             }
-            else if(OnKnockback == false)// Load the old values of x && y
+            else // Load the old values of x && y
             {
                 x = x2;
                 y = y2;
