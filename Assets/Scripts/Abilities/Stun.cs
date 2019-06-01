@@ -46,7 +46,7 @@ public class Stun : MonoBehaviour
                     onAttack = true;
                     Debug.DrawRay(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
                     hit.transform.GetComponent<Agent>().ImStunned = true;
-                    hit.transform.GetComponent<LifeManager>().Damage(GetComponent<Agent>(), 1);
+                    hit.transform.GetComponent<LifeManager>().Damage(GetComponent<Agent>(), 1, false);
                 }
             }
             if (Physics.Raycast(GetComponent<Agent>().RayLeft + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt, out hit, 3))
@@ -57,7 +57,7 @@ public class Stun : MonoBehaviour
                     onAttack = true;
                     Debug.DrawRay(GetComponent<Agent>().RayLeft + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
                     hit.transform.GetComponent<Agent>().ImStunned = true;
-                    hit.transform.GetComponent<LifeManager>().Damage(GetComponent<Agent>(), 1);
+                    hit.transform.GetComponent<LifeManager>().Damage(GetComponent<Agent>(), 1, false);
                 }
             }
             if (Physics.Raycast(GetComponent<Agent>().RayRight + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt, out hit, 3))
@@ -68,7 +68,7 @@ public class Stun : MonoBehaviour
                     onAttack = true;
                     Debug.DrawRay(GetComponent<Agent>().RayRight + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
                     hit.transform.GetComponent<Agent>().ImStunned = true;
-                    hit.transform.GetComponent<LifeManager>().Damage(GetComponent<Agent>(), 1);
+                    hit.transform.GetComponent<LifeManager>().Damage(GetComponent<Agent>(), 1, false);
                 }
             }
 

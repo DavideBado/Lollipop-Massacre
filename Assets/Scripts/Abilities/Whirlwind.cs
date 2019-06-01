@@ -52,7 +52,7 @@ public class Whirlwind : MonoBehaviour
                 {
                     onAttack = true;
                     Debug.DrawRay(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
-                    hit.transform.GetComponent<LifeManager>().Damage(GetComponent<Agent>(), 1);
+                    hit.transform.GetComponent<LifeManager>().Damage(GetComponent<Agent>(), 1, false);
                     int EnemyID = hit.transform.GetComponent<Agent>().PlayerID;
 
                     if (EnemyID == 1)
@@ -230,7 +230,7 @@ public class Whirlwind : MonoBehaviour
         //_goBench.GetChild(_go.transform.GetSiblingIndex()).gameObject.SetActive(true);
 
         _go.SetActive(true);
-        _go.GetComponent<LifeManager>().Damage(GetComponent<Agent>(), 1);
+        _go.GetComponent<LifeManager>().Damage(GetComponent<Agent>(), 1, false);
         Debug.Log(_go.name);
 
     }

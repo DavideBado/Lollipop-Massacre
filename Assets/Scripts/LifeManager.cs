@@ -61,12 +61,13 @@ public class LifeManager : MonoBehaviour
         }
     }
 
-    public void Damage(Agent _enemy, int _amount)
+    public void Damage(Agent _enemy, int _amount, bool _baseAttack)
     {
         Life -= _amount;
         //DamageFeedback(_amount - 1);
         GetComponent<XInputTestCS>().Damage = _amount;
         GetComponent<XInputTestCS>().Timer = (_amount * 0.2f);
+        if((_enemy.GetComponent<Venom>() == null && _enemy.GetComponent<Poison>() == null && _enemy.GetComponent<Whirlwind>() == null) || _baseAttack == true)
         Knockback(_enemy.SavedlookAt, _amount);
         if (Graphic != null)
         {

@@ -424,7 +424,7 @@ public class Agent : MonoBehaviour, ICharacter
                 {
                     Debug.DrawRay(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
                     //hit.transform.DOShakePosition(0.5f, 0.4f, 10, 45);
-                    hit.transform.GetComponent<LifeManager>().Damage(GetComponent<Agent>(), 1); // Togli vita al player in collisione
+                    hit.transform.GetComponent<LifeManager>().Damage(GetComponent<Agent>(), 1, true); // Togli vita al player in collisione
 
                 }
             }
