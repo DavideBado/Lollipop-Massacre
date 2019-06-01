@@ -61,12 +61,13 @@ public class LifeManager : MonoBehaviour
         }
     }
 
-    public void Damage(int _amount)
+    public void Damage(Agent _enemy, int _amount)
     {
         Life -= _amount;
-        DamageFeedback(_amount - 1);
+        //DamageFeedback(_amount - 1);
         GetComponent<XInputTestCS>().Damage = _amount;
         GetComponent<XInputTestCS>().Timer = (_amount * 0.2f);
+        Knockback(_enemy.SavedlookAt, _amount);
         if (Graphic != null)
         {
             Graphic.transform.DOShakePosition(0.5f, 0.6f, 10, 45).SetAutoKill();
@@ -79,5 +80,17 @@ public class LifeManager : MonoBehaviour
         DamageImage.transform.position = (transform.position + new Vector3(0, 2.5f));
         DamageImage.GetComponent<Image>().enabled = true;
         DamageImage.GetComponent<Image>().sprite = DamageImage.DamageSprites[_amount];
+    }
+
+    private void Knockback(Vector3 _enemyrotation, int _damage)
+    {
+        for (int i = 0; i < _damage; i++)
+        {
+            GetComponent<Agent>().OnKnockback = true;
+            GetComponent<Agent>().x += (int)_enemyrotation.x;
+            GetComponent<Agent>().y += (int)_enemyrotation.z;
+            GetComponent<Agent>().Movement();
+        }
+
     }
 }

@@ -42,7 +42,7 @@ public class Poison : MonoBehaviour
 
             if (MaxRounds == 1 && CanAttack == true && FindObjectOfType<GameManager>().Turn == RoundCheck)
             {
-                transform.parent.GetComponent<LifeManager>().Damage(1);
+                transform.parent.GetComponent<LifeManager>().Damage(GetComponent<Agent>(), 1);
                 CanAttack = false;
                 MaxRounds--;
             }

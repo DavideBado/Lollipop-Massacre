@@ -45,6 +45,7 @@ public class Agent : MonoBehaviour, ICharacter
     public int Mana = 1;
     public bool OhStunnedShit;
     public float AgentSpeed;
+    public bool OnKnockback = false;
     Rigidbody rg;
     public GameObject StunPS, PoisonPS, DrainPS;
     int switcherIndex;
@@ -172,7 +173,7 @@ public class Agent : MonoBehaviour, ICharacter
             PlayerType = 6;
         }
     }
-    void Movement() // Muove il giocatore
+    public void Movement() // Muove il giocatore
     {
         if (grid) // Check if we have a grid
         {
@@ -192,15 +193,15 @@ public class Agent : MonoBehaviour, ICharacter
                     x2 = x;
                     y2 = y;
                     OnTheRoad = false;
-                 
+                    OnKnockback = false;
                     //GameManager.TimerOn = true;
                 }
             }
-            else // Load the old values of x && y
+            else if(OnKnockback == false)// Load the old values of x && y
             {
                 x = x2;
                 y = y2;
-                OnTheRoad = false;
+                OnTheRoad = false;               
                 //GameManager.TimerOn = true;
             }
         }
@@ -264,7 +265,6 @@ public class Agent : MonoBehaviour, ICharacter
             OhStunnedShit = false;
         }
     }
-
     #endregion
 
 
@@ -426,7 +426,7 @@ public class Agent : MonoBehaviour, ICharacter
                 {
                     Debug.DrawRay(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
                     //hit.transform.DOShakePosition(0.5f, 0.4f, 10, 45);
-                    hit.transform.GetComponent<LifeManager>().Damage(1); // Togli vita al player in collisione
+                    hit.transform.GetComponent<LifeManager>().Damage(GetComponent<Agent>(), 1); // Togli vita al player in collisione
 
                 }
             }
