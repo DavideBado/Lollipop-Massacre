@@ -86,7 +86,7 @@ public class SelectMenu : MonoBehaviour
         {
             PTwoParty.transform.GetChild(2).GetChild(0).gameObject.SetActive(true);
             PTwoParty.transform.GetChild(2).GetChild(0).GetComponent<Image>().sprite = PartyData.PTwoPart[2].GetComponent<Agent>()._Sprites[1];
-            PTwoParty.transform.GetChild(2).GetChild(0).GetChild(0).GetComponent<TMP_Text>().text = PartyData.PTwoPart[1].GetComponent<Agent>().CharacterName;
+            PTwoParty.transform.GetChild(2).GetChild(0).GetChild(0).GetComponent<TMP_Text>().text = PartyData.PTwoPart[2].GetComponent<Agent>().CharacterName;
         }
 
         if ((PartyData.PartyCount(2) == 3) && (PartyData.PartyCount(1) == 3))
