@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class OnSelectData : MonoBehaviour
 {
+    public EventSystemCustom EventSystemP1, EventSystemP2;
     public RectTransform OnSelectDim;
     public Transform Data_Transform;
     public Image OnSelectImage;

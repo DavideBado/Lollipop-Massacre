@@ -201,7 +201,7 @@ public class XInputTestCS : MonoBehaviour
 
 		if (prevState.Buttons.Start == ButtonState.Released && state.Buttons.Start == ButtonState.Pressed && GetComponent<Agent>() != null && GetComponent<Agent>().MyTurn == true)
 		{
-			inputSimulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.VK_P);
+			inputSimulator.Keyboard.KeyPress(WindowsInput.Native.VirtualKeyCode.ESCAPE);
 		}
 	}
 

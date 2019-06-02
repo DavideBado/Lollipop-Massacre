@@ -27,6 +27,8 @@ public class ButtonCustomLoadingEnd : Button
 
         if (GetComponent<OnSelectData>().GameScene != null)
         {
+            GetComponent<OnSelectData>().EventSystemP1.gameObject.SetActive(false);
+            GetComponent<OnSelectData>().EventSystemP2.gameObject.SetActive(false);
             GetComponent<OnSelectData>().GameScene.SetActive(true);
             GetComponent<OnSelectData>().ThisCanvas.SetActive(false);
 
