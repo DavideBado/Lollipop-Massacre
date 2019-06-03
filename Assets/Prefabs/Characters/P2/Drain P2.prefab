@@ -180,8 +180,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: c6fbc6c4a30dc5e4d8cc4d4260425230, type: 3}
   - {fileID: 21300000, guid: c032d438caaaad048ae0810ba9672aff, type: 3}
   LifeSpritesBench:
-  - {fileID: 21300000, guid: 81c7efd6da8791c41a39295f716c2280, type: 3}
-  - {fileID: 21300000, guid: c84a4b9d3211f99419fb3651b4f1be14, type: 3}
+  - {fileID: 21300000, guid: 39f5483bece74544db86017418a027f1, type: 3}
+  - {fileID: 21300000, guid: c6fbc6c4a30dc5e4d8cc4d4260425230, type: 3}
   EnergySprites:
   - {fileID: 21300000, guid: 9adce7366fe9415489119a9293818859, type: 3}
   - {fileID: 21300000, guid: bc9758f3c3a12884e8e2a684a45ddf34, type: 3}

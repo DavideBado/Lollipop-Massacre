@@ -166,8 +166,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: c6fbc6c4a30dc5e4d8cc4d4260425230, type: 3}
   - {fileID: 21300000, guid: c032d438caaaad048ae0810ba9672aff, type: 3}
   LifeSpritesBench:
-  - {fileID: 21300000, guid: 81c7efd6da8791c41a39295f716c2280, type: 3}
-  - {fileID: 21300000, guid: c84a4b9d3211f99419fb3651b4f1be14, type: 3}
+  - {fileID: 21300000, guid: 39f5483bece74544db86017418a027f1, type: 3}
+  - {fileID: 21300000, guid: c6fbc6c4a30dc5e4d8cc4d4260425230, type: 3}
   EnergySprites:
   - {fileID: 21300000, guid: e9e7efabe7b2f82458365d2c4bea3725, type: 3}
   - {fileID: 21300000, guid: a8b97e81b5488e84682915d3b222ea2f, type: 3}
