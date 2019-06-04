@@ -198,6 +198,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8465559380083324534, guid: eeee4d8060e139b4b80208d09ec3b8c4,
+        type: 3}
+      propertyPath: m_Name
+      value: EventSystem P2
+      objectReference: {fileID: 0}
     - target: {fileID: 8465559380083324528, guid: eeee4d8060e139b4b80208d09ec3b8c4,
         type: 3}
       propertyPath: m_FirstSelected
@@ -262,11 +267,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8465559380083324534, guid: eeee4d8060e139b4b80208d09ec3b8c4,
-        type: 3}
-      propertyPath: m_Name
-      value: EventSystem P2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eeee4d8060e139b4b80208d09ec3b8c4, type: 3}
@@ -511,6 +511,11 @@ PrefabInstance:
       propertyPath: InputMngr
       value: 
       objectReference: {fileID: 8283650427737761573}
+    - target: {fileID: 3813717061950482987, guid: adac2330e1be23647ae26547319b2d35,
+        type: 3}
+      propertyPath: TurnMngr
+      value: 
+      objectReference: {fileID: 4596361660948775573}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: adac2330e1be23647ae26547319b2d35, type: 3}
 --- !u!1 &4596361660948775572 stripped

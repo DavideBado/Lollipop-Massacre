@@ -77,6 +77,7 @@ public class GameManager : MonoBehaviour
 
     }
 
+    #region  Getter
     public GridManager GetGridMngr()
     {
         return GridMngr;
@@ -100,7 +101,8 @@ public class GameManager : MonoBehaviour
     public TurnManager GetTurnManager()
     {
         return TurnMngr;
-    }
+    } 
+    #endregion
 
     void SetUp()
     {
@@ -210,7 +212,11 @@ public class GameManager : MonoBehaviour
 
     public  List<GameObject> POnePart = new List<GameObject>();
     public  List<GameObject> PTwoPart = new List<GameObject>();
-
+    /// <summary>
+    /// Riempie la lista dei player e gli seta l'id.
+    /// </summary>
+    /// <param name="m_PlayerID"></param>
+    /// <param name="m_Character"></param>
     public void AddToParty(int m_PlayerID, GameObject m_Character)
     {
         if (m_PlayerID == 1)
@@ -227,6 +233,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Setta la lista in base all'indice del Player che riceve.
+    /// </summary>
+    /// <param name="m_PlayerID"></param>
+    /// <returns></returns>
     public int PartyCount(int m_PlayerID)
     {
         if (m_PlayerID == 1)

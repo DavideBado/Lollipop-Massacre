@@ -33,7 +33,7 @@ public class PlayerManager : MonoBehaviour
                 i++;
                 //Debug.Log(m_Character.activeSelf);
 
-                m_Character.transform.parent = BenchPOne.transform;
+                m_Character.transform.SetParent(BenchPOne.transform);
                 m_Character.SetActive(false);
                 //Debug.Log("Dopo" + m_Character.activeSelf);
             }
@@ -48,7 +48,7 @@ public class PlayerManager : MonoBehaviour
                 PTwoParty.Add(m_Character);
                 m_Character.GetComponent<Agent>().SwitchIndex = i;
                 i++;
-                m_Character.transform.parent = BenchPTwo.transform;
+                m_Character.transform.SetParent(BenchPTwo.transform);
                 m_Character.SetActive(false);
                 
             }

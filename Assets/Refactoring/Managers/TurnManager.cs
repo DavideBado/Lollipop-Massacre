@@ -29,7 +29,11 @@ public class TurnManager : MonoBehaviour
     }
 
     #region API
-    void TimeForThePlayer() // This check the time && switch the rounds
+    /// <summary>
+    /// This check the time && switch the rounds
+    /// </summary>
+    /// TODO : Si deve attivare durante il gameplay
+    void TimeForThePlayer() 
     {
         Timer2 = Mathf.Round(Timer);
         if (TimerOn == true)
@@ -79,6 +83,9 @@ public class TurnManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Setta il metodo di Spawn
+    /// </summary>
     void SpawnUpdate()
     {
         if (RoundCount == 2) // Se non è più il primo round
