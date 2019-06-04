@@ -441,15 +441,12 @@ public class GameManager : MonoBehaviour
             GameObject _chara = _m_agents[0];
      
             SetNewPosition(_chara, RespawnController.FindAGoodPoint(FindPlayer(m_ActivePlayerID)));
-            ToggleObject(_chara, _m_agents);
-
+            ToggleObject(_chara, _m_agents);          
         }
     }
 
     public void MyPause()
     {
-
-
         if (m_Agents.Count == 0)
         {
             m_Agents = FindObjectsOfType<Agent>().ToList();

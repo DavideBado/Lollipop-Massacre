@@ -73,7 +73,7 @@ public class LifeManager : MonoBehaviour
         }
         if (Graphic != null)
         {
-            Graphic.transform.DOShakePosition(0.5f, 0.6f, 10, 45).SetAutoKill();
+            Graphic.transform.DOShakePosition(0.5f, 0.6f, 10, 45).SetAutoKill().OnComplete(CleanTiles);
         }
     }
 
@@ -93,6 +93,11 @@ public class LifeManager : MonoBehaviour
             GetComponent<Agent>().y += (int)_enemyrotation.z;
             GetComponent<Agent>().Movement();
         }
+    }
 
+    private void CleanTiles()
+    {
+        GameManager.CleanTiles();
+        GameManager.UpdateTilesMat();
     }
 }

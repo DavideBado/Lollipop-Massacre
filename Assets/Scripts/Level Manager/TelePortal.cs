@@ -41,6 +41,7 @@ public class TelePortal : MonoBehaviour
             other.transform.position = otherteleport.transform.position;
         }
         gameManager.CleanTiles();
+        gameManager.UpdateTilesMat();
     }
 
     void TeleportCheck()
