@@ -181,6 +181,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: d5ceffa33f81a1042a62da06213e4b83, type: 3}
   - {fileID: 21300000, guid: c6fbc6c4a30dc5e4d8cc4d4260425230, type: 3}
   - {fileID: 21300000, guid: c032d438caaaad048ae0810ba9672aff, type: 3}
+  - {fileID: 21300000, guid: 0565fba80f3945841b3d23cb8bf3193d, type: 3}
   LifeSpritesBench:
   - {fileID: 21300000, guid: 39f5483bece74544db86017418a027f1, type: 3}
   - {fileID: 21300000, guid: c6fbc6c4a30dc5e4d8cc4d4260425230, type: 3}
@@ -590,14 +591,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1510294127}
     m_Modifications:
-    - target: {fileID: 100042, guid: 6a5d2e1b3840f2d4c956e989dbade66b, type: 3}
-      propertyPath: m_Name
-      value: SM_Lollipop_Sience
-      objectReference: {fileID: 0}
-    - target: {fileID: 100042, guid: 6a5d2e1b3840f2d4c956e989dbade66b, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 400042, guid: 6a5d2e1b3840f2d4c956e989dbade66b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -654,6 +647,14 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.37
       objectReference: {fileID: 0}
+    - target: {fileID: 100042, guid: 6a5d2e1b3840f2d4c956e989dbade66b, type: 3}
+      propertyPath: m_Name
+      value: SM_Lollipop_Sience
+      objectReference: {fileID: 0}
+    - target: {fileID: 100042, guid: 6a5d2e1b3840f2d4c956e989dbade66b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: 6a5d2e1b3840f2d4c956e989dbade66b, type: 3}
       propertyPath: m_Controller
       value: 
@@ -699,10 +700,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1510294127}
     m_Modifications:
-    - target: {fileID: 100000, guid: aa38338f0e161484ab91c6736aef6ec8, type: 3}
-      propertyPath: m_Name
-      value: camminata scimmia
-      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: aa38338f0e161484ab91c6736aef6ec8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -758,6 +755,10 @@ PrefabInstance:
     - target: {fileID: 400000, guid: aa38338f0e161484ab91c6736aef6ec8, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: aa38338f0e161484ab91c6736aef6ec8, type: 3}
+      propertyPath: m_Name
+      value: camminata scimmia
       objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: aa38338f0e161484ab91c6736aef6ec8, type: 3}
       propertyPath: m_Controller

@@ -306,6 +306,9 @@ public class Agent : MonoBehaviour, ICharacter
         float AngleDeg = (180 / Mathf.PI) * AngleRad;
 
         transform.rotation = Quaternion.Euler(0, AngleDeg, 0);
+
+        GameManager.CleanTiles();
+        GameManager.UpdateTilesMat();
     }
 	
     #region Input
@@ -314,8 +317,8 @@ public class Agent : MonoBehaviour, ICharacter
 	{
 
 		if (y < (configGrid.DimY - 1) && OnTheRoad == false && MyTurn == true && ImStunned == false && GameManager.Pause == false)
-		{
-			RotDown = false; RotLeft = false; RotRight = false;
+        {
+            RotDown = false; RotLeft = false; RotRight = false;
 			OnTheRoad = true;
 			y++;						
             Rotation();
@@ -338,8 +341,8 @@ public class Agent : MonoBehaviour, ICharacter
 	public void Left()
 	{
 		if (x > 0 && OnTheRoad == false && MyTurn == true && ImStunned == false && GameManager.Pause == false)
-		{
-			RotUp = false; RotDown = false; RotRight = false;
+        {
+            RotUp = false; RotDown = false; RotRight = false;
 			OnTheRoad = true;
 			x--;			
             Rotation();
@@ -362,8 +365,8 @@ public class Agent : MonoBehaviour, ICharacter
 	public void Down()
 	{
 		if (y > 0 && OnTheRoad == false && MyTurn == true && ImStunned == false && GameManager.Pause == false)
-		{
-			RotUp = false; RotLeft = false; RotRight = false;
+        {
+            RotUp = false; RotLeft = false; RotRight = false;
 			OnTheRoad = true;
 			y--;			
             Rotation();
@@ -386,8 +389,8 @@ public class Agent : MonoBehaviour, ICharacter
 	public void Right()
 	{
 		if (x < (configGrid.DimX - 1) && OnTheRoad == false && MyTurn == true && ImStunned == false && GameManager.Pause == false)
-		{
-			RotUp = false; RotDown = false; RotLeft = false;
+        {
+            RotUp = false; RotDown = false; RotLeft = false;
 			OnTheRoad = true;
 			x++;
             Rotation();

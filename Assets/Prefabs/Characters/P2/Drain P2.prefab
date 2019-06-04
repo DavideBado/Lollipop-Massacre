@@ -179,6 +179,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: d5ceffa33f81a1042a62da06213e4b83, type: 3}
   - {fileID: 21300000, guid: c6fbc6c4a30dc5e4d8cc4d4260425230, type: 3}
   - {fileID: 21300000, guid: c032d438caaaad048ae0810ba9672aff, type: 3}
+  - {fileID: 21300000, guid: 0565fba80f3945841b3d23cb8bf3193d, type: 3}
   LifeSpritesBench:
   - {fileID: 21300000, guid: 39f5483bece74544db86017418a027f1, type: 3}
   - {fileID: 21300000, guid: c6fbc6c4a30dc5e4d8cc4d4260425230, type: 3}
