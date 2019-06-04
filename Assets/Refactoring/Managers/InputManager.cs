@@ -38,13 +38,9 @@ public class InputManager : MonoBehaviour
                 currentInput = null;
                 Debug.Log(currentInput);
                 break;
-            default:
-                break;
         }
         ActiveInput(currentInput);
     }
-
- 
 
     public void Setup()
     {

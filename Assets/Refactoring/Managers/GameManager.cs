@@ -31,10 +31,20 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
+
+    public void InitManagers()
+    {
+        GetInputManager();
+        GetUiManager();
+        GetLevelManager();
+        GetTurnManager();
+        GetGridMngr();
+    }
+
     private void Awake()
     {
         Instance();
-        SetUp();
+        SetUpSM();
     }
 
     private void OnEnable()
@@ -85,11 +95,20 @@ public class GameManager : MonoBehaviour
 
     public UIManager GetUiManager()
     {
+        if (!UIMngr)
+        {
+            return UIMngr;
+        }
         return UIMngr;
+
     }
 
     public InputManager GetInputManager()
     {
+        if (InputMngr == null)
+        {
+            return InputMngr;
+        }
         return InputMngr;
     }
 
@@ -101,20 +120,19 @@ public class GameManager : MonoBehaviour
     public TurnManager GetTurnManager()
     {
         return TurnMngr;
-    } 
+    }
     #endregion
-
-    void SetUp()
+    /// <summary>
+    /// StateMachineSetup
+    /// </summary>
+    void SetUpSM()
     {
         //Setup della state machine
         animController = GetComponent<Animator>();
         //setup dei managers
-        InputMngr = FindObjectOfType<InputManager>();
-        UIMngr = FindObjectOfType<UIManager>();
         Context context = new Context()
         {
             timer = 5f,
-
         };
         foreach (StateBehaviourBase state in animController.GetBehaviours<StateBehaviourBase>())
         {
@@ -210,8 +228,8 @@ public class GameManager : MonoBehaviour
 
     #region Static Bench
 
-    public  List<GameObject> POnePart = new List<GameObject>();
-    public  List<GameObject> PTwoPart = new List<GameObject>();
+    public List<GameObject> POnePart = new List<GameObject>();
+    public List<GameObject> PTwoPart = new List<GameObject>();
     /// <summary>
     /// Riempie la lista dei player e gli seta l'id.
     /// </summary>

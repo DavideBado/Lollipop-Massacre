@@ -511,6 +511,16 @@ PrefabInstance:
       propertyPath: InputMngr
       value: 
       objectReference: {fileID: 8283650427737761573}
+    - target: {fileID: 8283650427737761573, guid: adac2330e1be23647ae26547319b2d35,
+        type: 3}
+      propertyPath: GPInputs.Array.data[0]
+      value: 
+      objectReference: {fileID: 4596361660948775578}
+    - target: {fileID: 8283650427737761573, guid: adac2330e1be23647ae26547319b2d35,
+        type: 3}
+      propertyPath: GPInputs.Array.data[1]
+      value: 
+      objectReference: {fileID: 4596361660948775577}
     - target: {fileID: 3813717061950482987, guid: adac2330e1be23647ae26547319b2d35,
         type: 3}
       propertyPath: TurnMngr
@@ -548,6 +558,30 @@ MonoBehaviour:
   Spawn1: 1
   RespawnController: {fileID: 0}
   TimerOn: 1
+--- !u!114 &4596361660948775577 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3249385794186699686, guid: adac2330e1be23647ae26547319b2d35,
+    type: 3}
+  m_PrefabInstance: {fileID: 4596361660948775571}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4596361660948775572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebb7a2c0b29227c49ae6570a29a9ac73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4596361660948775578 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4826378436869025747, guid: adac2330e1be23647ae26547319b2d35,
+    type: 3}
+  m_PrefabInstance: {fileID: 4596361660948775571}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4596361660948775572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebb7a2c0b29227c49ae6570a29a9ac73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &8283650427737761573 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8283650427737761573, guid: adac2330e1be23647ae26547319b2d35,
