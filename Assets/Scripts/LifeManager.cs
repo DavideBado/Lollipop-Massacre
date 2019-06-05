@@ -73,7 +73,7 @@ public class LifeManager : MonoBehaviour
         }
         if (Graphic != null)
         {
-            Graphic.transform.DOShakePosition(0.5f, 0.6f, 10, 45).SetAutoKill().OnComplete(CleanTiles);
+            Graphic.transform.DOShakePosition(0.5f, 0.6f, 10, 45).SetAutoKill();
         }
     }
 

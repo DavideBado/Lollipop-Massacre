@@ -89,6 +89,8 @@ public class GameManager : MonoBehaviour
                 needdeathcheck = false;
                 Pause = false;
                 timerDeath = 1f;
+                CleanTiles();
+                UpdateTilesMat();
             }
         }
     }

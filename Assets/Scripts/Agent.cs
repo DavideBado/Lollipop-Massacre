@@ -105,7 +105,6 @@ public class Agent : MonoBehaviour, ICharacter
         //Debug.Log(name + " SpawnPoint:" + AgentSpawnPosition);
         Sicura();
 		Movement(); // Muove il giocatore
-        APlayerTypeSelector();
         RayDirections();
         Stunname();
         ImDrained();
@@ -145,33 +144,7 @@ public class Agent : MonoBehaviour, ICharacter
 			BasicAtt.enabled = false; // Metti via le armi
 		}
 	}
-	void APlayerTypeSelector()
-    {
-        if (Input.GetKeyDown(BigD1))
-        {
-            PlayerType = 1;
-        }
-        if (Input.GetKeyDown(Drain2))
-        {
-            PlayerType = 2;
-        }
-        if (Input.GetKeyDown(Stun3))
-        {
-            PlayerType = 3;
-        }
-        if (Input.GetKeyDown(Venom4))
-        {
-            PlayerType = 4;
-        }
-        if (Input.GetKeyDown(Charge5))
-        {
-            PlayerType = 5;
-        }
-        if (Input.GetKeyDown(Whirlwind6))
-        {
-            PlayerType = 6;
-        }
-    }
+	
     public void Movement() // Muove il giocatore
     {
         if (grid) // Check if we have a grid

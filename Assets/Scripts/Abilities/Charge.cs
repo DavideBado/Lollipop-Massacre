@@ -30,7 +30,8 @@ public class Charge : MonoBehaviour
             {
                 onAttack = false;
                 Manager.TimerOn = true;
-                CleanPreview();
+                Manager.CleanTiles();
+                Manager.UpdateTilesMat();
                 Timer = 1f;
             }
 

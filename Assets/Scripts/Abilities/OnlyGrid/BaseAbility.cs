@@ -341,7 +341,7 @@ public class BaseAbility
             {
                 if (grid.CellFree(CellsList[i][j]))
                 {
-                    CellsList[i][j].MyCell.GetComponent<MeshRenderer>().material.color = Color.red;
+                    CellsList[i][j].MyCell.GetComponent<MeshRenderer>().material.color = Color.green;
                 }
                 else
                 {

@@ -28,7 +28,8 @@ public class Venom : MonoBehaviour
             {
                 onAttack = false;
                 Manager.Pause = false;
-                CleanPreview();
+                Manager.CleanTiles();
+                Manager.UpdateTilesMat();
                 Timer = 1f;
             }
 
