@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public LevelManager LevelMngr;
     public GridManager GridMngr;
     public TurnManager TurnMngr;
+    public PlayerManager PlayerMngr;
 
 
     #region Delegates
@@ -28,6 +29,7 @@ public class GameManager : MonoBehaviour
     public static Action GoToPreturn;
     public static Action GoToEndGame;
     public static Action GoToPause;
+    
 
     #endregion
 
@@ -39,6 +41,7 @@ public class GameManager : MonoBehaviour
         GetLevelManager();
         GetTurnManager();
         GetGridMngr();
+        GetPlayerManager();
     }
 
     private void Awake()
@@ -84,6 +87,8 @@ public class GameManager : MonoBehaviour
     {
         //parametri context
         public float timer;
+        public int CurrentPlayer;
+        public float preturnTimer;
 
     }
 
@@ -121,6 +126,11 @@ public class GameManager : MonoBehaviour
     {
         return TurnMngr;
     }
+
+    public PlayerManager GetPlayerManager()
+    {
+        return PlayerMngr;
+    }
     #endregion
     /// <summary>
     /// StateMachineSetup
@@ -133,6 +143,7 @@ public class GameManager : MonoBehaviour
         Context context = new Context()
         {
             timer = 5f,
+            preturnTimer = 1f,
         };
         foreach (StateBehaviourBase state in animController.GetBehaviours<StateBehaviourBase>())
         {
@@ -277,6 +288,8 @@ public class GameManager : MonoBehaviour
         singleton.POnePart.Clear();
         singleton.PTwoPart.Clear();
     }
+
+
 
     #endregion
 }

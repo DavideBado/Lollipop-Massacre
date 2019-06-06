@@ -58,28 +58,17 @@ public class TurnManager : MonoBehaviour
                     PortalSpawner.Telespawn();
                 }
             }
-            m_TimerSafe -= Time.deltaTime; // Attiva il tempo supplementare
+            
             Pause = true;
             TimerOn = false;
             //m_slider.SetActive(false);
-            if (m_TimerSafe <= 0) // E anche il tempo supplementare è finito
-            {
-                TimerOn = true;
-                //m_slider.SetActive(true);
-                Pause = false;
-                Turn = !Turn; // Change player
-                Timer = TimeMax;
-                TimeMax = 5f; //Imposta nuovamente il timer
-                m_TimerSafe = TimerSafe; //Imposta nuovamente il tempo supplementare
-                CanAttack = true;// Il giocatore può attaccare
-                PickUpTurnCount++;
-                HealtTurnCount++;
-                PortalRounds++;
+            
+                
                 if (Turn == true)// Se è nuovamente il turno del primo giocatore
                 {
                     RoundCount++; // Aggiorna il contatore dei round                  
                 }
-            }
+            
         }
     }
 
@@ -92,6 +81,25 @@ public class TurnManager : MonoBehaviour
         {
             Spawn1 = false; // Il metodo di spawn cambia
         }
+    }
+
+    public void ChangeTurn()
+    {
+        if (Turn == true)
+            Turn = false;
+        else if (Turn == false)
+            Turn = true;
+
+        TimerOn = true;
+        //m_slider.SetActive(true);
+        Pause = false;
+        Timer = TimeMax;
+        TimeMax = 5f; //Imposta nuovamente il timer
+        m_TimerSafe = TimerSafe; //Imposta nuovamente il tempo supplementare
+        CanAttack = true;// Il giocatore può attaccare
+        PickUpTurnCount++;
+        HealtTurnCount++;
+        PortalRounds++;
     }
     #endregion
 }

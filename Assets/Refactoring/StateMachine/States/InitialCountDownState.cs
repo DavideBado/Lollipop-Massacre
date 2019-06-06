@@ -8,6 +8,7 @@ public class InitialCountDownState : StateBehaviourBase
     /// <summary>
     /// onenter attiviamo Ui del countdown iniziale
     /// disattivati input per entrambi i player
+    /// settare currentPlayer
     /// </summary>
     public override void OnEnter()
     {
@@ -21,6 +22,7 @@ public class InitialCountDownState : StateBehaviourBase
     {
         timerIniziale -= Time.deltaTime;
         if (timerIniziale <= 0)
+
             GameManager.GoToIdle();
     }
 
@@ -32,4 +34,6 @@ public class InitialCountDownState : StateBehaviourBase
     {
 
     }
+
+
 }

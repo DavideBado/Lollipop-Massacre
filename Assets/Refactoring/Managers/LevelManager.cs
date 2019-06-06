@@ -11,7 +11,8 @@ public class LevelManager : MonoBehaviour
     /// </summary>
     public void Init()
     {
-        Gridmngr.SetUp();    }
+        Gridmngr.SetUp();
+    }
 
     public void SetUp()
     {

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
+    public List<List<GameObject>> CurrentBench = new List<List<GameObject>>();
     public List<GameObject> POneParty = new List<GameObject>();
     public List<GameObject> PTwoParty = new List<GameObject>();
     public GameObject BenchPOne, BenchPTwo;
@@ -164,6 +165,20 @@ public class PlayerManager : MonoBehaviour
 
         }
     }
+
+    public void FillBenchList()
+    {
+        if(PlayerID == 1)
+        {
+            CurrentBench.Add(POneParty);
+        }
+        else if(PlayerID == 2)
+        {
+            CurrentBench.Add(PTwoParty);
+        }
+    }
+
+
 }
 
 

@@ -8,6 +8,7 @@ public class MainMenuState : StateBehaviourBase {
 
     public override void OnEnter()
     {
+        GameManager.singleton.InitManagers();
         Debug.Log("MainMenuState: Enter");
         GameManager.singleton.UIMngr.ChangeMenu(MenuType.MainMenu);
         GameManager.singleton.InputMngr.ChangeInput(InputMgrType.nullo);
