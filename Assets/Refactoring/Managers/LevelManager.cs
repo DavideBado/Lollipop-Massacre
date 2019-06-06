@@ -4,21 +4,27 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-     public GridManager Gridmngr;
+
 
     /// <summary>
     /// setup dei manager
     /// </summary>
     public void Init()
     {
-        Gridmngr.SetUp();
+        GameManager.singleton.GridMngr.SetUp();
+        GameManager.singleton.PlayerMngr.ActiveStarters();
     }
 
     public void SetUp()
     {
-        if (Gridmngr ==null)
+        if (GameManager.singleton.GridMngr == null)
         {
-            Gridmngr = FindObjectOfType<GridManager>(); 
+            GameManager.singleton.GridMngr = FindObjectOfType<GridManager>(); 
+        }
+
+        if(GameManager.singleton.PlayerMngr == null)
+        {
+            GameManager.singleton.PlayerMngr = FindObjectOfType<PlayerManager>();
         }
     }
 

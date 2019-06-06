@@ -17,11 +17,12 @@ public class InputManager : MonoBehaviour
     public Action GoToRight;
     public Action GoToAttaccoBase;
     public Action GoToAbilita;
-   // public Action GoToPreview;
+    // public Action GoToPreview;
     public Action GoToSwitchUp;
     public Action GoToSwitchDown;
     public Action GoToTeleport;
-    
+    public Action GoToSelect;
+
     #endregion
 
     public void ChangeInput(InputMgrType _input)
@@ -42,17 +43,35 @@ public class InputManager : MonoBehaviour
         ActiveInput(currentInput);
     }
 
+    private void Awake()
+    {
+        GoToUp = 
+        GoToDown =
+        GoToLeft =
+        GoToRight =
+        GoToAttaccoBase =
+        GoToAbilita =
+        GoToSwitchUp =
+        GoToSwitchDown =
+        GoToTeleport =
+        GoToSelect =
+            DefaultAction;
+    }
+
     public void Setup()
     {
+
         MNInput = GetComponent<MenuInput>();
         foreach (GamePlayInput _gpinput in GPInputs)
         {
-            if(_gpinput.InputID == 1)
+            if (_gpinput.InputID == 1)
             {
                 GPInput = _gpinput;
             }
         }
     }
+
+    private void DefaultAction() { }
 
     public void ActiveInput(InputBase _input)
     {

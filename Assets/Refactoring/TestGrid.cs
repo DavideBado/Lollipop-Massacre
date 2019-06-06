@@ -9,7 +9,7 @@ public class TestGrid : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        GameManager.singleton.LevelMngr.Gridmngr.Grid.CreateGrid(bg.ConfigData);
+        //GameManager.singleton.Gridmngr.Grid.CreateGrid(bg.ConfigData);
     }
 
     public void createGrid()

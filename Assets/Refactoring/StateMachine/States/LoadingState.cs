@@ -5,16 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class LoadingState : StateBehaviourBase
 {
-    public string SceneNameToLoad;
-    public float loadingtimer;
+    public string SceneNameToLoad; 
+    float loadingtimer;
+
+
     private void OnEnable()
     {
-        SceneManager.sceneLoaded += OnSceneLoaded;
+        
     }
     public override void OnEnter()
     {
+        SceneManager.sceneLoaded += OnSceneLoaded;
         ChangeScene();
-        OnSceneLoaded( LoadSceneMode.Single);
         GameManager.singleton.UIMngr.ChangeMenu(MenuType.Loading);
         loadingtimer = ctx.timer;
     }
@@ -29,6 +31,7 @@ public class LoadingState : StateBehaviourBase
     public override void OnExit()
     {
         GameManager.singleton.UIMngr.Loading.SetActive(false);
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
     public void ChangeScene()
@@ -38,16 +41,18 @@ public class LoadingState : StateBehaviourBase
     }
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if(scene.name == SceneNameToLoad)
+        
+        if(scene.name == SceneNameToLoad && scene.name != "MenuIniziale")
         {
             GameManager.singleton.LevelMngr.SetUp();
             GameManager.singleton.LevelMngr.Init();
+            
         }
 
     }
 
     private void OnDisable()
     {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
+        
     }
 }

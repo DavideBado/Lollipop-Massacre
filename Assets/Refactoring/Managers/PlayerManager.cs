@@ -57,7 +57,7 @@ public class PlayerManager : MonoBehaviour
         ActiveStarters();
     }
 
-    void ActiveStarters()
+    public void ActiveStarters()
     {
         PgInStartPosition(POneParty, 1);
         PgInStartPosition(PTwoParty, 2);
