@@ -45,6 +45,16 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        Timer = TimeMax;
+        if(((int)PartyData.FirstPartyDev) == 1)
+        {
+            Turn = true;
+        }
+        else if (((int)PartyData.FirstPartyDev) == 2)
+        {
+            Turn = false;
+        }
+
         PortalSpawner = GetComponent<TeleportSpawner>();
         portalTimer = 0.5f;
         //m_SwitchPOne = 2;

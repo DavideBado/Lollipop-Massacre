@@ -37,9 +37,6 @@ public class Poison : MonoBehaviour
                 CanUpdate = true;
             }
 
-
-
-
             if (MaxRounds == 1 && CanAttack == true && FindObjectOfType<GameManager>().Turn == RoundCheck)
             {
                 MaxRounds--;

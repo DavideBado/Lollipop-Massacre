@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public static class PartyData
-
 {
+    public static float FirstPartyDev = 1f;
     public static List<GameObject> POnePart = new List<GameObject>();
     public static List<GameObject> PTwoPart = new List<GameObject>();
 

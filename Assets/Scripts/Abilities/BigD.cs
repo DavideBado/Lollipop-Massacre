@@ -75,12 +75,10 @@ public class BigD : MonoBehaviour
             }
 
             if (Physics.Raycast(GetComponent<Agent>().RayRight + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt, out hit, 2))
-
             {
                 Debug.DrawRay(GetComponent<Agent>().RayRight + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.yellow);
 
                 if (hit.transform.tag == "Player" && hit.transform != transform)
-
                 {
                     onAttack = true;
                     Debug.DrawRay(GetComponent<Agent>().RayRight + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
@@ -153,11 +151,9 @@ public class BigD : MonoBehaviour
                         }
                     }
                 }
-
             }
             else if (_lookY != 0)
             {
-
                 if (_lookY < 0)
                 {
                     foreach (CellPrefScript cell in cells)
@@ -183,7 +179,6 @@ public class BigD : MonoBehaviour
                         }
                     }
                 }
-
             }
         }
 
@@ -193,7 +188,6 @@ public class BigD : MonoBehaviour
         }
         else
         {
-
             if (_lookX != 0)
             {
                 if (_lookX < 0)

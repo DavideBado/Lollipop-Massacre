@@ -8,5 +8,6 @@ public class LoadSceneLoading : MonoBehaviour
     private void OnEnable()
     {
         SceneManager.LoadScene(SceneIndex);
+        FindObjectOfType<StarterController>().SelectPlayer();
     }
 }
