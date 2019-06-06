@@ -48,13 +48,13 @@ namespace GridSystem {
             ManagerCell(ConfigWalls);           
         }
 
-        public Vector3 GetWorldPosition(int _x, int _y) {
+        public Vector3 GetWorldPosition(Vector3 _position, int _x, int _y) {
             foreach (CellPrefScript cell in PrefScripts) {
                 if (cell.x == _x && cell.z == _y) {
                     return cell.worldPosition;
                 }
             }
-            return Vector3.zero;
+            return _position;
         }
 
         public CellPrefScript GetCell(int _x, int _y)

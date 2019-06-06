@@ -130,8 +130,7 @@ public class Agent : MonoBehaviour, ICharacter
         AgentSpeed = GameManager.Speed;
         //Mana = 1;
         x = (int)(transform.position.x);
-        y = (int)(transform.position.z);
-      
+        y = (int)(transform.position.z);      
     }
     #endregion
 
@@ -149,14 +148,13 @@ public class Agent : MonoBehaviour, ICharacter
     {
         if (grid) // Check if we have a grid
         {
-
             if (checkIfPosEmpty() && ImStunned == false) // Now if the cell is free
             { // Move the player && save x && y
                 BasicAtt.enabled = false; // Assicurati di avere le armi nel fodero
                  // Spostati verso la casella selezionata alla velocità di Speed unità al secondo
-                transform.position = Vector3.MoveTowards(transform.position, grid.GetWorldPosition(x, y),
+                transform.position = Vector3.MoveTowards(transform.position, grid.GetWorldPosition(transform.position, x, y),
                 AgentSpeed * Time.deltaTime);
-                if (transform.position == grid.GetWorldPosition(x, y)) // Se hai raggiunto la tua destinazione
+                if (transform.position == grid.GetWorldPosition(transform.position, x, y)) // Se hai raggiunto la tua destinazione
                 {
                     GameManager.CleanTiles();
                     GameManager.UpdateTilesMat();
@@ -245,14 +243,14 @@ public class Agent : MonoBehaviour, ICharacter
         GetAllInterestingData(); // Trova tutti gli oggetti che potrebbero interferire con il movimento
         foreach (var item in Players)
         {
-            if (grid.GetWorldPosition(x, y) == item.transform.position) // Controlla se la cella è occupata da un altro giocatore
+            if (grid.GetWorldPosition(transform.position, x, y) == item.transform.position) // Controlla se la cella è occupata da un altro giocatore
             {
                 return false;
             }
         }
         foreach (var item in Walls)
         {
-            if (grid.GetWorldPosition(x, y) == item.transform.position) // Controlla se la cella è occupata da un muro
+            if (grid.GetWorldPosition(transform.position, x, y) == item.transform.position) // Controlla se la cella è occupata da un muro
             {
                 return false;
             }
@@ -267,12 +265,11 @@ public class Agent : MonoBehaviour, ICharacter
 
         // Creo una lista di tutti i Wall presenti nel livello.
         Walls = FindObjectsOfType<Wall>().ToList();
-
     }
 
     public void Rotation()
     {
-        Vector3 lookAt = grid.GetWorldPosition(x,y);
+        Vector3 lookAt = grid.GetWorldPosition(transform.position, x, y);
         
         float AngleRad = Mathf.Atan2(lookAt.x - this.transform.position.x, lookAt.z - this.transform.position.z);
 
