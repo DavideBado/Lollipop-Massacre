@@ -25,13 +25,13 @@ public class ButtonCustomLoadingEnd : Button
     public override void OnSubmit(BaseEventData eventData)
     {
 
-        if (GetComponent<OnSelectData>().GameScene != null)
+        if (GetComponent<OnSelectData>().GameProps != null)
         {
             GetComponent<OnSelectData>().EventSystemP1.gameObject.SetActive(false);
             GetComponent<OnSelectData>().EventSystemP2.gameObject.SetActive(false);
-            GetComponent<OnSelectData>().GameScene.SetActive(true);
+            GetComponent<OnSelectData>().GameProps.SetActive(true);
+            GetComponent<OnSelectData>().NextCanvas.SetActive(true);
             GetComponent<OnSelectData>().ThisCanvas.SetActive(false);
-
         }
     }
 

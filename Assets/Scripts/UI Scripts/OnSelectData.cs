@@ -11,6 +11,6 @@ public class OnSelectData : MonoBehaviour
     public Image OnSelectImage;
     public GameObject ThisCanvas, NextCanvas;
     public int SceneIndex;
-    public GameObject GameScene;
+    public GameObject GameProps;
 
 }

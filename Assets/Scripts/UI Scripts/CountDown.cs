@@ -5,16 +5,34 @@ using TMPro;
 
 public class CountDown : MonoBehaviour
 {
-    public TMP_Text Timer_txt, Player_txt;
-    private float timer = 3;
+    public GameObject ThisCanvas, Game, InGameTiles, Tiles;
+    public TMP_Text Timer_txt, Player_txt, Starts_txt;
+    public List<Material> PlayertxtMat = new List<Material>();
+    private float timerCD = 4, timer = 2;
 
     private void Start()
     {
-        Timer_txt.text = "PLAYER" + PartyData.FirstPartyDev;
+        Timer_txt.text = "PLAYER" + (int)PartyData.FirstPartyDev;
+        Timer_txt.material = PlayertxtMat[((int)PartyData.FirstPartyDev - 1)];
     }
     private void Update()
     {
-        Timer_txt.text = ((int)timer).ToString();
-        timer -= Time.deltaTime;
+        if (timer <= 0)
+        {
+            Player_txt.enabled = false;
+            Starts_txt.enabled = false;
+            Timer_txt.enabled = true;
+            Timer_txt.text = ((int)timerCD).ToString();
+            timerCD -= Time.deltaTime;
+            transform.Translate(new Vector3(0, 1 * Time.deltaTime));
+            if(timerCD <= 0)
+            {
+                Game.SetActive(true);
+                Tiles.SetActive(false);
+                InGameTiles.SetActive(true);
+                ThisCanvas.SetActive(false);
+            }
+        }
+        else timer -= Time.deltaTime;
     }    
 }
