@@ -6,6 +6,7 @@ using TMPro;
 
 public class SelectMenu : MonoBehaviour
 {
+    public bool ReadyPlayerOne = false, ReadyPlayerTwo = false;
     public GameObject CurrentCanvas, NextCanvas;
     public GameObject POnePaty, PTwoParty;
     //public GameObject PlayButton;
@@ -89,7 +90,7 @@ public class SelectMenu : MonoBehaviour
             PTwoParty.transform.GetChild(2).GetChild(0).GetChild(0).GetComponent<TMP_Text>().text = PartyData.PTwoPart[2].GetComponent<Agent>().CharacterName;
         }
 
-        if ((PartyData.PartyCount(2) == 3) && (PartyData.PartyCount(1) == 3))
+        if ((PartyData.PartyCount(2) == 3) && (PartyData.PartyCount(1) == 3) && ReadyPlayerOne && ReadyPlayerTwo)
         {
             NextCanvas.SetActive(true);
             CurrentCanvas.SetActive(false);
