@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class OnSelectData : MonoBehaviour
-{
+{ 
     public EventSystemCustom EventSystemP1, EventSystemP2;
     public RectTransform OnSelectDim;
     public Transform Data_Transform;
@@ -12,5 +12,5 @@ public class OnSelectData : MonoBehaviour
     public GameObject ThisCanvas, NextCanvas;
     public int SceneIndex;
     public GameObject GameProps;
-
+    public SelectMenu SelectMenu;
 }

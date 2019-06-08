@@ -25,7 +25,7 @@ public class CountDown : MonoBehaviour
             Timer_txt.text = ((int)timerCD).ToString();
             timerCD -= Time.deltaTime;
             transform.Translate(new Vector3(0, 1 * Time.deltaTime));
-            if(timerCD <= 0)
+            if(timerCD < 1)
             {
                 Game.SetActive(true);
                 Tiles.SetActive(false);

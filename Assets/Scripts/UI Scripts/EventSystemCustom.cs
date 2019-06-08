@@ -6,7 +6,8 @@ using System.Collections.Generic;
 using TMPro;
 
 public class EventSystemCustom : EventSystem
-{
+{    
+    public ConfirmButton ConfirmButton;
     List<CharaSprites> m_characterSprites = new List<CharaSprites>();
     List<ButtonCustom1> m_Buttons = new List<ButtonCustom1>();
     public Sprite PlayTexture, BackTexture;
@@ -18,12 +19,11 @@ public class EventSystemCustom : EventSystem
     protected override void OnEnable()
     {        
         base.OnEnable();
-    }
-
-    
+    }    
 
     protected override void Update()
     {
+        SelectConfirm();
         m_characterSprites = FindObjectsOfType<CharaSprites>().ToList();
         EventSystem originalCurrent = EventSystem.current;
         current = this;
@@ -117,5 +117,13 @@ public class EventSystemCustom : EventSystem
         }
     }
 
+    private void SelectConfirm()
+    {
+        if(PartyData.PartyCount(ID) == 3 && ConfirmButton != null)
+        {
+            SetSelectedGameObject(ConfirmButton.gameObject);            
+        }
+    
+    }
   
 }

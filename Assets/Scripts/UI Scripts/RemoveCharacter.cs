@@ -6,6 +6,7 @@ public class RemoveCharacter : MonoBehaviour
 {
     public GameObject OldCanvas, NewCanvas;
     public GameObject Loading;
+    public SelectMenu SelectMenu;
     
 
     // Update is called once per frame
@@ -13,11 +14,19 @@ public class RemoveCharacter : MonoBehaviour
     {
        if(Input.GetKeyDown(KeyCode.Q))
         {
-            FindObjectOfType<SelectMenu>().RemoveCharacter(1);
+            if (SelectMenu.ReadyPlayerOne == false)
+            {
+                FindObjectOfType<SelectMenu>().RemoveCharacter(1);
+            }
+            else SelectMenu.ReadyPlayerOne = false;
         }
-        if (Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Keypad9))
+        if (Input.GetKeyDown(KeyCode.KeypadEnter))
         {
-            FindObjectOfType<SelectMenu>().RemoveCharacter(2);
+            if (SelectMenu.ReadyPlayerTwo == false)
+            {
+                FindObjectOfType<SelectMenu>().RemoveCharacter(2);
+            }
+            else SelectMenu.ReadyPlayerTwo = false;
         }
 
         //if(Loading.activeInHierarchy == true && Input.GetKeyDown(KeyCode.A))

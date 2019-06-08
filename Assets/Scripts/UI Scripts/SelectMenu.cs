@@ -7,6 +7,7 @@ using TMPro;
 public class SelectMenu : MonoBehaviour
 {
     public bool ReadyPlayerOne = false, ReadyPlayerTwo = false;
+    public GameObject ConfirmP1, ConfirmP2, PreviewP1, PreviewP2;
     public GameObject CurrentCanvas, NextCanvas;
     public GameObject POnePaty, PTwoParty;
     //public GameObject PlayButton;
@@ -94,6 +95,28 @@ public class SelectMenu : MonoBehaviour
         {
             NextCanvas.SetActive(true);
             CurrentCanvas.SetActive(false);
+        }
+
+        if(PartyData.PartyCount(1) == 3)
+        {
+            PreviewP1.SetActive(false);
+            ConfirmP1.SetActive(true);
+        }
+        else
+        {
+            ConfirmP1.SetActive(false);
+            PreviewP1.SetActive(true);
+        }
+
+        if (PartyData.PartyCount(2) == 3)
+        {
+            PreviewP2.SetActive(false);
+            ConfirmP2.SetActive(true);
+        }
+        else
+        {
+            ConfirmP2.SetActive(false);
+            PreviewP2.SetActive(true);
         }
     }
 
