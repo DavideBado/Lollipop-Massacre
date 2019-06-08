@@ -218,7 +218,7 @@ public class GameManager : MonoBehaviour
             foreach (GameObject _Character in PartyData.POnePart)
             {
              
-                GameObject m_Character = Instantiate(_Character, SpawnPoints[0].position, Quaternion.identity, null);
+                GameObject m_Character = Instantiate(_Character, SpawnPoints[0].position, SpawnPoints[0].rotation, null);
                 POneParty.Add(m_Character);
                 m_Character.GetComponent<Agent>().SwitchIndex = i;
                 i ++;
@@ -235,7 +235,7 @@ public class GameManager : MonoBehaviour
 
             foreach (GameObject _Character in PartyData.PTwoPart)
             {
-                GameObject m_Character = Instantiate(_Character, SpawnPoints[1].position, Quaternion.identity, null);
+                GameObject m_Character = Instantiate(_Character, SpawnPoints[1].position, SpawnPoints[1].rotation, null);
                 PTwoParty.Add(m_Character);
                 m_Character.GetComponent<Agent>().SwitchIndex = i;
                 i++;
