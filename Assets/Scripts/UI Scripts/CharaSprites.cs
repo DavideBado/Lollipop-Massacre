@@ -6,6 +6,9 @@ using System.Linq;
 
 public class CharaSprites : MonoBehaviour
 {
+    public List<List<Image>> BigCharaSprites = new List<List<Image>>();
+    public List<Image> BigP1Characters = new List<Image>();
+    public List<Image> BigP2Characters = new List<Image>();
     public GameObject ArrowPOne, ArrowPTwo;
     public Image CharacterImage;
     List<PlayerInMenu> Players = new List<PlayerInMenu>();
@@ -18,6 +21,8 @@ public class CharaSprites : MonoBehaviour
 
     private void Start()
     {
+        BigCharaSprites.Add(BigP1Characters);
+        BigCharaSprites.Add(BigP2Characters);
         // ChildImage.sprite = Character[1].GetComponent<Agent>()._Sprites[0];
         CharacterImage.sprite = Character[0].GetComponent<Agent>()._Sprites[0];
         //FindPlayer();

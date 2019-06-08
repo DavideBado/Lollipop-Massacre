@@ -11,39 +11,31 @@ public class ButtonCustom : Button
     BaseEventData m_BaseEvent;
     GameObject SelectPOne, SelectPTwo;
     List<EventSystemCustom> eventSystemCustoms = new List<EventSystemCustom>();
-
+    private CharaSprites m_characterSprite;
+    
     protected override void Start()
     {
         eventSystemCustoms = FindObjectsOfType<EventSystemCustom>().ToList();
-        if (GetComponent<CharaSprites>() != null)
+        m_characterSprite = GetComponent<CharaSprites>();
+        if (m_characterSprite != null)
         {
             SelectPOne = GetComponent<CharaSprites>().ArrowPOne;
             SelectPTwo = GetComponent<CharaSprites>().ArrowPTwo;
         }
     }
-    //public override void OnPointerDown(PointerEventData eventData)
-    //{
-    //    if (eventData.button != PointerEventData.InputButton.Left)
-    //        return;
 
-    //    // Selection tracking
-    //    if (IsInteractable() && navigation.mode != Navigation.Mode.None)
-    //        eventSystem.SetSelectedGameObject(gameObject, eventData);
-    //    {
-    //        //base.OnPointerDown(eventData);
-    //        OnSubmit(eventData);
-
-    //        Debug.Log(eventSystem.gameObject.name);
-    //    }
-    //}
-
-    //public override void Select()
-    //{
-    //    if (eventSystem.alreadySelecting)
-    //        return;
-    //    Debug.Log(name);
-    //    eventSystem.SetSelectedGameObject(gameObject);
-    //}
+    public override void OnSelect(BaseEventData eventData)
+    {
+        if(m_characterSprite != null)
+        {
+            int ID = eventData.currentInputModule.GetComponent<EventSystemCustom>().ID;
+            if (ID > 0)
+            {
+                m_characterSprite.BigCharaSprites[(ID - 1)][(PartyData.PartyCount(ID))].sprite = m_characterSprite.Character[(ID - 1)].GetComponent<Agent>()._Sprites[1];
+                m_characterSprite.BigCharaSprites[(ID - 1)][(PartyData.PartyCount(ID))].gameObject.SetActive(true);
+            }
+        }
+    }
 
     public override void OnSubmit(BaseEventData eventData)
     { //Output that the Button is in the submit stage
