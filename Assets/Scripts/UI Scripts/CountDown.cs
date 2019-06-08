@@ -12,8 +12,9 @@ public class CountDown : MonoBehaviour
 
     private void Start()
     {
-        Timer_txt.text = "PLAYER" + (int)PartyData.FirstPartyDev;
-        Timer_txt.material = PlayertxtMat[((int)PartyData.FirstPartyDev - 1)];
+        Time.timeScale = 1;
+        Player_txt.SetText("PLAYER " + ((int)PartyData.FirstPartyDev).ToString());
+        Player_txt.fontMaterial = PlayertxtMat[((int)PartyData.FirstPartyDev - 1)];
     }
     private void Update()
     {

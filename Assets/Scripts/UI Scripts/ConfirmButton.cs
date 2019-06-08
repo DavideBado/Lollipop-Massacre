@@ -34,34 +34,5 @@ public class ConfirmButton : Button
     private void Update()
     {
         eventSystem = GetComponent<MyEventSystemProvider>().eventSystem;
-
-    }
-
-    bool PartyCheck(int _PlayerID)
-    {
-        if(_PlayerID == 1)
-        {
-            foreach (GameObject _Object in PartyData.POnePart)
-            {
-                if (_Object == GetComponent<CharaSprites>().Character[(_PlayerID - 1)])
-                {
-                    return false;
-                }
-               
-            }
-        }
-        else if (_PlayerID == 2)
-        {
-            foreach (GameObject _Object in PartyData.PTwoPart)
-            {
-                if (_Object == GetComponent<CharaSprites>().Character[(_PlayerID - 1)])
-                {
-                    return false;
-                }
-       
-            }
-        }
-        return true;
-    }
-    
+    }    
 }

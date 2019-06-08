@@ -3371,6 +3371,7 @@ MonoBehaviour:
   m_FirstSelected: {fileID: 2012980772}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
+  MainMenu: {fileID: 881259232}
   ConfirmButton: {fileID: 1281927332}
   PlayTexture: {fileID: 2800000, guid: 4885e8a9f85bf3c448d7f69ad40f5824, type: 3}
   BackTexture: {fileID: 2800000, guid: 523f1af18b8e28a4681eaf6c204295cc, type: 3}
@@ -5157,6 +5158,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53f4fa7204ed7e54f9d76661f1fd0752, type: 3}
+--- !u!1 &881259232 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 560310385, guid: a93422f9f0f21cd4f8323d2afab0dda4,
+    type: 3}
+  m_PrefabInstance: {fileID: 94710531}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &907310420
 GameObject:
   m_ObjectHideFlags: 0
@@ -5523,8 +5530,7 @@ MonoBehaviour:
   m_text: "READY \nTO FIGHT?"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7a5ee48d2f1ac9b4fb9a7858f4e73f75, type: 2}
-  m_sharedMaterial: {fileID: 21328328211680428, guid: 7a5ee48d2f1ac9b4fb9a7858f4e73f75,
-    type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 4a58689f7ad40b3489bbd31772de659b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6482,8 +6488,7 @@ MonoBehaviour:
   m_text: "READY \nTO FIGHT?"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7a5ee48d2f1ac9b4fb9a7858f4e73f75, type: 2}
-  m_sharedMaterial: {fileID: 21328328211680428, guid: 7a5ee48d2f1ac9b4fb9a7858f4e73f75,
-    type: 2}
+  m_sharedMaterial: {fileID: 2100000, guid: 4a58689f7ad40b3489bbd31772de659b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8462,6 +8467,7 @@ MonoBehaviour:
   m_FirstSelected: {fileID: 2012980772}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
+  MainMenu: {fileID: 881259232}
   ConfirmButton: {fileID: 1917912548}
   PlayTexture: {fileID: 2800000, guid: 4885e8a9f85bf3c448d7f69ad40f5824, type: 3}
   BackTexture: {fileID: 2800000, guid: 523f1af18b8e28a4681eaf6c204295cc, type: 3}

@@ -6,7 +6,8 @@ using System.Collections.Generic;
 using TMPro;
 
 public class EventSystemCustom : EventSystem
-{    
+{
+    public GameObject MainMenu;
     public ConfirmButton ConfirmButton;
     List<CharaSprites> m_characterSprites = new List<CharaSprites>();
     List<ButtonCustom1> m_Buttons = new List<ButtonCustom1>();
@@ -119,11 +120,17 @@ public class EventSystemCustom : EventSystem
 
     private void SelectConfirm()
     {
-        if(PartyData.PartyCount(ID) == 3 && ConfirmButton != null)
+        if(PartyData.PartyCount(ID) == 3 && ConfirmButton != null && !MainMenu.activeSelf)
         {
+            if(ID == 1)
+            {
+                currentCharaSprite.ArrowPOne.SetActive(false);
+            }
+            else if (ID == 2)
+            {
+                currentCharaSprite.ArrowPTwo.SetActive(false);
+            }
             SetSelectedGameObject(ConfirmButton.gameObject);            
-        }
-    
-    }
-  
+        }    
+    }  
 }

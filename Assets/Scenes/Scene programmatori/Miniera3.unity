@@ -12322,6 +12322,36 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 353966687084513621, guid: 0cbc3b63937a09e4aa1b8edeb5abebd2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 353966687084513621, guid: 0cbc3b63937a09e4aa1b8edeb5abebd2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 353966687084513621, guid: 0cbc3b63937a09e4aa1b8edeb5abebd2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 353966687084513621, guid: 0cbc3b63937a09e4aa1b8edeb5abebd2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 251999556}
+    - target: {fileID: 353966687084513621, guid: 0cbc3b63937a09e4aa1b8edeb5abebd2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LoadByIndex
+      objectReference: {fileID: 0}
+    - target: {fileID: 353966687084513621, guid: 0cbc3b63937a09e4aa1b8edeb5abebd2,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0cbc3b63937a09e4aa1b8edeb5abebd2, type: 3}
 --- !u!1 &251999554 stripped
@@ -12336,6 +12366,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 251999553}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &251999556 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 353966687084513620, guid: 0cbc3b63937a09e4aa1b8edeb5abebd2,
+    type: 3}
+  m_PrefabInstance: {fileID: 251999553}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa237775e3514984dbc6deb5fd3d5d13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &252530575
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31946,6 +31988,7 @@ MonoBehaviour:
   m_FirstSelected: {fileID: 1654469820}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
+  ConfirmButton: {fileID: 0}
   PlayTexture: {fileID: 2800000, guid: 4885e8a9f85bf3c448d7f69ad40f5824, type: 3}
   BackTexture: {fileID: 2800000, guid: 523f1af18b8e28a4681eaf6c204295cc, type: 3}
   _Text: {fileID: 0}
@@ -89588,6 +89631,7 @@ MonoBehaviour:
   m_FirstSelected: {fileID: 1654469820}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
+  ConfirmButton: {fileID: 0}
   PlayTexture: {fileID: 2800000, guid: 4885e8a9f85bf3c448d7f69ad40f5824, type: 3}
   BackTexture: {fileID: 2800000, guid: 523f1af18b8e28a4681eaf6c204295cc, type: 3}
   _Text: {fileID: 0}
