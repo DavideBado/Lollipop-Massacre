@@ -154,11 +154,13 @@ public class Agent : MonoBehaviour, ICharacter
                  // Spostati verso la casella selezionata alla velocità di Speed unità al secondo
                 transform.position = Vector3.MoveTowards(transform.position, grid.GetWorldPosition(transform.position, x, y),
                 AgentSpeed * Time.deltaTime);
+                GetComponentInChildren<AnimationController>().Move();
                 if (transform.position == grid.GetWorldPosition(transform.position, x, y)) // Se hai raggiunto la tua destinazione
                 {
                     GameManager.CleanTiles();
                     GameManager.UpdateTilesMat();
                     AgentSpeed = FindObjectOfType<GameManager>().Speed;
+                    GetComponentInChildren<AnimationController>().Idle();
                     // Salva le coordinate della posizione attuale
                     x2 = x;
                     y2 = y;
@@ -385,6 +387,7 @@ public class Agent : MonoBehaviour, ICharacter
 	{
 		if (MyTurn == true && ImStunned == false && GameManager.CanAttack == true && GameManager.Pause == false) // Se è il mio turno
 		{
+            GetComponentInChildren<AnimationController>().Attack();
             OnTheRoad = true;
 			GameManager.CanAttack = false;
             //BasicAtt.enabled = true; // Attiva il collider di attacco     

@@ -40,6 +40,7 @@ public class Venom : MonoBehaviour
     {
         if (GetComponent<Agent>().Mana > 0 && GetComponent<Agent>().MyTurn && GetComponent<Agent>().PlayerType == 4 && GetComponent<Agent>().ImStunned == false && Manager.CanAttack == true && Manager.Pause == false)
         {
+            GetComponentInChildren<AnimationController>().Ability();
             RaycastHit hit;
             if (Physics.Raycast(transform.position + new Vector3(0, 0.5f), Vector3.forward, out hit, Mathf.Infinity))
             {

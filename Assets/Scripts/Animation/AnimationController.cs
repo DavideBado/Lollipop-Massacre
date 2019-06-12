@@ -70,6 +70,7 @@ public class AnimationController : MonoBehaviour
     }
     private void IdleSetAnim()
     {
+        animator.ResetTrigger("AnimWalk");
         animator.SetTrigger("AnimIdle");
     }
     private void DamageSetAnim()

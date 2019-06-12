@@ -63,6 +63,7 @@ public class LifeManager : MonoBehaviour
 
     public void Damage(Agent _enemy, int _amount, bool _baseAttack)
     {
+        GetComponentInChildren<AnimationController>().Damage();
         Life -= _amount;
         //DamageFeedback(_amount - 1);
         GetComponent<XInputTestCS>().Damage = _amount;

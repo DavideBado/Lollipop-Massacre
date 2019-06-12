@@ -53,6 +53,7 @@ public class Charge : MonoBehaviour
 
         if ((Physics.Raycast(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt, out hit, 1f)) && hit.transform != transform)
         {
+            GetComponentInChildren<AnimationController>().Ability();
             if (hit.transform.tag == "Player")
             {
                 hit.transform.GetComponent<LifeManager>().Life -= power;

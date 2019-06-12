@@ -40,6 +40,7 @@ public class BigD : MonoBehaviour
         if (GetComponent<Agent>().Mana > 0 && GetComponent<Agent>().MyTurn && GetComponent<Agent>().PlayerType == 1 && GetComponent<Agent>().ImStunned == false && Manager.CanAttack == true && Manager.Pause == false)
 
         {
+            GetComponentInChildren<AnimationController>().Ability();
             //FindObjectOfType<SliderBehaviour>().GetComponentInChildren<AbilityIcon>().OnAbility(1);
             RaycastHit hit;
 

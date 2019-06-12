@@ -58,6 +58,7 @@ public class Drain : MonoBehaviour
     {
         if (GetComponent<Agent>().Mana > 0 && GetComponent<Agent>().MyTurn && GetComponent<Agent>().PlayerType == 2 && GetComponent<Agent>().ImStunned == false && Manager.CanAttack == true && Manager.Pause == false)
         {
+            GetComponentInChildren<AnimationController>().Ability();
             //if(GetComponent<LifeManager>().Life == 3)
             //{
             //    ImFullButIWannaDrain();
