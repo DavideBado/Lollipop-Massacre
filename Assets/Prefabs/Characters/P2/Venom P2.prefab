@@ -214,6 +214,7 @@ MonoBehaviour:
   StunPS: {fileID: 5298261245568440394}
   PoisonPS: {fileID: 3546577234016537918}
   DrainPS: {fileID: 4266508302952437199}
+  OnAttack: 0
 --- !u!114 &1256144808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,6 +252,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnShield: 0
   Life: 3
+  DamageAmount: 0
+  Enemy: {fileID: 0}
+  BaseAttack: 0
 --- !u!114 &1242158603117144819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -383,6 +387,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6da994d14e269d84c949e188aa3f9d56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Enemy: {fileID: 0}
 --- !u!1 &6364351882641153106
 GameObject:
   m_ObjectHideFlags: 0
@@ -420,11 +425,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9120335647527232753}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6da994d14e269d84c949e188aa3f9d56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Enemy: {fileID: 0}
 --- !u!1001 &182770311
 PrefabInstance:
   m_ObjectHideFlags: 0

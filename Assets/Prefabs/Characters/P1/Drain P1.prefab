@@ -220,6 +220,7 @@ MonoBehaviour:
   PoisonPS: {fileID: 3546577233330127496, guid: b2d7d5452ee40b74abd6b290fdd7c3f3,
     type: 3}
   DrainPS: {fileID: 4266508303113703240, guid: eace5e65e5c21784ea828194d0daffb6, type: 3}
+  OnAttack: 0
 --- !u!114 &1510294131
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -257,6 +258,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnShield: 0
   Life: 3
+  DamageAmount: 0
+  Enemy: {fileID: 0}
+  BaseAttack: 0
 --- !u!114 &3399150555332824342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -306,11 +310,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 226750584292711186}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6da994d14e269d84c949e188aa3f9d56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Enemy: {fileID: 0}
 --- !u!1 &1980843689978317343
 GameObject:
   m_ObjectHideFlags: 0

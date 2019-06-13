@@ -6,6 +6,7 @@ using System;
 public class AnimationController : MonoBehaviour
 {
     public LifeManager Enemy;
+    GameManager gameManager;
     Agent agent;
     Animator animator;
 
@@ -15,6 +16,7 @@ public class AnimationController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = FindObjectOfType<GameManager>();
         agent = GetComponentInParent<Agent>();
         animator = GetComponent<Animator>();
     }
@@ -95,5 +97,11 @@ public class AnimationController : MonoBehaviour
         Enemy.Damage();
         Idle();
     }
+
+    public void DieNow()
+    {
+        gameManager.EndGameCheck(agent.PlayerID, agent.gameObject);
+    }
+
     #endregion
 }
