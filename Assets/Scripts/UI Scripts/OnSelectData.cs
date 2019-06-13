@@ -13,4 +13,7 @@ public class OnSelectData : MonoBehaviour
     public int SceneIndex;
     public GameObject GameProps;
     public SelectMenu SelectMenu;
+    public GameObject panelBase, PanelActive;
+    public GameObject FirstSelectable;
+    public GameObject PointerAudio;
 }
