@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     public RespawnController RespawnController;
     public bool TimerOn = true;
     float portalTimer;
+    private bool m_needUpdatetiles;
     TeleportSpawner PortalSpawner;
     int PortalRounds = 0;
     // Roba temporanea per morte pg   
@@ -99,8 +100,16 @@ public class GameManager : MonoBehaviour
                 needdeathcheck = false;
                 Pause = false;
                 timerDeath = 1f;
-                CleanTiles();
-                UpdateTilesMat();
+                if (m_needUpdatetiles)
+                {
+                    CleanTiles();
+                    UpdateTilesMat();
+                    m_needUpdatetiles = false;
+                }
+            }
+            else
+            {
+                m_needUpdatetiles = true;
             }
         }
     }

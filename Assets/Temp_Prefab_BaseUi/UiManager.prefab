@@ -6559,6 +6559,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4743430db6b3ef48bf5606ece74893c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BigP1Characters: []
+  BigP2Characters: []
   ArrowPOne: {fileID: 627153766}
   ArrowPTwo: {fileID: 1918661642}
   CharacterImage: {fileID: 2048010708}
@@ -6945,6 +6947,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4743430db6b3ef48bf5606ece74893c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BigP1Characters: []
+  BigP2Characters: []
   ArrowPOne: {fileID: 1075986098}
   ArrowPTwo: {fileID: 899582428}
   CharacterImage: {fileID: 1640420594}
@@ -7469,6 +7473,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4743430db6b3ef48bf5606ece74893c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BigP1Characters: []
+  BigP2Characters: []
   ArrowPOne: {fileID: 1634679386}
   ArrowPTwo: {fileID: 926916346}
   CharacterImage: {fileID: 1634213595}
@@ -8125,6 +8131,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4743430db6b3ef48bf5606ece74893c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BigP1Characters: []
+  BigP2Characters: []
   ArrowPOne: {fileID: 598281348}
   ArrowPTwo: {fileID: 1936503008}
   CharacterImage: {fileID: 718664624}
@@ -8280,6 +8288,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4743430db6b3ef48bf5606ece74893c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BigP1Characters: []
+  BigP2Characters: []
   ArrowPOne: {fileID: 1807900520}
   ArrowPTwo: {fileID: 389562592}
   CharacterImage: {fileID: 1119222524}
@@ -8590,6 +8600,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4743430db6b3ef48bf5606ece74893c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BigP1Characters: []
+  BigP2Characters: []
   ArrowPOne: {fileID: 1520190003}
   ArrowPTwo: {fileID: 1220641506}
   CharacterImage: {fileID: 1353724418}
@@ -9759,6 +9771,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1e0041b1aded32478dbeadfbde37cdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  YImageTarget: 0
+  ImageSpeed: 0
   ReadyPlayerOne: 0
   ReadyPlayerTwo: 0
   ConfirmP1: {fileID: 1917912544}
@@ -9769,6 +9783,12 @@ MonoBehaviour:
   NextCanvas: {fileID: 1790805578643114116}
   POnePaty: {fileID: 3973146403767955458}
   PTwoParty: {fileID: 3973146405123173549}
+  P1PreviewBackground: []
+  P2PreviewBackground: []
+  P1PreviewBackgroundEndPos: []
+  P2PreviewBackgroundEndPos: []
+  P1Backgrounds: []
+  P2Backgrounds: []
 --- !u!1 &8941101040094701752
 GameObject:
   m_ObjectHideFlags: 0

@@ -48,7 +48,8 @@ public class Agent : MonoBehaviour, ICharacter
     Rigidbody rg;
     public GameObject StunPS, PoisonPS, DrainPS;
     int switcherIndex;
-   
+    public bool OnAttack;
+
     // ********** Cose per il menu *************
     public List<Sprite> Sprites
     {
@@ -160,7 +161,10 @@ public class Agent : MonoBehaviour, ICharacter
                     GameManager.CleanTiles();
                     GameManager.UpdateTilesMat();
                     AgentSpeed = FindObjectOfType<GameManager>().Speed;
-                    GetComponentInChildren<AnimationController>().Idle();
+                    if (!OnAttack)
+                    {
+                        GetComponentInChildren<AnimationController>().Idle(); 
+                    }
                     // Salva le coordinate della posizione attuale
                     x2 = x;
                     y2 = y;
@@ -387,6 +391,7 @@ public class Agent : MonoBehaviour, ICharacter
 	{
 		if (MyTurn == true && ImStunned == false && GameManager.CanAttack == true && GameManager.Pause == false) // Se è il mio turno
 		{
+            OnAttack = true;
             GetComponentInChildren<AnimationController>().Attack();
             OnTheRoad = true;
 			GameManager.CanAttack = false;
@@ -400,8 +405,10 @@ public class Agent : MonoBehaviour, ICharacter
                 {
                     Debug.DrawRay(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
                     //hit.transform.DOShakePosition(0.5f, 0.4f, 10, 45);
-                    hit.transform.GetComponent<LifeManager>().Damage(GetComponent<Agent>(), 1, true); // Togli vita al player in collisione
-
+                    hit.transform.GetComponent<LifeManager>().DamageAmount = 1;
+                    hit.transform.GetComponent<LifeManager>().Enemy = GetComponent<Agent>();
+                    hit.transform.GetComponent<LifeManager>().BaseAttack = true;
+                    GetComponentInChildren<AnimationController>().Enemy = hit.transform.GetComponent<LifeManager>();
                 }
             }
 
