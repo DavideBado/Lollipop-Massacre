@@ -53,7 +53,10 @@ public class BigDTest : MonoBehaviour
                     onAttack = true;
                     Debug.DrawRay(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
                     //FindObjectOfType<PointerSpritePosition>().GetComponentInChildren<AbilityIcon>().OnAbility(1);
-                    hit.transform.GetComponent<LifeManager>().Damage(GetComponent<Agent>(), 4, false);
+                    hit.transform.GetComponent<LifeManager>().DamageAmount = 4;
+                    hit.transform.GetComponent<LifeManager>().Enemy = GetComponent<Agent>();
+                    hit.transform.GetComponent<LifeManager>().BaseAttack = false;
+                    GetComponentInChildren<AnimationController>().Enemy = hit.transform.GetComponent<LifeManager>();
 
                 }
 
@@ -72,7 +75,10 @@ public class BigDTest : MonoBehaviour
                     onAttack = true;
                     Debug.DrawRay(GetComponent<Agent>().RayLeft + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
                     //FindObjectOfType<PointerSpritePosition>().GetComponentInChildren<AbilityIcon>().OnAbility(1);
-                    hit.transform.GetComponent<LifeManager>().Damage(GetComponent<Agent>(), 4, false);
+                    hit.transform.GetComponent<LifeManager>().DamageAmount = 4;
+                    hit.transform.GetComponent<LifeManager>().Enemy = GetComponent<Agent>();
+                    hit.transform.GetComponent<LifeManager>().BaseAttack = false;
+                    GetComponentInChildren<AnimationController>().Enemy = hit.transform.GetComponent<LifeManager>();
                 }
 
             }
@@ -90,7 +96,10 @@ public class BigDTest : MonoBehaviour
                     onAttack = true;
                     Debug.DrawRay(GetComponent<Agent>().RayRight + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
                     //FindObjectOfType<PointerSpritePosition>().GetComponentInChildren<AbilityIcon>().OnAbility(1);
-                    hit.transform.GetComponent<LifeManager>().Damage(GetComponent<Agent>(), 4, false);
+                    hit.transform.GetComponent<LifeManager>().DamageAmount = 4;
+                    hit.transform.GetComponent<LifeManager>().Enemy = GetComponent<Agent>();
+                    hit.transform.GetComponent<LifeManager>().BaseAttack = false;
+                    GetComponentInChildren<AnimationController>().Enemy = hit.transform.GetComponent<LifeManager>();
 
                 }
 

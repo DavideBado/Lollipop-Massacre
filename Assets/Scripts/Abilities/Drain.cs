@@ -85,7 +85,10 @@ public class Drain : MonoBehaviour
             {
                 onAttack = true;
                 Debug.DrawRay(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
-                hit.transform.GetComponent<LifeManager>().Damage(GetComponent<Agent>(), 1, false);
+                hit.transform.GetComponent<LifeManager>().DamageAmount = 1;
+                hit.transform.GetComponent<LifeManager>().Enemy = GetComponent<Agent>();
+                hit.transform.GetComponent<LifeManager>().BaseAttack = false;
+                GetComponentInChildren<AnimationController>().Enemy = hit.transform.GetComponent<LifeManager>();
                 hit.transform.GetComponent<Agent>().imDrained = true;
                 hit.transform.GetComponent<Agent>().StartDrain = Manager.Turn;
             }
@@ -108,7 +111,10 @@ public class Drain : MonoBehaviour
                     FeedbackTImer = 1f;
                 DrainImage.GetComponent<Image>().enabled = true;
                 }
-                hit.transform.GetComponent<LifeManager>().Damage(GetComponent<Agent>(), 1, false);
+                hit.transform.GetComponent<LifeManager>().DamageAmount = 1;
+                hit.transform.GetComponent<LifeManager>().Enemy = GetComponent<Agent>();
+                hit.transform.GetComponent<LifeManager>().BaseAttack = false;
+                GetComponentInChildren<AnimationController>().Enemy = hit.transform.GetComponent<LifeManager>();
                 hit.transform.GetComponent<Agent>().imDrained = true;
                 hit.transform.GetComponent<Agent>().StartDrain = Manager.Turn;
             }
@@ -126,7 +132,10 @@ public class Drain : MonoBehaviour
                     FeedbackTImer = 1f;
                 DrainImage.GetComponent<Image>().enabled = true;
                 }
-                hit.transform.GetComponent<LifeManager>().Damage(GetComponent<Agent>(), 1, false);
+                hit.transform.GetComponent<LifeManager>().DamageAmount = 1;
+                hit.transform.GetComponent<LifeManager>().Enemy = GetComponent<Agent>();
+                hit.transform.GetComponent<LifeManager>().BaseAttack = false;
+                GetComponentInChildren<AnimationController>().Enemy = hit.transform.GetComponent<LifeManager>();
                 hit.transform.GetComponent<Agent>().imDrained = true;
                 hit.transform.GetComponent<Agent>().StartDrain = Manager.Turn;
             }
@@ -144,7 +153,10 @@ public class Drain : MonoBehaviour
                     FeedbackTImer = 1f;
                 DrainImage.GetComponent<Image>().enabled = true;
                 }
-                hit.transform.GetComponent<LifeManager>().Damage(GetComponent<Agent>(), 1, false);
+                hit.transform.GetComponent<LifeManager>().DamageAmount = 1;
+                hit.transform.GetComponent<LifeManager>().Enemy = GetComponent<Agent>();
+                hit.transform.GetComponent<LifeManager>().BaseAttack = false;
+                GetComponentInChildren<AnimationController>().Enemy = hit.transform.GetComponent<LifeManager>();
                 hit.transform.GetComponent<Agent>().imDrained = true;
                 hit.transform.GetComponent<Agent>().StartDrain = Manager.Turn;
             }
@@ -162,7 +174,10 @@ public class Drain : MonoBehaviour
                     FeedbackTImer = 1f;
                 DrainImage.GetComponent<Image>().enabled = true;
                 }
-                hit.transform.GetComponent<LifeManager>().Damage(GetComponent<Agent>(), 1, false);
+                hit.transform.GetComponent<LifeManager>().DamageAmount = 1;
+                hit.transform.GetComponent<LifeManager>().Enemy = GetComponent<Agent>();
+                hit.transform.GetComponent<LifeManager>().BaseAttack = false;
+                GetComponentInChildren<AnimationController>().Enemy = hit.transform.GetComponent<LifeManager>();
                 hit.transform.GetComponent<Agent>().imDrained = true;
                 hit.transform.GetComponent<Agent>().StartDrain = Manager.Turn;
             }

@@ -54,7 +54,10 @@ public class Whirlwind : MonoBehaviour
                 {
                     onAttack = true;
                     Debug.DrawRay(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
-                    hit.transform.GetComponent<LifeManager>().Damage(GetComponent<Agent>(), 1, false);
+                    hit.transform.GetComponent<LifeManager>().DamageAmount = 1;
+                    hit.transform.GetComponent<LifeManager>().Enemy = GetComponent<Agent>();
+                    hit.transform.GetComponent<LifeManager>().BaseAttack = false;
+                    GetComponentInChildren<AnimationController>().Enemy = hit.transform.GetComponent<LifeManager>();
                     int EnemyID = hit.transform.GetComponent<Agent>().PlayerID;
 
                     if (EnemyID == 1)
@@ -223,7 +226,10 @@ public class Whirlwind : MonoBehaviour
         //_goBench.GetChild(_go.transform.GetSiblingIndex()).gameObject.SetActive(true);
 
         _go.SetActive(true);
-        _go.GetComponent<LifeManager>().Damage(GetComponent<Agent>(), 1, false);
+        _go.GetComponent<LifeManager>().DamageAmount = 1;
+        _go.GetComponent<LifeManager>().Enemy = GetComponent<Agent>();
+        _go.GetComponent<LifeManager>().BaseAttack = false;
+        GetComponentInChildren<AnimationController>().Enemy = _go.GetComponent<LifeManager>();
         Debug.Log(_go.name);
 
     }

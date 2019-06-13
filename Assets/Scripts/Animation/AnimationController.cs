@@ -4,7 +4,8 @@ using UnityEngine;
 using System;
 
 public class AnimationController : MonoBehaviour
-{    
+{
+    public LifeManager Enemy;
     Agent agent;
     Animator animator;
 
@@ -83,4 +84,16 @@ public class AnimationController : MonoBehaviour
     }
     #endregion
 
+    #region Funzioni per animation events
+    public void Idle_Animation()
+    {
+        Idle();
+    }
+
+    public void DamageEnemy()
+    {
+        Enemy.Damage();
+        Idle();
+    }
+    #endregion
 }

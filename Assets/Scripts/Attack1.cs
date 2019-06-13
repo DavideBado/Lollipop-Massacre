@@ -17,9 +17,12 @@ public class Attack1 : MonoBehaviour
     {
         if (other.tag == "Player"/* && Manager.CanAttack == true*/) // Se è in collisione con un player e può attaccare
         {
-			//other.transform.DOShakePosition(0.5f, 0.6f, 10, 45);
-			other.GetComponent<LifeManager>().Damage(GetComponent<Agent>(), 1, true); // Togli vita al player in collisione
-           
+            //other.transform.DOShakePosition(0.5f, 0.6f, 10, 45);
+            other.GetComponent<LifeManager>().DamageAmount = 1;
+            other.GetComponent<LifeManager>().Enemy = GetComponent<Agent>();
+            other.GetComponent<LifeManager>().BaseAttack = true;
+            GetComponentInChildren<AnimationController>().Enemy = other.GetComponent<LifeManager>();
+
             this.GetComponent<Collider>().enabled = false; // Spegni il collider di attacco
             /*Manager.CanAttack = false;*/ // Non posso più attaccare
 

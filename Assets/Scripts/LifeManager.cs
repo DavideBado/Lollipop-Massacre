@@ -15,7 +15,10 @@ public class LifeManager : MonoBehaviour
     GameManager GameManager;   
     bool CanRespawn = true;
     GameObject Graphic;
-  
+    public int DamageAmount;
+    public Agent Enemy;
+    public bool BaseAttack;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -61,34 +64,39 @@ public class LifeManager : MonoBehaviour
         }
     }
 
-    public void Damage(Agent _enemy, int _amount, bool _baseAttack)
+    public void Damage()
     {
-        GetComponentInChildren<AnimationController>().Damage();
-        Life -= _amount;
-        //DamageFeedback(_amount - 1);
-        GetComponent<XInputTestCS>().Damage = _amount;
-        GetComponent<XInputTestCS>().Timer = (_amount * 0.2f);
-        if ((_enemy.GetComponent<Venom>() == null && _enemy.GetComponent<Poison>() == null && _enemy.GetComponent<Whirlwind>() == null) || _baseAttack == true)
+        Enemy.OnAttack = false;
+        if (DamageAmount > 0)
         {
-            Knockback(_enemy.SavedlookAt, _amount);
-        }
-        if (Graphic != null)
-        {
-            Graphic.transform.DOShakePosition(0.5f, 0.6f, 10, 45).SetAutoKill();
+            GetComponentInChildren<AnimationController>().Damage();
+            Life -= DamageAmount;
+            //DamageFeedback(_amount - 1);
+            GetComponent<XInputTestCS>().Damage = DamageAmount;
+            GetComponent<XInputTestCS>().Timer = (DamageAmount * 0.2f);
+            if ((Enemy.GetComponent<Venom>() == null && Enemy.GetComponent<Poison>() == null && Enemy.GetComponent<Whirlwind>() == null) || BaseAttack == true)
+            {
+                Knockback(Enemy.SavedlookAt);
+            }
+            if (Graphic != null)
+            {
+                Graphic.transform.DOShakePosition(0.5f, 0.6f, 10, 45).SetAutoKill();
+            }
+            DamageAmount = 0;
         }
     }
 
-    void DamageFeedback(int _amount)
+    void DamageFeedback()
     {
         FeedbackTImer = 1f;
         DamageImage.transform.position = (transform.position + new Vector3(0, 2.5f));
         DamageImage.GetComponent<Image>().enabled = true;
-        DamageImage.GetComponent<Image>().sprite = DamageImage.DamageSprites[_amount];
+        DamageImage.GetComponent<Image>().sprite = DamageImage.DamageSprites[DamageAmount];
     }
 
-    private void Knockback(Vector3 _enemyrotation, int _damage)
+    private void Knockback(Vector3 _enemyrotation)
     {
-        for (int i = 0; i < _damage; i++)
+        for (int i = 0; i < DamageAmount; i++)
         {
             GetComponent<Agent>().x += (int)_enemyrotation.x;
             GetComponent<Agent>().y += (int)_enemyrotation.z;
