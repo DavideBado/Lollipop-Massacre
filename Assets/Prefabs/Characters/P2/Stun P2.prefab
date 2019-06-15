@@ -231,8 +231,8 @@ MonoBehaviour:
   Down: 274
   Left: 276
   Right: 275
-  BasicAttack: 256
-  Ability: 271
+  BasicAttack: 271
+  Ability: 256
   Preview: 305
   Switch_Up: 258
   Switch_Down: 257
@@ -296,19 +296,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PatternData: {fileID: 11400000, guid: ee59b4a510ee9ef4aacec084d1b66967, type: 2}
---- !u!114 &8449819677049151250
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3347722048546525128}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6da994d14e269d84c949e188aa3f9d56, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Enemy: {fileID: 0}
 --- !u!95 &1944176022500753983
 Animator:
   serializedVersion: 3
@@ -328,6 +315,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8449819677049151250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3347722048546525128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6da994d14e269d84c949e188aa3f9d56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Enemy: {fileID: 0}
 --- !u!1 &3595088801534984405
 GameObject:
   m_ObjectHideFlags: 0
