@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
     bool needdeathcheck = false;
     GameObject _ActiveChara;
     int _playerID;
+    bool _NeedUpdateTiles;
 
     #region Actions
     public Action ActivatePortal;
@@ -155,8 +156,12 @@ public class GameManager : MonoBehaviour
 
         if (Timer <= 0) // Se il timer raggiunge lo 0
         {
-            CleanTiles();
-            UpdateTilesMat();
+            if (_NeedUpdateTiles)
+            {
+                CleanTiles();
+                UpdateTilesMat();
+                _NeedUpdateTiles = false;
+            }
             if (PortalRounds >= 5)
             {
                 PortalSpawner.Telespawn();
@@ -187,6 +192,7 @@ public class GameManager : MonoBehaviour
                 PickUpTurnCount++;
                 HealtTurnCount++;
                 PortalRounds++;
+                _NeedUpdateTiles = true;
                 if (Turn == true)// Se è nuovamente il turno del primo giocatore
                 {
                     RoundCount++; // Aggiorna il contatore dei round                  
