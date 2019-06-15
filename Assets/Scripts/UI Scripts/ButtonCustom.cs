@@ -22,7 +22,7 @@ public class ButtonCustom : Button
         {
             SelectPOne = GetComponent<CharaSprites>().ArrowPOne;
             SelectPTwo = GetComponent<CharaSprites>().ArrowPTwo;
-        }
+        }       
     }
 
     public override void OnSelect(BaseEventData eventData)
@@ -40,7 +40,6 @@ public class ButtonCustom : Button
         }
     }
 
-
     public override void OnDeselect(BaseEventData eventData)
     {
         _eventSystemsOnButton.Remove(eventData.currentInputModule.GetComponent<EventSystemCustom>());
@@ -55,7 +54,7 @@ public class ButtonCustom : Button
     }
 
     public override void OnSubmit(BaseEventData eventData)
-    { //Output that the Button is in the submit stage
+    {   //Output that the Button is in the submit stage
         int m_CharacterIndex = eventData.currentInputModule.GetComponent<EventSystemCustom>().ID - 1;
 
         // Aggiungi alla lista e visualizza sprite grande nella preview del party --------> prima bisogna risolvere il bug del setactive con la lista in game
@@ -74,7 +73,6 @@ public class ButtonCustom : Button
     private void Update()
     {
         eventSystem = GetComponent<MyEventSystemProvider>().eventSystem;
-
     }
 
     bool PartyCheck(int _PlayerID)
@@ -87,7 +85,6 @@ public class ButtonCustom : Button
                 {
                     return false;
                 }
-
             }
         }
         else if (_PlayerID == 2)
@@ -98,7 +95,6 @@ public class ButtonCustom : Button
                 {
                     return false;
                 }
-
             }
         }
         return true;
