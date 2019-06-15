@@ -49,26 +49,34 @@ public class AnimationController : MonoBehaviour
     #region Funzioni che settano i trigger
     private void MoveSetAnim()
     {
-        animator.SetTrigger("AnimWalk");
+        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Move"))
+        {
+            animator.SetTrigger("AnimWalk");
+        }
     }
     private void HappySetAnim()
     {
+        animator.ResetTrigger("AnimWalk");
         animator.SetTrigger("AnimHappyGeek");
     }
     private void AttackSetAnim()
     {
+        animator.ResetTrigger("AnimWalk");
         animator.SetTrigger("AnimAttack");
     }
     private void AbilitySetAnim()
     {
+        animator.ResetTrigger("AnimWalk");
         animator.SetTrigger("AnimAbility");
     }
     private void StunSetAnim()
     {
+        animator.ResetTrigger("AnimWalk");
         animator.SetTrigger("AnimStun");
     }
     private void DeathSetAnim()
     {
+        animator.ResetTrigger("AnimWalk");
         animator.SetTrigger("AnimPlayDeathStranding");
     }
     private void IdleSetAnim()
@@ -78,6 +86,7 @@ public class AnimationController : MonoBehaviour
     }
     private void DamageSetAnim()
     {
+        animator.ResetTrigger("AnimWalk");
         animator.SetTrigger("AnimDamage");
         if(agent.ImStunned)
         {
@@ -89,12 +98,16 @@ public class AnimationController : MonoBehaviour
     #region Funzioni per animation events
     public void Idle_Animation()
     {
+        GetComponentInParent<Agent>().OnAttack = false;
         Idle();
     }
 
     public void DamageEnemy()
     {
-        Enemy.Damage();
+        if (Enemy != null)
+        {
+            Enemy.Damage();
+        }
         Idle();
     }
 

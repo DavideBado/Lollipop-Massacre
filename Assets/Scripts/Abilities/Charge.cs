@@ -22,6 +22,7 @@ public class Charge : MonoBehaviour
         InUpdate();
         if (onAttack == true)
         {
+            GetComponent<Agent>().OnAttack = true;
             Timer -= Time.deltaTime;
             Manager.TimerOn = false;
             Manager.UpdateTilesMat();
@@ -53,7 +54,6 @@ public class Charge : MonoBehaviour
 
         if ((Physics.Raycast(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt, out hit, 1f)) && hit.transform != transform)
         {
-            GetComponentInChildren<AnimationController>().Ability();
             if (hit.transform.tag == "Player")
             {
                 hit.transform.GetComponent<LifeManager>().Life -= power;
@@ -68,6 +68,7 @@ public class Charge : MonoBehaviour
     {
         if (GetComponent<Agent>().Mana > 0 && GetComponent<Agent>().MyTurn && GetComponent<Agent>().PlayerType == 5 && GetComponent<Agent>().ImStunned == false && Manager.CanAttack == true && Manager.Pause == false)
         {            
+            GetComponentInChildren<AnimationController>().Ability();
             RaycastHit hit;
             onAttack = true;
             if (Physics.Raycast(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt, out hit, Mathf.Infinity))

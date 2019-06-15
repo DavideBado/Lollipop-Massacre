@@ -155,7 +155,10 @@ public class Agent : MonoBehaviour, ICharacter
                  // Spostati verso la casella selezionata alla velocità di Speed unità al secondo
                 transform.position = Vector3.MoveTowards(transform.position, grid.GetWorldPosition(transform.position, x, y),
                 AgentSpeed * Time.deltaTime);
-                GetComponentInChildren<AnimationController>().Move();
+                if (!OnAttack)
+                {
+                    GetComponentInChildren<AnimationController>().Move(); 
+                }
                 if (transform.position == grid.GetWorldPosition(transform.position, x, y)) // Se hai raggiunto la tua destinazione
                 {
                     GameManager.CleanTiles();
@@ -391,7 +394,6 @@ public class Agent : MonoBehaviour, ICharacter
 	{
 		if (MyTurn == true && ImStunned == false && GameManager.CanAttack == true && GameManager.Pause == false) // Se è il mio turno
 		{
-            OnAttack = true;
             GetComponentInChildren<AnimationController>().Attack();
             OnTheRoad = true;
 			GameManager.CanAttack = false;
@@ -403,6 +405,7 @@ public class Agent : MonoBehaviour, ICharacter
                 Debug.DrawRay(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.yellow);
                 if (hit.transform.tag == "Player" && hit.transform != transform)
                 {
+                    OnAttack = true;
                     Debug.DrawRay(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
                     //hit.transform.DOShakePosition(0.5f, 0.4f, 10, 45);
                     hit.transform.GetComponent<LifeManager>().DamageAmount = 1;
