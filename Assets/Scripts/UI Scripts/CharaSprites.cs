@@ -16,6 +16,7 @@ public class CharaSprites : MonoBehaviour
     public Image RedImage;
     public List<GameObject> Character = new List<GameObject>();
     Texture ThisImage;
+    public List<Sprite> OnSelectCharaButton = new List<Sprite>();
     [SerializeField] public List<Texture> OnSelectSprites = new List<Texture>();
     public int SpriteID;
 

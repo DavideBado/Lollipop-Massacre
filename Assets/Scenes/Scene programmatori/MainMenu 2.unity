@@ -624,6 +624,180 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -2.830017
       objectReference: {fileID: 0}
+    - target: {fileID: 7065619181967920465, guid: a93422f9f0f21cd4f8323d2afab0dda4,
+        type: 3}
+      propertyPath: OnSelectCharaButton.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7065619181967920465, guid: a93422f9f0f21cd4f8323d2afab0dda4,
+        type: 3}
+      propertyPath: OnSelectCharaButton.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 4dfa103672d170545a17c4abcd5e5038,
+        type: 3}
+    - target: {fileID: 7065619181967920465, guid: a93422f9f0f21cd4f8323d2afab0dda4,
+        type: 3}
+      propertyPath: OnSelectCharaButton.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 00548fb3410b3f14e9cfbe52ce26abd2,
+        type: 3}
+    - target: {fileID: 7065619181967920465, guid: a93422f9f0f21cd4f8323d2afab0dda4,
+        type: 3}
+      propertyPath: OnSelectCharaButton.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: df49474cd2b0d93499908a16f4541ce0,
+        type: 3}
+    - target: {fileID: 7065619181967920465, guid: a93422f9f0f21cd4f8323d2afab0dda4,
+        type: 3}
+      propertyPath: OnSelectCharaButton.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: 4ae99daeb18458846847bc2bfe717c64,
+        type: 3}
+    - target: {fileID: 6594243784879433473, guid: a93422f9f0f21cd4f8323d2afab0dda4,
+        type: 3}
+      propertyPath: OnSelectCharaButton.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6594243784879433473, guid: a93422f9f0f21cd4f8323d2afab0dda4,
+        type: 3}
+      propertyPath: OnSelectCharaButton.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 4dfa103672d170545a17c4abcd5e5038,
+        type: 3}
+    - target: {fileID: 6594243784879433473, guid: a93422f9f0f21cd4f8323d2afab0dda4,
+        type: 3}
+      propertyPath: OnSelectCharaButton.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 00548fb3410b3f14e9cfbe52ce26abd2,
+        type: 3}
+    - target: {fileID: 6594243784879433473, guid: a93422f9f0f21cd4f8323d2afab0dda4,
+        type: 3}
+      propertyPath: OnSelectCharaButton.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: df49474cd2b0d93499908a16f4541ce0,
+        type: 3}
+    - target: {fileID: 6594243784879433473, guid: a93422f9f0f21cd4f8323d2afab0dda4,
+        type: 3}
+      propertyPath: OnSelectCharaButton.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: 4ae99daeb18458846847bc2bfe717c64,
+        type: 3}
+    - target: {fileID: 9087638712068867349, guid: a93422f9f0f21cd4f8323d2afab0dda4,
+        type: 3}
+      propertyPath: OnSelectCharaButton.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9087638712068867349, guid: a93422f9f0f21cd4f8323d2afab0dda4,
+        type: 3}
+      propertyPath: OnSelectCharaButton.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 4dfa103672d170545a17c4abcd5e5038,
+        type: 3}
+    - target: {fileID: 9087638712068867349, guid: a93422f9f0f21cd4f8323d2afab0dda4,
+        type: 3}
+      propertyPath: OnSelectCharaButton.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 00548fb3410b3f14e9cfbe52ce26abd2,
+        type: 3}
+    - target: {fileID: 9087638712068867349, guid: a93422f9f0f21cd4f8323d2afab0dda4,
+        type: 3}
+      propertyPath: OnSelectCharaButton.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: df49474cd2b0d93499908a16f4541ce0,
+        type: 3}
+    - target: {fileID: 9087638712068867349, guid: a93422f9f0f21cd4f8323d2afab0dda4,
+        type: 3}
+      propertyPath: OnSelectCharaButton.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: 4ae99daeb18458846847bc2bfe717c64,
+        type: 3}
+    - target: {fileID: 6227365993332493824, guid: a93422f9f0f21cd4f8323d2afab0dda4,
+        type: 3}
+      propertyPath: OnSelectCharaButton.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6227365993332493824, guid: a93422f9f0f21cd4f8323d2afab0dda4,
+        type: 3}
+      propertyPath: OnSelectCharaButton.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 4dfa103672d170545a17c4abcd5e5038,
+        type: 3}
+    - target: {fileID: 6227365993332493824, guid: a93422f9f0f21cd4f8323d2afab0dda4,
+        type: 3}
+      propertyPath: OnSelectCharaButton.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 00548fb3410b3f14e9cfbe52ce26abd2,
+        type: 3}
+    - target: {fileID: 6227365993332493824, guid: a93422f9f0f21cd4f8323d2afab0dda4,
+        type: 3}
+      propertyPath: OnSelectCharaButton.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: df49474cd2b0d93499908a16f4541ce0,
+        type: 3}
+    - target: {fileID: 6227365993332493824, guid: a93422f9f0f21cd4f8323d2afab0dda4,
+        type: 3}
+      propertyPath: OnSelectCharaButton.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: 4ae99daeb18458846847bc2bfe717c64,
+        type: 3}
+    - target: {fileID: 3679242712558115407, guid: a93422f9f0f21cd4f8323d2afab0dda4,
+        type: 3}
+      propertyPath: OnSelectCharaButton.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3679242712558115407, guid: a93422f9f0f21cd4f8323d2afab0dda4,
+        type: 3}
+      propertyPath: OnSelectCharaButton.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 4dfa103672d170545a17c4abcd5e5038,
+        type: 3}
+    - target: {fileID: 3679242712558115407, guid: a93422f9f0f21cd4f8323d2afab0dda4,
+        type: 3}
+      propertyPath: OnSelectCharaButton.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 00548fb3410b3f14e9cfbe52ce26abd2,
+        type: 3}
+    - target: {fileID: 3679242712558115407, guid: a93422f9f0f21cd4f8323d2afab0dda4,
+        type: 3}
+      propertyPath: OnSelectCharaButton.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: df49474cd2b0d93499908a16f4541ce0,
+        type: 3}
+    - target: {fileID: 3679242712558115407, guid: a93422f9f0f21cd4f8323d2afab0dda4,
+        type: 3}
+      propertyPath: OnSelectCharaButton.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: 4ae99daeb18458846847bc2bfe717c64,
+        type: 3}
+    - target: {fileID: 7951581543413767483, guid: a93422f9f0f21cd4f8323d2afab0dda4,
+        type: 3}
+      propertyPath: OnSelectCharaButton.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7951581543413767483, guid: a93422f9f0f21cd4f8323d2afab0dda4,
+        type: 3}
+      propertyPath: OnSelectCharaButton.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 4dfa103672d170545a17c4abcd5e5038,
+        type: 3}
+    - target: {fileID: 7951581543413767483, guid: a93422f9f0f21cd4f8323d2afab0dda4,
+        type: 3}
+      propertyPath: OnSelectCharaButton.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 00548fb3410b3f14e9cfbe52ce26abd2,
+        type: 3}
+    - target: {fileID: 7951581543413767483, guid: a93422f9f0f21cd4f8323d2afab0dda4,
+        type: 3}
+      propertyPath: OnSelectCharaButton.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: df49474cd2b0d93499908a16f4541ce0,
+        type: 3}
+    - target: {fileID: 7951581543413767483, guid: a93422f9f0f21cd4f8323d2afab0dda4,
+        type: 3}
+      propertyPath: OnSelectCharaButton.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: 4ae99daeb18458846847bc2bfe717c64,
+        type: 3}
     m_RemovedComponents:
     - {fileID: 8721245873996417412, guid: a93422f9f0f21cd4f8323d2afab0dda4, type: 3}
     - {fileID: 2327638937367958811, guid: a93422f9f0f21cd4f8323d2afab0dda4, type: 3}
