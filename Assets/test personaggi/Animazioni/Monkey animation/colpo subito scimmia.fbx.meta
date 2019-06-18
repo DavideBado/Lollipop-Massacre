@@ -86,7 +86,7 @@ ModelImporter:
     4300008: SM_Tail
     4300010: SM_Hand_R
     4300012: SM_Hand_L
-    7400000: Colpo subito Whirlwind
+    7400000: Whirlwind Suffered Blow
     9500000: //RootNode
     13700000: SM_Body
     13700002: SM_Hand_L
@@ -124,7 +124,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Colpo subito Whirlwind
+      name: Whirlwind Suffered Blow
       takeName: Take 001
       firstFrame: 90
       lastFrame: 110

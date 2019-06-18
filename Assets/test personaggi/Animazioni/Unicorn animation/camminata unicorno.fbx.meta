@@ -78,14 +78,18 @@ ModelImporter:
     4300008: SM_R_Hand
     4300010: SM_L_Foot
     4300012: SM_R_Foot
-    7400000: Take 001 Charge Camminata
-    7400002: Take 001 Charge Attacco speciale
-    7400004: 'Take 001 Charge Attacco base '
-    7400006: Take 001 Charge Colpo subito
-    7400008: Take 001 Charge Morte
-    7400010: Take 001 Charge Stun
-    7400012: Take 001  Charge Vittoria
-    7400014: Take 001 Charge Idle
+    7400000: Charge Walk
+    7400002: Charge Ability In
+    7400004: Charge Basic Attack
+    7400006: Charge Suffered Blow
+    7400008: Charge Death
+    7400010: Charge Stun In
+    7400012: Charge Victory
+    7400014: Charge Idle
+    7400016: Charge Ability Loop
+    7400018: Charge Ability Out
+    7400020: Charge Stun Loop
+    7400022: Charge Stun Out
     9500000: //RootNode
     13700000: SM_Body
     13700002: SM_Head
@@ -123,10 +127,10 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Take 001 Charge Camminata
+      name: Charge Walk
       takeName: Take 001
-      firstFrame: 125
-      lastFrame: 145
+      firstFrame: 0
+      lastFrame: 20
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -151,10 +155,10 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Take 001 Charge Attacco speciale
+      name: Charge Ability In
       takeName: Take 001
       firstFrame: 45
-      lastFrame: 125
+      lastFrame: 55
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -184,11 +188,11 @@ ModelImporter:
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+      additiveReferencePoseFrame: 1
     - serializedVersion: 16
-      name: 'Take 001 Charge Attacco base '
+      name: Charge Basic Attack
       takeName: Take 001
-      firstFrame: 125
+      firstFrame: 130
       lastFrame: 145
       wrapMode: 0
       orientationOffsetY: 0
@@ -219,9 +223,9 @@ ModelImporter:
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+      additiveReferencePoseFrame: 1
     - serializedVersion: 16
-      name: Take 001 Charge Colpo subito
+      name: Charge Suffered Blow
       takeName: Take 001
       firstFrame: 145
       lastFrame: 165
@@ -254,9 +258,9 @@ ModelImporter:
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+      additiveReferencePoseFrame: 1
     - serializedVersion: 16
-      name: Take 001 Charge Morte
+      name: Charge Death
       takeName: Take 001
       firstFrame: 165
       lastFrame: 180
@@ -291,10 +295,10 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Take 001 Charge Stun
+      name: Charge Stun In
       takeName: Take 001
       firstFrame: 200
-      lastFrame: 310
+      lastFrame: 210
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -317,9 +321,9 @@ ModelImporter:
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+      additiveReferencePoseFrame: 1
     - serializedVersion: 16
-      name: Take 001  Charge Vittoria
+      name: Charge Victory
       takeName: Take 001
       firstFrame: 320
       lastFrame: 380
@@ -347,10 +351,122 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 1
     - serializedVersion: 16
-      name: Take 001 Charge Idle
+      name: Charge Idle
       takeName: Take 001
       firstFrame: 390
       lastFrame: 430
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: Charge Ability Loop
+      takeName: Take 001
+      firstFrame: 55
+      lastFrame: 85
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: Charge Ability Out
+      takeName: Take 001
+      firstFrame: 95
+      lastFrame: 125
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: Charge Stun Loop
+      takeName: Take 001
+      firstFrame: 210
+      lastFrame: 270
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: Charge Stun Out
+      takeName: Take 001
+      firstFrame: 300
+      lastFrame: 310
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

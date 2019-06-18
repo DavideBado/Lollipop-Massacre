@@ -86,7 +86,7 @@ ModelImporter:
     4300008: SM_Tail
     4300010: SM_Hand_R
     4300012: SM_Hand_L
-    7400000: Vittoria Whirlwind
+    7400000: Whirlwind Victory
     9500000: //RootNode
     13700000: SM_Body
     13700002: SM_Hand_L
@@ -124,10 +124,10 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Vittoria Whirlwind
+      name: Whirlwind Victory
       takeName: Take 001
-      firstFrame: 165
-      lastFrame: 190
+      firstFrame: 200
+      lastFrame: 270
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

@@ -65,6 +65,10 @@ public class LifeManager : MonoBehaviour
 
     public void Damage()
     {
+        if (Enemy != null)
+        {
+            transform.LookAt(Enemy.transform.position);
+        }
         Enemy.OnAttack = false;
         if (DamageAmount > 0)
         {

@@ -112,7 +112,7 @@ ModelImporter:
     4300008: hand_sx
     4300010: foot_dx1
     4300012: hand_dx1
-    7400000: Take 001Big D Colpo subito
+    7400000: Big D Suffered Blow
     9500000: //RootNode
     13700000: body1
     13700002: foot_dx1
@@ -150,9 +150,9 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Take 001Big D Colpo subito
+      name: Big D Suffered Blow
       takeName: Take 001
-      firstFrame: 120
+      firstFrame: 115
       lastFrame: 130
       wrapMode: 0
       orientationOffsetY: 0

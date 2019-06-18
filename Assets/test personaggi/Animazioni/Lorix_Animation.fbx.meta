@@ -66,14 +66,16 @@ ModelImporter:
     4300008: SM_Hand_R
     4300010: SM_Foot_R
     4300012: SM_Foot_L
-    7400000: Stun Camminata
-    7400002: Stun Attacco speciale
+    7400000: Stun Walk
+    7400002: Stun Ability
     7400004: Stun Idle
-    7400006: Stun Colpo subito
-    7400008: Stun Stun
-    7400010: Stun Morte
-    7400012: Stun Vittoria
-    7400014: Stun Attacco Base
+    7400006: Stun Suffered Blow
+    7400008: Stun Stun In
+    7400010: Stun Death
+    7400012: Stun Vitctory
+    7400014: Stun Basic Attack
+    7400016: Stun Stun Out
+    7400018: Stun Stun Loop
     9500000: //RootNode
     13700000: SM_Body
     13700002: SM_Foot_L
@@ -111,10 +113,10 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Stun Camminata
+      name: Stun Walk
       takeName: Take 001
       firstFrame: 0
-      lastFrame: 45
+      lastFrame: 15
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -139,7 +141,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Stun Attacco speciale
+      name: Stun Ability
       takeName: Take 001
       firstFrame: 50
       lastFrame: 60
@@ -202,7 +204,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Stun Colpo subito
+      name: Stun Suffered Blow
       takeName: Take 001
       firstFrame: 120
       lastFrame: 135
@@ -237,10 +239,10 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Stun Stun
+      name: Stun Stun In
       takeName: Take 001
-      firstFrame: 140
-      lastFrame: 195
+      firstFrame: 154
+      lastFrame: 164
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -265,10 +267,10 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Stun Morte
+      name: Stun Death
       takeName: Take 001
       firstFrame: 200
-      lastFrame: 230
+      lastFrame: 225
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -300,7 +302,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Stun Vittoria
+      name: Stun Vitctory
       takeName: Take 001
       firstFrame: 240
       lastFrame: 290
@@ -328,10 +330,10 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Stun Attacco Base
+      name: Stun Basic Attack
       takeName: Take 001
-      firstFrame: 130
-      lastFrame: 145
+      firstFrame: 65
+      lastFrame: 75
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -358,6 +360,62 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Stun Stun Out
+      takeName: Take 001
+      firstFrame: 180
+      lastFrame: 195
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Stun Stun Loop
+      takeName: Take 001
+      firstFrame: 164
+      lastFrame: 174
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
