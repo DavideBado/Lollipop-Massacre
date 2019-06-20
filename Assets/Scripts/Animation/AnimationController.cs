@@ -72,6 +72,7 @@ public class AnimationController : MonoBehaviour
     private void StunSetAnim()
     {
         animator.ResetTrigger("AnimWalk");
+        animator.ResetTrigger("AnimStun");
         animator.SetTrigger("AnimStun");
     }
     private void DeathSetAnim()
@@ -81,8 +82,11 @@ public class AnimationController : MonoBehaviour
     }
     private void IdleSetAnim()
     {
-        animator.ResetTrigger("AnimWalk");
-        animator.SetTrigger("AnimIdle");
+        if (!GetComponentInParent<Agent>().ImStunned)
+        {
+            animator.ResetTrigger("AnimWalk");
+            animator.SetTrigger("AnimIdle"); 
+        }
     }
     private void DamageSetAnim()
     {
@@ -109,6 +113,11 @@ public class AnimationController : MonoBehaviour
             Enemy.Damage();
         }
         Idle();
+    }
+
+    public void Stun_Animation()
+    {
+        Stun();
     }
 
     public void DieNow()

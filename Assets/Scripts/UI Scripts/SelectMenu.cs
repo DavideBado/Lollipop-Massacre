@@ -20,11 +20,14 @@ public class SelectMenu : MonoBehaviour
     List<Vector3> P1StartingPos = new List<Vector3>();
     List<Vector3> P2StartingPos = new List<Vector3>();
     public List<Sprite> P1Backgrounds = new List<Sprite>(); 
-    public List<Sprite> P2Backgrounds = new List<Sprite>(); 
+    public List<Sprite> P2Backgrounds = new List<Sprite>();
+    public List<EventSystemCustom> eventSystemCustoms = new List<EventSystemCustom>();
+    public List<GameObject> buttons = new List<GameObject>();
     //public GameObject PlayButton;
     private void OnEnable()
     {
         PartyData.ClearData();
+        UpdateEventSystem();
     }
 
     private void Start()
@@ -194,5 +197,20 @@ public class SelectMenu : MonoBehaviour
     {
         _image.position = Vector3.MoveTowards(_image.position, _target, ImageSpeed * Time.deltaTime);
         //_image.DOMove(_target, 1f);
+    }
+
+    private void UpdateEventSystem()
+    {
+        for (int i = 0; i < eventSystemCustoms.Count; i++)
+        {
+            StartCoroutine(eventsCoroutine(i));
+        }
+    }
+
+    IEnumerator eventsCoroutine(int i)
+    {
+        yield return 0;
+        eventSystemCustoms[i].SetSelectedGameObject(null);
+        eventSystemCustoms[i].SetSelectedGameObject(buttons[i]);
     }
 }
