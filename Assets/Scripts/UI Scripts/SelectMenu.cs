@@ -63,6 +63,7 @@ public class SelectMenu : MonoBehaviour
     {
         if (PartyData.PartyCount(1) == 0)
         {
+            MoveBackground(P1PreviewBackground[1].transform, P1StartingPos[1]);
             P1PreviewBackground[0].sprite = P1Backgrounds[1];
             MoveBackground(P1PreviewBackground[0].transform, P1PreviewBackgroundEndPos[0].transform.position);
             P1PreviewBackground[1].sprite = P1Backgrounds[0];
@@ -74,6 +75,7 @@ public class SelectMenu : MonoBehaviour
         if (PartyData.PartyCount(1) == 1)
         {
             MoveBackground(P1PreviewBackground[0].transform, P1StartingPos[0]);
+            MoveBackground(P1PreviewBackground[2].transform, P1StartingPos[2]);
             P1PreviewBackground[0].sprite = P1Backgrounds[2];
             P1PreviewBackground[1].sprite = P1Backgrounds[1];
             MoveBackground(P1PreviewBackground[1].transform, P1PreviewBackgroundEndPos[1].transform.position);
@@ -86,6 +88,7 @@ public class SelectMenu : MonoBehaviour
         }
         if (PartyData.PartyCount(1) == 2)
         {
+            MoveBackground(P1PreviewBackground[0].transform, P1StartingPos[0]);
             MoveBackground(P1PreviewBackground[1].transform, P1StartingPos[1]);
             P1PreviewBackground[0].sprite = P1Backgrounds[2];
             P1PreviewBackground[1].sprite = P1Backgrounds[2];
@@ -109,6 +112,7 @@ public class SelectMenu : MonoBehaviour
 
         if (PartyData.PartyCount(2) == 0)
         {
+            MoveBackground(P2PreviewBackground[1].transform, P2StartingPos[1]);
             P2PreviewBackground[0].sprite = P2Backgrounds[1];
             MoveBackground(P2PreviewBackground[0].transform, P2PreviewBackgroundEndPos[0].transform.position);
             P2PreviewBackground[1].sprite = P2Backgrounds[0];
@@ -120,6 +124,7 @@ public class SelectMenu : MonoBehaviour
         if (PartyData.PartyCount(2) == 1)
         {
             MoveBackground(P2PreviewBackground[0].transform, P2StartingPos[0]);
+            MoveBackground(P2PreviewBackground[2].transform, P2StartingPos[2]);
             P2PreviewBackground[0].sprite = P2Backgrounds[2];
             P2PreviewBackground[1].sprite = P2Backgrounds[1];
             MoveBackground(P2PreviewBackground[1].transform, P2PreviewBackgroundEndPos[1].transform.position);
@@ -132,6 +137,7 @@ public class SelectMenu : MonoBehaviour
         }
         if (PartyData.PartyCount(2) == 2)
         {
+            MoveBackground(P2PreviewBackground[0].transform, P2StartingPos[0]);
             MoveBackground(P2PreviewBackground[1].transform, P2StartingPos[1]);
             P2PreviewBackground[0].sprite = P2Backgrounds[2];
             P2PreviewBackground[1].sprite = P2Backgrounds[2];
