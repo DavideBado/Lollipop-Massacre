@@ -4,6 +4,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using TMPro;
 
 public class ButtonCustom : Button
 {
@@ -35,6 +36,7 @@ public class ButtonCustom : Button
             if (ID > 0)
             {
                 m_characterSprite.BigCharaSprites[(ID - 1)][(PartyData.PartyCount(ID))].sprite = m_characterSprite.Character[(ID - 1)].GetComponent<Agent>()._Sprites[1];
+                m_characterSprite.BigCharaSprites[(ID - 1)][(PartyData.PartyCount(ID))].transform.GetChild(0).GetComponent<TMP_Text>().text = m_characterSprite.Character[(ID - 1)].GetComponent<Agent>().CharacterName;
                 m_characterSprite.BigCharaSprites[(ID - 1)][(PartyData.PartyCount(ID))].gameObject.SetActive(true);
             }
         }
@@ -66,7 +68,7 @@ public class ButtonCustom : Button
                 PartyData.AddToParty(eventData.currentInputModule.GetComponent<EventSystemCustom>().ID, GetComponent<CharaSprites>().Character[m_CharacterIndex]);
             }
         }
-
+        eventData.currentInputModule.GetComponent<EventSystemCustom>().UpdateEventSystem(gameObject);
         //Debug.Log(gameObject.name + " Submitted!" + eventData.currentInputModule.GetComponent<EventSystemCustom>().gameObject.name);
     }
 

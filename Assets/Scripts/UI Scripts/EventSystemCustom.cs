@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
 using System.Collections.Generic;
+using System.Collections;
 using TMPro;
 
 public class EventSystemCustom : EventSystem
@@ -132,5 +133,17 @@ public class EventSystemCustom : EventSystem
             }
             SetSelectedGameObject(ConfirmButton.gameObject);            
         }    
-    }  
+    }
+   
+    public void UpdateEventSystem(GameObject _button)
+    {
+        StartCoroutine(eventsCoroutine(_button));
+    }
+
+    IEnumerator eventsCoroutine(GameObject _button)
+    {
+        yield return 0;
+        SetSelectedGameObject(null);
+        SetSelectedGameObject(_button);
+    }
 }
