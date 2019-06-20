@@ -460,7 +460,7 @@ public class Agent : MonoBehaviour, ICharacter
 
     public void TeleportMe()
     {
-        if (GameManager.TimerOn == true)
+        if (GameManager.TimerOn == true && MyTurn == true)
         {
             GameManager.ActivatePortal(); 
         }

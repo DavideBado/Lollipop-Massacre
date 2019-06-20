@@ -74,7 +74,7 @@ public class LifeManager : MonoBehaviour
         {
             GetComponentInChildren<AnimationController>().Damage();
             Life -= DamageAmount;
-            //DamageFeedback(_amount - 1);
+            DamageFeedback();
             GetComponent<XInputTestCS>().Damage = DamageAmount;
             GetComponent<XInputTestCS>().Timer = (DamageAmount * 0.2f);
             if ((Enemy.GetComponent<Venom>() == null && Enemy.GetComponent<Poison>() == null && Enemy.GetComponent<Whirlwind>() == null) || BaseAttack == true)
@@ -94,7 +94,8 @@ public class LifeManager : MonoBehaviour
         FeedbackTImer = 1f;
         DamageImage.transform.position = (transform.position + new Vector3(0, 2.5f));
         DamageImage.GetComponent<Image>().enabled = true;
-        DamageImage.GetComponent<Image>().sprite = DamageImage.DamageSprites[DamageAmount];
+        DamageImage.transform.parent.transform.parent = transform;
+        DamageImage.GetComponent<Image>().sprite = DamageImage.DamageSprites[(DamageAmount - 1)];
     }
 
     private void Knockback(Vector3 _enemyrotation)

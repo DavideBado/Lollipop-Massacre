@@ -23,6 +23,7 @@ public class SelectMenu : MonoBehaviour
     public List<Sprite> P2Backgrounds = new List<Sprite>();
     public List<EventSystemCustom> eventSystemCustoms = new List<EventSystemCustom>();
     public List<GameObject> buttons = new List<GameObject>();
+    public List<GameObject> Abilitytext = new List<GameObject>();
     //public GameObject PlayButton;
     private void OnEnable()
     {
@@ -162,6 +163,7 @@ public class SelectMenu : MonoBehaviour
         {
             PreviewP1.SetActive(false);
             ConfirmP1.SetActive(true);
+            Abilitytext[0].SetActive(false);
         }
         else
         {
@@ -173,6 +175,8 @@ public class SelectMenu : MonoBehaviour
         {
             PreviewP2.SetActive(false);
             ConfirmP2.SetActive(true);
+
+            Abilitytext[1].SetActive(false);
         }
         else
         {
