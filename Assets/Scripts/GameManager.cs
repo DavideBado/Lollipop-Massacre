@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
     GameObject _ActiveChara;
     int _playerID;
     bool _NeedUpdateTiles;
+    public GameObject startPause;
 
     #region Actions
     public Action ActivatePortal;
@@ -490,6 +491,8 @@ public class GameManager : MonoBehaviour
             EventSPOne.SetActive(true);
             EventSTwo.SetActive(true);
             PausePanel.SetActive(true);
+            EventSPOne.GetComponent<EventSystemCustom>().SetSelectedGameObject(startPause);
+            EventSTwo.GetComponent<EventSystemCustom>().SetSelectedGameObject(startPause);
             Time.timeScale = 0;
         }
         else if (Time.timeScale == 0)
