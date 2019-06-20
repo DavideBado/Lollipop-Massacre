@@ -20,7 +20,7 @@ public class RemoveCharacter : MonoBehaviour
             }
             else SelectMenu.ReadyPlayerOne = false;
         }
-        if (Input.GetKeyDown(KeyCode.KeypadEnter))
+        if (Input.GetKeyDown(KeyCode.RightControl))
         {
             if (SelectMenu.ReadyPlayerTwo == false)
             {
