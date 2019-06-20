@@ -159,6 +159,14 @@ public class GameManager : MonoBehaviour
         {
             if (_NeedUpdateTiles)
             {
+                List<AnimationController> animationControllers = FindObjectsOfType<AnimationController>().ToList();
+                foreach (AnimationController _animationController in animationControllers)
+                {
+                    if (_animationController.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).IsName("Stun Loop"))
+                    {
+                        _animationController.Stun();
+                    }
+                }
                 CleanTiles();
                 UpdateTilesMat();
                 _NeedUpdateTiles = false;
