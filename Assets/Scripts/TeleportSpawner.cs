@@ -43,8 +43,7 @@ public class TeleportSpawner : MonoBehaviour
             _Teleport.GetComponent<TelePortal>().MyArea = _Area.gameObject;
             teleports.Add(_Teleport);
             _Teleport.SetActive(true);
-        }
-       
+        }       
     }
 
     GameObject BaseSpawnArea()
