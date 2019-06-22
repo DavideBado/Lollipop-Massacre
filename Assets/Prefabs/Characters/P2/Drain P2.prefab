@@ -159,6 +159,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CharacterName: MOCHI
+  AbilityName: Drain
+  AbilityDescription: Steal one players heart
   SwitchIndex: 0
   AgentParent: {fileID: 0}
   AgentSpawnPosition: {x: 0, y: 0, z: 0}
@@ -175,6 +177,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 8cf83c1f19e75974ebbe5b169e06a4d5, type: 3}
   - {fileID: 21300000, guid: cb3451c98c9e75a49ac1407712cbaf2c, type: 3}
   - {fileID: 21300000, guid: 8585a57fa4c8bc542b2f5d67ed38b609, type: 3}
+  - {fileID: 21300000, guid: f567e18c1d40f3e449f17e4a4c5800d2, type: 3}
   LifeSprites:
   - {fileID: 21300000, guid: d5ceffa33f81a1042a62da06213e4b83, type: 3}
   - {fileID: 21300000, guid: c6fbc6c4a30dc5e4d8cc4d4260425230, type: 3}

@@ -10,7 +10,7 @@ using System;
 
 public class Agent : MonoBehaviour, ICharacter
 {
-    public string CharacterName;
+    public string CharacterName, AbilityName, AbilityDescription;
     GameObject Graphic;
     InputSimulator m_InputSimulator = new InputSimulator();
     int m_OnEnableCounter = 0;

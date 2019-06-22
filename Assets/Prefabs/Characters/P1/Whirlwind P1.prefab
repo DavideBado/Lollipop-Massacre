@@ -158,6 +158,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CharacterName: MOU
+  AbilityName: Whirlwind
+  AbilityDescription: Switch two players character and damage both
   SwitchIndex: 0
   AgentParent: {fileID: 0}
   AgentSpawnPosition: {x: 0, y: 0, z: 0}
@@ -174,8 +176,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f00b8668027835c4b96128b52f6824f5, type: 3}
   - {fileID: 21300000, guid: d871e227b5c88eb40ab8b8aa5e46cf8f, type: 3}
   - {fileID: 21300000, guid: bbb7958d01ce1794ab58d025a998c981, type: 3}
-  - {fileID: 21300000, guid: ff94e89c6165f874090a49f4c6a2d78b, type: 3}
-  - {fileID: 21300000, guid: 794bc7950fd1b6248b5ff84d167d0b77, type: 3}
+  - {fileID: 21300000, guid: 87d5f4579d60df4468f776aac1367140, type: 3}
   LifeSprites:
   - {fileID: 21300000, guid: d5ceffa33f81a1042a62da06213e4b83, type: 3}
   - {fileID: 21300000, guid: c6fbc6c4a30dc5e4d8cc4d4260425230, type: 3}
@@ -187,6 +188,7 @@ MonoBehaviour:
   EnergySprites:
   - {fileID: 21300000, guid: 27d963b66ee3fa14b8a8877272a4cdeb, type: 3}
   - {fileID: 21300000, guid: 56b6c02fba3952644917462b58b00c9d, type: 3}
+  - {fileID: 21300000, guid: bf1e753905f84eb4995e5ec0f43cd408, type: 3}
   _Materials:
   - {fileID: 2100000, guid: fda81b5bad2464f4faebf2e9ff3b84e8, type: 2}
   - {fileID: 2100000, guid: 7c56ca6d99673fa418f43a54d46454de, type: 2}
@@ -219,6 +221,7 @@ MonoBehaviour:
   PoisonPS: {fileID: 3546577233330127496, guid: b2d7d5452ee40b74abd6b290fdd7c3f3,
     type: 3}
   DrainPS: {fileID: 4266508303113703240, guid: eace5e65e5c21784ea828194d0daffb6, type: 3}
+  OnAttack: 0
 --- !u!114 &1510294131
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,6 +259,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OnShield: 0
   Life: 3
+  DamageAmount: 0
+  Enemy: {fileID: 0}
+  BaseAttack: 0
 --- !u!114 &9156285678273493149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -416,6 +422,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6da994d14e269d84c949e188aa3f9d56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Enemy: {fileID: 0}
 --- !u!1001 &3972336942767346150
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -578,10 +585,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1510294127}
     m_Modifications:
-    - target: {fileID: 100000, guid: aa38338f0e161484ab91c6736aef6ec8, type: 3}
-      propertyPath: m_Name
-      value: camminata scimmia
-      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: aa38338f0e161484ab91c6736aef6ec8, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -637,6 +640,10 @@ PrefabInstance:
     - target: {fileID: 400000, guid: aa38338f0e161484ab91c6736aef6ec8, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: aa38338f0e161484ab91c6736aef6ec8, type: 3}
+      propertyPath: m_Name
+      value: camminata scimmia
       objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: aa38338f0e161484ab91c6736aef6ec8, type: 3}
       propertyPath: m_Controller

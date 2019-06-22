@@ -158,6 +158,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CharacterName: LORIX
+  AbilityName: Silence
+  AbilityDescription: Deals damage and removes enemy ability
   SwitchIndex: 0
   AgentParent: {fileID: 0}
   AgentSpawnPosition: {x: 12, y: 0, z: 11}
@@ -174,6 +176,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 6bce79235e259f84aac0818e7ca04ce8, type: 3}
   - {fileID: 21300000, guid: c51356e0aa4ef1f40920278b9c3abbc6, type: 3}
   - {fileID: 21300000, guid: 043c77a26632ab04696cf870614c6329, type: 3}
+  - {fileID: 21300000, guid: b97b4ff653d8c844e88a2288b17cf89d, type: 3}
   LifeSprites:
   - {fileID: 21300000, guid: d5ceffa33f81a1042a62da06213e4b83, type: 3}
   - {fileID: 21300000, guid: c6fbc6c4a30dc5e4d8cc4d4260425230, type: 3}

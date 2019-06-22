@@ -158,6 +158,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CharacterName: NOX
+  AbilityName: Poison
+  AbilityDescription: Deals two heart of damage over time
   SwitchIndex: 0
   AgentParent: {fileID: 0}
   AgentSpawnPosition: {x: 0, y: 0, z: 0}
@@ -174,8 +176,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 4a57774bf14825e4e8fb619dce8a9b70, type: 3}
   - {fileID: 21300000, guid: 65b03811ba86ce748a42b7d06e1d9930, type: 3}
   - {fileID: 21300000, guid: e6f33d28dd0063841af9b9514cf25133, type: 3}
-  - {fileID: 21300000, guid: fe39bd64160adf34d9c97cb2e8004c1e, type: 3}
-  - {fileID: 21300000, guid: 60be7483f49e53e43b0cc95049fd319d, type: 3}
+  - {fileID: 21300000, guid: 5fbf7a33bb9c45f46a64540eae92e5ad, type: 3}
   LifeSprites:
   - {fileID: 21300000, guid: d5ceffa33f81a1042a62da06213e4b83, type: 3}
   - {fileID: 21300000, guid: c6fbc6c4a30dc5e4d8cc4d4260425230, type: 3}
@@ -187,6 +188,7 @@ MonoBehaviour:
   EnergySprites:
   - {fileID: 21300000, guid: ba85b15dc68f295429d159a5ce72178f, type: 3}
   - {fileID: 21300000, guid: b0af283f5f2255247b3605a2d0555c65, type: 3}
+  - {fileID: 21300000, guid: 8c7f7490985c82d45bf9ee68a78ea524, type: 3}
   _Materials:
   - {fileID: 2100000, guid: fda81b5bad2464f4faebf2e9ff3b84e8, type: 2}
   - {fileID: 2100000, guid: 7c56ca6d99673fa418f43a54d46454de, type: 2}

@@ -158,6 +158,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CharacterName: ELVIS
+  AbilityName: Charge
+  AbilityDescription: Double damage after 4 tiles
   SwitchIndex: 0
   AgentParent: {fileID: 0}
   AgentSpawnPosition: {x: 0, y: 0, z: 0}
@@ -174,6 +176,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 574e0f2358e89f74bb2d4a0b0c5bb633, type: 3}
   - {fileID: 21300000, guid: b311d362aa542614d9f3c0b76701b739, type: 3}
   - {fileID: 21300000, guid: 331a3a2053794504b9f2f1aa3630e76f, type: 3}
+  - {fileID: 21300000, guid: 9f557be937993b446804a46ad8f337e1, type: 3}
   LifeSprites:
   - {fileID: 21300000, guid: d5ceffa33f81a1042a62da06213e4b83, type: 3}
   - {fileID: 21300000, guid: c6fbc6c4a30dc5e4d8cc4d4260425230, type: 3}
@@ -749,18 +752,6 @@ PrefabInstance:
       propertyPath: m_Avatar
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 13700008, guid: e184f203b9ab07c4aa2bcbf347218892, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 0bf4de293dfd0f144bb0e0169c0943fb, type: 2}
-    - target: {fileID: 13700010, guid: e184f203b9ab07c4aa2bcbf347218892, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 0bf4de293dfd0f144bb0e0169c0943fb, type: 2}
-    - target: {fileID: 13700012, guid: e184f203b9ab07c4aa2bcbf347218892, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 0bf4de293dfd0f144bb0e0169c0943fb, type: 2}
     - target: {fileID: 13700000, guid: e184f203b9ab07c4aa2bcbf347218892, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -774,6 +765,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: 0bf4de293dfd0f144bb0e0169c0943fb, type: 2}
     - target: {fileID: 13700006, guid: e184f203b9ab07c4aa2bcbf347218892, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0bf4de293dfd0f144bb0e0169c0943fb, type: 2}
+    - target: {fileID: 13700008, guid: e184f203b9ab07c4aa2bcbf347218892, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0bf4de293dfd0f144bb0e0169c0943fb, type: 2}
+    - target: {fileID: 13700010, guid: e184f203b9ab07c4aa2bcbf347218892, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0bf4de293dfd0f144bb0e0169c0943fb, type: 2}
+    - target: {fileID: 13700012, guid: e184f203b9ab07c4aa2bcbf347218892, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 0bf4de293dfd0f144bb0e0169c0943fb, type: 2}

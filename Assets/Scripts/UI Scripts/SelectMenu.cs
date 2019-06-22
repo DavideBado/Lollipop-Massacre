@@ -72,7 +72,7 @@ public class SelectMenu : MonoBehaviour
             POnePaty.transform.GetChild(1).GetChild(0).gameObject.SetActive(false);
             POnePaty.transform.GetChild(2).GetChild(0).gameObject.SetActive(false);
         }
-        if (PartyData.PartyCount(1) == 1)
+        else if (PartyData.PartyCount(1) == 1)
         {
             MoveBackground(P1PreviewBackground[0].transform, P1StartingPos[0]);
             MoveBackground(P1PreviewBackground[2].transform, P1StartingPos[2]);
@@ -86,7 +86,7 @@ public class SelectMenu : MonoBehaviour
             POnePaty.transform.GetChild(0).GetChild(0).GetComponent<Image>().sprite = PartyData.POnePart[0].GetComponent<Agent>()._Sprites[1];
             POnePaty.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<TMP_Text>().text = PartyData.POnePart[0].GetComponent<Agent>().CharacterName;
         }
-        if (PartyData.PartyCount(1) == 2)
+        else if (PartyData.PartyCount(1) == 2)
         {
             MoveBackground(P1PreviewBackground[0].transform, P1StartingPos[0]);
             MoveBackground(P1PreviewBackground[1].transform, P1StartingPos[1]);
@@ -99,7 +99,7 @@ public class SelectMenu : MonoBehaviour
             POnePaty.transform.GetChild(1).GetChild(0).GetComponent<Image>().sprite = PartyData.POnePart[1].GetComponent<Agent>()._Sprites[1];
             POnePaty.transform.GetChild(1).GetChild(0).GetChild(0).GetComponent<TMP_Text>().text = PartyData.POnePart[1].GetComponent<Agent>().CharacterName;
         }
-        if (PartyData.PartyCount(1) == 3)
+        else if (PartyData.PartyCount(1) == 3)
         {
             MoveBackground(P1PreviewBackground[2].transform, P1StartingPos[2]);
             P1PreviewBackground[0].sprite = P1Backgrounds[2];

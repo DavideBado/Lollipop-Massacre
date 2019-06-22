@@ -159,6 +159,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CharacterName: MOCHI
+  AbilityName: Drain
+  AbilityDescription: Steal one players heart
   SwitchIndex: 0
   AgentParent: {fileID: 0}
   AgentSpawnPosition: {x: 15, y: 0, z: 11}
@@ -175,8 +177,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 8cf83c1f19e75974ebbe5b169e06a4d5, type: 3}
   - {fileID: 21300000, guid: 55983c837b9760746a12f35628ee83df, type: 3}
   - {fileID: 21300000, guid: 77705e74db9617f498e21967258ff212, type: 3}
-  - {fileID: 21300000, guid: 9336fe687c47da34d89344fca88640d2, type: 3}
-  - {fileID: 21300000, guid: 26914ccdc4d0f0d458aca0fe1b7f4262, type: 3}
+  - {fileID: 21300000, guid: f567e18c1d40f3e449f17e4a4c5800d2, type: 3}
   LifeSprites:
   - {fileID: 21300000, guid: d5ceffa33f81a1042a62da06213e4b83, type: 3}
   - {fileID: 21300000, guid: c6fbc6c4a30dc5e4d8cc4d4260425230, type: 3}
@@ -188,6 +189,7 @@ MonoBehaviour:
   EnergySprites:
   - {fileID: 21300000, guid: 881826be396121d45859bdfaca791c32, type: 3}
   - {fileID: 21300000, guid: 5a86e63db4632744d8730f14f4c07d87, type: 3}
+  - {fileID: 21300000, guid: 344c91ae33de5dc4abdc6119db0e88eb, type: 3}
   _Materials:
   - {fileID: 2100000, guid: fda81b5bad2464f4faebf2e9ff3b84e8, type: 2}
   - {fileID: 2100000, guid: 7c56ca6d99673fa418f43a54d46454de, type: 2}
@@ -303,19 +305,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PatternData: {fileID: 11400000, guid: 766d61bd2444e754780cdc6aa652377e, type: 2}
---- !u!114 &6321453617700565261
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 226750584292711186}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6da994d14e269d84c949e188aa3f9d56, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Enemy: {fileID: 0}
 --- !u!95 &423191049902849282
 Animator:
   serializedVersion: 3
@@ -335,6 +324,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6321453617700565261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 226750584292711186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6da994d14e269d84c949e188aa3f9d56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Enemy: {fileID: 0}
 --- !u!1 &1980843689978317343
 GameObject:
   m_ObjectHideFlags: 0

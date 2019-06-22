@@ -14,8 +14,8 @@ public class EventSystemCustom : EventSystem
     List<ButtonCustom1> m_Buttons = new List<ButtonCustom1>();
     public Sprite PlayTexture, BackTexture;
     CharaSprites currentCharaSprite;
-    public TMP_Text _Text;
-    public Image Preview;
+    public TMP_Text m_AbilityDescription, m_AbilityName;
+    public Image Preview, m_AbilityIcon;
     public string ChargeString, WhirlwindString;
     public int ID;
     protected override void OnEnable()
@@ -57,19 +57,9 @@ public class EventSystemCustom : EventSystem
                 currentCharaSprite = currentSelectedGameObject.GetComponent<CharaSprites>();
                 currentCharaSprite.ArrowPOne.SetActive(true);
                 Preview.sprite = currentCharaSprite.Character[0].GetComponent<Agent>()._Sprites[3];
-                if(currentCharaSprite.Character[0].GetComponent<Charge>() != null)
-                {
-                    _Text.text = ChargeString.ToUpper();
-                }
-                else if (currentCharaSprite.Character[0].GetComponent<Whirlwind>() != null)
-                {
-
-                    _Text.text = WhirlwindString.ToUpper();
-                }
-                else
-                {
-                    _Text.text = "";
-                }
+                m_AbilityIcon.sprite = currentCharaSprite.Character[0].GetComponent<Agent>().EnergySprites[2];
+                m_AbilityDescription.text = currentCharaSprite.Character[0].GetComponent<Agent>().AbilityDescription.ToUpper();
+                m_AbilityName.text = currentCharaSprite.Character[0].GetComponent<Agent>().AbilityName.ToUpper();              
             }
                     
         }
@@ -79,19 +69,10 @@ public class EventSystemCustom : EventSystem
             {
                 currentCharaSprite = currentSelectedGameObject.GetComponent<CharaSprites>();
                 currentCharaSprite.ArrowPTwo.SetActive(true);
-                Preview.sprite = currentCharaSprite.Character[0].GetComponent<Agent>()._Sprites[4];
-                if (currentCharaSprite.Character[0].GetComponent<Charge>() != null)
-                {
-                    _Text.text = ChargeString.ToUpper();
-                }
-                else if (currentCharaSprite.Character[0].GetComponent<Whirlwind>() != null)
-                {
-                    _Text.text = WhirlwindString.ToUpper();
-                }
-                else
-                {
-                    _Text.text = "";
-                }
+                Preview.sprite = currentCharaSprite.Character[1].GetComponent<Agent>()._Sprites[3];
+                m_AbilityIcon.sprite = currentCharaSprite.Character[0].GetComponent<Agent>().EnergySprites[2];
+                m_AbilityDescription.text = currentCharaSprite.Character[1].GetComponent<Agent>().AbilityDescription.ToUpper();
+                m_AbilityName.text = currentCharaSprite.Character[1].GetComponent<Agent>().AbilityName.ToUpper();              
             }
             //else if(currentSelectedGameObject.name == "Play")
             //{
