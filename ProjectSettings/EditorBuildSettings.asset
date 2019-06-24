@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Scene programmatori/MainMenu 2.unity
     guid: f8af36a5db5a7b34eb5ea2e577cfc175
+  - enabled: 0
+    path: Assets/Scenes/Scene programmatori/2Mappa 1.unity
+    guid: b2c2291d035dadc4c8197f11bed23593
   - enabled: 1
     path: Assets/Scenes/Scene programmatori/Miniera3.unity
     guid: e00d5fea96c5359438d9948bb8044ba9

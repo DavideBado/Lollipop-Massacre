@@ -118,6 +118,7 @@ public class EventSystemCustom : EventSystem
    
     public void UpdateEventSystem(GameObject _button)
     {
+        SetSelectedGameObject(null);
         StartCoroutine(eventsCoroutine(_button));
     }
 

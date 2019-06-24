@@ -604,6 +604,14 @@ PrefabInstance:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 42225765, guid: a93422f9f0f21cd4f8323d2afab0dda4, type: 3}
+      propertyPath: eventSystemCustoms.Array.data[0]
+      value: 
+      objectReference: {fileID: 1627445690}
+    - target: {fileID: 42225765, guid: a93422f9f0f21cd4f8323d2afab0dda4, type: 3}
+      propertyPath: eventSystemCustoms.Array.data[1]
+      value: 
+      objectReference: {fileID: 516070541}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a93422f9f0f21cd4f8323d2afab0dda4, type: 3}
 --- !u!114 &108128364 stripped
