@@ -8,14 +8,21 @@ public class TeleportSpawner : MonoBehaviour
     public GameObject Teleport1, Teleport2;
     public List<GameObject> teleports = new List<GameObject>();
     public List<GameObject> Areas;
+    public List<int> ExAreas = new List<int>();
 
-    //private void Update()
-    //{
-    //    if (Input.GetKeyDown(KeyCode.Y))
-    //    {
-    //        Telespawn();
-    //    }
-    //}
+    private void Start()
+    {
+        foreach (int _exID in ExAreas)
+        {
+            foreach (GameObject _area in Areas)
+            {
+                if(_area.GetComponent<GridArea>().AreaID == _exID)
+                {
+                    Areas.Remove(_area);
+                }
+            } 
+        }
+    }
 
     public void Telespawn()
     {

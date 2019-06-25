@@ -6500,6 +6500,7 @@ MonoBehaviour:
   - {fileID: 127480123}
   - {fileID: 242940866}
   - {fileID: 241539805}
+  ExAreas: 05000000
 --- !u!1001 &143361810
 PrefabInstance:
   m_ObjectHideFlags: 0
