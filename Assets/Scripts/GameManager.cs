@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public List<GameObject> POneParty = new List<GameObject>();
     public List<GameObject> PTwoParty = new List<GameObject>();
     public List<Transform> SpawnPoints = new List<Transform>();
+    public bool AttackForPortals, UsedPortal;
     //GameObject m_slider;
     public GameObject BenchPOne, BenchPTwo;
     bool state;    
@@ -169,7 +170,11 @@ public class GameManager : MonoBehaviour
                 }
                 CleanTiles();
                 UpdateTilesMat();
-                _NeedUpdateTiles = false;
+                _NeedUpdateTiles = false;               
+            }
+            if(AttackForPortals && UsedPortal)
+            {
+                PortalRounds = 5;
             }
             if (PortalRounds >= 5)
             {
@@ -201,6 +206,8 @@ public class GameManager : MonoBehaviour
                 PickUpTurnCount++;
                 HealtTurnCount++;
                 PortalRounds++;
+                AttackForPortals = false;
+                UsedPortal = false;
                 _NeedUpdateTiles = true;
                 if (Turn == true)// Se è nuovamente il turno del primo giocatore
                 {

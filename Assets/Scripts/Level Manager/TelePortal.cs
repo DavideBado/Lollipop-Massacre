@@ -34,6 +34,7 @@ public class TelePortal : MonoBehaviour
     {       
         if (other.GetComponent<Agent>().MyTurn == true)
         {
+            gameManager.UsedPortal = true;
             other.GetComponent<Agent>().x = (int)otherteleport.transform.position.x;
             other.GetComponent<Agent>().x2 = (int)otherteleport.transform.position.x;
             other.GetComponent<Agent>().y = (int)otherteleport.transform.position.z;
