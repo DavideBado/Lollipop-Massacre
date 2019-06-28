@@ -10,25 +10,25 @@ public class TeleportSpawner : MonoBehaviour
     public List<GameObject> Areas;
     public List<int> ExAreas = new List<int>();
 
-    private void Start()
-    {
-        foreach (int _exID in ExAreas)
-        {
-            foreach (GameObject _area in Areas)
-            {
-                if(_area.GetComponent<GridArea>().AreaID == _exID)
-                {
-                    Areas.Remove(_area);
-                }
-            } 
-        }
-    }
+    //private void Start()
+    //{
+    //    foreach (int _exID in ExAreas)
+    //    {
+    //        foreach (GameObject _area in Areas)
+    //        {
+    //            if(_area.GetComponent<GridArea>().AreaID == _exID)
+    //            {
+    //                Areas.Remove(_area);
+    //            }
+    //        } 
+    //    }
+    //}
 
     public void Telespawn()
     {
         if(teleports.Count == 2)
-        { GridArea _Area = OrdinarySpawnArea();
-        
+        {
+            GridArea _Area = OrdinarySpawnArea();
             teleports[0].transform.position = new Vector3(_Area.TeleportSpawnPoint_X, 0, _Area.TeleportSpawnPoint_Z);
             teleports[0].GetComponent<TelePortal>().MyArea = _Area.gameObject;
             GameObject _teleport = teleports[0]; 

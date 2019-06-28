@@ -172,14 +172,13 @@ public class GameManager : MonoBehaviour
                 UpdateTilesMat();
                 _NeedUpdateTiles = false;               
             }
-            if(AttackForPortals && UsedPortal)
+            
+            if (PortalRounds >= 5 || (AttackForPortals && UsedPortal))
             {
-                PortalRounds = 5;
-            }
-            if (PortalRounds >= 5)
-            {
-                PortalSpawner.Telespawn();
+                AttackForPortals = false;
+                UsedPortal = false;
                 PortalRounds = 0;
+                PortalSpawner.Telespawn();
             }
             if(PortalSpawner.teleports.Count == 1)
             {
