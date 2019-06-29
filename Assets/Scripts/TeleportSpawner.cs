@@ -37,7 +37,13 @@ public class TeleportSpawner : MonoBehaviour
         }
         else if(teleports.Count == 0)
         {
-           GameObject _Area = Areas[Random.Range(0, Areas.Count)];
+            int index;
+            index = Random.Range(0, Areas.Count);
+            while (Areas[index].GetComponent<GridArea>().AreaID == 5)
+            {
+                index = Random.Range(0, Areas.Count);
+            }
+           GameObject _Area = Areas[index];
            GameObject _Teleport = Instantiate(Teleport1, new Vector3(_Area.GetComponent<GridArea>().TeleportSpawnPoint_X, 0, _Area.GetComponent<GridArea>().TeleportSpawnPoint_Z), Quaternion.identity);
             _Teleport.GetComponent<TelePortal>().MyArea = _Area;
             teleports.Add(_Teleport);
