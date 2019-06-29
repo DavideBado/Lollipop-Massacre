@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class characterSprite : MonoBehaviour
 {
 	public int ID;
-    public Image img;
+    public Image CharacterImage, EnergyImage, LifeImage;
     public GameManager gm;
     public bool PanelPos;
     Agent player;
@@ -28,7 +28,7 @@ public class characterSprite : MonoBehaviour
 
     private void Update()
     {
-		img = GetComponent<Image>();
+		CharacterImage = GetComponent<Image>();
 
 		if (gm == null)
 		{
@@ -44,11 +44,21 @@ public class characterSprite : MonoBehaviour
     {
         if(player.GetComponent<LifeManager>().Life > 0)
         {
-		    img.sprite = player._Sprites[2];
+		    CharacterImage.sprite = player._Sprites[2];
+            if (EnergyImage != null && LifeImage != null)
+            {
+                EnergyImage.enabled = true;
+                LifeImage.gameObject.SetActive(true); 
+            }
         }
         else
         {
-            img.sprite = player.LifeSprites[2];
+            CharacterImage.sprite = player.LifeSprites[2];
+            if (EnergyImage != null && LifeImage != null)
+            {
+                EnergyImage.enabled = false;
+                LifeImage.gameObject.SetActive(false); 
+            }
         }        
     }
 

@@ -59,7 +59,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 2
-  img: {fileID: 0}
+  CharacterImage: {fileID: 0}
+  EnergyImage: {fileID: 0}
+  LifeImage: {fileID: 0}
   gm: {fileID: 0}
   PanelPos: 0
 --- !u!114 &127174354509378077
@@ -2993,7 +2995,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 0
-  img: {fileID: 0}
+  CharacterImage: {fileID: 0}
+  EnergyImage: {fileID: 7815457058000078744}
+  LifeImage: {fileID: 7530975418514380038}
   gm: {fileID: 0}
   PanelPos: 1
 --- !u!114 &4764012224178872858
@@ -4432,7 +4436,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 1
-  img: {fileID: 0}
+  CharacterImage: {fileID: 0}
+  EnergyImage: {fileID: 3798697344436017966}
+  LifeImage: {fileID: 896019070874340003}
   gm: {fileID: 0}
   PanelPos: 1
 --- !u!114 &6103248878586729293
@@ -4823,7 +4829,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 2
-  img: {fileID: 0}
+  CharacterImage: {fileID: 0}
+  EnergyImage: {fileID: 0}
+  LifeImage: {fileID: 0}
   gm: {fileID: 0}
   PanelPos: 1
 --- !u!114 &5761133283274767317
@@ -7438,7 +7446,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 0
-  img: {fileID: 0}
+  CharacterImage: {fileID: 0}
+  EnergyImage: {fileID: 3379462977186887663}
+  LifeImage: {fileID: 5081153402225671922}
   gm: {fileID: 0}
   PanelPos: 0
 --- !u!114 &2560689578323955955
@@ -8511,7 +8521,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ID: 1
-  img: {fileID: 0}
+  CharacterImage: {fileID: 0}
+  EnergyImage: {fileID: 4064549889529023815}
+  LifeImage: {fileID: 1895290740133991097}
   gm: {fileID: 0}
   PanelPos: 0
 --- !u!114 &4038148731732925313
@@ -8636,7 +8648,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 166
+  m_fontSize: 166.05
   m_fontSizeBase: 150
   m_fontWeight: 400
   m_enableAutoSizing: 1
