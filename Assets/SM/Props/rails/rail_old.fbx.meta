@@ -240,8 +240,11 @@ ModelImporter:
     2100000: lambert13
     2100002: lambert1
     2300000: polySurface267
+    2300002: //RootNode
     3300000: polySurface267
+    3300002: //RootNode
     4300000: polySurface267
+    4300002: polySurface453
   externalObjects: {}
   materials:
     importMaterials: 0

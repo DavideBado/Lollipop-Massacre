@@ -1,0 +1,209 @@
+fileFormatVersion: 2
+guid: c7efa946f06806a478b63dddcbac4c6d
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: body1
+    100002: Ctrl_Body
+    100004: Ctrl_Foot_L
+    100006: Ctrl_Foot_R
+    100008: Ctrl_Foots
+    100010: Ctrl_Hand_L
+    100012: Ctrl_Hand_R
+    100014: Ctrl_Hands
+    100016: Ctrl_Head
+    100018: Ctrl_Tail
+    100020: foot_dx1
+    100022: footsx
+    100024: hand_dx1
+    100026: hand_sx
+    100028: head
+    100030: J_Anulare_L
+    100032: J_Anulare_R
+    100034: J_Anularedito_R
+    100036: J_Arm_L
+    100038: J_Arm_R
+    100040: J_body
+    100042: J_body2
+    100044: J_Foot_L
+    100046: J_Foot_R
+    100048: J_Footdito_L
+    100050: J_Footdito_R
+    100052: J_Hand_L
+    100054: J_Hand_R
+    100056: J_Head
+    100058: J_Headtop
+    100060: J_Hip_L
+    100062: J_Hip_R
+    100064: J_Indice_L
+    100066: J_Indice_R
+    100068: J_Indicedito_L
+    100070: J_Indicedito_R
+    100072: J_Medio_L
+    100074: J_Medio_R
+    100076: J_Mediodito_L
+    100078: J_Mediodito_R
+    100080: J_MidHand_L
+    100082: J_MidHand_R
+    100084: J_Pollice_L
+    100086: J_Pollice_R
+    100088: J_Pollicedito_R
+    100090: J_Tail
+    100092: //RootNode
+    100094: M_J_Redpanda
+    100096: SM_Redpanda
+    100098: tail
+    400000: body1
+    400002: Ctrl_Body
+    400004: Ctrl_Foot_L
+    400006: Ctrl_Foot_R
+    400008: Ctrl_Foots
+    400010: Ctrl_Hand_L
+    400012: Ctrl_Hand_R
+    400014: Ctrl_Hands
+    400016: Ctrl_Head
+    400018: Ctrl_Tail
+    400020: foot_dx1
+    400022: footsx
+    400024: hand_dx1
+    400026: hand_sx
+    400028: head
+    400030: J_Anulare_L
+    400032: J_Anulare_R
+    400034: J_Anularedito_R
+    400036: J_Arm_L
+    400038: J_Arm_R
+    400040: J_body
+    400042: J_body2
+    400044: J_Foot_L
+    400046: J_Foot_R
+    400048: J_Footdito_L
+    400050: J_Footdito_R
+    400052: J_Hand_L
+    400054: J_Hand_R
+    400056: J_Head
+    400058: J_Headtop
+    400060: J_Hip_L
+    400062: J_Hip_R
+    400064: J_Indice_L
+    400066: J_Indice_R
+    400068: J_Indicedito_L
+    400070: J_Indicedito_R
+    400072: J_Medio_L
+    400074: J_Medio_R
+    400076: J_Mediodito_L
+    400078: J_Mediodito_R
+    400080: J_MidHand_L
+    400082: J_MidHand_R
+    400084: J_Pollice_L
+    400086: J_Pollice_R
+    400088: J_Pollicedito_R
+    400090: J_Tail
+    400092: //RootNode
+    400094: M_J_Redpanda
+    400096: SM_Redpanda
+    400098: tail
+    2100000: lambert1
+    2100002: lambert3
+    4300000: head
+    4300002: body1
+    4300004: tail
+    4300006: footsx
+    4300008: hand_sx
+    4300010: foot_dx1
+    4300012: hand_dx1
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: body1
+    13700002: foot_dx1
+    13700004: footsx
+    13700006: hand_dx1
+    13700008: hand_sx
+    13700010: head
+    13700012: tail
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
