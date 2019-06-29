@@ -33,7 +33,7 @@ namespace Tutorial
                         QuestMessage.enabled = false;
                         if(GoalCheck())
                         {
-
+                            QuestManager.instance.GoalComplete();
                         }
                     }
                     break;
