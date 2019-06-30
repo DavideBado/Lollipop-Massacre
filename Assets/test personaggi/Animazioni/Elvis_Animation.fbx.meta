@@ -78,18 +78,18 @@ ModelImporter:
     4300008: SM_R_Hand
     4300010: SM_L_Foot
     4300012: SM_R_Foot
-    7400000: Walk
-    7400002: ChargePreparation
-    7400004: ChargeLoop
-    7400006: ChargeAttack
-    7400008: Basic attack
-    7400010: Suffered blow
-    7400012: Death
-    7400014: StunEnter
-    7400016: StunLoop
-    7400018: StunExit
-    7400020: Victory
-    7400022: Idle
+    7400000: Charge Walk
+    7400002: Charge AbilityPreparation
+    7400004: Charge AbilityLoop
+    7400006: Charge AbilityAttack
+    7400008: Charge Basic attack
+    7400010: Charge Suffered blow
+    7400012: Charge Death
+    7400014: Charge StunEnter
+    7400016: Charge StunLoop
+    7400018: Charge StunExit
+    7400020: Charge Victory
+    7400022: Charge Idle
     9500000: //RootNode
     13700000: SM_Body
     13700002: SM_Head
@@ -127,7 +127,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Walk
+      name: Charge Walk
       takeName: Take 001
       firstFrame: 0
       lastFrame: 20
@@ -155,7 +155,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: ChargePreparation
+      name: Charge AbilityPreparation
       takeName: Take 001
       firstFrame: 45
       lastFrame: 55
@@ -183,7 +183,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: ChargeLoop
+      name: Charge AbilityLoop
       takeName: Take 001
       firstFrame: 55
       lastFrame: 85
@@ -211,7 +211,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: ChargeAttack
+      name: Charge AbilityAttack
       takeName: Take 001
       firstFrame: 95
       lastFrame: 125
@@ -233,13 +233,27 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.3087558
+        functionName: DamageEnemy
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 1
+        functionName: Idle_Animation
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Basic attack
+      name: Charge Basic attack
       takeName: Take 001
       firstFrame: 130
       lastFrame: 145
@@ -261,13 +275,20 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 1
+        functionName: DamageEnemy
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Suffered blow
+      name: Charge Suffered blow
       takeName: Take 001
       firstFrame: 145
       lastFrame: 165
@@ -289,13 +310,20 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 1
+        functionName: Idle_Animation
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Death
+      name: Charge Death
       takeName: Take 001
       firstFrame: 165
       lastFrame: 180
@@ -317,13 +345,20 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 1
+        functionName: DieNow
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: StunEnter
+      name: Charge StunEnter
       takeName: Take 001
       firstFrame: 200
       lastFrame: 210
@@ -345,13 +380,20 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 1
+        functionName: Stun_Animation
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: StunLoop
+      name: Charge StunLoop
       takeName: Take 001
       firstFrame: 210
       lastFrame: 270
@@ -379,7 +421,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: StunExit
+      name: Charge StunExit
       takeName: Take 001
       firstFrame: 300
       lastFrame: 310
@@ -401,13 +443,20 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 1
+        functionName: Idle_Animation
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Victory
+      name: Charge Victory
       takeName: Take 001
       firstFrame: 320
       lastFrame: 380
@@ -435,7 +484,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Idle
+      name: Charge Idle
       takeName: Take 001
       firstFrame: 390
       lastFrame: 430

@@ -33,20 +33,21 @@ ModelImporter:
     4300000: SM_body
     4300002: SM_hand_R
     4300004: SM_hand_L
-    7400000: Walk
-    7400002: Idle
-    7400004: Ability
-    7400006: Basic Attack
-    7400008: Suffered blow
-    7400010: StunEnter
-    7400012: StunLoop
-    7400014: StunExit
-    7400016: Death
-    7400018: Victory
+    7400000: Drain Walk
+    7400002: Drain Idle
+    7400004: Drain Ability
+    7400006: Drain Basic Attack
+    7400008: Drain Suffered blow
+    7400010: Drain StunEnter
+    7400012: Drain StunLoop
+    7400014: Drain StunExit
+    7400016: Drain Death
+    7400018: Drain Victory
     9500000: //RootNode
     13700000: SM_body
     13700002: SM_hand_L
     13700004: SM_hand_R
+    2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -62,7 +63,10 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
-    animationImportWarnings: 
+    animationImportWarnings: Event Stun_Animation has a time (0.208333) outside the
+      clip's valid range (0.000000..0.208333). It will never be firedEvent Idle_Animation
+      has a time (0.208333) outside the clip's valid range (0.000000..0.208333). It
+      will never be fired
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
@@ -76,7 +80,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Walk
+      name: Drain Walk
       takeName: Take 001
       firstFrame: 1
       lastFrame: 15
@@ -104,7 +108,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Idle
+      name: Drain Idle
       takeName: Take 001
       firstFrame: 1
       lastFrame: 15
@@ -132,7 +136,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Ability
+      name: Drain Ability
       takeName: Take 001
       firstFrame: 20
       lastFrame: 30
@@ -154,13 +158,20 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 1
+        functionName: DamageEnemy
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Basic Attack
+      name: Drain Basic Attack
       takeName: Take 001
       firstFrame: 30
       lastFrame: 45
@@ -182,13 +193,20 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.43540725
+        functionName: DamageEnemy
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Suffered blow
+      name: Drain Suffered blow
       takeName: Take 001
       firstFrame: 50
       lastFrame: 65
@@ -210,13 +228,20 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 1
+        functionName: Idle_Animation
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: StunEnter
+      name: Drain StunEnter
       takeName: Take 001
       firstFrame: 70
       lastFrame: 75
@@ -238,13 +263,20 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 1
+        functionName: Stun_Animation
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: StunLoop
+      name: Drain StunLoop
       takeName: Take 001
       firstFrame: 75
       lastFrame: 85
@@ -272,7 +304,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: StunExit
+      name: Drain StunExit
       takeName: Take 001
       firstFrame: 85
       lastFrame: 90
@@ -294,13 +326,20 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 1
+        functionName: Idle_Animation
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Death
+      name: Drain Death
       takeName: Take 001
       firstFrame: 95
       lastFrame: 110
@@ -322,13 +361,20 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 1
+        functionName: DieNow
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Victory
+      name: Drain Victory
       takeName: Take 001
       firstFrame: 110
       lastFrame: 135

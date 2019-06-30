@@ -66,16 +66,16 @@ ModelImporter:
     4300008: SM_Hand_R
     4300010: SM_Foot_R
     4300012: SM_Foot_L
-    7400000: Walk
-    7400002: Ability
-    7400004: Basic attack
-    7400006: Idle
-    7400008: Suffered blow
-    7400010: Death
-    7400012: Victory
-    7400014: StunEnter
-    7400016: StunLoop
-    7400018: StunExit
+    7400000: Lorix Walk
+    7400002: Lorix Ability
+    7400004: Lorix Basic attack
+    7400006: Lorix Idle
+    7400008: Lorix Suffered blow
+    7400010: Lorix Death
+    7400012: Lorix Victory
+    7400014: Lorix StunEnter
+    7400016: Lorix StunLoop
+    7400018: Lorix StunExit
     9500000: //RootNode
     13700000: SM_Body
     13700002: SM_Foot_L
@@ -113,7 +113,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Walk
+      name: Lorix Walk
       takeName: Take 001
       firstFrame: 0
       lastFrame: 30
@@ -141,7 +141,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Ability
+      name: Lorix Ability
       takeName: Take 001
       firstFrame: 50
       lastFrame: 60
@@ -163,13 +163,20 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 1
+        functionName: DamageEnemy
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Basic attack
+      name: Lorix Basic attack
       takeName: Take 001
       firstFrame: 65
       lastFrame: 75
@@ -191,13 +198,20 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.67281103
+        functionName: DamageEnemy
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Idle
+      name: Lorix Idle
       takeName: Take 001
       firstFrame: 80
       lastFrame: 115
@@ -225,7 +239,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Suffered blow
+      name: Lorix Suffered blow
       takeName: Take 001
       firstFrame: 120
       lastFrame: 135
@@ -247,13 +261,20 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 1
+        functionName: Idle_Animation
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Death
+      name: Lorix Death
       takeName: Take 001
       firstFrame: 200
       lastFrame: 225
@@ -275,13 +296,20 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 1
+        functionName: DieNow
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Victory
+      name: Lorix Victory
       takeName: Take 001
       firstFrame: 240
       lastFrame: 290
@@ -309,7 +337,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: StunEnter
+      name: Lorix StunEnter
       takeName: Take 001
       firstFrame: 154
       lastFrame: 164
@@ -331,13 +359,20 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 1
+        functionName: Stun_Animation
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: StunLoop
+      name: Lorix StunLoop
       takeName: Take 001
       firstFrame: 164
       lastFrame: 174
@@ -365,7 +400,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: StunExit
+      name: Lorix StunExit
       takeName: Take 001
       firstFrame: 180
       lastFrame: 195
@@ -387,7 +422,14 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 1
+        functionName: Idle_Animation
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
