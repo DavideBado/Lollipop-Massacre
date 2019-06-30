@@ -47,6 +47,11 @@ public class GameManager : MonoBehaviour
     public Action UpdateTilesMat;
     #endregion
 
+    private void OnEnable()
+    {
+        SetTiles();
+    }
+
     private void Start()
     {
         Timer = TimeMax;
@@ -525,39 +530,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    ///////////////////////////////////////////////////////////
-    //    void UpdateBenchTester()
-    //    {
-    //        if (POneParty != null)
-    //        {
-    //            int i = 1;
-
-    //            foreach (GameObject _Character in POneParty)
-    //            {
-
-    //                GameObject m_Character = Instantiate(_Character);
-    //    //POneParty.Add(m_Character);
-    //                m_Character.GetComponent<Agent>().SwitchIndex = i;
-    //                i ++;
-    //                m_Character.transform.parent = BenchPOne.transform;
-    //                m_Character.SetActive(false);
-    //            }
-    //        }
-    //        if (PTwoParty != null)
-    //        {
-    //            int i = 1;
-
-    //            foreach (GameObject _Character in PTwoParty)
-    //            {
-    //                GameObject m_Character = Instantiate(_Character);
-    ////PTwoParty.Add(m_Character);
-    //                m_Character.GetComponent<Agent>().SwitchIndex = i;
-    //                i++;
-    //                m_Character.transform.parent = BenchPTwo.transform;
-    //                m_Character.SetActive(false);
-    //            }            
-    //        }
-    //        ActiveStarters();
-    //    }
-
+    private void SetTiles()
+    {
+        List<NewTilesPreview> m_tiles = FindObjectsOfType<NewTilesPreview>().ToList();
+        foreach (NewTilesPreview _tile in m_tiles)
+        {
+            _tile.OnGameManagerEnable(this);
+        }
+    }
 }
