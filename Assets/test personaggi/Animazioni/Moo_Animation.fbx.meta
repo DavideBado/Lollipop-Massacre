@@ -86,16 +86,16 @@ ModelImporter:
     4300008: SM_Tail
     4300010: SM_Hand_R
     4300012: SM_Hand_L
-    7400000: Walk
-    7400002: Ability
-    7400004: Basic attack
-    7400006: Suffered blow
-    7400008: StunEnter
-    7400010: StunLoop
-    7400012: StunExit
-    7400014: Death
-    7400016: Victory
-    7400018: Idle
+    7400000: Whirlwind Walk
+    7400002: Whirlwind Ability
+    7400004: Whirlwind Basic attack
+    7400006: Whirlwind Suffered blow
+    7400008: Whirlwind StunEnter
+    7400010: Whirlwind StunLoop
+    7400012: Whirlwind StunExit
+    7400014: Whirlwind Death
+    7400016: Whirlwind Victory
+    7400018: Whirlwind Idle
     9500000: //RootNode
     13700000: SM_Body
     13700002: SM_Hand_L
@@ -133,7 +133,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Walk
+      name: Whirlwind Walk
       takeName: Take 001
       firstFrame: 0
       lastFrame: 25
@@ -161,7 +161,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Ability
+      name: Whirlwind Ability
       takeName: Take 001
       firstFrame: 45
       lastFrame: 65
@@ -183,13 +183,20 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 1
+        functionName: DamageEnemy
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Basic attack
+      name: Whirlwind Basic attack
       takeName: Take 001
       firstFrame: 70
       lastFrame: 90
@@ -211,13 +218,20 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.586498
+        functionName: DamageEnemy
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Suffered blow
+      name: Whirlwind Suffered blow
       takeName: Take 001
       firstFrame: 90
       lastFrame: 110
@@ -239,13 +253,20 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 1
+        functionName: Idle_Animation
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: StunEnter
+      name: Whirlwind StunEnter
       takeName: Take 001
       firstFrame: 110
       lastFrame: 125
@@ -267,13 +288,20 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 1
+        functionName: Stun_Animation
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: StunLoop
+      name: Whirlwind StunLoop
       takeName: Take 001
       firstFrame: 125
       lastFrame: 135
@@ -301,7 +329,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: StunExit
+      name: Whirlwind StunExit
       takeName: Take 001
       firstFrame: 150
       lastFrame: 165
@@ -323,13 +351,20 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 1
+        functionName: Idle_Animation
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Death
+      name: Whirlwind Death
       takeName: Take 001
       firstFrame: 165
       lastFrame: 190
@@ -351,13 +386,20 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 1
+        functionName: DieNow
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Victory
+      name: Whirlwind Victory
       takeName: Take 001
       firstFrame: 200
       lastFrame: 270
@@ -385,7 +427,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Idle
+      name: Whirlwind Idle
       takeName: Take 001
       firstFrame: 280
       lastFrame: 320

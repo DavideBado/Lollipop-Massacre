@@ -112,16 +112,16 @@ ModelImporter:
     4300008: hand_sx
     4300010: foot_dx1
     4300012: hand_dx1
-    7400000: Walk
-    7400002: Ability
-    7400004: Basic attack
-    7400006: Suffered blow
-    7400008: Idle
-    7400010: Death
-    7400012: Victory
-    7400014: StunEnter
-    7400016: StunLoop
-    7400018: StunExit
+    7400000: BigD Walk
+    7400002: BigD Ability
+    7400004: BigD Basic attack
+    7400006: BigD Suffered blow
+    7400008: BigD Idle
+    7400010: BigD Death
+    7400012: BigD Victory
+    7400014: BigD StunEnter
+    7400016: BigD StunLoop
+    7400018: BigD StunExit
     9500000: //RootNode
     13700000: body1
     13700002: foot_dx1
@@ -130,6 +130,7 @@ ModelImporter:
     13700008: hand_sx
     13700010: head
     13700012: tail
+    2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -145,7 +146,8 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
-    animationImportWarnings: 
+    animationImportWarnings: Event Idle_Animation has a time (0.416667) outside the
+      clip's valid range (0.000000..0.416666). It will never be fired
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
@@ -159,7 +161,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Walk
+      name: BigD Walk
       takeName: Take 001
       firstFrame: 0
       lastFrame: 20
@@ -187,7 +189,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Ability
+      name: BigD Ability
       takeName: Take 001
       firstFrame: 50
       lastFrame: 90
@@ -209,13 +211,20 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 1
+        functionName: DamageEnemy
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Basic attack
+      name: BigD Basic attack
       takeName: Take 001
       firstFrame: 90
       lastFrame: 115
@@ -237,13 +246,20 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.3762058
+        functionName: DamageEnemy
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Suffered blow
+      name: BigD Suffered blow
       takeName: Take 001
       firstFrame: 115
       lastFrame: 130
@@ -265,13 +281,20 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 1
+        functionName: Idle_Animation
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Idle
+      name: BigD Idle
       takeName: Take 001
       firstFrame: 135
       lastFrame: 165
@@ -299,7 +322,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Death
+      name: BigD Death
       takeName: Take 001
       firstFrame: 180
       lastFrame: 240
@@ -321,13 +344,20 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 1
+        functionName: DieNow
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Victory
+      name: BigD Victory
       takeName: Take 001
       firstFrame: 270
       lastFrame: 350
@@ -355,7 +385,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: StunEnter
+      name: BigD StunEnter
       takeName: Take 001
       firstFrame: 360
       lastFrame: 380
@@ -377,13 +407,20 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 1
+        functionName: Stun_Animation
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: StunLoop
+      name: BigD StunLoop
       takeName: Take 001
       firstFrame: 380
       lastFrame: 410
@@ -411,7 +448,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: StunExit
+      name: BigD StunExit
       takeName: Take 001
       firstFrame: 410
       lastFrame: 420
@@ -433,7 +470,14 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 1
+        functionName: Idle_Animation
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
