@@ -15,9 +15,9 @@ public class NewTilesPreview : MonoBehaviour
         }
     }
 
-    private void OnEnable()
+    public void OnGameManagerEnable(GameManager _gameManager)
     {
-        m_GameManager = FindObjectOfType<GameManager>();
+        m_GameManager = _gameManager;
         m_GameManager.UpdateTilesMat += UpdateMaterial;
     }
   

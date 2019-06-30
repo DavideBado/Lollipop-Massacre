@@ -29,8 +29,8 @@ public class CountDown : MonoBehaviour
             if(timerCD < 1)
             {
                 Game.SetActive(true);
-                Tiles.SetActive(false);
-                InGameTiles.SetActive(true);
+                //Tiles.SetActive(false);
+                //InGameTiles.SetActive(true);
                 ThisCanvas.SetActive(false);
             }
         }
