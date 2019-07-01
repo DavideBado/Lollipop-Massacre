@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: c93af43df2cc2fd4584d9c1eb9b756d3
+guid: 1f583023a25b16b46a37d7faf12b0498
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: lambert1
+    2100000: layeredShader1
     2300000: //RootNode
     3300000: //RootNode
     4300000: pCylinder1
