@@ -7,6 +7,7 @@ public static class PartyData
     public static float FirstPartyDev = 1f;
     public static List<GameObject> POnePart = new List<GameObject>();
     public static List<GameObject> PTwoPart = new List<GameObject>();
+    public static bool CharacterSelection;
 
     public static void AddToParty(int m_PlayerID, GameObject m_Character)
     {
