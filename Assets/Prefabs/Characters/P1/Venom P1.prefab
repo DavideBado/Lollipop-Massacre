@@ -175,6 +175,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 65b03811ba86ce748a42b7d06e1d9930, type: 3}
   - {fileID: 21300000, guid: e6f33d28dd0063841af9b9514cf25133, type: 3}
   - {fileID: 21300000, guid: 5fbf7a33bb9c45f46a64540eae92e5ad, type: 3}
+  - {fileID: 21300000, guid: 559fbebc8291de3458cc81e7449710cb, type: 3}
+  - {fileID: 21300000, guid: a6936d058acd42b4a91c6ea99c91d8e4, type: 3}
   LifeSprites:
   - {fileID: 21300000, guid: d5ceffa33f81a1042a62da06213e4b83, type: 3}
   - {fileID: 21300000, guid: c6fbc6c4a30dc5e4d8cc4d4260425230, type: 3}
@@ -453,11 +455,11 @@ PrefabInstance:
       propertyPath: m_Avatar
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 13700000, guid: 15c78bf720fdc0a4c9933b57c5290b10, type: 3}
+    - target: {fileID: 13700008, guid: 15c78bf720fdc0a4c9933b57c5290b10, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: bd388cfd7a6ea704f923344879be0483, type: 2}
-    - target: {fileID: 13700002, guid: 15c78bf720fdc0a4c9933b57c5290b10, type: 3}
+    - target: {fileID: 13700010, guid: 15c78bf720fdc0a4c9933b57c5290b10, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: bd388cfd7a6ea704f923344879be0483, type: 2}
@@ -469,11 +471,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: bd388cfd7a6ea704f923344879be0483, type: 2}
-    - target: {fileID: 13700008, guid: 15c78bf720fdc0a4c9933b57c5290b10, type: 3}
+    - target: {fileID: 13700000, guid: 15c78bf720fdc0a4c9933b57c5290b10, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: bd388cfd7a6ea704f923344879be0483, type: 2}
-    - target: {fileID: 13700010, guid: 15c78bf720fdc0a4c9933b57c5290b10, type: 3}
+    - target: {fileID: 13700002, guid: 15c78bf720fdc0a4c9933b57c5290b10, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: bd388cfd7a6ea704f923344879be0483, type: 2}

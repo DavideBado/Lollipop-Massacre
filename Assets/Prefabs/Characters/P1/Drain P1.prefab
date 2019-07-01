@@ -175,6 +175,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 55983c837b9760746a12f35628ee83df, type: 3}
   - {fileID: 21300000, guid: 77705e74db9617f498e21967258ff212, type: 3}
   - {fileID: 21300000, guid: f567e18c1d40f3e449f17e4a4c5800d2, type: 3}
+  - {fileID: 21300000, guid: 9a7d1bf5253c1454cba14448b9bbe1cc, type: 3}
+  - {fileID: 21300000, guid: 94f07a2badb42ed459478db2e0f04f40, type: 3}
   LifeSprites:
   - {fileID: 21300000, guid: d5ceffa33f81a1042a62da06213e4b83, type: 3}
   - {fileID: 21300000, guid: c6fbc6c4a30dc5e4d8cc4d4260425230, type: 3}

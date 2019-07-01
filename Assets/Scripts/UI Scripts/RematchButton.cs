@@ -7,9 +7,10 @@ using UnityEngine.SceneManagement;
 
 public class RematchButton : Button
 {
+    EventSystem eventsystem;
 
-    public EventSystem eventsys;
     BaseEventData baseEvent;
+
 
     public override void OnSelect(BaseEventData eventData)
     {
@@ -32,5 +33,6 @@ public class RematchButton : Button
     public void SceneReload()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        
     }
 }

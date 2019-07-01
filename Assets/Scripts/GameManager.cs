@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     public List<GameObject> PTwoParty = new List<GameObject>();
     public List<Transform> SpawnPoints = new List<Transform>();
     public bool AttackForPortals, UsedPortal;
+    public bool p1win, p2win;
     //GameObject m_slider;
     public GameObject BenchPOne, BenchPTwo;
     bool state;    
@@ -396,6 +397,7 @@ public class GameManager : MonoBehaviour
             POneWins.SetActive(false);
             PTwoWins.SetActive(true);
             Debug.Log("P2 Ha vinto");
+            p2win = true;
         }
         else if (PTwoKO())
         {
@@ -406,6 +408,7 @@ public class GameManager : MonoBehaviour
             POneWins.SetActive(true);
             PTwoWins.SetActive(false);
             Debug.Log("P1 Ha vinto");
+            p1win = true;
         }
        else
         {

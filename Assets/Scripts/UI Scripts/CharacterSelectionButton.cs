@@ -7,18 +7,25 @@ using UnityEngine.SceneManagement;
 
 public class CharacterSelectionButton : Button
 {
+    public EventSystem eventsys;
+    BaseEventData baseEvent;
+
     public override void OnSelect(BaseEventData eventData)
     {
-        base.OnSelect(eventData);
+        GetComponent<OnSelectData>().PanelActive.SetActive(true);
+        GetComponent<OnSelectData>().panelBase.SetActive(false);
     }
 
     public override void OnDeselect(BaseEventData eventData)
     {
-        base.OnDeselect(eventData);
+        GetComponent<OnSelectData>().panelBase.SetActive(true);
+        GetComponent<OnSelectData>().PanelActive.SetActive(false);
     }
 
     public override void OnSubmit(BaseEventData eventData)
     {
-        base.OnSubmit(eventData);
+        GetComponent<MyEventSystemProvider>().eventSystem.SetSelectedGameObject(GetComponent<OnSelectData>().FirstSelectable);
+        PartyData.CharacterSelection = true;
+        SceneManager.LoadScene(0);
     }
 }
