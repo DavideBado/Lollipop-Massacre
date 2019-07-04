@@ -8,7 +8,8 @@ public class Venom : MonoBehaviour
 {
     float Timer;
     bool onAttack;
-    public GameObject Poison;
+    public GameObject Poison; 
+    public Agent Enemy;
     GameManager Manager;
     private void Start()
     {
@@ -47,6 +48,7 @@ public class Venom : MonoBehaviour
                 Debug.DrawRay(transform.position + new Vector3(0, 0.5f), Vector3.forward * hit.distance, Color.yellow);
                 if (hit.transform.tag == "Player" && hit.transform != transform)
                 {
+                    Enemy = hit.transform.GetComponent<Agent>();
                     onAttack = true;
                     Debug.DrawRay(transform.position + new Vector3(0, 0.5f), Vector3.forward * hit.distance, Color.red);
                     PoisonPower(hit);
@@ -57,6 +59,7 @@ public class Venom : MonoBehaviour
                 Debug.DrawRay(transform.position + new Vector3(0, 0.5f), Vector3.back * hit.distance, Color.yellow);
                 if (hit.transform.tag == "Player" && hit.transform != transform)
                 {
+                    Enemy = hit.transform.GetComponent<Agent>();
                     onAttack = true;
                     Debug.DrawRay(transform.position + new Vector3(0, 0.5f), Vector3.back * hit.distance, Color.red);
                     PoisonPower(hit);
@@ -67,6 +70,7 @@ public class Venom : MonoBehaviour
                 Debug.DrawRay(transform.position + new Vector3(0, 0.5f), Vector3.left * hit.distance, Color.yellow);
                 if (hit.transform.tag == "Player" && hit.transform != transform)
                 {
+                    Enemy = hit.transform.GetComponent<Agent>();
                     onAttack = true;
                     Debug.DrawRay(transform.position + new Vector3(0, 0.5f), Vector3.left * hit.distance, Color.red);
                     PoisonPower(hit);
@@ -78,6 +82,7 @@ public class Venom : MonoBehaviour
                 Debug.DrawRay(transform.position + new Vector3(0, 0.5f), Vector3.right * hit.distance, Color.yellow);
                 if (hit.transform.tag == "Player" && hit.transform != transform)
                 {
+                    Enemy = hit.transform.GetComponent<Agent>();
                     onAttack = true;
                     Debug.DrawRay(transform.position + new Vector3(0, 0.5f), Vector3.right * hit.distance, Color.red);
                     PoisonPower(hit);
