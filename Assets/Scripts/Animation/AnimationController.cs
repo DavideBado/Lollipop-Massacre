@@ -112,7 +112,6 @@ public class AnimationController : MonoBehaviour
         {
             Enemy.Damage();
         }
-        Idle();
     }
 
     public void Stun_Animation()

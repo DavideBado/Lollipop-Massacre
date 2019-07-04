@@ -41,9 +41,9 @@ public class Poison : MonoBehaviour
             {
                 MaxRounds--;
                 transform.parent.GetComponent<LifeManager>().DamageAmount = 1;
-                transform.parent.GetComponent<LifeManager>().Enemy = GetComponent<Agent>();
+                transform.parent.GetComponent<LifeManager>().Enemy = transform.parent.GetComponent<Agent>();
                 transform.parent.GetComponent<LifeManager>().BaseAttack = false;
-                GetComponentInChildren<AnimationController>().Enemy = transform.parent.GetComponent<LifeManager>();
+                transform.parent.GetComponent<LifeManager>().Damage();
                 CanAttack = false;
             }
 

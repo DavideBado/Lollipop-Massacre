@@ -80,7 +80,10 @@ public class LifeManager : MonoBehaviour
             transform.LookAt(Enemy.transform.position);
         }
         GameManager.AttackForPortals = true;
-        Enemy.OnAttack = false;
+        if(Enemy != GetComponent<Agent>())
+        {
+            Enemy.OnAttack = false;
+        }
         if (DamageAmount > 0)
         {
             MyVFXContoller.ActiveVFX(MyVFXContoller.BloodVFX);
