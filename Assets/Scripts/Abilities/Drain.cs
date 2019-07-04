@@ -11,7 +11,7 @@ public class Drain : MonoBehaviour
     float Timer;
     bool onAttack;
     GameManager Manager;
-    public Agent agent;
+    public Agent agent, Enemy;
     
 
     private void Start()
@@ -87,14 +87,15 @@ public class Drain : MonoBehaviour
             Debug.DrawRay(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.yellow);
             if (hit.transform.tag == "Player" && hit.transform != transform)
             {
+                Enemy = hit.transform.GetComponent<Agent>();
                 onAttack = true;
                 Debug.DrawRay(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
                 hit.transform.GetComponent<LifeManager>().DamageAmount = 1;
                 hit.transform.GetComponent<LifeManager>().Enemy = GetComponent<Agent>();
                 hit.transform.GetComponent<LifeManager>().BaseAttack = false;
                 GetComponentInChildren<AnimationController>().Enemy = hit.transform.GetComponent<LifeManager>();
-                hit.transform.GetComponent<Agent>().imDrained = true;
-                hit.transform.GetComponent<Agent>().StartDrain = Manager.Turn;
+                Enemy.imDrained = true;
+                Enemy.StartDrain = Manager.Turn;
             }
         }
     }
@@ -107,6 +108,7 @@ public class Drain : MonoBehaviour
             Debug.DrawRay(transform.position + new Vector3(0, 0.5f), Vector3.back * hit.distance, Color.yellow);
             if (hit.transform.tag == "Player" && hit.transform != transform)
             {
+                Enemy = hit.transform.GetComponent<Agent>();
                 onAttack = true;
                 Debug.DrawRay(transform.position + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
                 if (GetComponent<LifeManager>().Life < 3)
@@ -119,8 +121,8 @@ public class Drain : MonoBehaviour
                 hit.transform.GetComponent<LifeManager>().Enemy = GetComponent<Agent>();
                 hit.transform.GetComponent<LifeManager>().BaseAttack = false;
                 GetComponentInChildren<AnimationController>().Enemy = hit.transform.GetComponent<LifeManager>();
-                hit.transform.GetComponent<Agent>().imDrained = true;
-                hit.transform.GetComponent<Agent>().StartDrain = Manager.Turn;
+                Enemy.imDrained = true;
+                Enemy.StartDrain = Manager.Turn;
             }
         }
         if (Physics.Raycast(transform.position + new Vector3(0, 0.5f), Vector3.forward, out hit, 3))
@@ -128,6 +130,7 @@ public class Drain : MonoBehaviour
             Debug.DrawRay(transform.position + new Vector3(0, 0.5f), Vector3.forward * hit.distance, Color.yellow);
             if (hit.transform.tag == "Player" && hit.transform != transform)
             {
+                Enemy = hit.transform.GetComponent<Agent>();
                 onAttack = true;
                 Debug.DrawRay(GetComponent<Agent>().RayLeft + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
                 if (GetComponent<LifeManager>().Life < 3)
@@ -140,8 +143,8 @@ public class Drain : MonoBehaviour
                 hit.transform.GetComponent<LifeManager>().Enemy = GetComponent<Agent>();
                 hit.transform.GetComponent<LifeManager>().BaseAttack = false;
                 GetComponentInChildren<AnimationController>().Enemy = hit.transform.GetComponent<LifeManager>();
-                hit.transform.GetComponent<Agent>().imDrained = true;
-                hit.transform.GetComponent<Agent>().StartDrain = Manager.Turn;
+                Enemy.imDrained = true;
+                Enemy.StartDrain = Manager.Turn;
             }
         }
         if (Physics.Raycast(transform.position + new Vector3(0, 0.5f), Vector3.left, out hit, 3))
@@ -149,6 +152,7 @@ public class Drain : MonoBehaviour
             Debug.DrawRay(transform.position + new Vector3(0, 0.5f), Vector3.left * hit.distance, Color.yellow);
             if (hit.transform.tag == "Player" && hit.transform != transform)
             {
+                Enemy = hit.transform.GetComponent<Agent>();
                 onAttack = true;
                 Debug.DrawRay(GetComponent<Agent>().RayRight + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
                 if (GetComponent<LifeManager>().Life < 3)
@@ -161,8 +165,8 @@ public class Drain : MonoBehaviour
                 hit.transform.GetComponent<LifeManager>().Enemy = GetComponent<Agent>();
                 hit.transform.GetComponent<LifeManager>().BaseAttack = false;
                 GetComponentInChildren<AnimationController>().Enemy = hit.transform.GetComponent<LifeManager>();
-                hit.transform.GetComponent<Agent>().imDrained = true;
-                hit.transform.GetComponent<Agent>().StartDrain = Manager.Turn;
+                Enemy.imDrained = true;
+                Enemy.StartDrain = Manager.Turn;
             }
         }
         if (Physics.Raycast(transform.position + new Vector3(0, 0.5f), Vector3.right, out hit, 3))
@@ -170,6 +174,7 @@ public class Drain : MonoBehaviour
             Debug.DrawRay(transform.position + new Vector3(0, 0.5f), Vector3.right * hit.distance, Color.yellow);
             if (hit.transform.tag == "Player" && hit.transform != transform)
             {
+                Enemy = hit.transform.GetComponent<Agent>();
                 onAttack = true;
                 Debug.DrawRay(GetComponent<Agent>().RayRight + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
                 if (GetComponent<LifeManager>().Life < 3)
@@ -182,8 +187,8 @@ public class Drain : MonoBehaviour
                 hit.transform.GetComponent<LifeManager>().Enemy = GetComponent<Agent>();
                 hit.transform.GetComponent<LifeManager>().BaseAttack = false;
                 GetComponentInChildren<AnimationController>().Enemy = hit.transform.GetComponent<LifeManager>();
-                hit.transform.GetComponent<Agent>().imDrained = true;
-                hit.transform.GetComponent<Agent>().StartDrain = Manager.Turn;
+                Enemy.imDrained = true;
+                Enemy.StartDrain = Manager.Turn;
             }
         }
 
