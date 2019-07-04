@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 public class LifeManager : MonoBehaviour
 {
+    VFXController MyVFXContoller;
     DamageFeed DamageImage;
     float FeedbackTImer;
     public bool OnShield = false;
@@ -26,6 +27,10 @@ public class LifeManager : MonoBehaviour
         {
             Graphic = GetComponentInChildren<AnimationController>().gameObject; 
         }
+        if (GetComponentInChildren<VFXController>() != null)
+        {
+            MyVFXContoller = GetComponentInChildren<VFXController>(); 
+        }
         GameManager = FindObjectOfType<GameManager>();
         DamageImage = FindObjectOfType<DamageFeed>();
     }
@@ -33,7 +38,8 @@ public class LifeManager : MonoBehaviour
     void Update()
     {
         DieNow();
-        if (DamageImage.GetComponent<Image>().enabled)
+
+        if (DamageImage != null && DamageImage.GetComponent<Image>().enabled)
         {
             if (FeedbackTImer > 0)
             {
@@ -42,7 +48,11 @@ public class LifeManager : MonoBehaviour
                 {
                     DamageImage.GetComponent<Image>().enabled = false;
                 }
-            } 
+            }
+        }
+        else if(DamageImage == null)
+        {
+            DamageImage = FindObjectOfType<DamageFeed>();
         }
     }
 
@@ -73,6 +83,7 @@ public class LifeManager : MonoBehaviour
         Enemy.OnAttack = false;
         if (DamageAmount > 0)
         {
+            MyVFXContoller.ActiveVFX(MyVFXContoller.BloodVFX);
             GetComponentInChildren<AnimationController>().Damage();
             Life -= DamageAmount;
             DamageFeedback();

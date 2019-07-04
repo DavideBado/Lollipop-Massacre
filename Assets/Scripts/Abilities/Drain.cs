@@ -40,7 +40,7 @@ public class Drain : MonoBehaviour
             }
         }
 
-        if (DrainImage.GetComponent<Image>().enabled)
+        if (DrainImage != null && DrainImage.GetComponent<Image>().enabled)
         {
             DrainImage.transform.position = (transform.position + new Vector3(0, 2.5f));
             if (FeedbackTImer > 0)
@@ -51,6 +51,10 @@ public class Drain : MonoBehaviour
                     DrainImage.GetComponent<Image>().enabled = false;
                 }
             }
+        }
+        else if(DrainImage == null)
+        {
+            DrainImage = FindObjectOfType<DrainFeed>();
         }
     }
 

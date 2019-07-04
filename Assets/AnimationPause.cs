@@ -24,12 +24,7 @@ public class AnimationPause : StateMachineBehaviour
         gameManager.Pause = false;
         gameManager.TimerOn = true;
     }
-
-    private void OnDisable()
-    {
-        gameManager.Pause = false;
-        gameManager.TimerOn = true;
-    }
+  
     // OnStateMove is called right after Animator.OnAnimatorMove()
     //override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     //{
