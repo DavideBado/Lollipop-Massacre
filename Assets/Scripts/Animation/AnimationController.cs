@@ -119,6 +119,11 @@ public class AnimationController : MonoBehaviour
         Stun();
     }
 
+    public void Ability_Animation()
+    {
+        Ability();
+    }
+
     public void DieNow()
     {
         gameManager.Pause = false;
