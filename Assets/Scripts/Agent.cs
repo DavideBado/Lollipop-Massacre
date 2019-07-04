@@ -43,12 +43,13 @@ public class Agent : MonoBehaviour, ICharacter
     GameManager GameManager;
     public bool RotUp = false, RotDown = false, RotLeft = false, RotRight = false, ImStunned = false, imDrained = false, StartDrain;
     public int Mana = 1;
-    public bool OhStunnedShit;
+    //public bool OhStunnedShit;
     public float AgentSpeed;
     Rigidbody rg;
     public GameObject StunPS, PoisonPS, DrainPS;
     int switcherIndex;
-    public bool OnAttack;   
+    public bool OnAttack;
+    private int stunCounter;
 
     // ********** Cose per il menu *************
     public List<Sprite> Sprites
@@ -227,21 +228,15 @@ public class Agent : MonoBehaviour, ICharacter
         {
             StunPS.SetActive(false);
         }
-
-        if (ImStunned == true && MyTurn == false)
+        if (ImStunned == true && MyTurn == true)
         {
-            GameManager.TimeMax = 1f;
+                ImStunned = false;
+            //OhStunnedShit = true;
         }
-        else if (ImStunned == true && MyTurn == true)
-        {
-            OhStunnedShit = true;
-            GameManager.TimeMax = 5f;
-            ImStunned = false;
-        }
-        if (OhStunnedShit == true && MyTurn == false)
-        {
-            OhStunnedShit = false;
-        }
+        //if (OhStunnedShit == true && MyTurn == false)
+        //{
+        //    OhStunnedShit = false;
+        //}
     }
     #endregion
 
@@ -439,7 +434,7 @@ public class Agent : MonoBehaviour, ICharacter
         //SwitchIndex++;
         //if (switcherIndex >= 2)
         //    switcherIndex = 0;
-        if (MyTurn == true && GameManager.TimerOn == true && ImStunned == false && OhStunnedShit == false)
+        if (MyTurn == true && GameManager.TimerOn == true && ImStunned == false /*&& OhStunnedShit == false*/)
         {
             GameManager.Switcher(PlayerID, 0, gameObject, RotUp, RotDown, RotRight, RotLeft);
         }
@@ -450,7 +445,7 @@ public class Agent : MonoBehaviour, ICharacter
         //SwitchIndex--;
         //if (switcherIndex < 0)
         //    switcherIndex = 1;
-        if (MyTurn == true && GameManager.TimerOn == true && ImStunned == false && OhStunnedShit == false)
+        if (MyTurn == true && GameManager.TimerOn == true && ImStunned == false /*&& OhStunnedShit == false*/)
         {
             GameManager.Switcher(PlayerID, 1, gameObject, RotUp, RotDown, RotRight, RotLeft);
         }

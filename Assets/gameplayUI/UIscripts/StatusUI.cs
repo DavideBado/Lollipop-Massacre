@@ -30,7 +30,7 @@ public class StatusUI : MonoBehaviour
     void statusSprite()
     {
         
-        if(player.ImStunned == true || player.OhStunnedShit == true)
+        if(player.ImStunned == true /*|| player.OhStunnedShit == true*/)
         {
 			statusimg.enabled = true;
 			statusimg.sprite = Stunned;
