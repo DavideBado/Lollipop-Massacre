@@ -122,6 +122,8 @@ public class AnimationController : MonoBehaviour
 
     public void DieNow()
     {
+        gameManager.Pause = false;
+        gameManager.TimerOn = true;
         gameManager.EndGameCheck(agent.PlayerID, agent.gameObject);
     }
 

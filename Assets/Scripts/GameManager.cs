@@ -115,6 +115,8 @@ public class GameManager : MonoBehaviour
                     UpdateTilesMat();
                     m_needUpdatetiles = false;
                 }
+                Pause = false;
+                TimerOn = true;
             }
             else
             {

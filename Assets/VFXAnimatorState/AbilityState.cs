@@ -9,6 +9,7 @@ public class AbilityState : StateMachineBehaviour
     //OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        animator.ResetTrigger("AnimAbility");
         myVFXController = animator.GetComponent<VFXController>();
         myVFXController.ActiveVFX(myVFXController.AbilityVFX);
     }
