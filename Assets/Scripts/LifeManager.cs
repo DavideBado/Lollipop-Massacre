@@ -92,7 +92,7 @@ public class LifeManager : MonoBehaviour
             DamageFeedback();
             GetComponent<XInputTestCS>().Damage = DamageAmount;
             GetComponent<XInputTestCS>().Timer = (DamageAmount * 0.2f);
-            if ((Enemy.GetComponent<Venom>() == null && Enemy.GetComponent<Poison>() == null && Enemy.GetComponent<Whirlwind>() == null) || BaseAttack == true)
+            if ((Enemy.GetComponent<Venom>() == null && Enemy.GetComponent<Whirlwind>() == null) || BaseAttack == true)
             {
                 Knockback(Enemy.SavedlookAt);
             }

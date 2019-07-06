@@ -23,7 +23,6 @@ public class Venom : MonoBehaviour
         {
             Timer -= Time.deltaTime;
             Manager.Pause = true;
-            Manager.UpdateTilesMat();
             NewPreview(Manager.CellAttackMaterial);
             if (Timer <= 0)
             {
@@ -96,7 +95,8 @@ public class Venom : MonoBehaviour
 
     void PoisonPower(RaycastHit hit)
     {
-        Instantiate(Poison, hit.transform);
+        GameObject _poison = Instantiate(Poison, hit.transform);
+        _poison.GetComponent<Poison>().ParentEnemy = GetComponent<Agent>();
         hit.transform.GetComponent<LifeManager>().DamageAmount = 1;
         hit.transform.GetComponent<LifeManager>().Enemy = GetComponent<Agent>();
         hit.transform.GetComponent<LifeManager>().BaseAttack = false;

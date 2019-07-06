@@ -84,7 +84,7 @@ public class CellPrefScript : Cell
         FindPlayers();
 
         bool m_agentHere = false;
-
+       
         foreach (Agent _agent in agents)
         {
             if(_agent.transform.position == transform.position)

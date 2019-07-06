@@ -17,7 +17,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Scene programmatori/Miniera3.unity
     guid: e00d5fea96c5359438d9948bb8044ba9
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/TORINO save(1).unity
     guid: 7f30a990365969744b3a1c540cb4f589
   - enabled: 1

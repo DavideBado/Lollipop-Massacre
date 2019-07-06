@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Poison : MonoBehaviour
 {
+    public Agent ParentEnemy;
     private int MaxRounds = 3;
     bool RoundCheck, CanAttack, CanUpdate = true;
 
@@ -41,7 +42,7 @@ public class Poison : MonoBehaviour
             {
                 MaxRounds--;
                 transform.parent.GetComponent<LifeManager>().DamageAmount = 1;
-                transform.parent.GetComponent<LifeManager>().Enemy = transform.parent.GetComponent<Agent>();
+                transform.parent.GetComponent<LifeManager>().Enemy = ParentEnemy;
                 transform.parent.GetComponent<LifeManager>().BaseAttack = false;
                 transform.parent.GetComponent<LifeManager>().Damage();
                 CanAttack = false;
