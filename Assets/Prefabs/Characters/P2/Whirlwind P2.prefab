@@ -212,7 +212,6 @@ MonoBehaviour:
   imDrained: 0
   StartDrain: 0
   Mana: 1
-  OhStunnedShit: 0
   AgentSpeed: 0
   StunPS: {fileID: 5298261245568440394}
   PoisonPS: {fileID: 3546577234016537918}
@@ -270,6 +269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c8d8d4600527e149b7c207135b39f1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Timer: 1
 --- !u!114 &1402939504158483061
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -299,19 +299,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PatternData: {fileID: 11400000, guid: 726934d873d98fc4d848ca1cf354d252, type: 2}
---- !u!114 &4425056605525363390
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2711549370799485985}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6da994d14e269d84c949e188aa3f9d56, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Enemy: {fileID: 0}
 --- !u!114 &1953549096968491350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -330,6 +317,19 @@ MonoBehaviour:
   - {fileID: 5745318820232751270}
   BloodVFX:
   - {fileID: 7782964251053253953}
+--- !u!114 &4425056605525363390
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2711549370799485985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6da994d14e269d84c949e188aa3f9d56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Enemy: {fileID: 0}
 --- !u!1001 &182770311
 PrefabInstance:
   m_ObjectHideFlags: 0

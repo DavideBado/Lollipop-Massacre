@@ -5,82 +5,101 @@ using System.Linq;
 
 public class Whirlwind : MonoBehaviour
 {
-    float Timer;
-    bool onAttack;
-    GameManager Manager;
+    public float Timer;
+    private float m_timer;
+    private float m_timer2;
+    bool onAttack, canUpdateAbility;
+
+    GameManager manager;
+    VFXController myVFXController;
+    RaycastHit hit;
+
     private void Start()
     {
-        Timer = 1f;
-        Manager = FindObjectOfType<GameManager>();
+        onAttack = false;
+        m_timer = 2;
+        m_timer2 = Timer;
+        manager = FindObjectOfType<GameManager>();
+        myVFXController = GetComponentInChildren<VFXController>();
     }
 
     private void Update()
     {
         if (onAttack == true)
         {
-            Timer -= Time.deltaTime;
-            Manager.Pause = true;
-            Manager.UpdateTilesMat();
-            NewPreview(Manager.CellAttackMaterial);
-            if (Timer <= 0)
+            m_timer -= Time.deltaTime;
+            manager.Pause = true;
+            manager.TimerOn = false;
+            NewPreview(manager.CellAttackMaterial);
+            if (m_timer <= 0)
             {
-                onAttack = false;
-                Manager.Pause = false;
-                Manager.CleanTiles();
-                Manager.UpdateTilesMat();
-                Timer = 1f;
+                if (canUpdateAbility)
+                {
+                    canUpdateAbility = false;
+                    int EnemyID = hit.transform.GetComponent<Agent>().PlayerID;
+                    hit.transform.gameObject.SetActive(false);
+                    hit.transform.position = new Vector3();
+                    hit.transform.parent = manager.BenchPOne.transform;
+                    if (EnemyID == 1)
+                    {
+                        ChangePg(manager.POneParty, EnemyID);
+                    }
+                    else if (EnemyID == 2)
+                    {
+                        ChangePg(manager.PTwoParty, EnemyID);
+                    }
+                    manager.CleanTiles();
+                    manager.UpdateTilesMat();
+                }
+                m_timer2 -= Time.deltaTime;
+                if (m_timer2 <= 0)
+                {
+                    onAttack = false;
+                    manager.Pause = false;
+                    manager.TimerOn = true;
+                    m_timer = 2;
+                    m_timer2 = Timer;
+                    foreach (GameObject _AbilityVFX in myVFXController.AbilityVFX)
+                    {
+                        _AbilityVFX.SetActive(false);
+                        _AbilityVFX.transform.parent = null;
+                        _AbilityVFX.transform.parent = myVFXController.transform;
+                        _AbilityVFX.transform.position = Vector3.zero;
+                    }
+                }
             }
-
         }
     }
 
     public void Ability()
-
     {
-        GetComponentInChildren<AnimationController>().Ability();
-        if (GetComponent<Agent>().Mana > 0 && GetComponent<Agent>().MyTurn && GetComponent<Agent>().PlayerType == 6 && GetComponent<Agent>().ImStunned == false && Manager.CanAttack == true && Manager.Pause == false)
-
+        if (GetComponent<Agent>().Mana > 0 && GetComponent<Agent>().MyTurn && GetComponent<Agent>().PlayerType == 6 && GetComponent<Agent>().ImStunned == false && manager.CanAttack == true && manager.Pause == false)
         {
-            RaycastHit hit;
-
+            GetComponentInChildren<AnimationController>().Ability();
             if (Physics.Raycast(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt, out hit, 4))
-
             {
-
                 Debug.DrawRay(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.yellow);
 
-                if (hit.transform.tag == "Player" && hit.transform != transform)
-
+                if (hit.transform.GetComponent<Agent>() != null && hit.transform != transform)
                 {
+                    foreach (GameObject _AbilityVFX in myVFXController.AbilityVFX)
+                    {
+                        _AbilityVFX.SetActive(true);
+                        _AbilityVFX.transform.parent = null;
+                        _AbilityVFX.transform.position = new Vector3(hit.transform.position.x, 1, hit.transform.position.z);
+                    }
+                    canUpdateAbility = true;
                     onAttack = true;
                     Debug.DrawRay(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt * hit.distance, Color.red);
                     hit.transform.GetComponent<LifeManager>().DamageAmount = 1;
                     hit.transform.GetComponent<LifeManager>().Enemy = GetComponent<Agent>();
                     hit.transform.GetComponent<LifeManager>().BaseAttack = false;
                     GetComponentInChildren<AnimationController>().Enemy = hit.transform.GetComponent<LifeManager>();
-                    int EnemyID = hit.transform.GetComponent<Agent>().PlayerID;
-
-                    if (EnemyID == 1)
-                    {
-                        hit.transform.gameObject.SetActive(false);
-                        ChangePg(Manager.POneParty, EnemyID);
-                        hit.transform.position = new Vector3();
-                        hit.transform.parent = Manager.BenchPOne.transform;
-
-                    }
-                    else if (EnemyID == 2)
-                    {
-                        hit.transform.gameObject.SetActive(false);
-                        ChangePg(Manager.PTwoParty, EnemyID);
-                        hit.transform.position = new Vector3();
-                        hit.transform.parent = Manager.BenchPTwo.transform;
-                    }
                 }
-
             }
 
             GetComponent<Agent>().Mana--;
-            Manager.CanAttack = false;
+            manager.CanAttack = false;
         }
 
     }
@@ -99,33 +118,33 @@ public class Whirlwind : MonoBehaviour
     //}
 
     void NewPreview(Material _material)
-    {       
-            float _lookX = GetComponent<Agent>().SavedlookAt.x;
-            float _lookY = GetComponent<Agent>().SavedlookAt.z;
-            Vector3 playerPosition = transform.position;
+    {
+        float _lookX = GetComponent<Agent>().SavedlookAt.x;
+        float _lookY = GetComponent<Agent>().SavedlookAt.z;
+        Vector3 playerPosition = transform.position;
 
-            List<CellPrefScript> cells = new List<CellPrefScript>();
+        List<CellPrefScript> cells = new List<CellPrefScript>();
 
-            cells = FindObjectsOfType<CellPrefScript>().ToList();
+        cells = FindObjectsOfType<CellPrefScript>().ToList();
 
-            RaycastHit hit;
+        RaycastHit hit;
 
-            if (Physics.Raycast(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt, out hit, 4))
+        if (Physics.Raycast(GetComponent<Agent>().RayCenter + new Vector3(0, 0.5f), GetComponent<Agent>().SavedlookAt, out hit, 4))
+        {
+            CellsGreenInRay(hit.transform.position, cells, playerPosition, hit.transform.GetComponent<Agent>(), _material);
+        }
+        else
+        {
+            if (_lookX != 0)
             {
-                CellsGreenInRay(hit.transform.position, cells, playerPosition, hit.transform.GetComponent<Agent>(), _material);
+
+                CellsGreenInRay(new Vector3((transform.position.x + (5 * _lookX)), 0, transform.position.z), cells, playerPosition, null, _material);
             }
-            else
+            else if (_lookY != 0)
             {
-                if (_lookX != 0)
-                {
-
-                    CellsGreenInRay(new Vector3((transform.position.x + (5 * _lookX)), 0, transform.position.z), cells, playerPosition, null, _material);
-                }
-                else if (_lookY != 0)
-                {
-                    CellsGreenInRay(new Vector3(transform.position.x, 0, (transform.position.z + (5 * _lookY))), cells, playerPosition, null, _material);
-                }
-            }       
+                CellsGreenInRay(new Vector3(transform.position.x, 0, (transform.position.z + (5 * _lookY))), cells, playerPosition, null, _material);
+            }
+        }
     }
     public void CleanPreview()
     {
@@ -145,35 +164,19 @@ public class Whirlwind : MonoBehaviour
         {
             if (_agent != null)
             {
-                if ((((playerPosition.x < cell.transform.position.x && cell.transform.position.x <= HitPosition.x)
-
-                  ||
-
+                if ((((playerPosition.x < cell.transform.position.x && cell.transform.position.x <= HitPosition.x) ||
                  (playerPosition.x > cell.transform.position.x && cell.transform.position.x >= HitPosition.x)) &&
-
-
                  (Mathf.Round(cell.transform.position.z) == Mathf.Round(HitPosition.z))) ||
-
-
-
-                 (((playerPosition.z < cell.transform.position.z && cell.transform.position.z <= HitPosition.z) ||
+                 (((playerPosition.z < cell.transform.position.z && cell.transform.position.z <= HitPosition.z) |
                  (playerPosition.z > cell.transform.position.z && cell.transform.position.z >= HitPosition.z)) &&
                  (Mathf.Round(cell.transform.position.x) == Mathf.Round(HitPosition.x))))
                 {
                     cell.GetComponent<MeshRenderer>().material = _material;
                 }
             }
-            else if ((((playerPosition.x < cell.transform.position.x && cell.transform.position.x < HitPosition.x)
-
-                  ||
-
+            else if ((((playerPosition.x < cell.transform.position.x && cell.transform.position.x < HitPosition.x) ||
                  (playerPosition.x > cell.transform.position.x && cell.transform.position.x > HitPosition.x)) &&
-
-
                  (Mathf.Round(cell.transform.position.z) == Mathf.Round(HitPosition.z))) ||
-
-
-
                  (((playerPosition.z < cell.transform.position.z && cell.transform.position.z < HitPosition.z) ||
                  (playerPosition.z > cell.transform.position.z && cell.transform.position.z > HitPosition.z)) &&
                  (Mathf.Round(cell.transform.position.x) == Mathf.Round(HitPosition.x))))
@@ -186,34 +189,34 @@ public class Whirlwind : MonoBehaviour
     void ChangePg(List<GameObject> _m_agents, int _OtherPlayerID)
     {
         Transform _Bench = null;
-        Vector3 m_SpawnPoint = Manager.RespawnController.FindAGoodPoint(GetComponent<PlayerData>());
+        Vector3 m_SpawnPoint = manager.RespawnController.FindAGoodPoint(GetComponent<PlayerData>());
         if (_OtherPlayerID == 1)
         {
-            _Bench = Manager.BenchPOne.transform;
+            _Bench = manager.BenchPOne.transform;
         }
         else if (_OtherPlayerID == 2)
         {
-            _Bench = Manager.BenchPTwo.transform;
+            _Bench = manager.BenchPTwo.transform;
         }
         if (_m_agents.Count > 0)
         {
-
             GameObject _chara = _m_agents[0];
             _m_agents.Remove(_chara);
             _m_agents.Add(_chara);
-
             SetNewPosition(_chara, m_SpawnPoint);
-            
             ToggleObject(_chara, _Bench);
-          
-
+            foreach (GameObject _AbilityVFX in myVFXController.AbilityVFX)
+            {
+                _AbilityVFX.transform.parent = null;
+                _AbilityVFX.transform.position = new Vector3(_chara.transform.position.x, 1, _chara.transform.position.z);
+            }
         }
     }
 
     void SetNewPosition(GameObject _agent, Vector3 _SpawnPoint)
     {
         _agent.GetComponent<Agent>().AgentParent = null;
-         _agent.GetComponent<Agent>().AgentSpawnPosition = _SpawnPoint;
+        _agent.GetComponent<Agent>().AgentSpawnPosition = _SpawnPoint;
         //_agent.GetComponent<Agent>().x = (int)_SpawnPoint.x;
         //_agent.GetComponent<Agent>().x2 = (int)_SpawnPoint.x;
         //_agent.GetComponent<Agent>().y = (int)_SpawnPoint.z;
@@ -230,8 +233,6 @@ public class Whirlwind : MonoBehaviour
         _go.GetComponent<LifeManager>().Enemy = GetComponent<Agent>();
         _go.GetComponent<LifeManager>().BaseAttack = false;
         GetComponentInChildren<AnimationController>().Enemy = _go.GetComponent<LifeManager>();
-        Debug.Log(_go.name);
-
     }
 }
 
