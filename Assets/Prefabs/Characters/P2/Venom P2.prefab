@@ -709,10 +709,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1256144812}
     m_Modifications:
-    - target: {fileID: 100034, guid: 15c78bf720fdc0a4c9933b57c5290b10, type: 3}
-      propertyPath: m_Name
-      value: Nocturne_Animation
-      objectReference: {fileID: 0}
     - target: {fileID: 400034, guid: 15c78bf720fdc0a4c9933b57c5290b10, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -763,11 +759,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400034, guid: 15c78bf720fdc0a4c9933b57c5290b10, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.1
+      value: 0.075
       objectReference: {fileID: 0}
     - target: {fileID: 400034, guid: 15c78bf720fdc0a4c9933b57c5290b10, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100034, guid: 15c78bf720fdc0a4c9933b57c5290b10, type: 3}
+      propertyPath: m_Name
+      value: Nocturne_Animation
       objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: 15c78bf720fdc0a4c9933b57c5290b10, type: 3}
       propertyPath: m_Controller

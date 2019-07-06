@@ -14,6 +14,8 @@ public class SympleAudioManager : MonoBehaviour {
     [Header("Audio Clips Music")]
     public AudioClip MusicMenuClip;
     public AudioClip MusicWinningClip;
+    public AudioClip Funky;
+
 
     [Header("Audio Clips FX")]
     public List<AudioClip> Clips = new List<AudioClip>();
