@@ -113,36 +113,36 @@ public class SelectMenu : MonoBehaviour
         if (PartyData.PartyCount(2) == 0)
         {
             MoveBackground(P2PreviewBackground[1].transform, P2StartingPos[1]);
-            P2PreviewBackground[0].sprite = P2Backgrounds[1];
-            MoveBackground(P2PreviewBackground[0].transform, P2PreviewBackgroundEndPos[0].transform.position);
+            P2PreviewBackground[2].sprite = P2Backgrounds[1];
+            MoveBackground(P2PreviewBackground[2].transform, P2PreviewBackgroundEndPos[2].transform.position);
             P2PreviewBackground[1].sprite = P2Backgrounds[0];
-            P2PreviewBackground[2].sprite = P2Backgrounds[0];
+            P2PreviewBackground[0].sprite = P2Backgrounds[0];
             //PTwoParty.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
             PTwoParty.transform.GetChild(1).GetChild(0).gameObject.SetActive(false);
-            PTwoParty.transform.GetChild(2).GetChild(0).gameObject.SetActive(false);            
+            PTwoParty.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);            
         }
         if (PartyData.PartyCount(2) == 1)
         {
-            MoveBackground(P2PreviewBackground[0].transform, P2StartingPos[0]);
             MoveBackground(P2PreviewBackground[2].transform, P2StartingPos[2]);
-            P2PreviewBackground[0].sprite = P2Backgrounds[2];
+            MoveBackground(P2PreviewBackground[2].transform, P2StartingPos[2]);
+            P2PreviewBackground[2].sprite = P2Backgrounds[2];
             P2PreviewBackground[1].sprite = P2Backgrounds[1];
             MoveBackground(P2PreviewBackground[1].transform, P2PreviewBackgroundEndPos[1].transform.position);
-            P2PreviewBackground[2].sprite = P2Backgrounds[0];
+            P2PreviewBackground[0].sprite = P2Backgrounds[0];
             PTwoParty.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
             //PTwoParty.transform.GetChild(1).GetChild(0).gameObject.SetActive(false);
-            PTwoParty.transform.GetChild(2).GetChild(0).gameObject.SetActive(false);
-            PTwoParty.transform.GetChild(0).GetChild(0).GetComponent<Image>().sprite = PartyData.PTwoPart[0].GetComponent<Agent>()._Sprites[1];
-            PTwoParty.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<TMP_Text>().text = PartyData.PTwoPart[0].GetComponent<Agent>().CharacterName;
+            PTwoParty.transform.GetChild(0).GetChild(0).gameObject.SetActive(false);
+            PTwoParty.transform.GetChild(2).GetChild(0).GetComponent<Image>().sprite = PartyData.PTwoPart[0].GetComponent<Agent>()._Sprites[1];
+            PTwoParty.transform.GetChild(2).GetChild(0).GetChild(0).GetComponent<TMP_Text>().text = PartyData.PTwoPart[0].GetComponent<Agent>().CharacterName;
         }
         if (PartyData.PartyCount(2) == 2)
         {
-            MoveBackground(P2PreviewBackground[0].transform, P2StartingPos[0]);
+            MoveBackground(P2PreviewBackground[2].transform, P2StartingPos[2]);
             MoveBackground(P2PreviewBackground[1].transform, P2StartingPos[1]);
-            P2PreviewBackground[0].sprite = P2Backgrounds[2];
+            P2PreviewBackground[2].sprite = P2Backgrounds[2];
             P2PreviewBackground[1].sprite = P2Backgrounds[2];
-            P2PreviewBackground[2].sprite = P2Backgrounds[1];
-            MoveBackground(P2PreviewBackground[2].transform, P2PreviewBackgroundEndPos[2].transform.position);
+            P2PreviewBackground[0].sprite = P2Backgrounds[1];
+            MoveBackground(P2PreviewBackground[0].transform, P2PreviewBackgroundEndPos[0].transform.position);
             PTwoParty.transform.GetChild(1).GetChild(0).gameObject.SetActive(true);
             //PTwoParty.transform.GetChild(2).GetChild(0).gameObject.SetActive(false);
             PTwoParty.transform.GetChild(1).GetChild(0).GetComponent<Image>().sprite = PartyData.PTwoPart[1].GetComponent<Agent>()._Sprites[1];
@@ -150,13 +150,13 @@ public class SelectMenu : MonoBehaviour
         }
         if (PartyData.PartyCount(2) == 3)
         {
-            MoveBackground(P2PreviewBackground[2].transform, P2StartingPos[2]);
-            P2PreviewBackground[0].sprite = P2Backgrounds[2];
-            P2PreviewBackground[1].sprite = P2Backgrounds[2];
+            MoveBackground(P2PreviewBackground[0].transform, P2StartingPos[0]);
             P2PreviewBackground[2].sprite = P2Backgrounds[2];
-            PTwoParty.transform.GetChild(2).GetChild(0).gameObject.SetActive(true);
-            PTwoParty.transform.GetChild(2).GetChild(0).GetComponent<Image>().sprite = PartyData.PTwoPart[2].GetComponent<Agent>()._Sprites[1];
-            PTwoParty.transform.GetChild(2).GetChild(0).GetChild(0).GetComponent<TMP_Text>().text = PartyData.PTwoPart[2].GetComponent<Agent>().CharacterName;
+            P2PreviewBackground[1].sprite = P2Backgrounds[2];
+            P2PreviewBackground[0].sprite = P2Backgrounds[2];
+            PTwoParty.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
+            PTwoParty.transform.GetChild(0).GetChild(0).GetComponent<Image>().sprite = PartyData.PTwoPart[2].GetComponent<Agent>()._Sprites[1];
+            PTwoParty.transform.GetChild(0).GetChild(0).GetChild(0).GetComponent<TMP_Text>().text = PartyData.PTwoPart[2].GetComponent<Agent>().CharacterName;
         }
 
         if ((PartyData.PartyCount(2) == 3) && (PartyData.PartyCount(1) == 3) && ReadyPlayerOne && ReadyPlayerTwo)
