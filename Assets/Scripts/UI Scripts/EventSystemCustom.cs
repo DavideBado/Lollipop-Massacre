@@ -42,7 +42,7 @@ public class EventSystemCustom : EventSystem
                 SetSelectedGameObject(m_Buttons[0].gameObject);
             }
         }
-        else if(!currentSelectedGameObject.activeInHierarchy)
+if(!currentSelectedGameObject.activeInHierarchy)
         {
             if (firstSelectedGameObject.activeInHierarchy)
             {
