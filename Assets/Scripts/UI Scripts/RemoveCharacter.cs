@@ -18,7 +18,7 @@ public class RemoveCharacter : MonoBehaviour
             {
                 FindObjectOfType<SelectMenu>().RemoveCharacter(1);
             }
-            else SelectMenu.ReadyPlayerOne = false;
+            //else SelectMenu.ReadyPlayerOne = false;
         }
         if (Input.GetKeyDown(KeyCode.RightControl))
         {
@@ -26,7 +26,7 @@ public class RemoveCharacter : MonoBehaviour
             {
                 FindObjectOfType<SelectMenu>().RemoveCharacter(2);
             }
-            else SelectMenu.ReadyPlayerTwo = false;
+            //else SelectMenu.ReadyPlayerTwo = false;
         }
 
         //if(Loading.activeInHierarchy == true && Input.GetKeyDown(KeyCode.A))

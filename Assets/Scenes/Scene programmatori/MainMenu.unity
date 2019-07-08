@@ -671,6 +671,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UiManager
       objectReference: {fileID: 0}
+    - target: {fileID: 3973146404045809169, guid: a93422f9f0f21cd4f8323d2afab0dda4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3973146404045809173, guid: a93422f9f0f21cd4f8323d2afab0dda4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4028,6 +4033,7 @@ MonoBehaviour:
   ChargeString: Double damage after 4 tiles
   WhirlwindString: Switch two players character and damage both
   ID: 2
+  AlternativeSelected: {fileID: 2012980772}
 --- !u!4 &516070542
 Transform:
   m_ObjectHideFlags: 0
@@ -6880,6 +6886,7 @@ MonoBehaviour:
   MusicSources: {fileID: 240890435}
   MusicMenuClip: {fileID: 8300000, guid: d14d6f1a0154daf4a88dd2cb5658d622, type: 3}
   MusicWinningClip: {fileID: 8300000, guid: 13d4e54c8d360d345998cee27068a277, type: 3}
+  Funky: {fileID: 0}
   Clips:
   - {fileID: 8300000, guid: 5d15eac63c460004f8527db68e57eb86, type: 3}
   - {fileID: 8300000, guid: 698e249ea9ae4824e95d0e828dc6d770, type: 3}
@@ -10865,6 +10872,7 @@ MonoBehaviour:
   ChargeString: Double damage after 4 tiles
   WhirlwindString: Switch two players character and damage both
   ID: 1
+  AlternativeSelected: {fileID: 2012980772}
 --- !u!4 &1627445691
 Transform:
   m_ObjectHideFlags: 0

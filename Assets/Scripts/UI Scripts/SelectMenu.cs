@@ -123,7 +123,7 @@ public class SelectMenu : MonoBehaviour
         }
         if (PartyData.PartyCount(2) == 1)
         {
-            MoveBackground(P2PreviewBackground[2].transform, P2StartingPos[2]);
+            MoveBackground(P2PreviewBackground[0].transform, P2StartingPos[0]);
             MoveBackground(P2PreviewBackground[2].transform, P2StartingPos[2]);
             P2PreviewBackground[2].sprite = P2Backgrounds[2];
             P2PreviewBackground[1].sprite = P2Backgrounds[1];

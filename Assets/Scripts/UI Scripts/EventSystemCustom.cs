@@ -18,6 +18,7 @@ public class EventSystemCustom : EventSystem
     public Image Preview, m_AbilityIcon;
     public string ChargeString, WhirlwindString;
     public int ID;
+    public GameObject AlternativeSelected;
     protected override void OnEnable()
     {        
         base.OnEnable();
@@ -25,6 +26,7 @@ public class EventSystemCustom : EventSystem
 
     protected override void Update()
     {
+       
         SelectConfirm();
         m_characterSprites = FindObjectsOfType<CharaSprites>().ToList();
         EventSystem originalCurrent = EventSystem.current;
@@ -40,10 +42,18 @@ public class EventSystemCustom : EventSystem
                 SetSelectedGameObject(m_Buttons[0].gameObject);
             }
         }
-        else if(currentSelectedGameObject.activeInHierarchy == false && firstSelectedGameObject.activeInHierarchy == true)
+        else if(!currentSelectedGameObject.activeInHierarchy)
         {
-            SetSelectedGameObject(firstSelectedGameObject);
+            if (firstSelectedGameObject.activeInHierarchy)
+            {
+                SetSelectedGameObject(firstSelectedGameObject); 
+            }
+            else if (AlternativeSelected.activeInHierarchy)
+            {
+                SetSelectedGameObject(AlternativeSelected);
+            }
         }
+        
         if (currentSelectedGameObject == null)
         {
             SetSelectedGameObject(firstSelectedGameObject);
@@ -82,7 +92,9 @@ public class EventSystemCustom : EventSystem
             //{
             //    currentSelectedGameObject.GetComponent<Image>().sprite = BackTexture;
             //}
+
         }
+            //Debug.Log("Event:" + ID + " " + currentSelectedGameObject.name);
 
         foreach (CharaSprites _Sprite in m_characterSprites)
         {
