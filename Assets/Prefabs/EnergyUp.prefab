@@ -129,7 +129,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 2
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9716981, g: 0.9470539, b: 0.5179334, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -166,7 +166,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 6b1ec1dd2a5e03249afc679eff08c234, type: 3}
       propertyPath: m_Name
-      value: Lighting
+      value: Lightning
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6b1ec1dd2a5e03249afc679eff08c234, type: 3}
       propertyPath: m_LocalPosition.x
