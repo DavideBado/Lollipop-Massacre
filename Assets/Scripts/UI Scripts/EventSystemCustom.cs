@@ -19,14 +19,14 @@ public class EventSystemCustom : EventSystem
     public string ChargeString, WhirlwindString;
     public int ID;
     public GameObject AlternativeSelected;
+    private GameObject _alternativeSelectedForRapidFix;
     protected override void OnEnable()
     {        
         base.OnEnable();
     }    
 
     protected override void Update()
-    {
-       
+    {        
         SelectConfirm();
         m_characterSprites = FindObjectsOfType<CharaSprites>().ToList();
         EventSystem originalCurrent = EventSystem.current;
@@ -42,7 +42,7 @@ public class EventSystemCustom : EventSystem
                 SetSelectedGameObject(m_Buttons[0].gameObject);
             }
         }
-if(!currentSelectedGameObject.activeInHierarchy)
+        if(!currentSelectedGameObject.activeInHierarchy)
         {
             if (firstSelectedGameObject.activeInHierarchy)
             {
@@ -51,6 +51,10 @@ if(!currentSelectedGameObject.activeInHierarchy)
             else if (AlternativeSelected.activeInHierarchy)
             {
                 SetSelectedGameObject(AlternativeSelected);
+            }
+            else if(_alternativeSelectedForRapidFix.activeInHierarchy)
+            {
+                SetSelectedGameObject(_alternativeSelectedForRapidFix);
             }
         }
         
@@ -93,8 +97,7 @@ if(!currentSelectedGameObject.activeInHierarchy)
             //    currentSelectedGameObject.GetComponent<Image>().sprite = BackTexture;
             //}
 
-        }
-            //Debug.Log("Event:" + ID + " " + currentSelectedGameObject.name);
+        }        
 
         foreach (CharaSprites _Sprite in m_characterSprites)
         {
@@ -110,6 +113,7 @@ if(!currentSelectedGameObject.activeInHierarchy)
                 }
             }
         }
+        //Debug.Log("Event:" + ID + " " + currentSelectedGameObject.name);
     }
 
     private void SelectConfirm()
@@ -130,6 +134,7 @@ if(!currentSelectedGameObject.activeInHierarchy)
    
     public void UpdateEventSystem(GameObject _button)
     {
+        _alternativeSelectedForRapidFix = _button;
         StartCoroutine(eventsCoroutine(_button));
     }
 

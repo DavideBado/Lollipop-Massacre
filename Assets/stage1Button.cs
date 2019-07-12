@@ -7,6 +7,10 @@ using UnityEngine.SceneManagement;
 
 public class stage1Button : Button
 {
+    protected override void OnEnable()
+    {
+        GetComponent<OnSelectData>().EventSystemP1.UpdateEventSystem(gameObject);
+    }
     public override void OnSelect(BaseEventData eventData)
     {
         GetComponent<OnSelectData>().PanelActive.SetActive(true);
@@ -21,9 +25,15 @@ public class stage1Button : Button
 
     public override void OnSubmit(BaseEventData eventData)
     {
-        SceneManager.LoadScene("TORINO save(1)");
-        GetComponent<MyEventSystemProvider>().eventSystem.SetSelectedGameObject(GetComponent<OnSelectData>().FirstSelectable);
-        GetComponent<OnSelectData>().ThisCanvas.SetActive(false);
+        //SceneManager.LoadScene("TORINO save(1)");
+        //GetComponent<MyEventSystemProvider>().eventSystem.SetSelectedGameObject(GetComponent<OnSelectData>().FirstSelectable);
+        OnClickTest();
     }
 
+    public void OnClickTest()
+    {
+        LoadSceneLoading.SceneIndex = GetComponent<OnSelectData>().SceneIndex;
+        GetComponent<OnSelectData>().NextCanvas.SetActive(true);
+        GetComponent<OnSelectData>().ThisCanvas.SetActive(false);
+    }
 }

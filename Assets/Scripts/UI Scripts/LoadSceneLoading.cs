@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class LoadSceneLoading : MonoBehaviour
 {
-    public int SceneIndex;
+    public static int SceneIndex;
     private void OnEnable()
     {
         SceneManager.LoadScene(SceneIndex);
