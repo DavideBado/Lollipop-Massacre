@@ -8,6 +8,7 @@ using System;
 
 public class GameManager : MonoBehaviour
 {
+    public playerWinText PlayerWinText;
     public Material CellAttackMaterial;
     List<Agent> m_Agents = new List<Agent>();
     public GameObject EventSBase, EventSPOne, EventSTwo;
@@ -17,7 +18,7 @@ public class GameManager : MonoBehaviour
     public List<GameObject> PTwoParty = new List<GameObject>();
     public List<Transform> SpawnPoints = new List<Transform>();
     public bool AttackForPortals, UsedPortal;
-    public bool p1win, p2win;
+    public bool p1win = false, p2win = false;
     //GameObject m_slider;
     public GameObject BenchPOne, BenchPTwo;
     bool state;    
@@ -51,6 +52,7 @@ public class GameManager : MonoBehaviour
     private void OnEnable()
     {
         SetTiles();
+        Time.timeScale = 1;
     }
 
     private void Start()
@@ -392,6 +394,7 @@ public class GameManager : MonoBehaviour
         needdeathcheck = true;
         if(POneKO())
         {
+            PlayerWinText.PlayerText(1);
             EventSBase.SetActive(false);
             EventSPOne.SetActive(true);
             EventSTwo.SetActive(true);
@@ -403,6 +406,7 @@ public class GameManager : MonoBehaviour
         }
         else if (PTwoKO())
         {
+            PlayerWinText.PlayerText(1);
             EventSBase.SetActive(false);
             EventSPOne.SetActive(true);
             EventSTwo.SetActive(true);

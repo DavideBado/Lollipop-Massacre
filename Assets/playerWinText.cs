@@ -11,19 +11,25 @@ public class playerWinText : MonoBehaviour
     private void OnEnable()
     {
         gm = FindObjectOfType<GameManager>();
-        PlayerText();
+       
     }
 
-
-    public void PlayerText()
+    private void Update()
     {
-        if(gm.p1win == true)
+       
+    }
+    public void PlayerText(int index)
+    {
+        if(index == 1)
         {
             player1.SetActive(true);
+            player2.SetActive(false);
         }
-        else if(gm.p2win == true)
+        else if(index == 2)
         {
             player2.SetActive(true);
+            player1.SetActive(false);
         }
+        Time.timeScale = 0;
     }
 }

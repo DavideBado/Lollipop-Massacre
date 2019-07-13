@@ -7255,6 +7255,11 @@ PrefabInstance:
       propertyPath: startPause
       value: 
       objectReference: {fileID: 1065116790}
+    - target: {fileID: 427756179222368939, guid: ba0c0a689b90c3b4c89806f41e8fdef4,
+        type: 3}
+      propertyPath: PlayerWinText
+      value: 
+      objectReference: {fileID: 536383495}
     - target: {fileID: 427756179222368936, guid: ba0c0a689b90c3b4c89806f41e8fdef4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -27189,6 +27194,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 536383492}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &536383495 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3114721817199833568, guid: 6df328db373f8df4e82df28e5fe9c8a3,
+    type: 3}
+  m_PrefabInstance: {fileID: 536383492}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee54e98e0414ca54fb899e18138223f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &536826093
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40687,14 +40704,14 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 44.328964
       objectReference: {fileID: 0}
-    - target: {fileID: 2300000, guid: fa5cd4fa4c084dc438d3adc02cafb2aa, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 89a1083e7cb67c0468d37c385cf1f9a0, type: 2}
     - target: {fileID: 2300002, guid: fa5cd4fa4c084dc438d3adc02cafb2aa, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 1864a2bf0bdce374abd79ba7fcd41d71, type: 2}
+    - target: {fileID: 2300000, guid: fa5cd4fa4c084dc438d3adc02cafb2aa, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 89a1083e7cb67c0468d37c385cf1f9a0, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa5cd4fa4c084dc438d3adc02cafb2aa, type: 3}
 --- !u!4 &789004070 stripped
@@ -62871,6 +62888,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1510294133, guid: 73b5a86f97a5d7c42a5aa47ee7a231eb, type: 3}
+      propertyPath: m_Constraints
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 1510294134, guid: 73b5a86f97a5d7c42a5aa47ee7a231eb, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1510294130, guid: 73b5a86f97a5d7c42a5aa47ee7a231eb, type: 3}
       propertyPath: grid
       value: 
@@ -62903,18 +62928,6 @@ PrefabInstance:
       propertyPath: PoisonPS
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 936545435, guid: 73b5a86f97a5d7c42a5aa47ee7a231eb, type: 3}
-      propertyPath: Manager
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 1510294133, guid: 73b5a86f97a5d7c42a5aa47ee7a231eb, type: 3}
-      propertyPath: m_Constraints
-      value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: 1510294134, guid: 73b5a86f97a5d7c42a5aa47ee7a231eb, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 936545433, guid: 73b5a86f97a5d7c42a5aa47ee7a231eb, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -62928,6 +62941,10 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 936545435, guid: 73b5a86f97a5d7c42a5aa47ee7a231eb, type: 3}
+      propertyPath: Manager
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73b5a86f97a5d7c42a5aa47ee7a231eb, type: 3}

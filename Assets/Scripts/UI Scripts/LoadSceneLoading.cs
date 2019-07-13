@@ -5,9 +5,10 @@ using UnityEngine.SceneManagement;
 public class LoadSceneLoading : MonoBehaviour
 {
     public static int SceneIndex;
+    public int SceneIndexPerCazzoBuildVeloce;
     private void OnEnable()
     {
-        SceneManager.LoadScene(SceneIndex);
+        SceneManager.LoadScene(SceneIndexPerCazzoBuildVeloce);
         FindObjectOfType<StarterController>().SelectPlayer();
     }
 }
