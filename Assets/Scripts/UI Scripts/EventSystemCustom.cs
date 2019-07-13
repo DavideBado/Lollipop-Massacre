@@ -42,7 +42,7 @@ public class EventSystemCustom : EventSystem
                 SetSelectedGameObject(m_Buttons[0].gameObject);
             }
         }
-        if(!currentSelectedGameObject.activeInHierarchy)
+        if(currentSelectedGameObject != null && !currentSelectedGameObject.activeInHierarchy)
         {
             if (firstSelectedGameObject.activeInHierarchy)
             {
@@ -52,7 +52,7 @@ public class EventSystemCustom : EventSystem
             {
                 SetSelectedGameObject(AlternativeSelected);
             }
-            else if(_alternativeSelectedForRapidFix.activeInHierarchy)
+            else if(_alternativeSelectedForRapidFix != null && _alternativeSelectedForRapidFix.activeInHierarchy)
             {
                 SetSelectedGameObject(_alternativeSelectedForRapidFix);
             }

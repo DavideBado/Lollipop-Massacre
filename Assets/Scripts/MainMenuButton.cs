@@ -11,24 +11,40 @@ public class MainMenuButton : Button
 
     public override void OnSelect(BaseEventData eventData)
     {
-        
-        GetComponent<OnSelectData>().PanelActive.SetActive(true);
-        GetComponent<OnSelectData>().panelBase.SetActive(false);
+
+        if (GetComponent<OnSelectData>().PanelActive != null)
+        {
+            GetComponent<OnSelectData>().PanelActive.SetActive(true); 
+        }
+        if (GetComponent<OnSelectData>().panelBase != null)
+        {
+            GetComponent<OnSelectData>().panelBase.SetActive(false); 
+        }
     }
 
     public override void OnDeselect(BaseEventData eventData)
     {
-        GetComponent<OnSelectData>().panelBase.SetActive(true);
-        GetComponent<OnSelectData>().PanelActive.SetActive(false);
+        if (GetComponent<OnSelectData>().panelBase != null)
+        {
+            GetComponent<OnSelectData>().panelBase.SetActive(true); 
+        }
+        if (GetComponent<OnSelectData>().PanelActive != null)
+        {
+            GetComponent<OnSelectData>().PanelActive.SetActive(false); 
+        }
     }
 
     public override void OnSubmit(BaseEventData eventData)
     {
         GetComponent<OnSelectData>().NextCanvas.SetActive(true);
 
-        GetComponent<MyEventSystemProvider>().eventSystem.SetSelectedGameObject(GetComponent<OnSelectData>().FirstSelectable);
-        GetComponent<OnSelectData>().ThisCanvas.SetActive(false);
-
-
+        if (GetComponent<OnSelectData>().FirstSelectable != null)
+        {
+            GetComponent<MyEventSystemProvider>().eventSystem.SetSelectedGameObject(GetComponent<OnSelectData>().FirstSelectable); 
+        }
+        if (GetComponent<OnSelectData>().ThisCanvas != null && GetComponent<OnSelectData>().ThisCanvas != GetComponent<OnSelectData>().NextCanvas)
+        {
+            GetComponent<OnSelectData>().ThisCanvas.SetActive(false); 
+        }
     }
 }
