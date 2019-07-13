@@ -36,7 +36,16 @@ public class MainMenuButton : Button
 
     public override void OnSubmit(BaseEventData eventData)
     {
-        GetComponent<OnSelectData>().NextCanvas.SetActive(true);
+        if(gameObject.name == "ExitButton")
+        {
+            Application.Quit();
+            Debug.Log("Quit");
+        }
+
+        if (GetComponent<OnSelectData>().NextCanvas != null)
+        {
+            GetComponent<OnSelectData>().NextCanvas.SetActive(true); 
+        }
 
         if (GetComponent<OnSelectData>().FirstSelectable != null)
         {
