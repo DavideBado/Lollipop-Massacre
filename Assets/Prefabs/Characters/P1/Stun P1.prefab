@@ -179,6 +179,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b97b4ff653d8c844e88a2288b17cf89d, type: 3}
   - {fileID: 21300000, guid: c6c62e0f32ad9e34eab91a3a553f6957, type: 3}
   - {fileID: 21300000, guid: 2acca07da3d167c4a98a699971d4d08c, type: 3}
+  _InGameUIDamage:
+  - {fileID: 21300000, guid: 813b405c7feac904db9a08bae0239002, type: 3}
+  - {fileID: 21300000, guid: a3c41dc93c8e508409ecca98f1857bc7, type: 3}
+  - {fileID: 21300000, guid: 93ef9e4ade5334147b64a9a2387778c3, type: 3}
   LifeSprites:
   - {fileID: 21300000, guid: d5ceffa33f81a1042a62da06213e4b83, type: 3}
   - {fileID: 21300000, guid: c6fbc6c4a30dc5e4d8cc4d4260425230, type: 3}
@@ -456,6 +460,68 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy: {fileID: 0}
+--- !u!1 &2821809257364234030
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 6509984701044958762}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5911230558751405461}
+  m_Layer: 0
+  m_Name: VFX_BaseAttack (Missing Prefab)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5911230558751405461
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 6509984701044958762}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2821809257364234030}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2931206058715362741}
+  m_Father: {fileID: 1001643385424016281}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4869465432960388483
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 1858805337338342313, guid: 98c4caf9934434e4c9e8aa67d3bda46d,
+    type: 3}
+  m_PrefabInstance: {fileID: 6509984701044958762}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2931206058715362741}
+  m_Layer: 0
+  m_Name: Missing Prefab (Dummy)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &2931206058715362741
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 6509984701044958762}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4869465432960388483}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5911230558751405461}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1001643385424406825
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -746,14 +812,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1001643385424016281}
     m_Modifications:
-    - target: {fileID: 100000, guid: bc98890f6028f444eaa7789bde5e2eeb, type: 3}
-      propertyPath: m_Name
-      value: Blood
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: bc98890f6028f444eaa7789bde5e2eeb, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: bc98890f6028f444eaa7789bde5e2eeb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -798,6 +856,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: bc98890f6028f444eaa7789bde5e2eeb, type: 3}
+      propertyPath: m_Name
+      value: Blood
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: bc98890f6028f444eaa7789bde5e2eeb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc98890f6028f444eaa7789bde5e2eeb, type: 3}
 --- !u!1 &5642521622945881812 stripped
@@ -813,16 +879,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1001643385424016283}
     m_Modifications:
-    - target: {fileID: 7322964307102078640, guid: c1c7f073b0cefbc4a8ac9cd88625c3fe,
-        type: 3}
-      propertyPath: m_Name
-      value: Silence_tears
-      objectReference: {fileID: 0}
-    - target: {fileID: 7322964307102078640, guid: c1c7f073b0cefbc4a8ac9cd88625c3fe,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6457610996341349985, guid: c1c7f073b0cefbc4a8ac9cd88625c3fe,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -876,6 +932,16 @@ PrefabInstance:
     - target: {fileID: 6457610996341349985, guid: c1c7f073b0cefbc4a8ac9cd88625c3fe,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7322964307102078640, guid: c1c7f073b0cefbc4a8ac9cd88625c3fe,
+        type: 3}
+      propertyPath: m_Name
+      value: Silence_tears
+      objectReference: {fileID: 0}
+    - target: {fileID: 7322964307102078640, guid: c1c7f073b0cefbc4a8ac9cd88625c3fe,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1040,9 +1106,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98c4caf9934434e4c9e8aa67d3bda46d, type: 3}
---- !u!1 &4869465432960388483 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1858805337338342313, guid: 98c4caf9934434e4c9e8aa67d3bda46d,
-    type: 3}
-  m_PrefabInstance: {fileID: 6509984701044958762}
-  m_PrefabAsset: {fileID: 0}

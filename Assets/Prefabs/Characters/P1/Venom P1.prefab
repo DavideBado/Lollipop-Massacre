@@ -178,6 +178,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5fbf7a33bb9c45f46a64540eae92e5ad, type: 3}
   - {fileID: 21300000, guid: 559fbebc8291de3458cc81e7449710cb, type: 3}
   - {fileID: 21300000, guid: a6936d058acd42b4a91c6ea99c91d8e4, type: 3}
+  _InGameUIDamage:
+  - {fileID: 21300000, guid: ad766678d819a254aa6c507bf53ae259, type: 3}
+  - {fileID: 21300000, guid: 5356a05bd34dbd740a3dd26352028731, type: 3}
+  - {fileID: 21300000, guid: 6f6cc25106d86554a84834d12a3c18b4, type: 3}
   LifeSprites:
   - {fileID: 21300000, guid: d5ceffa33f81a1042a62da06213e4b83, type: 3}
   - {fileID: 21300000, guid: c6fbc6c4a30dc5e4d8cc4d4260425230, type: 3}
@@ -493,14 +497,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5243848858398922023}
     m_Modifications:
-    - target: {fileID: 100000, guid: bc98890f6028f444eaa7789bde5e2eeb, type: 3}
-      propertyPath: m_Name
-      value: Blood
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: bc98890f6028f444eaa7789bde5e2eeb, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: bc98890f6028f444eaa7789bde5e2eeb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -543,6 +539,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: bc98890f6028f444eaa7789bde5e2eeb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: bc98890f6028f444eaa7789bde5e2eeb, type: 3}
+      propertyPath: m_Name
+      value: Blood
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: bc98890f6028f444eaa7789bde5e2eeb, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -914,16 +918,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1510294127}
     m_Modifications:
-    - target: {fileID: 6968952852146897365, guid: 9cf9992bbd7aee64bbddaae9fdb6b829,
-        type: 3}
-      propertyPath: m_Name
-      value: Poison
-      objectReference: {fileID: 0}
-    - target: {fileID: 6968952852146897365, guid: 9cf9992bbd7aee64bbddaae9fdb6b829,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6968952852146897374, guid: 9cf9992bbd7aee64bbddaae9fdb6b829,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -993,6 +987,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.28410003
+      objectReference: {fileID: 0}
+    - target: {fileID: 6968952852146897365, guid: 9cf9992bbd7aee64bbddaae9fdb6b829,
+        type: 3}
+      propertyPath: m_Name
+      value: Poison
+      objectReference: {fileID: 0}
+    - target: {fileID: 6968952852146897365, guid: 9cf9992bbd7aee64bbddaae9fdb6b829,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6968952852146897370, guid: 9cf9992bbd7aee64bbddaae9fdb6b829,
         type: 3}

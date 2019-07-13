@@ -44,7 +44,7 @@ public class characterSprite : MonoBehaviour
     {
         if(player.GetComponent<LifeManager>().Life > 0)
         {
-		    CharacterImage.sprite = player._Sprites[2];
+            CharacterImage.sprite = player._InGameUIDamage[player.GetComponent<LifeManager>().Life - 1];
             if (EnergyImage != null && LifeImage != null)
             {
                 EnergyImage.enabled = true;

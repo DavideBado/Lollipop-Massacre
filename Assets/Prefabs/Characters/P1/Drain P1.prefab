@@ -177,6 +177,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f567e18c1d40f3e449f17e4a4c5800d2, type: 3}
   - {fileID: 21300000, guid: 9a7d1bf5253c1454cba14448b9bbe1cc, type: 3}
   - {fileID: 21300000, guid: 94f07a2badb42ed459478db2e0f04f40, type: 3}
+  _InGameUIDamage:
+  - {fileID: 21300000, guid: 93d6dcb80c625b44198f0932f7bfa4b7, type: 3}
+  - {fileID: 21300000, guid: 399be53738ce79946a174ccb627c9a5a, type: 3}
+  - {fileID: 21300000, guid: aca6f8e1a75e0a44da2ce08c3a490357, type: 3}
   LifeSprites:
   - {fileID: 21300000, guid: d5ceffa33f81a1042a62da06213e4b83, type: 3}
   - {fileID: 21300000, guid: c6fbc6c4a30dc5e4d8cc4d4260425230, type: 3}
@@ -567,14 +571,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6990982685136130676}
     m_Modifications:
-    - target: {fileID: 100000, guid: bc98890f6028f444eaa7789bde5e2eeb, type: 3}
-      propertyPath: m_Name
-      value: Blood
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: bc98890f6028f444eaa7789bde5e2eeb, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: bc98890f6028f444eaa7789bde5e2eeb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -619,6 +615,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: bc98890f6028f444eaa7789bde5e2eeb, type: 3}
+      propertyPath: m_Name
+      value: Blood
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: bc98890f6028f444eaa7789bde5e2eeb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc98890f6028f444eaa7789bde5e2eeb, type: 3}
 --- !u!1 &5960967714245501446 stripped
@@ -634,16 +638,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6990982685136130674}
     m_Modifications:
-    - target: {fileID: 8211062748105443882, guid: 640734814e76dda4783d56b085f1adb1,
-        type: 3}
-      propertyPath: m_Name
-      value: Drain
-      objectReference: {fileID: 0}
-    - target: {fileID: 8211062748105443882, guid: 640734814e76dda4783d56b085f1adb1,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7000968019913032239, guid: 640734814e76dda4783d56b085f1adb1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -699,6 +693,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8211062748105443882, guid: 640734814e76dda4783d56b085f1adb1,
+        type: 3}
+      propertyPath: m_Name
+      value: Drain
+      objectReference: {fileID: 0}
+    - target: {fileID: 8211062748105443882, guid: 640734814e76dda4783d56b085f1adb1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3065266580498100091, guid: 640734814e76dda4783d56b085f1adb1,
         type: 3}
       propertyPath: m_Controller
@@ -719,10 +723,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1510294127}
     m_Modifications:
-    - target: {fileID: 100018, guid: 467459dccbbe0004791bebf35a2b6553, type: 3}
-      propertyPath: m_Name
-      value: Mochi_Animation
-      objectReference: {fileID: 0}
     - target: {fileID: 400018, guid: 467459dccbbe0004791bebf35a2b6553, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -766,6 +766,10 @@ PrefabInstance:
     - target: {fileID: 400018, guid: 467459dccbbe0004791bebf35a2b6553, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100018, guid: 467459dccbbe0004791bebf35a2b6553, type: 3}
+      propertyPath: m_Name
+      value: Mochi_Animation
       objectReference: {fileID: 0}
     - target: {fileID: 9500000, guid: 467459dccbbe0004791bebf35a2b6553, type: 3}
       propertyPath: m_Controller

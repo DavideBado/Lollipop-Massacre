@@ -24,6 +24,7 @@ public class Agent : MonoBehaviour, ICharacter
     public int CurrentID;
     //*************************************************
     public List<Sprite> _Sprites = new List<Sprite>();
+    public List<Sprite> _InGameUIDamage = new List<Sprite>(); // Mettere gli sprite dal più danneggiato al meno, così che si possa accedere alla  lista con index = life-1
     public List<Sprite> LifeSprites = new List<Sprite>();
     public List<Sprite> LifeSpritesBench = new List<Sprite>(); 
     public List<Sprite> EnergySprites = new List<Sprite>();
