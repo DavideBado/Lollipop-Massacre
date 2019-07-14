@@ -3,22 +3,44 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class TutorialButton : MainMenuButton
 {
-    private List<TutorialButton> tutorialButtons = new List<TutorialButton>();
+    TutorialController tutorialController;
+    Image MyImage;
+    Sprite BaseSprite;
+   // private List<TutorialButton> tutorialButtons = new List<TutorialButton>();
 
     protected override void Start()
     {
-        tutorialButtons = FindObjectsOfType<TutorialButton>().ToList();
+        tutorialController = FindObjectOfType<TutorialController>();
+        MyImage = GetComponent<Image>();
+        BaseSprite = MyImage.sprite;
+        //tutorialButtons = FindObjectsOfType<TutorialButton>().ToList();
     }
 
+    public override void OnSelect(BaseEventData eventData)
+    {
+        MyImage.sprite = GetComponent<OnSelectData>().OnSelectSprite;
+    }
+
+    public override void OnDeselect(BaseEventData eventData)
+    {
+        MyImage.sprite = BaseSprite;
+    }
     public override void OnSubmit(BaseEventData eventData)
     {
-        foreach (TutorialButton _tutorialButton in tutorialButtons)
+        //foreach (TutorialButton _tutorialButton in tutorialButtons)
+        //{
+        //    _tutorialButton.GetComponent<OnSelectData>().ThisCanvas = GetComponent<OnSelectData>().NextCanvas;
+        //}
+        //base.OnSubmit(eventData);
+
+        if (tutorialController.PrevPanel != null)
         {
-            _tutorialButton.GetComponent<OnSelectData>().ThisCanvas = GetComponent<OnSelectData>().NextCanvas;
+            tutorialController.PrevPanel.SetActive(false); 
         }
-        base.OnSubmit(eventData);
+        GetComponent<OnSelectData>().NextCanvas.SetActive(true);
     }
 }

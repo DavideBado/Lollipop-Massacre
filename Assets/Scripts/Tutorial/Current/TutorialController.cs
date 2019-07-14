@@ -5,7 +5,7 @@ using UnityEngine;
 public class TutorialController : MonoBehaviour
 {
     public EventSystemCustom EventSystemP1;
-    public GameObject FirstButton;
+    public GameObject FirstButton, PrevPanel;
     private void OnEnable()
     {
         EventSystemP1.UpdateEventSystem(FirstButton);

@@ -16,4 +16,5 @@ public class OnSelectData : MonoBehaviour
     public GameObject panelBase, PanelActive;
     public GameObject FirstSelectable;
     public GameObject PointerAudio;
+    public Sprite OnSelectSprite;
 }

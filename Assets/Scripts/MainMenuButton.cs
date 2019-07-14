@@ -53,7 +53,10 @@ public class MainMenuButton : Button
         }
         if (GetComponent<OnSelectData>().ThisCanvas != null && GetComponent<OnSelectData>().ThisCanvas != GetComponent<OnSelectData>().NextCanvas)
         {
-            GetComponent<OnSelectData>().ThisCanvas.SetActive(false); 
+        }
+        if (GetComponent<OnSelectData>().ThisCanvas != null)
+        {
+            GetComponent<OnSelectData>().ThisCanvas.SetActive(false);  
         }
     }
 }

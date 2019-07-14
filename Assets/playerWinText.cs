@@ -10,8 +10,7 @@ public class playerWinText : MonoBehaviour
 
     private void OnEnable()
     {
-        gm = FindObjectOfType<GameManager>();
-       
+        gm = FindObjectOfType<GameManager>();       
     }
 
     private void Update()
